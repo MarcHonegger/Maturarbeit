@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "X-Axis",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "7f8fba33-4adc-430b-a0e8-ac51a725730f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -28,7 +28,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "e01da9a6-eb62-4a18-aa46-b193dc9e139a",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
@@ -39,7 +39,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "c674562b-0de5-4339-9cf1-c3498cb37fd3",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",

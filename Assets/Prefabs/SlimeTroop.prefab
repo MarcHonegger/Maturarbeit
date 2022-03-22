@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2763533082194762565}
   - component: {fileID: 5095633638404124530}
   - component: {fileID: 465708242142004165}
+  - component: {fileID: 2596986772768818868}
   m_Layer: 0
   m_Name: SlimeTroop
   m_TagString: Untagged
@@ -154,5 +155,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2395127caa98f2740a6088b3cbc3e753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2596986772768818868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685142000718824078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231283e49e89843918e659ebad40f656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
