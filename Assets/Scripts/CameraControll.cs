@@ -17,8 +17,8 @@ public class CameraControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var targetPosition = transform.position + new Vector3(_speedInput * cameraSpeed, 0f, 0f);
-        transform.position = targetPosition;
+        var targetPosition = transform.position + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
     }
 
     public void MoveCamera(InputAction.CallbackContext context)
