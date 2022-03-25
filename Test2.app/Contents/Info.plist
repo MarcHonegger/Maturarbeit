@@ -7,7 +7,7 @@
     <key>CFBundleExecutable</key>
     <string>Maturarbeit</string>
     <key>CFBundleGetInfoString</key>
-    <string>Unity Player version 2021.2.16f1 (559fc0ec6670). (c) 2022 Unity Technologies ApS. All rights reserved.</string>
+    <string>Unity Player version 2021.2.17f1 (efb8f635e7b1). (c) 2022 Unity Technologies ApS. All rights reserved.</string>
     <key>CFBundleIconFile</key>
     <string>PlayerIcon.icns</string>
     <key>CFBundleIdentifier</key>
@@ -40,6 +40,6 @@
     <key>NSPrincipalClass</key>
     <string>PlayerApplication</string>
     <key>UnityBuildNumber</key>
-    <string>559fc0ec6670</string>
+    <string>efb8f635e7b1</string>
   </dict>
 </plist>

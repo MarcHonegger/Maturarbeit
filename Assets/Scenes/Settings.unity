@@ -563,7 +563,6 @@ GameObject:
   - component: {fileID: 336570787}
   - component: {fileID: 336570790}
   - component: {fileID: 336570789}
-  - component: {fileID: 336570788}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -591,18 +590,6 @@ RectTransform:
   m_AnchoredPosition: {x: 9, y: -0.5}
   m_SizeDelta: {x: -28, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &336570788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336570786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027f877ab26104a858eac4d995aebcfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &336570789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,6 +873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583395087}
   - component: {fileID: 583395088}
+  - component: {fileID: 583395089}
   m_Layer: 5
   m_Name: FullscreenToggle
   m_TagString: Untagged
@@ -963,6 +951,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &583395089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583395086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027f877ab26104a858eac4d995aebcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &651024510
 GameObject:
   m_ObjectHideFlags: 0

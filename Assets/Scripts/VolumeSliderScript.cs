@@ -11,6 +11,9 @@ public class VolumeSliderScript : MonoBehaviour
     {
         _volumeSlider = GetComponent<Slider>();
         _volumeSlider.onValueChanged.AddListener(OnVolumeChange);
+        var currentVolume = PlayerPrefs.GetFloat("Volume");
+        PlayerPrefs.SetFloat("volume", currentVolume);
+        _volumeSlider.value = currentVolume;
     }
 
     public void OnDestroy()
