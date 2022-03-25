@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e789e2acaa91d4663a6482fe2138acd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BackgroundSongs: []
 --- !u!1 &261512926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 551.7833, y: -305}
+  m_AnchoredPosition: {x: 396, y: -244}
   m_SizeDelta: {x: 200.4334, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244477850
@@ -1640,7 +1639,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 9494e936ef153d148aaddfa6db5fb773, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 685e827bdbdf4f04aa4bb90e8cf2a268, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1686,7 +1685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 480144379cc9c7d47a8e19f58b0e6ee3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f9de2e456e95ec34891e13f1118256d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
