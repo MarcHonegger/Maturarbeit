@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 751204539923821895}
   - component: {fileID: 751204539923821888}
-  - component: {fileID: 751204539923821889}
   - component: {fileID: 751204539923821894}
   m_Layer: 0
-  m_Name: Soundmanager
+  m_Name: DefaultSoundmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,18 +129,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &751204539923821889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751204539923821890}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f42f5de616394861ad6f4aa5935d578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &751204539923821894
 MonoBehaviour:
   m_ObjectHideFlags: 0
