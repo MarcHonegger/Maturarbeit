@@ -12,7 +12,13 @@ public class CameraControl : MonoBehaviour
     {
         var cameraTransform = transform;
         var cameraPosition = cameraTransform.position;
-        var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f);
+        var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f); 
+        //limiting camera movement left side
+        if (cameraPosition.x <= 0f && _speedInput == -1f)
+        {
+            UnityEngine.Debug.Log($"Limited Camera Left Side");
+            return;
+        }
         transform.position = Vector3.Lerp(cameraPosition, targetPosition, 0.1f);
     }
 
