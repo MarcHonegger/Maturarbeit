@@ -11,19 +11,22 @@ public class VolumeSliderScript : MonoBehaviour
     {
         _volumeSlider = GetComponent<Slider>();
         _volumeSlider.onValueChanged.AddListener(OnVolumeChange);
-        var currentVolume = PlayerPrefs.GetFloat("Volume");
-        PlayerPrefs.SetFloat("volume", currentVolume);
+        var currentVolume = PlayerPrefs.GetFloat("volume");
         _volumeSlider.value = currentVolume;
     }
 
     public void OnDestroy()
     {
-        _volumeSlider.onValueChanged.RemoveListener(OnVolumeChange);
+        PlayerPrefs.SetFloat("volume", AudioListener.volume);
+        UnityEngine.Debug.Log($"you final volume: {AudioListener.volume}");
+        //causes Error
+        //_volumeSlider.onValueChanged.RemoveListener(OnVolumeChange);
     }
 
     private static void OnVolumeChange(float value)
     {
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
+        UnityEngine.Debug.Log($"{AudioListener.volume}");
         PlayerPrefs.SetFloat("volume", value);
     }
 }
