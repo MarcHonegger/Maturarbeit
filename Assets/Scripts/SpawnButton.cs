@@ -24,6 +24,7 @@ public class SpawnButton : MonoBehaviour
     {
         var spawnPosition = spawnPointPlayer.position;
         var spawnOffset = _spawnPointTroop.position;
-        Instantiate(troop, spawnPosition - spawnOffset, Quaternion.identity);
+        Quaternion spawnRotation = Quaternion.Euler(45f, 0f, 0f);
+        Instantiate(troop, spawnPosition - spawnOffset, spawnRotation);
     }
 }

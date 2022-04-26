@@ -24,6 +24,7 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnEndDrag(PointerEventData eventData)
     {
         UnityEngine.Debug.Log($"EndDrag");
+        UnityEngine.Debug.Log($"{rectTransform.position}");
     }
     public void OnDrag(PointerEventData eventData)
     {
