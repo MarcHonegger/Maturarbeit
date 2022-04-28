@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SpawnButton : MonoBehaviour
 {
-    public GameObject troop;
+    public GameObject troopPrefab;
     public Transform spawnPointPlayer;
     private Transform _spawnPointTroop;
 
     // Start is called before the first frame update
     void Start()
     {
-        _spawnPointTroop = troop.transform.GetChild(0).transform;
+        _spawnPointTroop = troopPrefab.transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class SpawnButton : MonoBehaviour
     {
         var spawnPosition = spawnPointPlayer.position;
         var spawnOffset = _spawnPointTroop.position;
-        Quaternion spawnRotation = Quaternion.Euler(45f, 0f, 0f);
-        Instantiate(troop, spawnPosition - spawnOffset, spawnRotation);
+        GameObject troop = Instantiate(troopPrefab, spawnPosition - spawnOffset, quaternion.identity);
+        troop.transform.RotateAround(troop.transform.GetChild(0).position, Vector3.right, 45);
     }
 }
