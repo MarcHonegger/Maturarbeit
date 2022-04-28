@@ -6,13 +6,13 @@ using UnityEngine;
 public class SpawnButton : MonoBehaviour
 {
     public GameObject troopPrefab;
-    public Transform spawnPointPlayer;
-    private Transform _spawnPointTroop;
+    public int lane;
+    public bool isPlayerLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        _spawnPointTroop = troopPrefab.transform.GetChild(0).transform;
+        // _spawnPointTroop = troopPrefab.transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
@@ -23,9 +23,17 @@ public class SpawnButton : MonoBehaviour
 
     public void Click()
     {
+        /*
         var spawnPosition = spawnPointPlayer.position;
         var spawnOffset = _spawnPointTroop.position;
         GameObject troop = Instantiate(troopPrefab, spawnPosition - spawnOffset, quaternion.identity);
         troop.transform.RotateAround(troop.transform.GetChild(0).position, Vector3.right, 45);
+        */
+
+        if (!PlayerManager.Instance.CheckValidSpawn(lane, isPlayerLeft))
+        {
+            return;
+        }
+        GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isPlayerLeft);
     }
 }
