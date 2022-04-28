@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -11,23 +12,25 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float cooldownDuration;
     public float currentCooldown;
     
-    public List<bool> CheckSpawnAreas()
+    public static PlayerManager Instance;
+    private void Awake()
     {
-        var validLanes = new List<bool>(spawnPoints.Count);
-
-        foreach (var spawnPoint in spawnPoints)
+        if (Instance != null && Instance != this)
         {
-            var isValid = !spawnPoint.isDisabled;
-            validLanes.Add(isValid);
-            Debug.Log($"Lane is {isValid}" );
+            Destroy(this);
+            return;
         }
-
-        return validLanes;
+        Instance = this;
+    }
+    
+    public bool CheckValidSpawn(int lane, bool isPlayerLeft)
+    {
+        return CheckSpawnAreas().Contains(spawnPoints[lane]);
     }
 
-    private void Update()
+    private List<SpawnPoint> CheckSpawnAreas()
     {
-        CheckSpawnAreas();
+        return spawnPoints.FindAll(s => !s.isDisabled);
     }
 
     public void CardPlayed(GameObject troopPrefab)
