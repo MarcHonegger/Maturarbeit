@@ -1,18 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
     public float energy;
-    public List<SpawnPoint> spawnPoints;
-    
+    public float energyRounded;
+    public float energyGainPerSecond;
+    public TextMeshProUGUI energyText;
+
     [SerializeField] private float cooldownDuration;
     public float currentCooldown;
-    
+
     public static PlayerManager Instance;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -20,21 +20,41 @@ public class PlayerManager : MonoBehaviour
             Destroy(this);
             return;
         }
+
         Instance = this;
     }
+
+    private void Update()
+    {
+        if (currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            currentCooldown = 0;
+        }
+
+        energy = Mathf.Min(99, energy + energyGainPerSecond * Time.deltaTime);
+        energyRounded = Mathf.Floor(energy * 2) / 2;
+        energyText.text = energyRounded.ToString("F1");
+    }
+
+    public bool IsValidSpawn(int lane, bool isLeftPlayer) =>
+        !GameManager.Instance.spawnManager.GetSpawnPoint(lane, isLeftPlayer).isDisabled;
     
-    public bool CheckValidSpawn(int lane, bool isPlayerLeft)
-    {
-        return CheckSpawnAreas().Contains(spawnPoints[lane]);
-    }
+    public bool IsPlayableCard(float energyCost) => energyCost < energy && currentCooldown <= 0;
 
-    private List<SpawnPoint> CheckSpawnAreas()
+    public void PlayCard(GameObject troopPrefab, int lane, bool isLeftPlayer)
     {
-        return spawnPoints.FindAll(s => !s.isDisabled);
-    }
+        // temporary
+        if (!IsValidSpawn(lane, isLeftPlayer))
+        {
+            return;
+        }
 
-    public void CardPlayed(GameObject troopPrefab)
-    {
+        GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
+
         var troop = troopPrefab.GetComponent<Troop>();
         energy -= troop.energyCost;
         StartCooldown();
@@ -44,4 +64,5 @@ public class PlayerManager : MonoBehaviour
     {
         currentCooldown = cooldownDuration;
     }
+
 }
