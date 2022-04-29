@@ -64,5 +64,10 @@ public class PlayerManager : MonoBehaviour
     {
         currentCooldown = cooldownDuration;
     }
+    
+    public int GetDirection(GameObject thing)
+    {
+        return thing.CompareTag("LeftPlayer") ? 1 : -1;
+    }
 
 }

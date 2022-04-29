@@ -7,7 +7,7 @@ public class StraightMovementTest : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        var direction = gameObject.CompareTag("LeftPlayer") ? 1 : -1;
+        var direction = PlayerManager.Instance.GetDirection(gameObject);
         transform.position += Vector3.right * 0.05f * GetComponent<Troop>().currentMovementSpeed * direction;
     }
 }
