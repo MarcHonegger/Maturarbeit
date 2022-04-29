@@ -8,19 +8,7 @@ public class SpawnButton : MonoBehaviour
     public GameObject troopPrefab;
     public int lane;
     public bool isPlayerLeft;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // _spawnPointTroop = troopPrefab.transform.GetChild(0).transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void Click()
     {
         /*

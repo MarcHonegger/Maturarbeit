@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public float energy;
-    public List<SpawnPoint> spawnPoints;
     
     [SerializeField] private float cooldownDuration;
     public float currentCooldown;
@@ -22,15 +21,27 @@ public class PlayerManager : MonoBehaviour
         }
         Instance = this;
     }
-    
+
+    private void Update()
+    {
+        if (currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            currentCooldown = 0;
+        }
+    }
+
     public bool CheckValidSpawn(int lane, bool isPlayerLeft)
     {
-        return CheckSpawnAreas().Contains(spawnPoints[lane]);
+        return CheckSpawnAreas().Contains(GameManager.Instance.spawnManager.spawnPoints[lane]);
     }
 
     private List<SpawnPoint> CheckSpawnAreas()
     {
-        return spawnPoints.FindAll(s => !s.isDisabled);
+        return GameManager.Instance.spawnManager.spawnPoints.FindAll(s => !s.isDisabled);
     }
 
     public void CardPlayed(GameObject troopPrefab)
@@ -43,5 +54,6 @@ public class PlayerManager : MonoBehaviour
     private void StartCooldown()
     {
         currentCooldown = cooldownDuration;
+        
     }
 }
