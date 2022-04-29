@@ -53,8 +53,8 @@ public class SpawnManager : MonoBehaviour
         troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
     }
 
-    public SpawnPoint GetLeftSpawnPoint(int lane) => spawnPoints[lane];
-    public SpawnPoint GetRightSpawnPoint(int lane) => spawnPoints[lane + spawnPointAmount];
+    private SpawnPoint GetLeftSpawnPoint(int lane) => spawnPoints[lane];
+    private SpawnPoint GetRightSpawnPoint(int lane) => spawnPoints[lane + spawnPointAmount];
 
     public SpawnPoint GetSpawnPoint(int lane, bool isLeftPlayer) => isLeftPlayer
         ? GetLeftSpawnPoint(lane)
