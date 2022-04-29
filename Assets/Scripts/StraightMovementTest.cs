@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class StraightMovementTest : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += Vector3.right * 0.05f;
+        var direction = gameObject.CompareTag("LeftPlayer") ? 1 : -1;
+        transform.position += Vector3.right * 0.05f * GetComponent<Troop>().currentMovementSpeed * direction;
     }
 }

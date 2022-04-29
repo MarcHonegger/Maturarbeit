@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2596986772768818868}
   - component: {fileID: 3951796804929373383}
   - component: {fileID: -3944479119051905373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlimeTroop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyCost: 5
+  movementSpeed: 2
+  currentMovementSpeed: 0
+  ghostEffect: 1
 --- !u!65 &3951796804929373383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -153,11 +156,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6685142000718824078}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3, y: 7.5, z: 0.3}
+  m_Center: {x: -0.05, y: 0, z: 0}
 --- !u!54 &-3944479119051905373
 Rigidbody:
   m_ObjectHideFlags: 0

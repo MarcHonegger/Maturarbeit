@@ -11,9 +11,4 @@ public class DefaultVolumeScript : MonoBehaviour
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
         UnityEngine.Debug.Log($"Starting with volume: {currentVolume}");
     }
-    
-
-
-
-
 }
