@@ -18,39 +18,45 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        // Generates SpawnPoints
         spawnPointParent = new GameObject("SpawnPoints");
-        var currentPosition = spawnPointStart;
-        var currentPlayer = "left";
-        for (int p = 0; p < 2; p++)
+        GenerateSpawnPoints("left", Vector3.zero);
+        GenerateSpawnPoints("right", playerDistance);
+    }
+
+    private void GenerateSpawnPoints(string player, Vector3 offset)
+    {
+        var currentPosition = spawnPointStart + offset;
+
+        for (int s = 0; s < spawnPointAmount; s++)
         {
-            for (int s = 0; s < spawnPointAmount; s++)
-            {
-                var spawnPointGameObject = Instantiate(spawnPointPrefab, currentPosition, Quaternion.identity);
+            var spawnPointGameObject = Instantiate(spawnPointPrefab, currentPosition, Quaternion.identity);
 
-                spawnPointGameObject.transform.SetParent(spawnPointParent.transform);
-                spawnPointGameObject.gameObject.GetComponent<BoxCollider>().size = spawnAreaSize;
-                spawnPointGameObject.transform.Rotate(new Vector3(45, 0, 0));
-                spawnPointGameObject.name = $"SpawnPoint {currentPlayer} {s}";
-                spawnPoints.Add(spawnPointGameObject.GetComponent<SpawnPoint>());
+            spawnPointGameObject.transform.SetParent(spawnPointParent.transform);
+            spawnPointGameObject.gameObject.GetComponent<BoxCollider>().size = spawnAreaSize;
+            spawnPointGameObject.transform.Rotate(new Vector3(45, 0, 0));
+            spawnPointGameObject.name = $"SpawnPoint {player} ({s})";
+            spawnPoints.Add(spawnPointGameObject.GetComponent<SpawnPoint>());
 
-                currentPosition += spawnPointSpacing;
-            }
-
-            currentPlayer = "right";
-            currentPosition = spawnPointStart + playerDistance;
+            currentPosition += spawnPointSpacing;
         }
     }
 
-    public void Spawn(GameObject troopPrefab, int lane, bool isPlayerLeft)
+    public void Spawn(GameObject troopPrefab, int lane, bool isLeftPlayer)
     {
-        var spawnPosition = spawnPoints[lane + (isPlayerLeft ? 0 : 4)].transform.position;
+        var spawnPosition = GetSpawnPoint(lane, isLeftPlayer).transform.position;
         // SpawnPosition has to be shifted because the SpawnPoint of the troop is not 0|0|0
         var spawnOffset = troopPrefab.transform.GetChild(0).position;
 
         GameObject troopGameObject = Instantiate(troopPrefab, spawnPosition - spawnOffset, Quaternion.identity);
-        troopGameObject.tag = isPlayerLeft ? "LeftPlayer" : "RightPlayer";
+        troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
 
         troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
     }
+
+    public SpawnPoint GetLeftSpawnPoint(int lane) => spawnPoints[lane];
+    public SpawnPoint GetRightSpawnPoint(int lane) => spawnPoints[lane + spawnPointAmount];
+
+    public SpawnPoint GetSpawnPoint(int lane, bool isLeftPlayer) => isLeftPlayer
+        ? GetLeftSpawnPoint(lane)
+        : GetRightSpawnPoint(lane);
 }

@@ -7,7 +7,7 @@ public class SpawnButton : MonoBehaviour
 {
     public GameObject troopPrefab;
     public int lane;
-    public bool isPlayerLeft;
+    public bool isLeftPlayer;
     
     public void Click()
     {
@@ -18,10 +18,9 @@ public class SpawnButton : MonoBehaviour
         troop.transform.RotateAround(troop.transform.GetChild(0).position, Vector3.right, 45);
         */
 
-        if (!PlayerManager.Instance.CheckValidSpawn(lane, isPlayerLeft))
+        if (PlayerManager.Instance.IsPlayableCard(troopPrefab.GetComponent<Troop>().energyCost))
         {
-            return;
+            PlayerManager.Instance.PlayCard(troopPrefab, lane, isLeftPlayer);
         }
-        GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isPlayerLeft);
     }
 }
