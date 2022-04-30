@@ -6,18 +6,57 @@ using UnityEngine.Serialization;
 
 public class Melee : MonoBehaviour
 {
-    public int attackRange;
-    
+    public float attackRange;
+    public float attackDamage;
+    public float attackSpeed;
+
+    private RangePoint _rangePoint;
+    private Troop _nextEnemy;
+    private bool _attacking;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponentInChildren<RangePoint>().UpdateRange(attackRange);
+        _rangePoint = GetComponentInChildren<RangePoint>();
+        _rangePoint.UpdateRangeCollider(attackRange);
+        _rangePoint.EnemyInRange += OnEnemyInRange;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnDestroy()
     {
-        Debug.Log("test");
-        Destroy(gameObject);
+        _rangePoint.EnemyInRange -= OnEnemyInRange;
+    }
+
+    private void Update()
+    {
+        if (_nextEnemy)
+        {
+            if (_attacking) return;
+            // Play Animation
+            InvokeRepeating(nameof(Attack), 0, attackSpeed);
+            _attacking = true;
+        }
+        else
+        {
+            NoEnemyInRange();
+        }
+    }
+    
+    private void Attack()
+    {
+        GameManager.Instance.troopManager.AttackTroop(new Attack(_nextEnemy, attackDamage));
+    }
+
+    private void OnEnemyInRange(GameObject enemy)
+    {
+        _nextEnemy = enemy.GetComponent<Troop>();
+        GetComponent<Troop>().StopMoving();
+    }
+
+    private void NoEnemyInRange()
+    {
+        CancelInvoke();
+        _attacking = false;
+        GetComponent<Troop>().StartMoving();
     }
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     
     public AudioManager audioManager;
     public SpawnManager spawnManager;
+    public TroopManager troopManager;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -18,5 +19,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
         audioManager = GetComponentInChildren<AudioManager>();
         spawnManager = GetComponentInChildren<SpawnManager>();
+        troopManager = GetComponentInChildren<TroopManager>();
     }
 }

@@ -15,21 +15,24 @@ public class Troop : MonoBehaviour
 
     private void Start()
     {
-        currentMovementSpeed = movementSpeed;
+        StartMoving();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == _troopLayer && (ghostEffect || !other.CompareTag(gameObject.tag)))
         {
-            currentMovementSpeed = 0;
+            StopMoving();
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
-        currentMovementSpeed = movementSpeed;
+        StartMoving();
     }
+
+    public void StopMoving() => currentMovementSpeed = 0;
+    public void StartMoving() => currentMovementSpeed = movementSpeed;
 
     public void TakeDamage(float amount)
     {

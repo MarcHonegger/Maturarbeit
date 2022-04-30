@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyCost: 5
-  movementSpeed: 2
+  movementSpeed: 3
   currentMovementSpeed: 0
-  ghostEffect: 1
-  health: 0
+  ghostEffect: 0
+  health: 5
 --- !u!65 &3951796804929373383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -192,7 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea55751960d4a449142922855690d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 5
+  attackRange: 2
+  attackDamage: 1
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,11 +207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4196170740327838301, guid: 0904fbc7486a246709c9e58efeefbf9e, type: 3}
       propertyPath: ySize
-      value: 0.3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4196170740327838301, guid: 0904fbc7486a246709c9e58efeefbf9e, type: 3}
       propertyPath: zSize
-      value: 5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4196170740327838301, guid: 0904fbc7486a246709c9e58efeefbf9e, type: 3}
       propertyPath: _collider
