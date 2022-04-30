@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public float tickRate;
     
     public AudioManager audioManager;
     public SpawnManager spawnManager;
