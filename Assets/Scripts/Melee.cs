@@ -12,11 +12,12 @@ public class Melee : MonoBehaviour
 
     private RangePoint _rangePoint;
     private Troop _nextEnemy;
-    private bool _attacking;
+    private Troop _troop;
 
     // Start is called before the first frame update
     void Start()
     {
+        _troop = GetComponent<Troop>();
         _rangePoint = GetComponentInChildren<RangePoint>();
         _rangePoint.UpdateRangeCollider(attackRange);
         _rangePoint.EnemyInRange += OnEnemyInRange;
@@ -29,14 +30,7 @@ public class Melee : MonoBehaviour
 
     private void Update()
     {
-        if (_nextEnemy)
-        {
-            if (_attacking) return;
-            // Play Animation
-            InvokeRepeating(nameof(Attack), 0, attackSpeed);
-            _attacking = true;
-        }
-        else
+        if (!_nextEnemy)
         {
             NoEnemyInRange();
         }
@@ -50,13 +44,15 @@ public class Melee : MonoBehaviour
     private void OnEnemyInRange(GameObject enemy)
     {
         _nextEnemy = enemy.GetComponent<Troop>();
-        GetComponent<Troop>().StopMoving();
+        _troop.StopMoving();
+        
+        InvokeRepeating(nameof(Attack), 0, attackSpeed);
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void NoEnemyInRange()
     {
-        CancelInvoke();
-        _attacking = false;
-        GetComponent<Troop>().StartMoving();
+        CancelInvoke(nameof(Attack));
+        _troop.StartMoving();
     }
 }
