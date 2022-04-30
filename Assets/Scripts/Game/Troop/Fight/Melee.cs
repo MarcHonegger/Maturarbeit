@@ -11,21 +11,21 @@ public class Melee : MonoBehaviour
     public float attackSpeed;
 
     private RangePoint _rangePoint;
-    private Troop _nextEnemy;
-    private Troop _troop;
+    private TroopHandler _nextEnemy;
+    private TroopHandler _troopHandler;
 
     // Start is called before the first frame update
     void Start()
     {
-        _troop = GetComponent<Troop>();
+        _troopHandler = GetComponent<TroopHandler>();
         _rangePoint = GetComponentInChildren<RangePoint>();
         _rangePoint.UpdateRangeCollider(attackRange);
-        _rangePoint.EnemyInRange += OnEnemyInRange;
+        _rangePoint.EnemyInRange += OnNewEnemyInRange;
     }
 
     private void OnDestroy()
     {
-        _rangePoint.EnemyInRange -= OnEnemyInRange;
+        _rangePoint.EnemyInRange -= OnNewEnemyInRange;
     }
 
     private void Attack()
@@ -37,10 +37,10 @@ public class Melee : MonoBehaviour
         GameManager.Instance.troopManager.AttackTroop(new Attack(_nextEnemy, attackDamage));
     }
 
-    private void OnEnemyInRange(GameObject enemy)
+    private void OnNewEnemyInRange(GameObject enemy)
     {
-        _nextEnemy = enemy.GetComponent<Troop>();
-        _troop.StopMoving();
+        _nextEnemy = enemy.GetComponent<TroopHandler>();
+        _troopHandler.StopMoving();
         
         InvokeRepeating(nameof(Attack), 0, attackSpeed);
     }
@@ -48,6 +48,6 @@ public class Melee : MonoBehaviour
     private void NoEnemyInRange()
     {
         CancelInvoke(nameof(Attack));
-        _troop.StartMoving();
+        _troopHandler.StartMoving();
     }
 }

@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour
 
         GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
 
-        var troop = troopPrefab.GetComponent<Troop>();
+        var troop = troopPrefab.GetComponent<TroopHandler>();
         energy -= troop.energyCost;
         StartCooldown();
     }

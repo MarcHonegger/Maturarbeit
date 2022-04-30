@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class Attack
 {
-    public Attack(Troop enemy, float damage)
+    public Attack(TroopHandler enemy, float damage)
     {
         target = enemy;
         this.damage = damage;
     }
-    public readonly Troop target; 
+    public readonly TroopHandler target; 
     public readonly float damage;
 }
 

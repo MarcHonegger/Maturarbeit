@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class StraightMovementTest : MonoBehaviour
 {
-    private Troop _troop;
+    private TroopHandler _troopHandler;
     // Update is called once per frame
     private void Start()
     {
-        _troop = GetComponent<Troop>();
+        _troopHandler = GetComponent<TroopHandler>();
     }
     void FixedUpdate()
     {
         var direction = PlayerManager.Instance.GetDirection(gameObject);
-        transform.position += Vector3.right * (0.05f * _troop.currentMovementSpeed * direction);
+        transform.position += Vector3.right * (0.05f * _troopHandler.currentMovementSpeed * direction);
     }
 }

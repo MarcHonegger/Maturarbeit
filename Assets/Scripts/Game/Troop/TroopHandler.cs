@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Troop : MonoBehaviour
+public class TroopHandler : MonoBehaviour
 {
     public int energyCost;
     public float movementSpeed;
@@ -39,12 +39,13 @@ public class Troop : MonoBehaviour
         health -= amount;
         if (health < 0)
         {
-            Death();
+            Die();
         }
     }
 
-    public void Death()
+    public void Die()
     {
         Destroy(gameObject);
     }
+
 }

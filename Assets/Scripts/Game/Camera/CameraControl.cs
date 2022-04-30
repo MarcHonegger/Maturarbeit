@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class CameraControl : MonoBehaviour
 {
     private float _speedInput = 0f;
