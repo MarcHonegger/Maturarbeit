@@ -22,7 +22,7 @@ public class TroopManager : MonoBehaviour
     private void Start()
     {
         _attacks = new List<Attack>();
-        InvokeRepeating(nameof(AttackPhase), 1, GameManager.Instance.tickRate);
+        InvokeRepeating(nameof(AttackPhase), 0, GameManager.Instance.tickRate);
     }
 
     public void AttackTroop(Attack attack)
