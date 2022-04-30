@@ -28,16 +28,12 @@ public class Melee : MonoBehaviour
         _rangePoint.EnemyInRange -= OnEnemyInRange;
     }
 
-    private void Update()
+    private void Attack()
     {
         if (!_nextEnemy)
         {
             NoEnemyInRange();
         }
-    }
-    
-    private void Attack()
-    {
         GameManager.Instance.troopManager.AttackTroop(new Attack(_nextEnemy, attackDamage));
     }
 
@@ -49,7 +45,6 @@ public class Melee : MonoBehaviour
         InvokeRepeating(nameof(Attack), 0, attackSpeed);
     }
 
-    // ReSharper disable Unity.PerformanceAnalysis
     private void NoEnemyInRange()
     {
         CancelInvoke(nameof(Attack));
