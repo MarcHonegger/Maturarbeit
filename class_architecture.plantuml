@@ -1,0 +1,109 @@
+@startuml
+
+allowmixing
+
+node attack
+node fight
+node movement
+
+class PlayerManager << (S,#FF7700) Singleton >> {
+  +float energy
+  +float cooldown
+  +void CardPlayed(gameobject troopPrefab)
+}
+
+class GameManager << (S,#FF7700) Singleton >> {
+
+}
+
+class AudioManager {
++PlaySound()
++PlayMusic()
+}
+
+class SoundManager << (U,#bababa) Unity >>{}
+
+class SpawnManager {
+  +SpawnPoint Spawnpoints
+  +void Spawn(GameObject troopPrefab, int lane, bool isLeftPlayer)
+  +GenerateSpawnPoints(string player, Vector3 offset)
+  +GetSpawnPoint(int lane, bool isLeftPlayer)
+}
+
+
+class TroopManager {
+  +List<Troop> troops
+  +AttackTroop()
+  +AttackPhase()
+}
+
+class Troop {
+  +flaot health
+  +TakeDamage()
+  +Death()
+}
+
+class Melee {
+  +attackRange
+  +attackDamage
+  +attackSpeed
+  +Attack()
+}
+
+class Ranged {
+  +attackRange
+  +attackDamage
+  +attackSpeed
+  +Shoot()
+}
+
+class RangePoint {
+  +EnemyInRange
+  +UpdateRangeCollider()
+}
+
+class StraightMovement {
+  +float movementSpeed
+}
+
+class Card {
+  +int lane
+  +Troop troopPrefab
+}
+
+actor Player
+
+Player -> PlayerManager
+Player -> Card
+
+Card ..> PlayerManager
+PlayerManager ..> GameManager
+
+GameManager -- SpawnManager
+GameManager -- AudioManager
+GameManager -- TroopManager
+
+SpawnManager <..> PlayerManager : GetSpawnPoint()
+SpawnManager ..> Troop : Spawn
+AudioManager ..> SoundManager
+
+Troop ..> TroopManager : DealDamage
+
+Troop .. fight
+Troop .. movement
+
+fight .. Melee
+fight .. Ranged
+
+movement .. StraightMovement
+
+Melee <.. RangePoint
+Ranged <.. RangePoint
+
+Melee ..> attack
+Ranged ..> attack
+
+
+attack --> TroopManager
+
+@enduml
