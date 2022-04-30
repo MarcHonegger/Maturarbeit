@@ -18,7 +18,7 @@ public class VolumeSliderScript : MonoBehaviour
     public void OnDestroy()
     {
         PlayerPrefs.SetFloat("volume", AudioListener.volume);
-        UnityEngine.Debug.Log($"you final volume: {AudioListener.volume}");
+        Debug.Log($"you final volume: {AudioListener.volume}");
         //causes Error
         //_volumeSlider.onValueChanged.RemoveListener(OnVolumeChange);
     }
@@ -26,7 +26,7 @@ public class VolumeSliderScript : MonoBehaviour
     private static void OnVolumeChange(float value)
     {
         AudioListener.volume = PlayerPrefs.GetFloat("volume");
-        UnityEngine.Debug.Log($"{AudioListener.volume}");
+        Debug.Log($"{AudioListener.volume}");
         PlayerPrefs.SetFloat("volume", value);
     }
 }

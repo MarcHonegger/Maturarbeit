@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class Attack
@@ -32,15 +33,15 @@ public class TroopManager : MonoBehaviour
 
     private void AttackPhase()
     {
-        var attackLog = "";
+        var attackLog = new StringBuilder();
         foreach (var attack in _attacks)
         {
             attack.target.TakeDamage(attack.damage);
-            attackLog += $"| {attack.target.name} ({attack.damage})";
+            attackLog.Append($"| {attack.target.name} ({attack.damage})");
         }
 
-        _attacks = new List<Attack>();
+        _attacks.Clear();
 
-        Debug.Log("AttackPhase: " + attackLog);
+        Debug.Log($"AttackPhase: {attackLog}");
     }
 }

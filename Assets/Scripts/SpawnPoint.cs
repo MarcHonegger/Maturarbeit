@@ -8,21 +8,23 @@ public class SpawnPoint : MonoBehaviour
     public bool isDisabled;
     public Color normalColor;
     public Color disabledColor;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = normalColor;
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _spriteRenderer.color = normalColor;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         isDisabled = true;
-        gameObject.GetComponent<SpriteRenderer>().color = disabledColor;
+        _spriteRenderer.color = disabledColor;
     }
 
     private void OnTriggerExit(Collider other)
     {
         isDisabled = false;
-        gameObject.GetComponent<SpriteRenderer>().color = normalColor;
+        _spriteRenderer.color = normalColor;
     }
 }

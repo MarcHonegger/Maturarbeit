@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,19 +14,20 @@ public class CameraControl : MonoBehaviour
     {
         var cameraTransform = transform;
         var cameraPosition = cameraTransform.position;
-        var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f); 
+        var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f);
         //limiting camera movement left side
-        if (cameraPosition.x <= leftEnd && _speedInput == -1f)
+        if (cameraPosition.x <= leftEnd && Mathf.Abs(_speedInput - (-1f)) < 0.001)
         {
-            UnityEngine.Debug.Log($"Limited Camera Left Side");
+            Debug.Log($"Limited Camera Left Side");
             return;
         }
+
         transform.position = Vector3.Lerp(cameraPosition, targetPosition, 0.1f);
     }
 
     public void MoveCamera(InputAction.CallbackContext context)
     {
-        UnityEngine.Debug.Log($"Speed is set to {context.ReadValue<float>()}");
+        Debug.Log($"Speed is set to {context.ReadValue<float>()}");
         _speedInput = context.ReadValue<float>();
     }
 }

@@ -18,23 +18,23 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     // Start is called before the first frame update
     public void OnBeginDrag(PointerEventData eventData)
     {
-        UnityEngine.Debug.Log($"BeginDrag");
+        Debug.Log($"BeginDrag");
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        UnityEngine.Debug.Log($"EndDrag");
-        UnityEngine.Debug.Log($"{rectTransform.position}");
+        Debug.Log($"EndDrag");
+        Debug.Log($"{rectTransform.position}");
     }
     public void OnDrag(PointerEventData eventData)
     {
-        UnityEngine.Debug.Log($"Drag");
+        Debug.Log($"Drag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        UnityEngine.Debug.Log($"Down");
+        Debug.Log($"Down");
     }
     void Start()
     {
