@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   attackDamage: 1
+  attackSpeed: 1
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0
