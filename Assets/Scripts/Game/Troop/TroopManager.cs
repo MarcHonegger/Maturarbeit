@@ -36,6 +36,10 @@ public class TroopManager : MonoBehaviour
         var attackLog = new StringBuilder();
         foreach (var attack in _attacks)
         {
+            if (!attack.target)
+            {
+                continue;
+            }
             attack.target.TakeDamage(attack.damage);
             attackLog.Append($"| {attack.target.name} ({attack.damage})");
         }
