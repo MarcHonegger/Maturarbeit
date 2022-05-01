@@ -26,7 +26,7 @@ public class RangePoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 6)
+        if (other.gameObject.layer != 6 || other.gameObject.CompareTag(gameObject.tag))
         {
             return;
         }

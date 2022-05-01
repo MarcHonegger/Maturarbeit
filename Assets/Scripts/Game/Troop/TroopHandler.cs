@@ -11,7 +11,7 @@ public class TroopHandler : MonoBehaviour
     public bool ghostEffect;
     public float health;
 
-    private static int _troopLayer = 6;
+    private const int k_TroopLayer = 6;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class TroopHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == _troopLayer && (ghostEffect || !other.CompareTag(gameObject.tag)))
+        if (other.gameObject.layer == k_TroopLayer && (ghostEffect || !other.CompareTag(gameObject.tag)))
         {
             StopMoving();
         }
@@ -28,7 +28,10 @@ public class TroopHandler : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        StartMoving();
+        if (other.gameObject.layer == k_TroopLayer)
+        {
+            StartMoving();
+        }
     }
 
     public void StopMoving() => currentMovementSpeed = 0;
@@ -37,7 +40,7 @@ public class TroopHandler : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
-        if (health < 0)
+        if (health <= 0.001)
         {
             Die();
         }
