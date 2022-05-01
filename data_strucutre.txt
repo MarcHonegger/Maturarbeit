@@ -1,0 +1,62 @@
+@startuml
+
+database Assets {
+  folder Scripts {
+    folder Game {
+      folder Camera {
+        file CameraControler
+      }
+      folder Card {
+        file CardManager
+      }
+      folder Manager {
+        file SettingsManager
+        file GameManager
+        file AudioManager
+      }
+      folder Spawn {
+        file SpawnManager
+        folder Other {
+          file SpawnPoint
+          file SpawnButton
+        }
+      }
+      folder Troop {
+        folder Fight {
+          file Melee
+          file Ranged
+        }
+        file TroopHandler
+        file TroopManager
+      }
+    }
+    folder Settings {
+      file SettingsScripts
+    }
+    folder StartPage {
+      file StartPageScripts
+    }
+    folder Test {
+      file TemporaryScript
+    }
+  }
+  folder Prefabs {
+    file prefab
+    folder Troops {
+      folder 0_Miscellaneous
+      folder Melee {
+        file MeleeTroop
+      }
+      folder Ranged {
+        file RangedTroop
+      }
+    }
+  }
+  folder Scenes {
+    file GameScene
+    file StartPageScene
+    file SettingsScene
+  }
+}
+
+@enduml
