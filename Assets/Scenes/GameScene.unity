@@ -2397,6 +2397,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 1110594908130264774, guid: f0d73619eecfb4545a8784f9baaf365d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110594908130264775, guid: f0d73619eecfb4545a8784f9baaf365d, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0d73619eecfb4545a8784f9baaf365d, type: 3}
 --- !u!1 &745155573
@@ -2585,6 +2593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1387591435}
+  cam: {fileID: 0}
+  spawnPointPrefab: {fileID: 5593859673854605779, guid: 4ecdbdcb555f6f2429fc0fbbd5e55f51, type: 3}
 --- !u!114 &870590372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,6 +2686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1387591435}
+  cam: {fileID: 0}
+  spawnPointPrefab: {fileID: 5593859673854605779, guid: 4ecdbdcb555f6f2429fc0fbbd5e55f51, type: 3}
 --- !u!114 &892153590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,6 +2779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1387591435}
+  cam: {fileID: 0}
+  spawnPointPrefab: {fileID: 5593859673854605779, guid: 4ecdbdcb555f6f2429fc0fbbd5e55f51, type: 3}
 --- !u!114 &896525831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4000,6 +4014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1387591435}
+  cam: {fileID: 0}
+  spawnPointPrefab: {fileID: 5593859673854605779, guid: 4ecdbdcb555f6f2429fc0fbbd5e55f51, type: 3}
 --- !u!1001 &1849513214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4185,6 +4201,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868744200}
   m_CullTransparentMesh: 1
+--- !u!1 &1884577026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1110594908130264774, guid: f0d73619eecfb4545a8784f9baaf365d, type: 3}
+  m_PrefabInstance: {fileID: 711829334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1884577031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884577026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1972450451
 GameObject:
   m_ObjectHideFlags: 0
