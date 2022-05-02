@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a8b3d429b5f5342aee489942866705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  troopPrefab: {fileID: 6685142000718824078, guid: 9770e8056af25e747b11454c6e3fde3d, type: 3}
+  troopPrefab: {fileID: 6685142000718824078, guid: 036c9b332ef5d41c29915717ac1eaf0c, type: 3}
   lane: 2
   isLeftPlayer: 0
 --- !u!114 &508476388
