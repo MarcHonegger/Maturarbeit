@@ -36,6 +36,7 @@ public class Melee : MonoBehaviour
             NoEnemyInRange();
         }
         GameManager.Instance.troopManager.AttackTroop(new Attack(_nextEnemy, attackDamage));
+        // CheckNextEnemy
     }
 
     private void OnNewEnemyInRange(GameObject enemy)
