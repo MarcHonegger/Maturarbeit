@@ -19,9 +19,13 @@ public class TroopHandler : MonoBehaviour
 
     private Camera _cam;
     private Canvas _canvas;
+    private RectTransform _rectTransform;
+    private RectTransform _canvasRect;
 
     private void Start()
     {
+        _canvasRect = _canvas.GetComponent<RectTransform>();
+        _rectTransform = _healthBar.GetComponent<RectTransform>();
         _cam = FindObjectOfType<Camera>();
         _canvas = FindObjectOfType<Canvas>();
         
@@ -31,18 +35,13 @@ public class TroopHandler : MonoBehaviour
 
     private void Update()
     {
-        // TODO Performance
-        
-        RectTransform canvasRect = _canvas.GetComponent<RectTransform>();
-        
         Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position);
-        var sizeDelta = canvasRect.sizeDelta;
+        var sizeDelta = _canvasRect.sizeDelta;
         Vector2 worldObjectScreenPosition = new Vector2(
             ((viewportPosition.x*sizeDelta.x)-(sizeDelta.x*0.5f)),
             ((viewportPosition.y*sizeDelta.y)-(sizeDelta.y*0.5f)));
  
-        _healthBar.GetComponent<RectTransform>().anchoredPosition=worldObjectScreenPosition;
-
+        _rectTransform.anchoredPosition=worldObjectScreenPosition;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -101,12 +100,12 @@ public class TroopHandler : MonoBehaviour
     {
         var healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
         _healthBar = healthBarGameObject.GetComponent<HealthBar>();
-        _healthBar.SetMaximum(health);
+        _healthBar.SetMaximumHealth(health);
     }
 
     private void UpdateHealthBar(float healthChange)
     {
-        _healthBar.ChangeValue(healthChange);
+        _healthBar.ChangeHealth(healthChange);
     }
 
 }
