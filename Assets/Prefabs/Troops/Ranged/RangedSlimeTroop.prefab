@@ -151,6 +151,7 @@ MonoBehaviour:
   currentMovementSpeed: 0
   ghostEffect: 0
   health: 5
+  healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!65 &3951796804929373383
 BoxCollider:
   m_ObjectHideFlags: 0
