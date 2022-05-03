@@ -296,13 +296,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48933444}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1740,13 +1740,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480123711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2530,6 +2530,7 @@ MonoBehaviour:
   sprite2: {fileID: 48933446}
   sprite3: {fileID: 902086205}
   sprite4: {fileID: 1889280092}
+  troopPrefab: {fileID: 6685142000718824078, guid: 3dc2edefda3643c4891b275da01c2414, type: 3}
 --- !u!1 &642785069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,6 +2711,7 @@ MonoBehaviour:
   sprite2: {fileID: 48933446}
   sprite3: {fileID: 902086205}
   sprite4: {fileID: 1889280092}
+  troopPrefab: {fileID: 6685142000718824078, guid: 3dc2edefda3643c4891b275da01c2414, type: 3}
 --- !u!1 &691452901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,13 +3438,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902086203}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4066,6 +4068,7 @@ MonoBehaviour:
   sprite2: {fileID: 48933446}
   sprite3: {fileID: 902086205}
   sprite4: {fileID: 1889280092}
+  troopPrefab: {fileID: 6685142000718824078, guid: 3dc2edefda3643c4891b275da01c2414, type: 3}
 --- !u!1 &1387591432
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,6 +4318,7 @@ MonoBehaviour:
   sprite2: {fileID: 48933446}
   sprite3: {fileID: 902086205}
   sprite4: {fileID: 1889280092}
+  troopPrefab: {fileID: 6685142000718824078, guid: 3dc2edefda3643c4891b275da01c2414, type: 3}
 --- !u!1001 &1587719531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5225,13 +5229,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889280090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

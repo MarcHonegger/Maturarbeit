@@ -26,6 +26,7 @@ public class Melee : MonoBehaviour
     private void OnDestroy()
     {
         _rangePoint.EnemyInRange -= OnNewEnemyInRange;
+        
         CancelInvoke();
     }
 

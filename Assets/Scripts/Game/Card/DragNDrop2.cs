@@ -18,6 +18,7 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     [SerializeField] private Image sprite2; 
     [SerializeField] private Image sprite3; 
     [SerializeField] private Image sprite4;
+    [SerializeField] private GameObject troopPrefab; 
 
     private void Awake()
     {
@@ -55,7 +56,6 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         cam = Camera.main;
         _oldPos = transform.position;
-        DisableRendering();
     }
 
     public void DisableRendering()
@@ -87,21 +87,25 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             //1
             Debug.Log("1");
+            GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, true);
         } 
         else if (MousePosition.y > ScreenHeight/2 && MousePosition.x > ScreenWidth/2)
         {
             //2
             Debug.Log("2");
+            GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, true);
         }
         else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x < ScreenWidth / 2)
         {
             //3
             Debug.Log("3");
+            GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, true);
         }
         else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x > ScreenWidth / 2)
         {
             //4
             Debug.Log("4");
+            GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, true);
         }
 
     }
