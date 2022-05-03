@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class TroopHandler : MonoBehaviour
@@ -11,40 +10,14 @@ public class TroopHandler : MonoBehaviour
     public float currentMovementSpeed;
     public bool ghostEffect;
     public float health;
-    private Color _color;
-    private HealthBar _healthBar;
-    public GameObject healthBarPrefab;
 
     private const int k_TroopLayer = 6;
 
-    private Camera _cam;
-    private Canvas _canvas;
-
     private void Start()
     {
-        _cam = FindObjectOfType<Camera>();
-        _canvas = FindObjectOfType<Canvas>();
-        
         StartMoving();
-        GenerateHealthBar();
     }
 
-    private void Update()
-    {
-        // TODO Performance
-        
-        RectTransform canvasRect = _canvas.GetComponent<RectTransform>();
-        
-        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position);
-        var sizeDelta = canvasRect.sizeDelta;
-        Vector2 worldObjectScreenPosition = new Vector2(
-            ((viewportPosition.x*sizeDelta.x)-(sizeDelta.x*0.5f)),
-            ((viewportPosition.y*sizeDelta.y)-(sizeDelta.y*0.5f)));
- 
-        _healthBar.GetComponent<RectTransform>().anchoredPosition=worldObjectScreenPosition;
-
-    }
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == k_TroopLayer && (ghostEffect || !other.CompareTag(gameObject.tag)))
@@ -64,14 +37,8 @@ public class TroopHandler : MonoBehaviour
     public void StopMoving() => currentMovementSpeed = 0;
     public void StartMoving() => currentMovementSpeed = movementSpeed;
 
-    // TODO ChangeHealth()???
     public void TakeDamage(float amount)
     {
-        ChangeTroopDesign();
-        Invoke(nameof(ResetTroopDesign), 0.25f);
-        
-        UpdateHealthBar(-amount);
-        
         health -= amount;
         if (health <= 0.001)
         {
@@ -79,34 +46,9 @@ public class TroopHandler : MonoBehaviour
         }
     }
 
-    private void ChangeTroopDesign()
-    {
-        _color = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 0.8f);
-    }
-
-    private void ResetTroopDesign()
-    {
-        _color = GetComponent<SpriteRenderer>().color;
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-    }
-    
     public void Die()
     {
-        Destroy(_healthBar.gameObject);
         Destroy(gameObject);
-    }
-
-    private void GenerateHealthBar()
-    {
-        var healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
-        _healthBar = healthBarGameObject.GetComponent<HealthBar>();
-        _healthBar.SetMaximum(health);
-    }
-
-    private void UpdateHealthBar(float healthChange)
-    {
-        _healthBar.ChangeValue(healthChange);
     }
 
 }
