@@ -36,9 +36,23 @@ public class RangePoint : MonoBehaviour
         if (_enemiesInRange.Count == 1)
         {
             EnemyInRange?.Invoke(enemy);
+            InvokeRepeating(nameof(CheckEnemy), 0f, 0.05f);
         }
     }
 
+    private void CheckEnemy()
+    {
+        if (_enemiesInRange[0])
+            return;
+        
+        _enemiesInRange.RemoveAt(0);
+        if (_enemiesInRange.Count == 0)
+        {
+            CancelInvoke();
+            return;
+        }
+        EnemyInRange?.Invoke(_enemiesInRange[0]);
+    }
 
     public event Action<GameObject> EnemyInRange;
 }
