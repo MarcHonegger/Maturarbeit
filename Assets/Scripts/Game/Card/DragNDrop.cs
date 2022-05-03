@@ -6,14 +6,15 @@ using UnityEngine.InputSystem;
 
 public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-
+    /// <summary>
+    /// Drag and Drop for the red cards
+    /// </summary>
     private RectTransform _rectTransform;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject spawnPointPrefab;
     private Vector3 _oldPos;
     
-
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
@@ -37,9 +38,6 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
             Instantiate(spawnPointPrefab, worldPoint, Quaternion.Euler(45f, 0f, 0f));
             transform.position = _oldPos;
         }
-
-        
-        
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -53,10 +51,8 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     }
     void Start()
     {
-        
         cam = Camera.main;
         _oldPos = transform.position;
-
     }
 
     // Update is called once per frame

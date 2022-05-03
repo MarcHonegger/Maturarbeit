@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    
+    /// <summary>
+    /// Drag and Drop for green cards
+    /// </summary>
     private RectTransform _rectTransform;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Camera cam;
@@ -37,6 +39,7 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         DisableRendering();
         CheckPosition();
     }
+    
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log($"Drag");
@@ -47,16 +50,17 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         Debug.Log($"Down");
     }
+    
     void Start()
     {
         cam = Camera.main;
         _oldPos = transform.position;
-        
         DisableRendering();
     }
 
     public void DisableRendering()
-    {
+    {   
+        //disables rendering of the 4 overlay numbers
         sprite1.enabled = false;
         sprite2.enabled = false;
         sprite3.enabled = false;
@@ -65,14 +69,13 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void EnableRendering()
     {
+        //enables rendering of the 4 overlay numbers
         sprite1.enabled = true;
         sprite2.enabled = true;
         sprite3.enabled = true;
         sprite4.enabled = true;
     }
     
-
-
 
     public void CheckPosition()
     {
