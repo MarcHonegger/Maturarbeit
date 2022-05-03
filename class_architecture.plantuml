@@ -17,11 +17,11 @@ class GameManager << (S,#FF7700) Singleton >> {
 }
 
 class AudioManager {
-+PlaySound()
-+PlayMusic()
+  +PlaySound()
+  +PlayMusic()
 }
 
-class SoundManager << (U,#bababa) Unity >>{}
+class SoundManager << (U,#bababa) Unity >> {}
 
 class SpawnManager {
   +SpawnPoint Spawnpoints
@@ -32,12 +32,12 @@ class SpawnManager {
 
 
 class TroopManager {
-  +List<Troop> troops
+  +List<TroopHandler> troops
   +AttackTroop()
   +AttackPhase()
 }
 
-class Troop {
+class TroopHandler {
   +flaot health
   +TakeDamage()
   +Death()
@@ -66,9 +66,23 @@ class StraightMovement {
   +float movementSpeed
 }
 
+class DeckManager? {}
+class HandManager? {} 
+
+class CardManager {
+  +CreateCard
+  +PlayCard()
+}
+
 class Card {
   +int lane
   +Troop troopPrefab
+}
+
+class HealthBar {
+  +Slider slider
+  +ChangeHealth()
+  +SetMaximumHealth()
 }
 
 actor Player
@@ -76,7 +90,8 @@ actor Player
 Player -> PlayerManager
 Player -> Card
 
-Card ..> PlayerManager
+Card ..> CardManager
+CardManager ..> PlayerManager
 PlayerManager ..> GameManager
 
 GameManager -- SpawnManager
@@ -84,13 +99,14 @@ GameManager -- AudioManager
 GameManager -- TroopManager
 
 SpawnManager <..> PlayerManager : GetSpawnPoint()
-SpawnManager ..> Troop : Spawn
+SpawnManager ..> TroopHandler : Spawn
 AudioManager ..> SoundManager
 
-Troop ..> TroopManager : DealDamage
+TroopHandler ..> TroopManager : DealDamage
 
-Troop .. fight
-Troop .. movement
+TroopHandler .. fight
+TroopHandler .. movement
+TroopHandler ..> HealthBar
 
 fight .. Melee
 fight .. Ranged
