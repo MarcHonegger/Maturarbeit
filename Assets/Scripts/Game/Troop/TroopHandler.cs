@@ -24,10 +24,9 @@ public class TroopHandler : MonoBehaviour
 
     private void Start()
     {
-        _canvasRect = _canvas.GetComponent<RectTransform>();
-        _rectTransform = _healthBar.GetComponent<RectTransform>();
         _cam = FindObjectOfType<Camera>();
         _canvas = FindObjectOfType<Canvas>();
+        _canvasRect = _canvas.GetComponent<RectTransform>();
         
         StartMoving();
         GenerateHealthBar();
@@ -101,6 +100,7 @@ public class TroopHandler : MonoBehaviour
         var healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
         _healthBar = healthBarGameObject.GetComponent<HealthBar>();
         _healthBar.SetMaximumHealth(health);
+        _rectTransform = _healthBar.GetComponent<RectTransform>();
     }
 
     private void UpdateHealthBar(float healthChange)
