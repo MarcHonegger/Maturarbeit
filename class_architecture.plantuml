@@ -66,13 +66,13 @@ class StraightMovement {
   +float movementSpeed
 }
 
-class DeckManager? {}
-class HandManager? {} 
-
-class CardManager {
-  +CreateCard
-  +PlayCard()
+class DeckManager {
+    +DrawCard()
 }
+class HandManager {
+    +CreateCard
+    +PlayCard()
+} 
 
 class Card {
   +int lane
@@ -90,9 +90,12 @@ actor Player
 Player -> PlayerManager
 Player -> Card
 
-Card ..> CardManager
-CardManager ..> PlayerManager
+Card ..> HandManager
+HandManager ..> PlayerManager
 PlayerManager ..> GameManager
+
+Card .. DeckManager : PlayCard()
+DeckManager ..> HandManager : DrawCard()
 
 GameManager -- SpawnManager
 GameManager -- AudioManager
