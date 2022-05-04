@@ -10,12 +10,12 @@ public class StartPage : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameScene");
     }
     
     public void LoadSettings()
     {
-        SceneManager.LoadScene("Settings");
+        SceneManager.LoadScene("SettingsScene");
     }
     
     public void ExitGame()
