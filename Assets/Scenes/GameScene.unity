@@ -3197,7 +3197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 200
+  offsetX: 400
   offsetY: 0
 --- !u!114 &824490735
 MonoBehaviour:
@@ -3255,6 +3255,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 5593859673854605779, guid: d9f1d23776c83864fabefbc7cc146232, type: 3}
+  - {fileID: 6685142000718824078, guid: 309321cd1b9da0e46a0cabde5f2fb599, type: 3}
 --- !u!4 &824490737
 Transform:
   m_ObjectHideFlags: 0
@@ -4513,7 +4514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 271, y: 260.11407}
+  m_AnchoredPosition: {x: 313, y: 5}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584332994
@@ -4622,7 +4623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5655abc22506367449eda7866ada0e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testSpawnManager: {fileID: 404988016}
+  newSpawnButton: {fileID: -2419342962027078497, guid: 0efe1879c50cfd5488c238d8cd4de779, type: 3}
   troopPrefab: {fileID: 5593859673854605779, guid: d9f1d23776c83864fabefbc7cc146232, type: 3}
   lane: 2
   isLeftPlayer: 1
@@ -5073,7 +5074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676553834}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -8.6, y: 15.88, z: -13.22}
+  m_LocalPosition: {x: -8.6, y: 22.75, z: -17.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5380,16 +5381,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.7
+      value: 46.92
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21
+      value: -14.8
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.8
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_LocalRotation.w

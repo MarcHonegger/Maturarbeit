@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
+using Mirror.Examples.Basic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class newslimespawn : MonoBehaviour
 {
 
-    public NewSpawnButton testSpawnManager;
+    public NewPlayerManager newSpawnButton;
     public GameObject troopPrefab;
     public int lane = 2;
     public bool isLeftPlayer = true;
@@ -19,7 +22,10 @@ public class newslimespawn : MonoBehaviour
 
     public void OnClick()
     {
-        testSpawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
+        //newSpawnButton.CmdSpawn(troopPrefab, lane, isLeftPlayer);
+        NetworkIdentity netID = NetworkClient.connection.identity;
+        newSpawnButton = netID.GetComponent<NewPlayerManager>();
+        newSpawnButton.CmdSpawn();
     }
 
     // Update is called once per frame

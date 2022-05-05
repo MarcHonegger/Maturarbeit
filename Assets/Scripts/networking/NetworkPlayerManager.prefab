@@ -62,3 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3db2b00ab57774ba46a8034bdf2fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  troopPrefab: {fileID: 6685142000718824078, guid: 309321cd1b9da0e46a0cabde5f2fb599, type: 3}
+  lane: 2
+  isLeftPlayer: 1
