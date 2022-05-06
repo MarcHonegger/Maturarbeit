@@ -11,7 +11,6 @@ public class TroopHandler : MonoBehaviour
     public float currentMovementSpeed;
     public bool ghostEffect;
     public float health;
-    private Color _color;
     private HealthBar _healthBar;
     public GameObject healthBarPrefab;
 
@@ -79,13 +78,11 @@ public class TroopHandler : MonoBehaviour
 
     private void ChangeTroopDesign()
     {
-        _color = GetComponent<SpriteRenderer>().color;
         GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 0.8f);
     }
 
     private void ResetTroopDesign()
     {
-        _color = GetComponent<SpriteRenderer>().color;
         GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
     }
     
