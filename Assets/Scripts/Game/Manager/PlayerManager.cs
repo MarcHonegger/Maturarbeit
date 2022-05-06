@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     public float energyGainPerSecond;
     public TextMeshProUGUI energyText;
 
+    [SerializeField] private NewPlayerManager _newPlayerManager;
+
     [SerializeField] private float cooldownDuration;
     public float currentCooldown;
 
@@ -53,7 +55,7 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
-        GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
+        _newPlayerManager.CmdSpawn();
 
         var troop = troopPrefab.GetComponent<TroopHandler>();
         energy -= troop.energyCost;

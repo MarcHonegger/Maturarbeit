@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 public class NewPlayerManager : NetworkBehaviour
 {
@@ -10,6 +13,7 @@ public class NewPlayerManager : NetworkBehaviour
     public bool isLeftPlayer = true;
     private GameObject troopGameObject;
     
+    // ReSharper disable Unity.PerformanceAnalysis
     public override void OnStartServer()
     {
         base.OnStartServer();
@@ -17,6 +21,7 @@ public class NewPlayerManager : NetworkBehaviour
         
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -42,6 +47,10 @@ public class NewPlayerManager : NetworkBehaviour
     {
         
     }
+
+
+
+
 
     // Update is called once per frame
     void Update()
