@@ -442,7 +442,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 1556883244}
-  networkAddress: 172.17.215.55
+  networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 9081919128954505657, guid: ecd52c53a6ef7496693343d3e32dace1, type: 3}
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secretHandshake: 1558261479176021378
-  serverBroadcastListenPort: 47776
+  serverBroadcastListenPort: 47777
   enableActiveDiscovery: 1
   ActiveDiscoveryInterval: 3
   transport: {fileID: 0}
