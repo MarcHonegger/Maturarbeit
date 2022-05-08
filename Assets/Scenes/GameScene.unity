@@ -1785,7 +1785,7 @@ GameObject:
   - component: {fileID: 736136560}
   - component: {fileID: 736136559}
   m_Layer: 5
-  m_Name: Slime
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1808,8 +1808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 16}
-  m_SizeDelta: {x: 71.6863, y: 71.6863}
+  m_AnchoredPosition: {x: -0.000035405, y: 0.00000056624}
+  m_SizeDelta: {x: 27.5207, y: 27.5207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &736136559
 MonoBehaviour:
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d083f7c58a01c924d8a61d84dac7838b, type: 3}
+  m_Sprite: {fileID: -1121281196, guid: b5827cb24c9334d0082de8a642533661, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   sprite2: {fileID: 48933446}
   sprite3: {fileID: 902086205}
   sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: 3dc2edefda3643c4891b275da01c2414, type: 3}
+  troopPrefab: {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
   currentPlayer: 1
 --- !u!1 &1387591432
 GameObject:
@@ -4011,11 +4011,15 @@ MonoBehaviour:
   gameObjects:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
-  lanes: 0100000001000000
-  isPlayerLeftList: 0100
+  - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
+  - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
+  lanes: 01000000010000000200000002000000
+  isPlayerLeftList: 01000100
   healthBuffs:
   - 0
   - 1
+  - 1
+  - 0
 --- !u!114 &1980787722
 MonoBehaviour:
   m_ObjectHideFlags: 0

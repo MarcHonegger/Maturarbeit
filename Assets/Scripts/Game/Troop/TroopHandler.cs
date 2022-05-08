@@ -29,6 +29,7 @@ public class TroopHandler : MonoBehaviour
     private static readonly int StopIdleAnimation = Animator.StringToHash("StopIdle");
     private bool _idle;
     private TroopHandler _troopInFront;
+    private Vector3 _offset;
 
     public bool isDead => health <= 0.001;
 
@@ -39,10 +40,11 @@ public class TroopHandler : MonoBehaviour
         _canvasRect = _canvas.GetComponent<RectTransform>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _offset = new Vector3(0, _spriteRenderer.bounds.size.y + 1f, 0);
 
         StartMoving();
         GenerateHealthBar();
-
+        
         if (gameObject.CompareTag("RightPlayer"))
         {
             GetComponent<SpriteRenderer>().flipX = true;
@@ -83,7 +85,7 @@ public class TroopHandler : MonoBehaviour
 
     private Vector2 GetScreenPoint()
     {
-        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position);
+        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position + _offset);
         Vector2 sizeDelta = _canvasRect.sizeDelta;
         Vector2 worldObjectScreenPosition = new Vector2(
             ((viewportPosition.x * sizeDelta.x) - (sizeDelta.x * 0.5f)),

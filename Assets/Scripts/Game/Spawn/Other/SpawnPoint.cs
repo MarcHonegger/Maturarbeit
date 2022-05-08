@@ -18,12 +18,16 @@ public class SpawnPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.layer != 6)
+            return;
         isDisabled = true;
         _spriteRenderer.color = disabledColor;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if(other.gameObject.layer != 6)
+            return;
         isDisabled = false;
         _spriteRenderer.color = normalColor;
     }
