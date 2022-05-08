@@ -85,29 +85,31 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void CheckPosition()
     {
-        int ScreenHeight = Screen.height;
-        int ScreenWidth = Screen.width;
-        Vector3 MousePosition = Mouse.current.position.ReadValue();
-        Debug.Log("mouse position: " + MousePosition);
-        if (MousePosition.y > ScreenHeight/2 && MousePosition.x < ScreenWidth/2)
+        int screenHeight = Screen.height;
+        int screenWidth = Screen.width;
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        Debug.Log("mouse position: " + mousePosition);
+        int halfScreenHeight = screenHeight / 2;
+        int halfScreenWidth = screenWidth / 2;
+        if (mousePosition.y > halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
             //1
             Debug.Log("1");
             GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, currentPlayer);
         } 
-        else if (MousePosition.y > ScreenHeight/2 && MousePosition.x > ScreenWidth/2)
+        else if (mousePosition.y > halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //2
             Debug.Log("2");
             GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, currentPlayer);
         }
-        else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x < ScreenWidth / 2)
+        else if (mousePosition.y < halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
             //3
             Debug.Log("3");
             GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, currentPlayer);
         }
-        else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x > ScreenWidth / 2)
+        else if (mousePosition.y < halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //4
             Debug.Log("4");
@@ -115,13 +117,6 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         }
         transform.position = _oldPos;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }
 
     
