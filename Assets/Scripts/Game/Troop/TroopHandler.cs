@@ -29,7 +29,7 @@ public class TroopHandler : MonoBehaviour
     private static readonly int StopIdleAnimation = Animator.StringToHash("StopIdle");
     private bool _idle;
     private TroopHandler _troopInFront;
-    private Vector3 _offset;
+    private readonly Vector3 _offset = new Vector3(0, 1f, 0);
 
     public bool isDead => health <= 0.001;
 
@@ -40,7 +40,6 @@ public class TroopHandler : MonoBehaviour
         _canvasRect = _canvas.GetComponent<RectTransform>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _offset = new Vector3(0, _spriteRenderer.bounds.size.y + 1f, 0);
 
         StartMoving();
         GenerateHealthBar();
@@ -85,7 +84,7 @@ public class TroopHandler : MonoBehaviour
 
     private Vector2 GetScreenPoint()
     {
-        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position + _offset);
+        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position - _offset);
         Vector2 sizeDelta = _canvasRect.sizeDelta;
         Vector2 worldObjectScreenPosition = new Vector2(
             ((viewportPosition.x * sizeDelta.x) - (sizeDelta.x * 0.5f)),
@@ -128,26 +127,27 @@ public class TroopHandler : MonoBehaviour
 
     public void Die()
     {
-        Death?.Invoke();
         Debug.Log($"Died {gameObject.name}");
-        _animator.SetTrigger(DiedAnimation);
+     
+        StopMoving(); 
+        _animator.SetTrigger(DiedAnimation);  
+        Death?.Invoke();
         
         Destroy(_healthBar.gameObject);
         foreach (Collider c in GetComponents<Collider>())
         {
-            c.enabled = false;
+            Destroy(c);
         }
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
         }
-
-        Destroy(gameObject, 2);
         foreach (MonoBehaviour script in GetComponents<MonoBehaviour>())
         {
-            script.CancelInvoke();
-            script.enabled = false;
+            Destroy(script);
         }
+
+        Destroy(gameObject, 2);
     }
 
     private void GenerateHealthBar()

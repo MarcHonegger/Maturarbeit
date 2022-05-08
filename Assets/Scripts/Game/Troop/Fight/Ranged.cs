@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -33,6 +34,19 @@ public class Ranged : MonoBehaviour
 
         _direction = PlayerManager.Instance.GetDirection(gameObject);
         _animator = GetComponent<Animator>();
+
+        if (_direction < 0)
+        {
+            var localPosition = shotPoint.localPosition;
+            localPosition = new Vector3(localPosition.x * -1, localPosition.y, localPosition.z);
+            shotPoint.localPosition = localPosition;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _rangePoint.NewEnemyInRange -= OnNewEnemyInRange;
+        _rangePoint.NoEnemyInRange -= OnNoEnemyInRange;
     }
 
     private void Shoot()
@@ -40,8 +54,8 @@ public class Ranged : MonoBehaviour
         var shot = Instantiate(projectile, shotPoint.position, quaternion.identity);
         shot.transform.tag = gameObject.tag;
         shot.transform.SetParent(_projectiles);
-        shot.GetComponent<Projectile>().endPoint = shotPoint.position.x + (attackRange + 0.1f) * _direction;
-        // shot.transform.RotateAround(shotPoint.position, Vector3.right, 45);
+        shot.GetComponent<Projectile>().endPoint = shotPoint.position.x + (attackRange + 0.5f) * _direction;
+        // shot.transform.RotateAround(transform.position, Vector3.right, 45);
     }
 
     private void OnNewEnemyInRange(TroopHandler enemy)

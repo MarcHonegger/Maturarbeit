@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ece6cbf2ad774707ae9b6f0ed1e743a
+guid: 0ad67fa0fd3b244fb87a928ee56cbb3a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -104,169 +104,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton Hit_0
+      name: spr_KingWalk_strip_no_bkg_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 22
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 54
+        y: 52
+        width: 19
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd26b90364174a939e3f1d3686e6f7f
-      internalID: -1902248565
+      spriteID: 9a8cd8930406340f6b11996af4ce1cba
+      internalID: 199691252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_1
+      name: spr_KingWalk_strip_no_bkg_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 22
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 183
+        y: 52
+        width: 16
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d46e09662c73042248257204586b5cea
-      internalID: 1960378538
+      spriteID: 689614604e0214613b4e8f9b5d211c92
+      internalID: -103207160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_2
+      name: spr_KingWalk_strip_no_bkg_2
       rect:
         serializedVersion: 2
-        x: 62
-        y: 0
-        width: 23
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 313
+        y: 52
+        width: 13
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98105225459f745d69241ab7e73ba318
-      internalID: -642284159
+      spriteID: bcfbf501382b9415e95ad983d3140644
+      internalID: -336744857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_3
+      name: spr_KingWalk_strip_no_bkg_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 24
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 441
+        y: 52
+        width: 14
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd77ce25110d64a519b87cb3b812408c
-      internalID: -565320080
+      spriteID: 1e99c1970f15e4d09887b76b0107846c
+      internalID: 1889005984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_4
+      name: spr_KingWalk_strip_no_bkg_4
       rect:
         serializedVersion: 2
-        x: 123
-        y: 0
-        width: 23
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 567
+        y: 52
+        width: 17
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66688b59d463446e285f72d8f916452b
-      internalID: 1752116318
+      spriteID: 4a2f438648a79442793f8c72b90df522
+      internalID: 1418947904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_5
+      name: spr_KingWalk_strip_no_bkg_5
       rect:
         serializedVersion: 2
-        x: 156
-        y: 0
-        width: 24
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 696
+        y: 52
+        width: 15
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39ad24cee68444865b9cb22e0d86164f
-      internalID: -1214111776
+      spriteID: 70c74b57fddce41a08cf5f2e27532cf4
+      internalID: -596940458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_6
+      name: spr_KingWalk_strip_no_bkg_6
       rect:
         serializedVersion: 2
-        x: 186
-        y: 0
-        width: 23
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 825
+        y: 52
+        width: 13
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64274fa7dde9e404f9ac830e2f3ce466
-      internalID: 1373101050
+      spriteID: 64aea1c5566fb4ff199a288a92ecbae9
+      internalID: 161176783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton Hit_7
+      name: spr_KingWalk_strip_no_bkg_7
       rect:
         serializedVersion: 2
-        x: 216
-        y: 0
-        width: 22
-        height: 32
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        x: 953
+        y: 52
+        width: 13
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0cb6310d49d94d91916cd7a97d5405e
-      internalID: -1096824557
+      spriteID: 1ddb34aafbff8487da9ba81278cd4fa0
+      internalID: -896410964
       vertices: []
       indices: 
       edges: []
@@ -274,7 +274,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 87b28c417d63743ae806fd48783ee817
+    spriteID: 6aadbcb4d589347fcbbc39d661411cfb
     internalID: 0
     vertices: []
     indices: 
@@ -282,14 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton Hit_3: -565320080
-      Skeleton Hit_5: -1214111776
-      Skeleton Hit_6: 1373101050
-      Skeleton Hit_1: 1960378538
-      Skeleton Hit_4: 1752116318
-      Skeleton Hit_0: -1902248565
-      Skeleton Hit_2: -642284159
-      Skeleton Hit_7: -1096824557
+      spr_KingWalk_strip_no_bkg_4: 1418947904
+      spr_KingWalk_strip_no_bkg_2: -336744857
+      spr_KingWalk_strip_no_bkg_1: -103207160
+      spr_KingWalk_strip_no_bkg_6: 161176783
+      spr_KingWalk_strip_no_bkg_5: -596940458
+      spr_KingWalk_strip_no_bkg_0: 199691252
+      spr_KingWalk_strip_no_bkg_3: 1889005984
+      spr_KingWalk_strip_no_bkg_7: -896410964
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

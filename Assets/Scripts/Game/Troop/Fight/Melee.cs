@@ -10,6 +10,7 @@ public class Melee : MonoBehaviour
     public float attackRange;
     public float attackDamage;
     public float attackSpeed;
+    public bool dieAfterAttack;
 
     private RangePoint _rangePoint;
     private TroopHandler _troopHandler;
@@ -41,12 +42,18 @@ public class Melee : MonoBehaviour
     private void Attack()
     {
         _troopHandler.StopMoving();
-        _animator.SetTrigger(AttackAnimation);
         GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
+        _animator.SetTrigger(AttackAnimation);
     }
 
     private void OnNewEnemyInRange(TroopHandler enemy)
     {
+        if (dieAfterAttack)
+        {
+            GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
+            _troopHandler.Die();
+            return;
+        }
         _troopHandler.StopMoving();
         _animator.SetTrigger(AttackAnimation);
         InvokeRepeating(nameof(Attack), attackSpeed, attackSpeed);

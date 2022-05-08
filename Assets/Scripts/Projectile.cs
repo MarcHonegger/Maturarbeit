@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position += Vector3.right * (0.05f * _direction * shotSpeed);
+        transform.position += Vector3.right * (_direction * shotSpeed);
     }
 
     private void Update()
