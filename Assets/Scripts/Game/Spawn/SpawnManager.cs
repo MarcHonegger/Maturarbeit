@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : NetworkBehaviour
 {
     public List<SpawnPoint> spawnPoints;
     public int spawnPointAmount;
@@ -12,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     public Vector3 spawnPointSpacing;
     public GameObject spawnPointPrefab;
     public GameObject spawnPointParent;
+    public NewPlayerManager newPlayerManager;
 
     // If a troop is in this area (around SpawnPoint), there can not be spawned another one
     public Vector3 spawnAreaSize;
@@ -38,6 +40,8 @@ public class SpawnManager : MonoBehaviour
             spawnPoints.Add(spawnPointGameObject.GetComponent<SpawnPoint>());
 
             currentPosition += spawnPointSpacing;
+            
+            
         }
     }
 
@@ -47,10 +51,14 @@ public class SpawnManager : MonoBehaviour
         // SpawnPosition has to be shifted because the SpawnPoint of the troop is not 0|0|0
         var spawnOffset = troopPrefab.transform.GetChild(0).position;
 
-        GameObject troopGameObject = Instantiate(troopPrefab, spawnPosition - spawnOffset, Quaternion.identity);
+        /*GameObject troopGameObject = Instantiate(troopPrefab, spawnPosition - spawnOffset, Quaternion.identity);
         troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
 
         troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
+        */
+        NetworkIdentity netID = NetworkClient.connection.identity;
+        newPlayerManager = netID.GetComponent<NewPlayerManager>();
+        newPlayerManager.CmdSpawn(troopPrefab.name, spawnPosition-spawnOffset, isLeftPlayer);
     }
 
     private SpawnPoint GetLeftSpawnPoint(int lane) => spawnPoints[lane];

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,27 @@ public class NewPlayerManager : NetworkBehaviour
 {
     public GameObject troopPrefab;
     public int lane = 2;
-    public bool isLeftPlayer = true;
     private GameObject troopGameObject;
     
+    [SerializeField] private GameObject Troop1;
+    [SerializeField] private GameObject Troop2;
+    [SerializeField] private GameObject Troop3;
+
+    private List<GameObject> Troops = new List<GameObject>();
     // ReSharper disable Unity.PerformanceAnalysis
     public override void OnStartServer()
     {
         base.OnStartServer();
         Debug.Log("Server started");
         
+        Troops.Add(Troop1);
+        Troops.Add(Troop2);
+        Troops.Add(Troop3);
+        
     }
+
+    
+
 
     // ReSharper disable Unity.PerformanceAnalysis
     public override void OnStartClient()
@@ -30,7 +42,48 @@ public class NewPlayerManager : NetworkBehaviour
     
     //public void CmdSpawn(GameObject troopPrefab, int lane, bool isLeftPlayer)
     [Command]
-    public void CmdSpawn()
+    public void CmdSpawn(string troopName, Vector3 position, bool isLeftPlayer)
+    {
+        Debug.Log("looking for: "+troopName);
+        GameObject toSpawn = searching(Troops, troopName);
+        GameObject troopGameObject = Instantiate(toSpawn, position, Quaternion.identity);
+        NetworkServer.Spawn(troopGameObject);
+        Rpctagging(troopGameObject, isLeftPlayer);
+        RpcRotating(troopGameObject);
+    }
+
+    [ClientRpc]
+    public void Rpctagging(GameObject troopinggameObject, bool isLeftPlayer)
+    {
+        troopinggameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
+        
+    }
+
+    [ClientRpc]
+    public void RpcRotating(GameObject troopinggameObject)
+    {
+        troopinggameObject.transform.RotateAround(troopinggameObject.transform.GetChild(0).position, Vector3.right, 45);
+    }
+
+    public GameObject searching(List<GameObject> listing, string troopName)
+    {
+        Debug.Log("listing name: " + listing[0].name);
+        Debug.Log("Searching name "+ troopName);
+        for(int numbering = 0; numbering<listing.Count; numbering++)
+        {
+            string temp = listing[numbering].name;
+            if (temp == troopName)
+            {
+                return listing[numbering];
+                
+            }
+        }
+        throw new Exception("couldn't find anything");
+    }
+    
+    
+    [Command]
+    public void CmdSpawn2()
     {
         GameObject troopGameObject = Instantiate(troopPrefab, new Vector3(-7.5f, 2, -2), Quaternion.Euler(45f, 0, 0));
         //troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
@@ -42,19 +95,5 @@ public class NewPlayerManager : NetworkBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

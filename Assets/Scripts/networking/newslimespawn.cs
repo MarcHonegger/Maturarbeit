@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class newslimespawn : MonoBehaviour
 {
 
-    public NewPlayerManager newSpawnButton;
+    public NewPlayerManager newPlayerManager;
     public GameObject troopPrefab;
     public int lane = 2;
     public bool isLeftPlayer = true;
@@ -24,9 +24,11 @@ public class newslimespawn : MonoBehaviour
     {
         //newSpawnButton.CmdSpawn(troopPrefab, lane, isLeftPlayer);
         NetworkIdentity netID = NetworkClient.connection.identity;
-        newSpawnButton = netID.GetComponent<NewPlayerManager>();
-        newSpawnButton.CmdSpawn();
+        newPlayerManager = netID.GetComponent<NewPlayerManager>();
+        newPlayerManager.CmdSpawn2();
     }
+
+    
 
     // Update is called once per frame
     void Update()
