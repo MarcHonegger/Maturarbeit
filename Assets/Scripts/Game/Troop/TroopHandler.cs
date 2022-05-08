@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class TroopHandler : MonoBehaviour
@@ -21,56 +22,89 @@ public class TroopHandler : MonoBehaviour
     private RectTransform _rectTransform;
     private RectTransform _canvasRect;
 
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private static readonly int DiedAnimation = Animator.StringToHash("Died");
+    private static readonly int IdleAnimation = Animator.StringToHash("Idle");
+    private static readonly int StopIdleAnimation = Animator.StringToHash("StopIdle");
+    private bool _idle;
+    private TroopHandler _troopInFront;
+
+    public bool isDead => health <= 0.001;
+
     private void Start()
     {
         _cam = FindObjectOfType<Camera>();
         _canvas = FindObjectOfType<Canvas>();
         _canvasRect = _canvas.GetComponent<RectTransform>();
-        
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         StartMoving();
         GenerateHealthBar();
+
+        if (gameObject.CompareTag("RightPlayer"))
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void Update()
     {
-        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position);
-        var sizeDelta = _canvasRect.sizeDelta;
-        Vector2 worldObjectScreenPosition = new Vector2(
-            ((viewportPosition.x*sizeDelta.x)-(sizeDelta.x*0.5f)),
-            ((viewportPosition.y*sizeDelta.y)-(sizeDelta.y*0.5f)));
- 
-        _rectTransform.anchoredPosition=worldObjectScreenPosition;
-    }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == k_TroopLayer && (ghostEffect || !other.CompareTag(gameObject.tag)))
-        {
-            StopMoving();
-        }
+        UpdateHealthBarPosition();
     }
 
-    private void OnTriggerExit(Collider other)
+    /*
+    private void CheckTroopsInFront()
     {
-        if (other.gameObject.layer == k_TroopLayer)
+        if (_troopInFront.enabled)
         {
+            if (_troopInFront.CompareTag(gameObject.tag))
+            {
+                _animator.SetTrigger(IdleAnimation);
+            }
+            StopMoving();
+        }
+        else
+        {
+            _animator.SetTrigger(StopIdleAnimation);
             StartMoving();
         }
     }
 
-    public void StopMoving() => currentMovementSpeed = 0;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == k_TroopLayer)
+        {
+            _troopInFront = other.gameObject.GetComponent<TroopHandler>();
+            InvokeRepeating(nameof(CheckTroopsInFront), 0f, 0.1f);
+        }
+    }*/
+
+    private Vector2 GetScreenPoint()
+    {
+        Vector2 viewportPosition = _cam.WorldToViewportPoint(gameObject.transform.position);
+        Vector2 sizeDelta = _canvasRect.sizeDelta;
+        Vector2 worldObjectScreenPosition = new Vector2(
+            ((viewportPosition.x * sizeDelta.x) - (sizeDelta.x * 0.5f)),
+            ((viewportPosition.y * sizeDelta.y) - (sizeDelta.y * 0.5f)));
+
+        return worldObjectScreenPosition;
+    }
+
     public void StartMoving() => currentMovementSpeed = movementSpeed;
+    public void StopMoving() => currentMovementSpeed = 0;
 
     // TODO ChangeHealth()???
     public void TakeDamage(float amount)
     {
         ChangeTroopDesign();
         Invoke(nameof(ResetTroopDesign), 0.25f);
-        
-        UpdateHealthBar(-amount);
-        
+
+        UpdateHealthBarValue(-amount);
+
         health -= amount;
-        if (health <= 0.001)
+        if (isDead)
         {
             Die();
         }
@@ -78,31 +112,60 @@ public class TroopHandler : MonoBehaviour
 
     private void ChangeTroopDesign()
     {
-        GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 0.8f, 0.8f);
+        var color = _spriteRenderer.color;
+        color = new Color(color.r, color.g, color.b, 0.8f);
+        _spriteRenderer.color = color;
     }
 
     private void ResetTroopDesign()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        var color = _spriteRenderer.color;
+        color = new Color(color.r, color.g, color.b, 1f);
+        _spriteRenderer.color = color;
     }
-    
+
     public void Die()
     {
+        Death?.Invoke();
+        Debug.Log($"Died {gameObject.name}");
+        _animator.SetTrigger(DiedAnimation);
+        
         Destroy(_healthBar.gameObject);
-        Destroy(gameObject);
+        foreach (Collider c in GetComponents<Collider>())
+        {
+            c.enabled = false;
+        }
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        Destroy(gameObject, 2);
+        foreach (MonoBehaviour script in GetComponents<MonoBehaviour>())
+        {
+            script.CancelInvoke();
+            script.enabled = false;
+        }
     }
 
     private void GenerateHealthBar()
     {
-        var healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
+        GameObject healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
+
         _healthBar = healthBarGameObject.GetComponent<HealthBar>();
         _healthBar.SetMaximumHealth(health);
+
         _rectTransform = _healthBar.GetComponent<RectTransform>();
+        UpdateHealthBarPosition();
     }
 
-    private void UpdateHealthBar(float healthChange)
+    private void UpdateHealthBarValue(float healthChange)
     {
         _healthBar.ChangeHealth(healthChange);
     }
+
+    private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();
+
+    public event Action Death;
 
 }

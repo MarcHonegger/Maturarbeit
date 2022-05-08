@@ -20,7 +20,7 @@ public class Ranged : MonoBehaviour
         _troopHandler = GetComponent<TroopHandler>();
         _rangePoint = GetComponentInChildren<RangePoint>();
         _rangePoint.UpdateRangeCollider(attackRange);
-        _rangePoint.EnemyInRange += OnNewEnemyInRange;
+        _rangePoint.NewEnemyInRange += OnNewEnemyInRange;
 
         _projectiles = new GameObject("projectiles").transform;
         _projectiles.SetParent(transform);
@@ -40,8 +40,9 @@ public class Ranged : MonoBehaviour
         shot.GetComponent<Projectile>().endPoint = transform.position.x + attackRange * _direction;
     }
 
-    private void OnNewEnemyInRange(GameObject enemy)
+    private void OnNewEnemyInRange(TroopHandler enemy)
     {
+        CancelInvoke(nameof(Attack));
         _nextEnemy = enemy.GetComponent<TroopHandler>();
         _troopHandler.StopMoving();
 

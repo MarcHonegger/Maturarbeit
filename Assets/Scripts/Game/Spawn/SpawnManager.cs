@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     // If a troop is in this area (around SpawnPoint), there can not be spawned another one
     public Vector3 spawnAreaSize;
 
-    private void Start()
+    private void Awake()
     {
         spawnPointParent = new GameObject("SpawnPoints");
         GenerateSpawnPoints("left", Vector3.zero);
@@ -49,6 +49,7 @@ public class SpawnManager : MonoBehaviour
 
         GameObject troopGameObject = Instantiate(troopPrefab, spawnPosition - spawnOffset, Quaternion.identity);
         troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
+        troopGameObject.name = $"{troopPrefab.name} - {troopGameObject.tag}";
 
         troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
     }
