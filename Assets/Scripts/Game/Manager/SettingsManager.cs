@@ -11,6 +11,6 @@ public class SettingsManager : MonoBehaviour
 
     public void LoadStartPage()
     {
-        SceneManager.LoadScene("StartPage");
+        SceneManager.LoadScene("StartPageScene");
     }
 }

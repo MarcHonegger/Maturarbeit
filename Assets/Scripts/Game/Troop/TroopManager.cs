@@ -33,10 +33,15 @@ public class TroopManager : MonoBehaviour
 
     private void AttackPhase()
     {
-        var attackLog = new StringBuilder();
-        foreach (var attack in _attacks)
+        if (_attacks.Count == 0)
         {
-            if (!attack.target)
+            return;
+        }
+
+        StringBuilder attackLog = new StringBuilder();
+        foreach (Attack attack in _attacks)
+        {
+            if (!attack.target || attack.target.isDead)
             {
                 continue;
             }

@@ -7,14 +7,13 @@ using UnityEngine;
 public class RangePoint : MonoBehaviour
 {
     private BoxCollider _collider;
-    private List<GameObject> _enemiesInRange;
+    public readonly LinkedList<TroopHandler> enemiesInRange = new LinkedList<TroopHandler>();
     public float ySize;
     public float zSize;
 
     private void Awake()
     {
         _collider = GetComponent<BoxCollider>();
-        _enemiesInRange = new List<GameObject>();
     }
 
     public void UpdateRangeCollider(float range)
@@ -26,19 +25,27 @@ public class RangePoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 6 || other.gameObject.CompareTag(gameObject.tag))
+        if (other.gameObject.layer != 6 || other.gameObject.CompareTag(transform.parent.tag))
         {
             return;
         }
 
-        var enemy = other.gameObject;
-        _enemiesInRange.Add(enemy);
-        if (_enemiesInRange.Count == 1)
+        var enemy = other.gameObject.GetComponent<TroopHandler>();
+        enemiesInRange.AddLast(enemy);
+        NewEnemyInRange?.Invoke(enemy);
+        
+        var enemyNode = enemiesInRange.Last;
+        enemyNode.Value.Death += () =>
         {
-            EnemyInRange?.Invoke(enemy);
-        }
+            bool wasFirstEnemy = enemiesInRange.First == enemyNode;
+            enemiesInRange.Remove(enemyNode);
+            if (enemiesInRange.Count == 0)
+                NoEnemyInRange?.Invoke();
+            else if (wasFirstEnemy)
+                NewEnemyInRange?.Invoke(enemiesInRange.First.Value);
+        };
     }
-
-
-    public event Action<GameObject> EnemyInRange;
+    
+    public event Action<TroopHandler> NewEnemyInRange;
+    public event Action NoEnemyInRange;
 }

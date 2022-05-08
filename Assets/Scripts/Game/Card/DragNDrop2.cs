@@ -18,7 +18,9 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     [SerializeField] private Image sprite2; 
     [SerializeField] private Image sprite3; 
     [SerializeField] private Image sprite4;
-    [SerializeField] private GameObject troopPrefab; 
+    [SerializeField] private GameObject troopPrefab;
+
+    public bool currentPlayer;
 
     private void Awake()
     {
@@ -75,47 +77,50 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         sprite3.enabled = true;
         sprite4.enabled = true;
     }
-    
+
+    public void ChangeCurrentPlayer()
+    {
+        currentPlayer = !currentPlayer;
+    }
 
     public void CheckPosition()
     {
-        int ScreenHeight = Screen.height;
-        int ScreenWidth = Screen.width;
-        Vector3 MousePosition = Mouse.current.position.ReadValue();
-        Debug.Log("mouse position: " + MousePosition);
-        if (MousePosition.y > ScreenHeight/2 && MousePosition.x < ScreenWidth/2)
+        int screenHeight = Screen.height;
+        int screenWidth = Screen.width;
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        Debug.Log("mouse position: " + mousePosition);
+        int halfScreenHeight = screenHeight / 2;
+        int halfScreenWidth = screenWidth / 2;
+        if (mousePosition.y > halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
             //1
             Debug.Log("1");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, true);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 0, currentPlayer);
         } 
-        else if (MousePosition.y > ScreenHeight/2 && MousePosition.x > ScreenWidth/2)
+        else if (mousePosition.y > halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //2
             Debug.Log("2");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, true);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 1, currentPlayer);
         }
-        else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x < ScreenWidth / 2)
+        else if (mousePosition.y < halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
             //3
             Debug.Log("3");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, true);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 2, currentPlayer);
         }
-        else if (MousePosition.y < ScreenHeight / 2 && MousePosition.x > ScreenWidth / 2)
+        else if (mousePosition.y < halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //4
             Debug.Log("4");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, true);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 3, currentPlayer);
         }
-
+        transform.position = _oldPos;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }
 
     
