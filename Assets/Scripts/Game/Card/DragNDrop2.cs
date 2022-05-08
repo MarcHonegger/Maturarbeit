@@ -95,25 +95,29 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             //1
             Debug.Log("1");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, currentPlayer);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 0, currentPlayer);
         } 
         else if (mousePosition.y > halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //2
             Debug.Log("2");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, currentPlayer);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 1, currentPlayer);
         }
         else if (mousePosition.y < halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
             //3
             Debug.Log("3");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, currentPlayer);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 2, currentPlayer);
         }
         else if (mousePosition.y < halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
             //4
             Debug.Log("4");
-            GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, currentPlayer);
+            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, currentPlayer);
+            PlayerManager.Instance.PlayCard(troopPrefab, 3, currentPlayer);
         }
         transform.position = _oldPos;
     }
