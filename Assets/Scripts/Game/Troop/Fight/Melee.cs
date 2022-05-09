@@ -50,7 +50,7 @@ public class Melee : MonoBehaviour
     {
         if (dieAfterAttack)
         {
-            GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
+            GameManager.Instance.troopManager.AttackTroop(new Attack(enemy, attackDamage));
             _troopHandler.Die();
             return;
         }
