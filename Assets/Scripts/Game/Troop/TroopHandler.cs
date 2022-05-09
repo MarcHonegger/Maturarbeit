@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using Unity.Mathematics;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -30,9 +31,8 @@ public class TroopHandler : MonoBehaviour
     private bool _idle;
     private TroopHandler _troopInFront;
     private readonly Vector3 _offset = new Vector3(0, 1f, 0);
-
+    public NewPlayerManager newPlayerManager;
     public bool isDead => health <= 0.001;
-
     private void Start()
     {
         _cam = FindObjectOfType<Camera>();
@@ -44,15 +44,34 @@ public class TroopHandler : MonoBehaviour
         StartMoving();
         GenerateHealthBar();
         
-        if (gameObject.CompareTag("RightPlayer"))
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
+        
     }
 
     private void Update()
     {
         UpdateHealthBarPosition();
+        if (isTagged == false)
+        {
+            NetworkIdentity netID = NetworkClient.connection.identity;
+            newPlayerManager = netID.GetComponent<NewPlayerManager>();
+            checkTagged();
+        }
+    }
+
+    private bool isTagged = false;
+
+    private void checkTagged()
+    {
+        Debug.Log("starting flipping");
+        Debug.Log(gameObject);
+        Debug.Log(gameObject.tag);
+        if (gameObject.tag != "Untagged")
+        {
+            NetworkIdentity netID = NetworkClient.connection.identity;
+            newPlayerManager = netID.GetComponent<NewPlayerManager>();
+            newPlayerManager.CmdUpdateTag(gameObject);
+            isTagged = true;
+        }
     }
 
     /*
@@ -128,12 +147,13 @@ public class TroopHandler : MonoBehaviour
     public void Die()
     {
         Debug.Log($"Died {gameObject.name}");
-     
+        NetworkIdentity netID = NetworkClient.connection.identity;
+        newPlayerManager = netID.GetComponent<NewPlayerManager>();
         StopMoving(); 
         _animator.SetTrigger(DiedAnimation);  
         Death?.Invoke();
         
-        Destroy(_healthBar.gameObject);
+        newPlayerManager.CmdDestroyTroop(_healthBar.gameObject);
         foreach (Collider c in GetComponents<Collider>())
         {
             Destroy(c);
@@ -142,13 +162,28 @@ public class TroopHandler : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        
         foreach (MonoBehaviour script in GetComponents<MonoBehaviour>())
         {
-            Destroy(script);
+            if (script != GetComponent<NetworkIdentity>() && script != GetComponent<NetworkTransform>())
+            {
+                Destroy(script);
+            }
         }
+        
+        //throw new Exception("MARC, ELI BRAUCHT HIER DEINE HILFE. DU MUSST EINE WAIT FUNKTION MACHEN, DIE NACHHER DANN DEN CODE UNTEN AUSFÜHRT!!!");
+        
+        newPlayerManager.CmdDestroyTroop(gameObject);
 
-        Destroy(gameObject, 2);
     }
+    
+
+   
+  
+
+
+
+
 
     private void GenerateHealthBar()
     {
@@ -171,3 +206,4 @@ public class TroopHandler : MonoBehaviour
     public event Action Death;
 
 }
+

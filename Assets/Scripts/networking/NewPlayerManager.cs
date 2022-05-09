@@ -16,6 +16,10 @@ public class NewPlayerManager : NetworkBehaviour
     [SerializeField] private GameObject Troop1;
     [SerializeField] private GameObject Troop2;
     [SerializeField] private GameObject Troop3;
+    [SerializeField] private GameObject Troop4;
+    [SerializeField] private GameObject Troop5;
+    [SerializeField] private GameObject Troop6;
+    [SerializeField] private GameObject Troop7;
 
     private List<GameObject> Troops = new List<GameObject>();
     // ReSharper disable Unity.PerformanceAnalysis
@@ -27,6 +31,10 @@ public class NewPlayerManager : NetworkBehaviour
         Troops.Add(Troop1);
         Troops.Add(Troop2);
         Troops.Add(Troop3);
+        Troops.Add(Troop4);
+        Troops.Add(Troop5);
+        Troops.Add(Troop6);
+        Troops.Add(Troop7);
         
     }
 
@@ -74,6 +82,7 @@ public class NewPlayerManager : NetworkBehaviour
             string temp = listing[numbering].name;
             if (temp == troopName)
             {
+                Debug.Log("Found :"+troopName +" in "+listing[numbering].name);
                 return listing[numbering];
                 
             }
@@ -95,5 +104,32 @@ public class NewPlayerManager : NetworkBehaviour
 
     }
 
+    [Command]
+    public void CmdUpdateTag(GameObject gameObject)
+    {
+        Debug.Log(gameObject.CompareTag("LeftPlayer"));
+        if (gameObject.CompareTag("RightPlayer"))
+        {
+            //GetComponent<SpriteRenderer>().flipX = true;
+                
+            //Debug.Log("before flip");
+            RpcFlipX(gameObject);
+        }
+    }
+
+    [Command]
+    public void CmdDestroyTroop(GameObject gameObject)
+    {
+        NetworkServer.Destroy(gameObject);
+    }
+
+   
+    
+    [ClientRpc]
+    public void RpcFlipX(GameObject gameObject)
+    {
+        Debug.Log("should flip");
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+    }
   
 }

@@ -3,7 +3,10 @@ guid: 231283e49e89843918e659ebad40f656
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthBarPrefab: {instanceID: 0}
+  - newPlayerManager: {instanceID: 0}
+  - waitForTime: {fileID: -3262445590901831541, guid: a2312387dd56d9f4c922ac501fe15927, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
