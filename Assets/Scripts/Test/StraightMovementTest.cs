@@ -14,7 +14,16 @@ public class StraightMovementTest : MonoBehaviour
     }
     void FixedUpdate()
     {
-        var direction = PlayerManager.Instance.GetDirection(gameObject);
-        _rigidBody.MovePosition(transform.position + Vector3.right * (0.05f * _troopHandler.currentMovementSpeed * direction));
+        int direction = PlayerManager.Instance.GetDirection(gameObject);
+        Vector3 targetPos = transform.position + Vector3.right * (_troopHandler.currentMovementSpeed * direction);
+        
+        // Check if a mate is in front of this troop
+        int bitMask = 1 << LayerMask.GetMask("Troop");
+        Ray ray = new Ray(targetPos, Vector3.right * direction);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Abs(targetPos.x - transform.position.x) + GetComponent<BoxCollider>().size.x, bitMask))
+            if(hit.transform.CompareTag(gameObject.tag))
+                return;
+        
+        _rigidBody.MovePosition(targetPos);
     }
 }

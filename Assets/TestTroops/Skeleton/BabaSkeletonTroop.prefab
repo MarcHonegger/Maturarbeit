@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyCost: 10
-  movementSpeed: 2
+  movementSpeed: 0.05
   currentMovementSpeed: 0
   ghostEffect: 0
   health: 12
