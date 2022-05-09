@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Mirror;
 using UnityEngine;
 
 public class Attack
@@ -18,6 +19,8 @@ public class Attack
 public class TroopManager : MonoBehaviour
 {
     private List<Attack> _attacks;
+    private GameManager _gameManager;
+    
 
 
     private void Start()
@@ -25,6 +28,8 @@ public class TroopManager : MonoBehaviour
         _attacks = new List<Attack>();
         InvokeRepeating(nameof(AttackPhase), 0, GameManager.Instance.tickRate);
     }
+
+    
 
     public void AttackTroop(Attack attack)
     {
