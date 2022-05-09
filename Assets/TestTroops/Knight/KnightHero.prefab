@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 3951796804929373383}
   - component: {fileID: -3944479119051905373}
   - component: {fileID: 1830484138906261887}
+  - component: {fileID: 644905127}
   m_Layer: 6
   m_Name: KnightHero
-  m_TagString: Untagged
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 6685142000718824078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8032393701407490710}
@@ -169,6 +170,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &644905127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685142000718824078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231283e49e89843918e659ebad40f656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyCost: 0
+  movementSpeed: 0
+  currentMovementSpeed: 0
+  ghostEffect: 0
+  health: 15
+  healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0
