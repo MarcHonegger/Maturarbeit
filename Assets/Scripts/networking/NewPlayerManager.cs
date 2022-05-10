@@ -9,33 +9,19 @@ using System.Net.Sockets;
 
 public class NewPlayerManager : NetworkBehaviour
 {
-    public GameObject troopPrefab;
-    public int lane = 2;
-    private GameObject troopGameObject;
-    
-    [SerializeField] private GameObject Troop1;
-    [SerializeField] private GameObject Troop2;
-    [SerializeField] private GameObject Troop3;
-    [SerializeField] private GameObject Troop4;
-    [SerializeField] private GameObject Troop5;
-    [SerializeField] private GameObject Troop6;
-    [SerializeField] private GameObject Troop7;
+    [SerializeField] private List<GameObject> troopPrefabs;
 
-    private List<GameObject> Troops = new List<GameObject>();
+    private readonly List<GameObject> _troops = new List<GameObject>();
     // ReSharper disable Unity.PerformanceAnalysis
     public override void OnStartServer()
     {
         base.OnStartServer();
         Debug.Log("Server started");
-        
-        Troops.Add(Troop1);
-        Troops.Add(Troop2);
-        Troops.Add(Troop3);
-        Troops.Add(Troop4);
-        Troops.Add(Troop5);
-        Troops.Add(Troop6);
-        Troops.Add(Troop7);
-        
+
+        foreach (var troop in troopPrefabs)
+        {
+            _troops.Add(troop);
+        }
     }
 
     
@@ -53,7 +39,7 @@ public class NewPlayerManager : NetworkBehaviour
     public void CmdSpawn(string troopName, Vector3 position, bool isLeftPlayer)
     {
         Debug.Log("looking for: "+troopName);
-        GameObject toSpawn = searching(Troops, troopName);
+        GameObject toSpawn = searching(_troops, troopName);
         GameObject troopGameObject = Instantiate(toSpawn, position, Quaternion.identity);
         NetworkServer.Spawn(troopGameObject);
         Rpctagging(troopGameObject, isLeftPlayer);
@@ -92,9 +78,9 @@ public class NewPlayerManager : NetworkBehaviour
     
     
     [Command]
-    public void CmdSpawn2()
+    public void CmdSpawn2(GameObject troop, int lane, bool isPlayerLeft)
     {
-        GameObject troopGameObject = Instantiate(troopPrefab, new Vector3(-7.5f, 2, -2), Quaternion.Euler(45f, 0, 0));
+        GameObject troopGameObject = Instantiate(troop, new Vector3(-7.5f, 2, -2), Quaternion.Euler(45f, 0, 0));
         //troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
         //troopGameObject.tag = "LeftPlayer";
         //GameObject troopGameObject2 = troopGameObject;
@@ -105,9 +91,9 @@ public class NewPlayerManager : NetworkBehaviour
     }
 
     [Command]
-    public void CmdUpdateTag(GameObject gameObject)
+    public void CmdUpdateTag(GameObject troop)
     {
-        Debug.Log(gameObject.CompareTag("LeftPlayer"));
+        Debug.Log(troop.CompareTag("LeftPlayer"));
         if (gameObject.CompareTag("RightPlayer"))
         {
             //GetComponent<SpriteRenderer>().flipX = true;
@@ -126,10 +112,10 @@ public class NewPlayerManager : NetworkBehaviour
    
     
     [ClientRpc]
-    public void RpcFlipX(GameObject gameObject)
+    public void RpcFlipX(GameObject troop)
     {
         Debug.Log("should flip");
-        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        troop.GetComponent<SpriteRenderer>().flipX = true;
     }
   
 }

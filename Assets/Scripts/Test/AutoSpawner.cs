@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 public class AutoSpawner : MonoBehaviour
@@ -13,11 +14,12 @@ public class AutoSpawner : MonoBehaviour
     // Start is called before the first frame update
     public void AutoSpawn()
     {
+        var newPlayerManager = FindObjectOfType<NewPlayerManager>();
         for (int i = 0; i < gameObjects.Count; i++)
         {
             TroopHandler troop = gameObjects[i].GetComponent<TroopHandler>();
             troop.health += healthBuffs[i];
-            GameManager.Instance.spawnManager.Spawn(troop.gameObject, lanes[i], isPlayerLeftList[i]);
+            newPlayerManager.CmdSpawn2(gameObjects[i], lanes[i], isPlayerLeftList[i]);
             troop.health -= healthBuffs[i];
         }
     }
