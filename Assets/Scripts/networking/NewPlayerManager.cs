@@ -46,6 +46,7 @@ public class NewPlayerManager : NetworkBehaviour
     [Command]
     public void CmdSpawn2(GameObject objectToSpawn)
     {
+        Debug.Log(objectToSpawn);
         NetworkServer.Spawn(objectToSpawn);
     }
 
@@ -80,13 +81,13 @@ public class NewPlayerManager : NetworkBehaviour
 
     [Command]
     public void CmdUpdateTag(GameObject troop)
-    {
+    {   Debug.Log(troop);
         Debug.Log(troop.CompareTag("LeftPlayer"));
         if (gameObject.CompareTag("RightPlayer"))
         {
             //GetComponent<SpriteRenderer>().flipX = true;
 
-            //Debug.Log("before flip");
+            Debug.Log("before flip");
             RpcFlipX(gameObject);
         }
     }
@@ -94,6 +95,7 @@ public class NewPlayerManager : NetworkBehaviour
     [Command]
     public void CmdDestroyTroop(GameObject troop)
     {
+        Debug.Log(troop);
         NetworkServer.Destroy(troop.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(troop);
     }

@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class TroopHandler : MonoBehaviour
+public class TroopHandler : NetworkBehaviour
 {
     public int energyCost;
     public float movementSpeed;
@@ -53,7 +53,7 @@ public class TroopHandler : MonoBehaviour
         {
             NetworkIdentity netID = NetworkClient.connection.identity;
             newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            // checkTagged();
+            checkTagged();
         }
     }
 
@@ -151,9 +151,11 @@ public class TroopHandler : MonoBehaviour
         StopMoving(); 
         _animator.SetTrigger(DiedAnimation);  
         Death?.Invoke();
-        
-        newPlayerManager.CmdDestroyTroop(healthBar.gameObject);
-        newPlayerManager.CmdDestroyTroop(gameObject);
+        NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
+        Debug.Log("hi");
+        NetworkServer.Destroy(gameObject);
+        //newPlayerManager.CmdDestroyTroop(healthBar.gameObject);
+        //newPlayerManager.CmdDestroyTroop(gameObject);
         foreach (Collider c in GetComponents<Collider>())
         {
             Destroy(c);
@@ -187,7 +189,16 @@ public class TroopHandler : MonoBehaviour
         
         NetworkIdentity netID = NetworkClient.connection.identity;
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
-        newPlayerManager.CmdSpawn2(healthBarGameObject);
+        //newPlayerManager.CmdSpawn2(healthBarGameObject);
+        try
+        {
+            //NetworkServer.Spawn(healthBarGameObject, connectionToClient);
+        }
+        catch
+        {
+           Debug.Log("could not spawn in health bar"); 
+        }
+        
     }
 
     private void UpdateHealthBarValue(float healthChange)
