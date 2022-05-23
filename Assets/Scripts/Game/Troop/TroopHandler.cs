@@ -13,7 +13,7 @@ public class TroopHandler : MonoBehaviour
     public float currentMovementSpeed;
     public bool ghostEffect;
     public float health;
-    private HealthBar _healthBar;
+    public HealthBar healthBar;
     public GameObject healthBarPrefab;
 
     private const int k_TroopLayer = 6;
@@ -33,6 +33,7 @@ public class TroopHandler : MonoBehaviour
     private readonly Vector3 _offset = new Vector3(0, 1f, 0);
     public NewPlayerManager newPlayerManager;
     public bool isDead => health <= 0.001;
+
     private void Start()
     {
         _cam = FindObjectOfType<Camera>();
@@ -43,8 +44,6 @@ public class TroopHandler : MonoBehaviour
 
         StartMoving();
         GenerateHealthBar();
-        
-        
     }
 
     private void Update()
@@ -54,7 +53,7 @@ public class TroopHandler : MonoBehaviour
         {
             NetworkIdentity netID = NetworkClient.connection.identity;
             newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            checkTagged();
+            // checkTagged();
         }
     }
 
@@ -153,7 +152,8 @@ public class TroopHandler : MonoBehaviour
         _animator.SetTrigger(DiedAnimation);  
         Death?.Invoke();
         
-        newPlayerManager.CmdDestroyTroop(_healthBar.gameObject);
+        newPlayerManager.CmdDestroyTroop(healthBar.gameObject);
+        newPlayerManager.CmdDestroyTroop(gameObject);
         foreach (Collider c in GetComponents<Collider>())
         {
             Destroy(c);
@@ -171,34 +171,28 @@ public class TroopHandler : MonoBehaviour
             }
         }
         
-        //throw new Exception("MARC, ELI BRAUCHT HIER DEINE HILFE. DU MUSST EINE WAIT FUNKTION MACHEN, DIE NACHHER DANN DEN CODE UNTEN AUSFÜHRT!!!");
-        
-        newPlayerManager.CmdDestroyTroop(gameObject);
-
+        Destroy(healthBar.gameObject);
+        Destroy(gameObject, 2f);
     }
-    
-
-   
-  
-
-
-
-
 
     private void GenerateHealthBar()
     {
         GameObject healthBarGameObject = Instantiate(healthBarPrefab, GameObject.Find("HealthBarFolder").transform);
 
-        _healthBar = healthBarGameObject.GetComponent<HealthBar>();
-        _healthBar.SetMaximumHealth(health);
+        healthBar = healthBarGameObject.GetComponent<HealthBar>();
+        healthBar.SetMaximumHealth(health);
 
-        _rectTransform = _healthBar.GetComponent<RectTransform>();
+        _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
+        
+        NetworkIdentity netID = NetworkClient.connection.identity;
+        newPlayerManager = netID.GetComponent<NewPlayerManager>();
+        newPlayerManager.CmdSpawn2(healthBarGameObject);
     }
 
     private void UpdateHealthBarValue(float healthChange)
     {
-        _healthBar.ChangeHealth(healthChange);
+        healthBar.ChangeHealth(healthChange);
     }
 
     private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();

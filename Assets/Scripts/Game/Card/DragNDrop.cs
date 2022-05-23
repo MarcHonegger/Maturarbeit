@@ -23,12 +23,12 @@ public class DragNDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     // Start is called before the first frame update
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log($"BeginDrag");
+        // Debug.Log($"BeginDrag");
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log($"EndDrag");
+        // Debug.Log($"EndDrag");
         LayerMask layermask = 1 << 7;
         RaycastHit hit;
         Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());

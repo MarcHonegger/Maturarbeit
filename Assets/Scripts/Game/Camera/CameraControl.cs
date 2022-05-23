@@ -19,7 +19,7 @@ public class CameraControl : MonoBehaviour
         //limiting camera movement left side
         if (cameraPosition.x <= leftEnd && Mathf.Abs(_speedInput - (-1f)) < 0.001)
         {
-            Debug.Log($"Limited Camera Left Side");
+            // Debug.Log($"Limited Camera Left Side");
             return;
         }
 
@@ -28,7 +28,7 @@ public class CameraControl : MonoBehaviour
 
     public void MoveCamera(InputAction.CallbackContext context)
     {
-        Debug.Log($"Speed is set to {context.ReadValue<float>()}");
+        // Debug.Log($"Speed is set to {context.ReadValue<float>()}");
         _speedInput = context.ReadValue<float>();
     }
 }

@@ -25,7 +25,7 @@ public class newslimespawn : MonoBehaviour
         //newSpawnButton.CmdSpawn(troopPrefab, lane, isLeftPlayer);
         NetworkIdentity netID = NetworkClient.connection.identity;
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
-        newPlayerManager.CmdSpawn2(troopPrefab, 0, true);
+        newPlayerManager.CmdSpawn2(troopPrefab);
     }
 
     
