@@ -130,6 +130,12 @@ public class TroopHandler : NetworkBehaviour
         UpdateHealthBarValue(-amount);
 
         health -= amount;
+        CheckDeath();
+    }
+
+    [Server]
+    private void CheckDeath()
+    {
         if (isDead)
         {
             Die();
@@ -150,6 +156,7 @@ public class TroopHandler : NetworkBehaviour
         _spriteRenderer.color = color;
     }
 
+    [ClientRpc]
     public void Die()
     {
         Debug.Log($"Died {gameObject.name}");
