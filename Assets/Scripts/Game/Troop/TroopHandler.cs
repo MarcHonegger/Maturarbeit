@@ -44,21 +44,27 @@ public class TroopHandler : NetworkBehaviour
 
         StartMoving();
         GenerateHealthBar();
+
+        if (gameObject.CompareTag("RightPlayer"))
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void Update()
     {
         UpdateHealthBarPosition();
+        /*
         if (isTagged == false)
         {
             NetworkIdentity netID = NetworkClient.connection.identity;
             newPlayerManager = netID.GetComponent<NewPlayerManager>();
             checkTagged();
         }
+        */
     }
-
-    private bool isTagged = false;
-
+    
+    /*
     private void checkTagged()
     {
         Debug.Log("starting flipping");
@@ -73,7 +79,6 @@ public class TroopHandler : NetworkBehaviour
         }
     }
 
-    /*
     private void CheckTroopsInFront()
     {
         if (_troopInFront.enabled)
@@ -98,7 +103,8 @@ public class TroopHandler : NetworkBehaviour
             _troopInFront = other.gameObject.GetComponent<TroopHandler>();
             InvokeRepeating(nameof(CheckTroopsInFront), 0f, 0.1f);
         }
-    }*/
+    }
+    */
 
     private Vector2 GetScreenPoint()
     {
@@ -110,11 +116,12 @@ public class TroopHandler : NetworkBehaviour
 
         return worldObjectScreenPosition;
     }
-
+    
     public void StartMoving() => currentMovementSpeed = movementSpeed;
     public void StopMoving() => currentMovementSpeed = 0;
 
     // TODO ChangeHealth()???
+    [ClientRpc]
     public void TakeDamage(float amount)
     {
         ChangeTroopDesign();

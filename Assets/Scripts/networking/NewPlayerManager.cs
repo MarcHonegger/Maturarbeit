@@ -35,12 +35,15 @@ public class NewPlayerManager : NetworkBehaviour
     [Command]
     public void CmdSpawn(string troopName, Vector3 position, bool isLeftPlayer)
     {
-        // Debug.Log("looking for: "+troopName);
-        GameObject toSpawn = searching(_troops, troopName);
-        GameObject troopGameObject = Instantiate(toSpawn, position, Quaternion.identity);
+        var toSpawn = searching(_troops, troopName);
+        toSpawn.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
+
+        var troopGameObject = Instantiate(toSpawn, position, Quaternion.identity);
+
+        troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
         NetworkServer.Spawn(troopGameObject);
+        
         Rpctagging(troopGameObject, isLeftPlayer);
-        RpcRotating(troopGameObject);
     }
 
     [Command]

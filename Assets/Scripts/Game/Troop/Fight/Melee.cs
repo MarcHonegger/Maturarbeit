@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Melee : MonoBehaviour
+public class Melee : NetworkBehaviour
 {
     public float attackRange;
     public float attackDamage;
@@ -20,6 +21,7 @@ public class Melee : MonoBehaviour
     private static readonly int StopAttackingAnimation = Animator.StringToHash("StopAttacking");
 
     // Start is called before the first frame update
+    
     void Start()
     {
         _troopHandler = GetComponent<TroopHandler>();
@@ -42,8 +44,15 @@ public class Melee : MonoBehaviour
     private void Attack()
     {
         _troopHandler.StopMoving();
-        GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
+        DealDamage();
         _animator.SetTrigger(AttackAnimation);
+    }
+
+    
+    [Server]
+    private void DealDamage()
+    {
+        GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
     }
 
     private void OnNewEnemyInRange(TroopHandler enemy)

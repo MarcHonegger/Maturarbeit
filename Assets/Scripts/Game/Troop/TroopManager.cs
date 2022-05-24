@@ -16,11 +16,11 @@ public class Attack
     public readonly float damage;
 }
 
-public class TroopManager : MonoBehaviour
+public class TroopManager : NetworkBehaviour
 {
     private List<Attack> _attacks;
     private GameManager _gameManager;
-    
+
 
 
     private void Start()
@@ -29,13 +29,14 @@ public class TroopManager : MonoBehaviour
         InvokeRepeating(nameof(AttackPhase), 0, GameManager.Instance.tickRate);
     }
 
-    
+
 
     public void AttackTroop(Attack attack)
     {
         _attacks.Add(attack);
     }
 
+    [Server]
     private void AttackPhase()
     {
         if (_attacks.Count == 0)
@@ -50,12 +51,19 @@ public class TroopManager : MonoBehaviour
             {
                 continue;
             }
-            attack.target.TakeDamage(attack.damage);
+
+            Attack(attack.target, attack.damage);
             attackLog.Append($"| {attack.target.name} ({attack.damage})");
         }
 
         _attacks.Clear();
 
         Debug.Log($"AttackPhase: {attackLog}");
+    }
+
+    [ClientRpc]
+    private void Attack(TroopHandler target, float damage)
+    {
+        target.TakeDamage(damage);
     }
 }

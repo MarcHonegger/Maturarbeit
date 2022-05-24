@@ -209,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35552245}
   - component: {fileID: 35552246}
+  - component: {fileID: 35552247}
   m_Layer: 0
   m_Name: TroopManager
   m_TagString: Untagged
@@ -243,6 +244,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dedb0e9f4bc247109c079b497575f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &35552247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35552244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 90202171
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &48784646
 GameObject:
   m_ObjectHideFlags: 0
