@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Ranged : MonoBehaviour
+public class Ranged : NetworkBehaviour
 {
     public float attackRange;
     public float attackSpeed;
@@ -57,7 +58,7 @@ public class Ranged : MonoBehaviour
         shot.GetComponent<Projectile>().endPoint = shotPoint.position.x + (attackRange + 0.5f) * _direction;
         // shot.transform.RotateAround(transform.position, Vector3.right, 45);
     }
-
+    
     private void OnNewEnemyInRange(TroopHandler enemy)
     {
         _troopHandler.StopMoving();

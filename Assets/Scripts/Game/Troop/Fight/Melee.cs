@@ -47,7 +47,6 @@ public class Melee : NetworkBehaviour
         DealDamage();
         _animator.SetTrigger(AttackAnimation);
     }
-
     
     [Server]
     private void DealDamage()

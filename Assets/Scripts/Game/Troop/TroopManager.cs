@@ -22,15 +22,15 @@ public class TroopManager : NetworkBehaviour
     private GameManager _gameManager;
 
 
-
+    
+    // TODO Start when Server Starts
     private void Start()
     {
         _attacks = new List<Attack>();
         InvokeRepeating(nameof(AttackPhase), 0, GameManager.Instance.tickRate);
     }
 
-
-
+    [Server]
     public void AttackTroop(Attack attack)
     {
         _attacks.Add(attack);
@@ -61,7 +61,7 @@ public class TroopManager : NetworkBehaviour
         Debug.Log($"AttackPhase: {attackLog}");
     }
 
-    [ClientRpc]
+    [Server]
     private void Attack(TroopHandler target, float damage)
     {
         target.TakeDamage(damage);
