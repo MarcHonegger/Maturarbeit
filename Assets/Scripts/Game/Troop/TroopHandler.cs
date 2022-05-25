@@ -194,17 +194,17 @@ public class TroopHandler : NetworkBehaviour
         _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
         
-        NetworkIdentity netID = NetworkClient.connection.identity;
-        newPlayerManager = netID.GetComponent<NewPlayerManager>();
+        // NetworkIdentity netID = NetworkClient.connection.identity;
+        // newPlayerManager = netID.GetComponent<NewPlayerManager>();
         //newPlayerManager.CmdSpawn2(healthBarGameObject);
-        try
-        {
+        // try
+        // {
             //NetworkServer.Spawn(healthBarGameObject, connectionToClient);
-        }
-        catch
-        {
-           Debug.Log("could not spawn in health bar"); 
-        }
+        // }
+        // catch
+        // {
+           // Debug.Log("could not spawn in health bar"); 
+        // }
         
     }
 
