@@ -33,7 +33,7 @@ public class RangePoint : MonoBehaviour
         var enemy = other.gameObject.GetComponent<TroopHandler>();
         enemiesInRange.AddLast(enemy);
         NewEnemyInRange?.Invoke(enemy);
-        
+
         var enemyNode = enemiesInRange.Last;
         enemyNode.Value.Death += () =>
         {
@@ -45,7 +45,7 @@ public class RangePoint : MonoBehaviour
                 NewEnemyInRange?.Invoke(enemiesInRange.First.Value);
         };
     }
-    
+
     public event Action<TroopHandler> NewEnemyInRange;
     public event Action NoEnemyInRange;
 }
