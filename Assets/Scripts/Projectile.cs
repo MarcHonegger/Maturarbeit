@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(GameObject enemy)
     {
-        GameManager.Instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), shooter, damage));
+        GameManager.Instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), shooter, damage, AttackType.Ranged));
         Destroy(gameObject);
     }
 }

@@ -7,15 +7,17 @@ using UnityEngine;
 
 public class Attack
 {
-    public Attack(TroopHandler enemy, TroopHandler troop, float damage)
+    public Attack(TroopHandler enemy, TroopHandler troop, float damage, AttackType type)
     {
         target = enemy;
         attacker = troop;
         this.damage = damage;
+        this.type = type;
     }
     public readonly TroopHandler target; 
     public readonly TroopHandler attacker; 
     public readonly float damage;
+    public readonly AttackType type;
 }
 
 public class TroopManager : NetworkBehaviour
@@ -54,7 +56,7 @@ public class TroopManager : NetworkBehaviour
                 continue;
             }
 
-            Attack(attack.target, attack.attacker , attack.damage);
+            Attack(attack.target, attack.attacker , attack.damage, attack.type);
             attackLog.Append($"| {attack.target.name} ({attack.damage})");
         }
 
@@ -64,8 +66,8 @@ public class TroopManager : NetworkBehaviour
     }
 
     [Server]
-    private void Attack(TroopHandler target, TroopHandler attacker, float damage)
+    private void Attack(TroopHandler target, TroopHandler attacker, float damage, AttackType type)
     {
-        target.TakeDamage(damage, attacker);
+        target.TakeDamage(damage, attacker, type);
     }
 }

@@ -3,8 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum AttackType
+{
+    Melee = 0, Ranged = 1
+}
 
 public class TroopHandler : NetworkBehaviour
 {
@@ -13,11 +20,14 @@ public class TroopHandler : NetworkBehaviour
     public float currentMovementSpeed;
     public bool ghostEffect;
     public float thornDamage;
+    public AttackType thornType;
     public float health;
+    public GameObject deathPrefab;
+    
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
-
-    private const int k_TroopLayer = 6;
+    private Sprite _redHealthBarFill;
+    private Sprite _greenHealthBarFill;
 
     private Camera _cam;
     private Canvas _canvas;
@@ -26,7 +36,6 @@ public class TroopHandler : NetworkBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    private static readonly int DiedAnimation = Animator.StringToHash("Died");
     private static readonly int IdleAnimation = Animator.StringToHash("Idle");
     private static readonly int StopIdleAnimation = Animator.StringToHash("StopIdle");
     private bool _idle;
@@ -42,6 +51,9 @@ public class TroopHandler : NetworkBehaviour
         _canvasRect = _canvas.GetComponent<RectTransform>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
+        _greenHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
 
         StartMoving();
         GenerateHealthBar();
@@ -74,9 +86,9 @@ public class TroopHandler : NetworkBehaviour
 
     // TODO ChangeHealth()???
     [ClientRpc]
-    public void TakeDamage(float amount, TroopHandler attacker)
+    public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
-        if(thornDamage > 0 && attacker)
+        if(thornDamage > 0 && attacker && type == thornType)
             attacker.TakeDamage(thornDamage);
         TakeDamage(amount);
     }
@@ -122,32 +134,17 @@ public class TroopHandler : NetworkBehaviour
         NetworkIdentity netID = NetworkClient.connection.identity;
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
         StopMoving(); 
-        _animator.SetTrigger(DiedAnimation);  
         Death?.Invoke();
         NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         Debug.Log("hi");
         NetworkServer.Destroy(gameObject);
-        //newPlayerManager.CmdDestroyTroop(healthBar.gameObject);
-        //newPlayerManager.CmdDestroyTroop(gameObject);
-        foreach (Collider c in GetComponents<Collider>())
-        {
-            Destroy(c);
-        }
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-        
-        foreach (MonoBehaviour script in GetComponents<MonoBehaviour>())
-        {
-            if (script != GetComponent<NetworkIdentity>() && script != GetComponent<NetworkTransform>())
-            {
-                Destroy(script);
-            }
-        }
+
+        var deathObject = Instantiate(deathPrefab, transform.position, quaternion.identity);
+        deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
+        deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
+        Destroy(deathObject, 8f);
         
         Destroy(healthBar.gameObject);
-        Destroy(gameObject, 2f);
     }
 
     private void GenerateHealthBar()
@@ -156,22 +153,10 @@ public class TroopHandler : NetworkBehaviour
 
         healthBar = healthBarGameObject.GetComponent<HealthBar>();
         healthBar.SetMaximumHealth(health);
+        healthBar.transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _greenHealthBarFill;
 
         _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
-        
-        // NetworkIdentity netID = NetworkClient.connection.identity;
-        // newPlayerManager = netID.GetComponent<NewPlayerManager>();
-        //newPlayerManager.CmdSpawn2(healthBarGameObject);
-        // try
-        // {
-            //NetworkServer.Spawn(healthBarGameObject, connectionToClient);
-        // }
-        // catch
-        // {
-           // Debug.Log("could not spawn in health bar"); 
-        // }
-        
     }
 
     private void UpdateHealthBarValue(float healthChange)
