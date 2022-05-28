@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public float shotSpeed;
     public float damage;
     private float _direction;
+    public TroopHandler shooter;
 
     private void Start()
     {
@@ -38,7 +39,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(GameObject enemy)
     {
-        GameManager.Instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), damage));
+        GameManager.Instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), shooter, damage));
         Destroy(gameObject);
     }
 }

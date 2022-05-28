@@ -56,6 +56,7 @@ public class Ranged : NetworkBehaviour
         shot.transform.tag = gameObject.tag;
         shot.transform.SetParent(_projectiles);
         shot.GetComponent<Projectile>().endPoint = shotPoint.position.x + (attackRange + 0.5f) * _direction;
+        shot.GetComponent<Projectile>().shooter = GetComponent<TroopHandler>();
         // shot.transform.RotateAround(transform.position, Vector3.right, 45);
     }
     

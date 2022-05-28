@@ -51,14 +51,14 @@ public class Melee : NetworkBehaviour
     [Server]
     private void DealDamage()
     {
-        GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, attackDamage));
+        GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, _troopHandler, attackDamage));
     }
 
     private void OnNewEnemyInRange(TroopHandler enemy)
     {
         if (dieAfterAttack)
         {
-            GameManager.Instance.troopManager.AttackTroop(new Attack(enemy, attackDamage));
+            GameManager.Instance.troopManager.AttackTroop(new Attack(enemy, _troopHandler, attackDamage));
             _troopHandler.Die();
             return;
         }

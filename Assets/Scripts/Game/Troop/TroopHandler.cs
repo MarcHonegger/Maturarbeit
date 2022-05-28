@@ -12,6 +12,7 @@ public class TroopHandler : NetworkBehaviour
     public float movementSpeed;
     public float currentMovementSpeed;
     public bool ghostEffect;
+    public float thornDamage;
     public float health;
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
@@ -54,57 +55,8 @@ public class TroopHandler : NetworkBehaviour
     private void Update()
     {
         UpdateHealthBarPosition();
-        /*
-        if (isTagged == false)
-        {
-            NetworkIdentity netID = NetworkClient.connection.identity;
-            newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            checkTagged();
-        }
-        */
+        _animator.SetTrigger(movementSpeed > 0 ? StopIdleAnimation : IdleAnimation);
     }
-    
-    /*
-    private void checkTagged()
-    {
-        Debug.Log("starting flipping");
-        Debug.Log(gameObject);
-        Debug.Log(gameObject.tag);
-        if (gameObject.tag != "Untagged")
-        {
-            NetworkIdentity netID = NetworkClient.connection.identity;
-            newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            newPlayerManager.CmdUpdateTag(gameObject);
-            isTagged = true;
-        }
-    }
-
-    private void CheckTroopsInFront()
-    {
-        if (_troopInFront.enabled)
-        {
-            if (_troopInFront.CompareTag(gameObject.tag))
-            {
-                _animator.SetTrigger(IdleAnimation);
-            }
-            StopMoving();
-        }
-        else
-        {
-            _animator.SetTrigger(StopIdleAnimation);
-            StartMoving();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == k_TroopLayer)
-        {
-            _troopInFront = other.gameObject.GetComponent<TroopHandler>();
-            InvokeRepeating(nameof(CheckTroopsInFront), 0f, 0.1f);
-        }
-    }
-    */
 
     private Vector2 GetScreenPoint()
     {
@@ -122,6 +74,13 @@ public class TroopHandler : NetworkBehaviour
 
     // TODO ChangeHealth()???
     [ClientRpc]
+    public void TakeDamage(float amount, TroopHandler attacker)
+    {
+        if(thornDamage > 0 && attacker)
+            attacker.TakeDamage(thornDamage);
+        TakeDamage(amount);
+    }
+    
     public void TakeDamage(float amount)
     {
         ChangeTroopDesign();

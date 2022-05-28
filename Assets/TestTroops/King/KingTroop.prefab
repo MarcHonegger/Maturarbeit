@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: -1922302962864248543}
   m_Layer: 6
   m_Name: KingTroop
-  m_TagString: Untagged
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,12 +137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231283e49e89843918e659ebad40f656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   energyCost: 5
   movementSpeed: 0.25
   currentMovementSpeed: 0
   ghostEffect: 0
+  thornDamage: 0
   health: 15
+  healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
+  newPlayerManager: {fileID: 0}
 --- !u!65 &3951796804929373383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,6 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbea55751960d4a449142922855690d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   attackRange: 1.5
   attackDamage: 12
   attackSpeed: 0

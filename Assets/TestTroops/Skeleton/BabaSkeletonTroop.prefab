@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 3967824987052820924}
   m_Layer: 6
   m_Name: BabaSkeletonTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   movementSpeed: 0.05
   currentMovementSpeed: 0
   ghostEffect: 0
+  thornDamage: 0
   health: 12
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
