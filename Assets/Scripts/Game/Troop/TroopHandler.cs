@@ -41,7 +41,6 @@ public class TroopHandler : NetworkBehaviour
     private bool _idle;
     private TroopHandler _troopInFront;
     private readonly Vector3 _offset = new Vector3(0, 1f, 0);
-    public NewPlayerManager newPlayerManager;
     public bool isDead => health <= 0.001;
 
     private void Start()
@@ -69,7 +68,6 @@ public class TroopHandler : NetworkBehaviour
     private void Update()
     {
         UpdateHealthBarPosition();
-        _animator.SetTrigger(movementSpeed > 0 ? StopIdleAnimation : IdleAnimation);
     }
 
     private Vector2 GetScreenPoint()
@@ -130,9 +128,6 @@ public class TroopHandler : NetworkBehaviour
     public void Die()
     {
         Debug.Log($"Died {gameObject.name}");
-        NetworkIdentity netID = NetworkClient.connection.identity;
-        newPlayerManager = netID.GetComponent<NewPlayerManager>();
-        StopMoving(); 
         Death?.Invoke();
 
         var deathObject = Instantiate(deathPrefab, transform.position, quaternion.identity);

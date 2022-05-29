@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -1730715427, guid: e9f96b06783c247199f41f192367ac60, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8627451}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -197,7 +197,6 @@ MonoBehaviour:
   deathPrefab: {fileID: 6685142000718824078, guid: 0b525bef520284dec9bf5faf6a453942, type: 3}
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
-  newPlayerManager: {fileID: 0}
 --- !u!114 &5106616436032898437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  attackRange: 2.5
+  attackRange: 3
   attackDamage: 2
   attackSpeed: 1
   dieAfterAttack: 0
