@@ -70,7 +70,7 @@ public class NewPlayerManager : NetworkBehaviour
 
 
     [ClientRpc]
-    private static void RpcTagging(GameObject troopinggameObject, bool isLeftPlayer)
+    private void RpcTagging(GameObject troopinggameObject, bool isLeftPlayer)
     {
         troopinggameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
     }

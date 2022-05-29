@@ -64,10 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  troopPrefab: {fileID: 6685142000718824078, guid: 309321cd1b9da0e46a0cabde5f2fb599, type: 3}
-  lane: 2
   troopPrefabs:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
   - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
   - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
   - {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
+  - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
