@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -7105354607688195874}
   m_Layer: 6
   m_Name: SkeletonTroop
-  m_TagString: RightPlayer
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Mirror;
 using Unity.Mathematics;
 using UnityEditor;
@@ -24,6 +25,9 @@ public class TroopHandler : NetworkBehaviour
     public GameObject deathPrefab;
     private Color _standardColor;
     
+    public GameObject revengePrefab;
+    public bool revenge;
+
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
     private Sprite _redHealthBarFill;
@@ -130,10 +134,17 @@ public class TroopHandler : NetworkBehaviour
         Debug.Log($"Died {gameObject.name}");
         Death?.Invoke();
 
-        var deathObject = Instantiate(deathPrefab, transform.position, quaternion.identity);
+        Vector3 position = transform.position;
+        GameObject deathObject = Instantiate(deathPrefab, position, quaternion.identity);
         deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
         Destroy(deathObject, 8f);
+
+        if (revenge)
+        {
+            GameObject revengeObject = Instantiate(revengePrefab, position, quaternion.identity);
+            revengeObject.tag = gameObject.tag;
+        }
         
         NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(gameObject);

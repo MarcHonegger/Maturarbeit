@@ -6,6 +6,7 @@ using Mirror;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerManager : NetworkBehaviour
 {
@@ -30,6 +31,12 @@ public class NewPlayerManager : NetworkBehaviour
         base.OnStartClient();
         SetSide();
         Debug.Log("Client started");
+    }
+
+    [ClientRpc]
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOverOverlay", LoadSceneMode.Additive);
     }
 
     [Server]

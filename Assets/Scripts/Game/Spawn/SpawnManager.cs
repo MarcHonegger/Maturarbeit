@@ -9,7 +9,7 @@ public class SpawnManager : NetworkBehaviour
     public List<SpawnPoint> spawnPoints;
     public int spawnPointAmount;
     public Vector3 spawnPointStart;
-    public Vector3 playerDistance;
+    public Vector3 spawnPointDistance;
     public Vector3 spawnPointSpacing;
     public GameObject spawnPointPrefab;
     public GameObject spawnPointParent;
@@ -22,7 +22,7 @@ public class SpawnManager : NetworkBehaviour
     {
         spawnPointParent = new GameObject("SpawnPoints");
         GenerateSpawnPoints("left", Vector3.zero);
-        GenerateSpawnPoints("right", playerDistance);
+        GenerateSpawnPoints("right", spawnPointDistance);
     }
 
     private void GenerateSpawnPoints(string player, Vector3 offset)
@@ -51,12 +51,6 @@ public class SpawnManager : NetworkBehaviour
         // SpawnPosition has to be shifted because the SpawnPoint of the troop is not 0|0|0
         var spawnOffset = troopPrefab.transform.GetChild(0).position;
 
-        /*GameObject troopGameObject = Instantiate(troopPrefab, spawnPosition - spawnOffset, Quaternion.identity);
-        troopGameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
-        troopGameObject.name = $"{troopPrefab.name} - {troopGameObject.tag}";
-
-        troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
-        */
         NetworkIdentity netID = NetworkClient.connection.identity;
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
         newPlayerManager.CmdSpawn(troopPrefab.name, spawnPosition-spawnOffset, isLeftPlayer);

@@ -6,10 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public float tickRate;
     public AudioManager audioManager;
     public SpawnManager spawnManager;
     public TroopManager troopManager;
+    
+    public float tickRate;
+    
     private void Awake()
     {
         
