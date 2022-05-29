@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Mirror;
 using Unity.Mathematics;
 using UnityEditor;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +22,7 @@ public class TroopHandler : NetworkBehaviour
     public AttackType thornType;
     public float health;
     public GameObject deathPrefab;
+    private Color _standardColor;
     
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
@@ -54,6 +54,8 @@ public class TroopHandler : NetworkBehaviour
 
         _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
         _greenHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
+
+        _standardColor = _spriteRenderer.color;
 
         StartMoving();
         GenerateHealthBar();
@@ -116,15 +118,12 @@ public class TroopHandler : NetworkBehaviour
     private void ChangeTroopDesign()
     {
         var color = _spriteRenderer.color;
-        color = new Color(color.r, color.g, color.b, 0.8f);
-        _spriteRenderer.color = color;
+        _spriteRenderer.color = new Color(color.r, color.g * 0.3f, color.b * 0.3f);
     }
 
     private void ResetTroopDesign()
     {
-        var color = _spriteRenderer.color;
-        color = new Color(color.r, color.g, color.b, 1f);
-        _spriteRenderer.color = color;
+        _spriteRenderer.color = _standardColor;
     }
 
     [ClientRpc]
@@ -135,16 +134,14 @@ public class TroopHandler : NetworkBehaviour
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
         StopMoving(); 
         Death?.Invoke();
-        NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
-        Debug.Log("hi");
-        NetworkServer.Destroy(gameObject);
 
         var deathObject = Instantiate(deathPrefab, transform.position, quaternion.identity);
         deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
         Destroy(deathObject, 8f);
         
-        Destroy(healthBar.gameObject);
+        NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
     private void GenerateHealthBar()

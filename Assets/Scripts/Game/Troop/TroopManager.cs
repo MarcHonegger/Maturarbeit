@@ -31,7 +31,7 @@ public class TroopManager : NetworkBehaviour
     private void Start()
     {
         _attacks = new List<Attack>();
-        InvokeRepeating(nameof(AttackPhase), 0, GameManager.Instance.tickRate);
+        InvokeRepeating(nameof(AttackPhase), 0, GameManager.instance.tickRate);
     }
 
     [Server]

@@ -93,31 +93,19 @@ public class DragNDrop2 : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         int halfScreenWidth = screenWidth / 2;
         if (mousePosition.y > halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
-            //1
-            Debug.Log("1");
-            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 0, currentPlayer);
-            PlayerManager.Instance.PlayCard(troopPrefab, 0, currentPlayer);
+            PlayerManager.instance.PlayCard(troopPrefab, 0);
         } 
         else if (mousePosition.y > halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
-            //2
-            Debug.Log("2");
-            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 1, currentPlayer);
-            PlayerManager.Instance.PlayCard(troopPrefab, 1, currentPlayer);
+            PlayerManager.instance.PlayCard(troopPrefab, 1);
         }
         else if (mousePosition.y < halfScreenHeight && mousePosition.x < halfScreenWidth)
         {
-            //3
-            Debug.Log("3");
-            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 2, currentPlayer);
-            PlayerManager.Instance.PlayCard(troopPrefab, 2, currentPlayer);
+            PlayerManager.instance.PlayCard(troopPrefab, 2);
         }
         else if (mousePosition.y < halfScreenHeight && mousePosition.x > halfScreenWidth)
         {
-            //4
-            Debug.Log("4");
-            // GameManager.Instance.spawnManager.Spawn(troopPrefab, 3, currentPlayer);
-            PlayerManager.Instance.PlayCard(troopPrefab, 3, currentPlayer);
+            PlayerManager.instance.PlayCard(troopPrefab, 3);
         }
         transform.position = _oldPos;
     }

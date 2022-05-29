@@ -18,6 +18,6 @@ public class CooldownTest : MonoBehaviour
     void Update()
     {
         GetComponent<Image>().color =
-            PlayerManager.Instance.currentCooldown > 0 ? onCooldownColor : readyColor;
+            PlayerManager.instance.currentCooldown > 0 ? onCooldownColor : readyColor;
     }
 }

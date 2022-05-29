@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -51,14 +50,14 @@ public class Melee : NetworkBehaviour
     [Server]
     private void DealDamage()
     {
-        GameManager.Instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, _troopHandler, attackDamage, AttackType.Melee));
+        GameManager.instance.troopManager.AttackTroop(new Attack(_rangePoint.enemiesInRange.First.Value, _troopHandler, attackDamage, AttackType.Melee));
     }
 
     private void OnNewEnemyInRange(TroopHandler enemy)
     {
         if (dieAfterAttack)
         {
-            GameManager.Instance.troopManager.AttackTroop(new Attack(enemy, _troopHandler, attackDamage, AttackType.Melee));
+            GameManager.instance.troopManager.AttackTroop(new Attack(enemy, _troopHandler, attackDamage, AttackType.Melee));
             _troopHandler.Die();
             return;
         }

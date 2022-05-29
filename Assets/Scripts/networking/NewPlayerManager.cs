@@ -28,7 +28,14 @@ public class NewPlayerManager : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+        SetSide();
         Debug.Log("Client started");
+    }
+
+    [Server]
+    public void SetSide()
+    {
+        FindObjectOfType<PlayerManager>().isLeftPlayer = true;
     }
 
     //public void CmdSpawn(GameObject troopPrefab, int lane, bool isLeftPlayer)
@@ -110,5 +117,4 @@ public class NewPlayerManager : NetworkBehaviour
         Debug.Log("should flip");
         troop.GetComponent<SpriteRenderer>().flipX = true;
     }
-
 }

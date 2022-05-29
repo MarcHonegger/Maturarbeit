@@ -33,7 +33,7 @@ public class Ranged : NetworkBehaviour
 
         _projectiles = GameObject.Find("projectiles").transform;
 
-        _direction = PlayerManager.Instance.GetDirection(gameObject);
+        _direction = PlayerManager.instance.GetDirection(gameObject);
         _animator = GetComponent<Animator>();
 
         if (_direction < 0)

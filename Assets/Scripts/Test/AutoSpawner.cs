@@ -14,12 +14,11 @@ public class AutoSpawner : MonoBehaviour
     // Start is called before the first frame update
     public void AutoSpawn()
     {
-        var newPlayerManager = FindObjectOfType<NewPlayerManager>();
         for (int i = 0; i < gameObjects.Count; i++)
         {
             TroopHandler troop = gameObjects[i].GetComponent<TroopHandler>();
             troop.health += healthBuffs[i];
-            GameManager.Instance.spawnManager.Spawn(gameObjects[i], lanes[i], isPlayerLeftList[i]);
+            GameManager.instance.spawnManager.Spawn(gameObjects[i], lanes[i], isPlayerLeftList[i]);
             troop.health -= healthBuffs[i];
         }
     }

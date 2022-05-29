@@ -2,30 +2,29 @@ using Mirror;
 using TMPro;
 using UnityEngine;
 
-public class PlayerManager :MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public float energy;
     public float energyRounded;
     public float energyGainPerSecond;
     public TextMeshProUGUI energyText;
 
-    public NewPlayerManager NewPlayerManager;
 
     [SerializeField] private float cooldownDuration;
     public float currentCooldown;
-    public SpawnManager spawnManager;
 
-    public static PlayerManager Instance;
+    public static PlayerManager instance;
+    public bool isLeftPlayer;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this);
             return;
         }
 
-        Instance = this;
+        instance = this;
     }
 
     private void Update()
@@ -44,22 +43,21 @@ public class PlayerManager :MonoBehaviour
         energyText.text = energyRounded.ToString("F1");
     }
 
-    
+
     public bool IsValidSpawn(int lane, bool isLeftPlayer) =>
-    !GameManager.Instance.spawnManager.GetSpawnPoint(lane, isLeftPlayer).isDisabled;
-    
+        !GameManager.instance.spawnManager.GetSpawnPoint(lane, isLeftPlayer).isDisabled;
+
     public bool IsPlayableCard(float energyCost) => energyCost < energy && currentCooldown <= 0;
 
-    public void PlayCard(GameObject troopPrefab, int lane, bool isLeftPlayer)
+    public void PlayCard(GameObject troopPrefab, int lane)
     {
-        
         // temporary
-        if (!IsValidSpawn(lane, isLeftPlayer))
+        if (!IsValidSpawn(lane, isLeftPlayer) || !IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
         {
             return;
         }
-        
-        GameManager.Instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
+
+        GameManager.instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
 
         var troop = troopPrefab.GetComponent<TroopHandler>();
         energy -= troop.energyCost;
@@ -70,7 +68,7 @@ public class PlayerManager :MonoBehaviour
     {
         currentCooldown = cooldownDuration;
     }
-    
+
     public int GetDirection(GameObject thing)
     {
         return thing.CompareTag("LeftPlayer") ? 1 : -1;

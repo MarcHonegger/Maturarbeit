@@ -19,7 +19,7 @@ public class RangePoint : MonoBehaviour
     public void UpdateRangeCollider(float range)
     {
         _collider.size = new Vector3(range, ySize, zSize);
-        var offset = PlayerManager.Instance.GetDirection(transform.parent.gameObject) * range / 2;
+        var offset = PlayerManager.instance.GetDirection(transform.parent.gameObject) * range / 2;
         _collider.center = new Vector3(offset, 0, 0);
     }
 

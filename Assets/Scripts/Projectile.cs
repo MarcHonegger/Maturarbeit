@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        _direction = PlayerManager.Instance.GetDirection(gameObject);
+        _direction = PlayerManager.instance.GetDirection(gameObject);
     }
 
     void FixedUpdate()
@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(GameObject enemy)
     {
-        GameManager.Instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), shooter, damage, AttackType.Ranged));
+        GameManager.instance.troopManager.AttackTroop(new Attack(enemy.GetComponent<TroopHandler>(), shooter, damage, AttackType.Ranged));
         Destroy(gameObject);
     }
 }

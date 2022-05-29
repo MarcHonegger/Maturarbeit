@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2763533082194762565}
   - component: {fileID: 8929069676767467742}
   m_Layer: 6
-  m_Name: ArcherTroopDeath
+  m_Name: KnightHeroDeath
   m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 6685142000718824078}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 4bec5213d5779477cade89ec2025799c, type: 2}
+  m_Controller: {fileID: 22100000, guid: 2bb7e54362b7e4c8cb171b2952bd8e7f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

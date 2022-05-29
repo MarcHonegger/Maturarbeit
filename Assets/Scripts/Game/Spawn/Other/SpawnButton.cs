@@ -18,9 +18,9 @@ public class SpawnButton : MonoBehaviour
         troop.transform.RotateAround(troop.transform.GetChild(0).position, Vector3.right, 45);
         */
 
-        if (PlayerManager.Instance.IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
+        if (PlayerManager.instance.IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
         {
-            PlayerManager.Instance.PlayCard(troopPrefab, lane, isLeftPlayer);
+            PlayerManager.instance.PlayCard(troopPrefab, lane);
         }
     }
 }

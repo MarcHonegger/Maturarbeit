@@ -14,7 +14,7 @@ public class StraightMovementTest : MonoBehaviour
     }
     void FixedUpdate()
     {
-        int direction = PlayerManager.Instance.GetDirection(gameObject);
+        int direction = PlayerManager.instance.GetDirection(gameObject);
         Vector3 targetPos = transform.position + Vector3.right * (_troopHandler.currentMovementSpeed * direction);
         
         // Check if a mate is in front of this troop

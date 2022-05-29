@@ -10,16 +10,15 @@ public class CameraControl : MonoBehaviour
     private float _speedInput = 0f;
     public float cameraSpeed;
     public float leftEnd;
+    public float rightEnd;
 
     void FixedUpdate()
     {
         var cameraTransform = transform;
         var cameraPosition = cameraTransform.position;
         var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f);
-        //limiting camera movement left side
-        if (cameraPosition.x <= leftEnd && Mathf.Abs(_speedInput - (-1f)) < 0.001)
+        if (cameraPosition.x <= leftEnd && _speedInput < 0 || cameraPosition.x >= rightEnd && _speedInput > 0)
         {
-            // Debug.Log($"Limited Camera Left Side");
             return;
         }
 
