@@ -159,6 +159,8 @@ MonoBehaviour:
   thornType: 0
   health: 12
   deathPrefab: {fileID: 6685142000718824078, guid: 78d9942874ef94ba494b807c91245e52, type: 3}
+  revengePrefab: {fileID: 0}
+  revenge: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!65 &3951796804929373383

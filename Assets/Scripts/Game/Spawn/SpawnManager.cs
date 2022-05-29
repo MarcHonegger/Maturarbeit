@@ -40,8 +40,6 @@ public class SpawnManager : NetworkBehaviour
             spawnPoints.Add(spawnPointGameObject.GetComponent<SpawnPoint>());
 
             currentPosition += spawnPointSpacing;
-            
-            
         }
     }
 
@@ -53,7 +51,7 @@ public class SpawnManager : NetworkBehaviour
 
         NetworkIdentity netID = NetworkClient.connection.identity;
         newPlayerManager = netID.GetComponent<NewPlayerManager>();
-        newPlayerManager.CmdSpawn(troopPrefab.name, spawnPosition-spawnOffset, isLeftPlayer);
+        newPlayerManager.CmdSpawn(troopPrefab.name, spawnPosition - spawnOffset, isLeftPlayer);
     }
 
     private SpawnPoint GetLeftSpawnPoint(int lane) => spawnPoints[lane];

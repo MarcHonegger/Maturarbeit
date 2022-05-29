@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KingAttack
+  m_Name: MushroomAttack
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,21 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 1866899056, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.083333336
+    - time: 0.016666668
       value: {fileID: -439121939, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.18333334
+    - time: 0.1
       value: {fileID: 390075089, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.26666668
+    - time: 0.15
       value: {fileID: -1625071299, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.35
+    - time: 0.18333334
       value: {fileID: 442412496, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.45
+    - time: 0.23333333
       value: {fileID: -422541092, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.53333336
+    - time: 0.31666666
       value: {fileID: 1747465146, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
-    - time: 0.6333333
+    - time: 0.33333334
+      value: {fileID: -1286884685, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
+    - time: 0.5
       value: {fileID: -1286884685, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
     attribute: m_Sprite
     path: 
@@ -62,12 +64,13 @@ AnimationClip:
     - {fileID: -422541092, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
     - {fileID: 1747465146, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
     - {fileID: -1286884685, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
+    - {fileID: -1286884685, guid: d85e24a355d8d4ba9b5d809e44b8d212, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.65
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

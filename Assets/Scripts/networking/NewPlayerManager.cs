@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Mirror;
 using System.Net;
@@ -49,7 +50,7 @@ public class NewPlayerManager : NetworkBehaviour
     [Command]
     public void CmdSpawn(string troopName, Vector3 position, bool isLeftPlayer)
     {
-        var toSpawn = searching(_troops, troopName);
+        var toSpawn = Searching(_troops, troopName);
         toSpawn.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
 
         var troopGameObject = Instantiate(toSpawn, position, Quaternion.identity);
@@ -57,7 +58,7 @@ public class NewPlayerManager : NetworkBehaviour
         troopGameObject.transform.RotateAround(troopGameObject.transform.GetChild(0).position, Vector3.right, 45);
         NetworkServer.Spawn(troopGameObject);
         
-        Rpctagging(troopGameObject, isLeftPlayer);
+        RpcTagging(troopGameObject, isLeftPlayer);
     }
 
     [Command]
@@ -69,59 +70,13 @@ public class NewPlayerManager : NetworkBehaviour
 
 
     [ClientRpc]
-    public void Rpctagging(GameObject troopinggameObject, bool isLeftPlayer)
+    private static void RpcTagging(GameObject troopinggameObject, bool isLeftPlayer)
     {
         troopinggameObject.tag = isLeftPlayer ? "LeftPlayer" : "RightPlayer";
     }
 
-    [ClientRpc]
-    public void RpcRotating(GameObject troopinggameObject)
+    private GameObject Searching(List<GameObject> listing, string troopName)
     {
-        troopinggameObject.transform.RotateAround(troopinggameObject.transform.GetChild(0).position, Vector3.right, 45);
-    }
-
-    public GameObject searching(List<GameObject> listing, string troopName)
-    {
-        Debug.Log("listing name: " + listing[0].name);
-        Debug.Log("Searching name " + troopName);
-        for (int numbering = 0; numbering < listing.Count; numbering++)
-        {
-            string temp = listing[numbering].name;
-            if (temp == troopName)
-            {
-                Debug.Log("Found :" + troopName + " in " + listing[numbering].name);
-                return listing[numbering];
-            }
-        }
-        throw new Exception("couldn't find anything");
-    }
-
-    [Command]
-    public void CmdUpdateTag(GameObject troop)
-    {   Debug.Log(troop);
-        Debug.Log(troop.CompareTag("LeftPlayer"));
-        if (gameObject.CompareTag("RightPlayer"))
-        {
-            //GetComponent<SpriteRenderer>().flipX = true;
-
-            Debug.Log("before flip");
-            RpcFlipX(gameObject);
-        }
-    }
-
-    [Command]
-    public void CmdDestroyTroop(GameObject troop)
-    {
-        Debug.Log(troop);
-        NetworkServer.Destroy(troop.GetComponent<TroopHandler>().healthBar.gameObject);
-        NetworkServer.Destroy(troop);
-    }
-
-
-    [ClientRpc]
-    public void RpcFlipX(GameObject troop)
-    {
-        Debug.Log("should flip");
-        troop.GetComponent<SpriteRenderer>().flipX = true;
+        return listing.Find(prefab => prefab.name == troopName);
     }
 }
