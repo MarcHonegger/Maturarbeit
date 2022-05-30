@@ -10,17 +10,17 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     
     private Sprite _redHealthBarFill;
-    private Sprite _greenHealthBarFill;
+    private Sprite _blueHealthBarFill;
 
     private void Start()
     {
         _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
-        _greenHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/BlueFill");
+        _blueHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/BlueFill");
         ResetColor();
     }
     public void ResetColor()
     {
-        transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _greenHealthBarFill;
+        transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _blueHealthBarFill;
     }
 
     public void SetMaximumHealth(float maximum)

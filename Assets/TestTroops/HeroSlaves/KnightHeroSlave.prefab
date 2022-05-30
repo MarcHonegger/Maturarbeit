@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 644905127}
   - component: {fileID: 5106616436032898437}
   - component: {fileID: 3176494812379156634}
+  - component: {fileID: -6526904674905921603}
+  - component: {fileID: -982900177195404184}
   m_Layer: 6
   m_Name: KnightHeroSlave
   m_TagString: LeftPlayer
@@ -189,13 +191,8 @@ MonoBehaviour:
   energyCost: 0
   movementSpeed: 0
   currentMovementSpeed: 0
-  ghostEffect: 0
-  thornDamage: 1
-  thornType: 1
-  health: 8
+  health: 25
   deathPrefab: {fileID: 6685142000718824078, guid: 0b525bef520284dec9bf5faf6a453942, type: 3}
-  revengePrefab: {fileID: 599366575436683681, guid: 57739707aae6b4f4ab4ad167048633a4, type: 3}
-  revenge: 1
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!114 &5106616436032898437
@@ -230,9 +227,36 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   attackRange: 3
-  attackDamage: 2
-  attackSpeed: 1
+  attackDamage: 4
+  attackSpeed: 1.5
   dieAfterAttack: 0
+--- !u!114 &-6526904674905921603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685142000718824078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8799bc5d74ca74bbca50d6e670df131d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTypes: 1
+  damage: 2
+--- !u!114 &-982900177195404184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685142000718824078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411136be15f984bb695af11c83befda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revengePrefab: {fileID: 599366575436683681, guid: 57739707aae6b4f4ab4ad167048633a4, type: 3}
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0

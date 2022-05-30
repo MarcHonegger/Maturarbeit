@@ -8,26 +8,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum AttackType
-{
-    Melee = 0, Ranged = 1
-}
 
 public class TroopHandler : NetworkBehaviour
 {
     public int energyCost;
     public float movementSpeed;
     public float currentMovementSpeed;
-    public bool ghostEffect;
-    public float thornDamage;
-    public AttackType thornType;
     public float health;
     public GameObject deathPrefab;
     private Color _standardColor;
     
-    public GameObject revengePrefab;
-    public bool revenge;
-
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
 
@@ -86,7 +76,7 @@ public class TroopHandler : NetworkBehaviour
     [ClientRpc]
     public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
-        DamageTaken?.Invoke(attacker);
+        DamageTaken?.Invoke(attacker, type);
         TakeDamage(amount);
     }
     
@@ -129,17 +119,11 @@ public class TroopHandler : NetworkBehaviour
         Death?.Invoke();
 
         Vector3 position = transform.position;
-        GameObject deathObject = Instantiate(deathPrefab, position, quaternion.identity);
+        GameObject deathObject = Instantiate(deathPrefab, position, Quaternion.identity);
         deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
-        Destroy(deathObject, 8f);
+        Destroy(deathObject, 4f);
 
-        if (revenge)
-        {
-            GameObject revengeObject = Instantiate(revengePrefab, position, quaternion.identity);
-            revengeObject.tag = gameObject.tag;
-        }
-        
         NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(gameObject);
     }
@@ -163,7 +147,7 @@ public class TroopHandler : NetworkBehaviour
 
     private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();
 
-    public event Action<TroopHandler> DamageTaken;
+    public event Action<TroopHandler, AttackType> DamageTaken;
     public event Action Death;
 
 }
