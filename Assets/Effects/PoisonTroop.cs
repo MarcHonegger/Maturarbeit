@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PoisonTroop : MonoBehaviour
 {
-    public Poison poison;
+    private TroopHandler _troopHandler;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        _troopHandler = GetComponent<TroopHandler>();
+        _troopHandler.DamageTaken += OnDamageTaken;
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnDamageTaken(TroopHandler attacker)
     {
-        
+        attacker.gameObject.AddComponent<Poison>();
     }
 }

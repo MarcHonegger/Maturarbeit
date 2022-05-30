@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6626903764973960469}
   m_Layer: 6
   m_Name: MushroomTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5236d2242b7504e0f8c74c42c1d20431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poison: {fileID: 0}
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0

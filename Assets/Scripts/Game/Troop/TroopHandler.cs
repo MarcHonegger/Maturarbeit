@@ -30,8 +30,6 @@ public class TroopHandler : NetworkBehaviour
 
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
-    private Sprite _redHealthBarFill;
-    private Sprite _greenHealthBarFill;
 
     private Camera _cam;
     private Canvas _canvas;
@@ -54,9 +52,6 @@ public class TroopHandler : NetworkBehaviour
         _canvasRect = _canvas.GetComponent<RectTransform>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
-        _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
-        _greenHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
 
         _standardColor = _spriteRenderer.color;
 
@@ -155,7 +150,7 @@ public class TroopHandler : NetworkBehaviour
 
         healthBar = healthBarGameObject.GetComponent<HealthBar>();
         healthBar.SetMaximumHealth(health);
-        healthBar.transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _greenHealthBarFill;
+        healthBar.tag = gameObject.tag;
 
         _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
