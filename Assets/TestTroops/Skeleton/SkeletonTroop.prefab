@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -7105354607688195874}
   m_Layer: 6
   m_Name: SkeletonTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,8 @@ MonoBehaviour:
   thornType: 0
   health: 3
   deathPrefab: {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
+  revengePrefab: {fileID: 0}
+  revenge: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!65 &3951796804929373383

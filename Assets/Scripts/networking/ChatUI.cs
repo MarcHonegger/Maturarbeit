@@ -16,9 +16,10 @@ namespace Mirror.Examples.Chat
         public string localPlayerName;
 
         Dictionary<NetworkConnectionToClient, string> connNames = new Dictionary<NetworkConnectionToClient, string>();
-
+        private bool clientName;
         public static ChatUI instance;
-
+        private string name;
+        
         void Awake()
         {
             instance = this;
@@ -27,10 +28,21 @@ namespace Mirror.Examples.Chat
         [Command(requiresAuthority = false)]
         public void CmdSend(string message, NetworkConnectionToClient sender = null)
         {
-            Debug.Log("in CmdSend");
             if (!connNames.ContainsKey(sender))
             {
-                connNames.Add(sender, sender.identity.GetComponent<Player>().playerName);
+                
+                if (isLocalPlayer)
+                {
+                    name = "Player Left";
+                }
+                else
+                {
+                    name = "Player Right";
+                }
+                
+                Debug.Log(sender.identity.GetComponent<PlayerManager>().isLeftPlayer);
+                
+                connNames.Add(sender, name);
             }
 
             if (!string.IsNullOrWhiteSpace(message))
@@ -38,7 +50,7 @@ namespace Mirror.Examples.Chat
                 RpcReceive(connNames[sender], message.Trim());
             }
         }
-
+        
         [ClientRpc]
         public void RpcReceive(string playerName, string message)
         {
@@ -47,16 +59,8 @@ namespace Mirror.Examples.Chat
                 $"<color=blue>{playerName}:</color> {message}";
             AppendMessage(prettyMessage);
         }
-
-        // Called by UI element MessageField.OnEndEdit
-        public void OnEndEdit(string input)
-        {
-            //if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetButtonDown("Submit"))
-                //SendMessage();
-                Debug.Log("OnEndEdit");
-        }
-
-        // Called by OnEndEdit above and UI element SendButton.OnClick
+        
+        // Called by UI element SendButton.OnClick
         public void SendMessage()
         {
             if (!string.IsNullOrWhiteSpace(chatMessage.text))
