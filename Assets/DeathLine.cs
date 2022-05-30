@@ -16,7 +16,7 @@ public class DeathLine : MonoBehaviour
             Debug.Log("DeathLine");
             NetworkIdentity netID = NetworkClient.connection.identity;
             newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            newPlayerManager.GameOver();
+            newPlayerManager.RpcGameOver();
         }
     }
 }

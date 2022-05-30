@@ -7,6 +7,7 @@ using Mirror;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using UnityEditorInternal.Profiling;
 using UnityEngine.SceneManagement;
 
 public class NewPlayerManager : NetworkBehaviour
@@ -35,9 +36,9 @@ public class NewPlayerManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void GameOver()
+    public void RpcGameOver()
     {
-        SceneManager.LoadScene("GameOverOverlay", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("GameOverOverlay", LoadSceneMode.Single);
     }
 
     [Server]
