@@ -39,8 +39,9 @@ namespace Mirror.Examples.Chat
                 {
                     name = "Player Right";
                 }
+                name = "Debug Player Name";
                 
-                Debug.Log(sender.identity.GetComponent<PlayerManager>().isLeftPlayer);
+                //Debug.Log(sender.identity.GetComponent<PlayerManager>().isLeftPlayer);
                 
                 connNames.Add(sender, name);
             }
