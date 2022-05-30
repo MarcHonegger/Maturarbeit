@@ -88,15 +88,14 @@ public class TroopHandler : NetworkBehaviour
     public void StartMoving() => currentMovementSpeed = movementSpeed;
     public void StopMoving() => currentMovementSpeed = 0;
 
-    // TODO ChangeHealth()???
     [ClientRpc]
     public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
-        if(thornDamage > 0 && attacker && type == thornType)
-            attacker.TakeDamage(thornDamage);
+        DamageTaken?.Invoke(attacker);
         TakeDamage(amount);
     }
     
+    [ClientRpc]
     public void TakeDamage(float amount)
     {
         ChangeTroopDesign();
@@ -169,6 +168,7 @@ public class TroopHandler : NetworkBehaviour
 
     private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();
 
+    public event Action<TroopHandler> DamageTaken;
     public event Action Death;
 
 }
