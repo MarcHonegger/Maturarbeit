@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2195932e79dfe489996eb735533f430f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickRate: 2
-  damage: 1
-  duration: 3
+  tickRate: 1
+  damage: 1.5
+  duration: 5
   poisonId: 0

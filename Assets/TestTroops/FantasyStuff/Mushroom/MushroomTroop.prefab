@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 6626903764973960469}
   m_Layer: 6
   m_Name: MushroomTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,8 +145,6 @@ MonoBehaviour:
   currentMovementSpeed: 0
   health: 20
   deathPrefab: {fileID: 6685142000718824078, guid: c66b00672b73d497189cda0f21d9f4e8, type: 3}
-  revengePrefab: {fileID: 0}
-  revenge: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!65 &3951796804929373383

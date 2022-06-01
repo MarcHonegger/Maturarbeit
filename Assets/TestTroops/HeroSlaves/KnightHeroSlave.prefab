@@ -228,7 +228,7 @@ MonoBehaviour:
   syncInterval: 0.1
   attackRange: 3
   attackDamage: 4
-  attackSpeed: 1.5
+  attackSpeed: 2
   dieAfterAttack: 0
 --- !u!114 &-6526904674905921603
 MonoBehaviour:
