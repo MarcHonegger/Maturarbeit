@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftPlayer
   - RightPlayer
+  - Debuff
   layers:
   - Default
   - TransparentFX
