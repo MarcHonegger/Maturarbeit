@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1176012555850750164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40.081608, y: 1.841465, z: -1.8911419}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,6 @@ MonoBehaviour:
   endPoint: 0
   shotSpeed: 0.5
   damage: 1
-  shooter: {fileID: 0}
 --- !u!65 &7822684404523990124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,5 +112,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.35, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.375, y: 1, z: 1}
+  m_Center: {x: 0.8, y: 0, z: 0}

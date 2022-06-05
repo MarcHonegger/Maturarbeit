@@ -37,8 +37,6 @@ public class SpawnManager : NetworkBehaviour
             spawnPointGameObject.gameObject.GetComponent<BoxCollider>().size = spawnAreaSize;
             spawnPointGameObject.transform.Rotate(new Vector3(45, 0, 0));
             spawnPointGameObject.name = $"SpawnPoint {player} ({s})";
-            if (player == "left")
-                spawnPointGameObject.GetComponent<SpriteRenderer>().flipX = true;
             spawnPoints.Add(spawnPointGameObject.GetComponent<SpawnPoint>());
 
             currentPosition += spawnPointSpacing;

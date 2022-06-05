@@ -8,18 +8,30 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum AttackType
+{
+    Melee = 0, Ranged = 1
+}
 
 public class TroopHandler : NetworkBehaviour
 {
     public int energyCost;
     public float movementSpeed;
     public float currentMovementSpeed;
+    public bool ghostEffect;
+    public float thornDamage;
+    public AttackType thornType;
     public float health;
     public GameObject deathPrefab;
     private Color _standardColor;
     
+    public GameObject revengePrefab;
+    public bool revenge;
+
     public HealthBar healthBar;
     public GameObject healthBarPrefab;
+    private Sprite _redHealthBarFill;
+    private Sprite _greenHealthBarFill;
 
     private Camera _cam;
     private Canvas _canvas;
@@ -42,6 +54,9 @@ public class TroopHandler : NetworkBehaviour
         _canvasRect = _canvas.GetComponent<RectTransform>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
+        _greenHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
 
         _standardColor = _spriteRenderer.color;
 
@@ -73,14 +88,15 @@ public class TroopHandler : NetworkBehaviour
     public void StartMoving() => currentMovementSpeed = movementSpeed;
     public void StopMoving() => currentMovementSpeed = 0;
 
+    // TODO ChangeHealth()???
     [ClientRpc]
     public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
-        DamageTaken?.Invoke(attacker, type);
+        if(thornDamage > 0 && attacker && type == thornType)
+            attacker.TakeDamage(thornDamage);
         TakeDamage(amount);
     }
     
-    [ClientRpc]
     public void TakeDamage(float amount)
     {
         ChangeTroopDesign();
@@ -119,11 +135,17 @@ public class TroopHandler : NetworkBehaviour
         Death?.Invoke();
 
         Vector3 position = transform.position;
-        GameObject deathObject = Instantiate(deathPrefab, position, Quaternion.identity);
+        GameObject deathObject = Instantiate(deathPrefab, position, quaternion.identity);
         deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
-        Destroy(deathObject, 4f);
+        Destroy(deathObject, 8f);
 
+        if (revenge)
+        {
+            GameObject revengeObject = Instantiate(revengePrefab, position, quaternion.identity);
+            revengeObject.tag = gameObject.tag;
+        }
+        
         NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(gameObject);
     }
@@ -134,7 +156,7 @@ public class TroopHandler : NetworkBehaviour
 
         healthBar = healthBarGameObject.GetComponent<HealthBar>();
         healthBar.SetMaximumHealth(health);
-        healthBar.tag = gameObject.tag;
+        healthBar.transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _greenHealthBarFill;
 
         _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
@@ -147,7 +169,6 @@ public class TroopHandler : NetworkBehaviour
 
     private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();
 
-    public event Action<TroopHandler, AttackType> DamageTaken;
     public event Action Death;
 
 }

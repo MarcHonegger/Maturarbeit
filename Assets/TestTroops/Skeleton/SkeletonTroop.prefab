@@ -155,6 +155,9 @@ MonoBehaviour:
   energyCost: 5
   movementSpeed: 0.3
   currentMovementSpeed: 0
+  ghostEffect: 0
+  thornDamage: 0
+  thornType: 0
   health: 3
   deathPrefab: {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
   healthBar: {fileID: 0}

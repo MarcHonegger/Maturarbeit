@@ -14,7 +14,7 @@ public class HeroRevenge : MonoBehaviour
     {
         _revengePrefab = gameObject;
         Invoke(nameof(Respawn), speed);
-        Destroy(gameObject, 1.75f);
+        Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter(Collider other)
