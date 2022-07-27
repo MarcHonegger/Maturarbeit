@@ -1,0 +1,72 @@
+% Maturarbeit game documentation
+
+\documentclass[11pt, oneside, a4paper]{book}
+
+\usepackage[german]{babel} 
+
+\input{custom}
+
+\makeglossaries
+
+\input{glossary}
+
+\hypersetup{
+    pdfauthor={Marc Honegger, Elia Schürpf},
+    pdftitle={Maturarbeit Game Documentation},
+}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\frontmatter
+
+\input{title-page}
+\input{01_extract/main}
+\tableofcontents
+
+\mainmatter
+
+\part{Ziel}
+\input{02_ziel/01_vision}
+\input{02_ziel/02_anforderungen}
+\input{02_ziel/03_skizzen}
+\input{02_ziel/04_risiko}
+\input{02_ziel/05_roadmap}
+
+\part{Produkt}
+\input{03_produkt/01_heutige-stand}
+\input{03_produkt/02_architektur}
+\input{03_produkt/03_feedback}
+\input{03_produkt/04_Zukunft}
+
+\part{Schwierigkeiten}
+\input{04_schwierigkeiten/01_technologien}
+\input{04_schwierigkeiten/02_team-management}
+\input{04_schwierigkeiten/03_time-management}
+
+\part{Reflexion}
+\input{05_reflexion/01_sind-wir-zufrieden}
+\input{05_reflexion/02_marc}
+\input{05_reflexion/03_elia}
+\input{05_reflexion/04_naechstes-mal}
+
+
+% Note: The project proposal needs to be included in the following way (i.e. using `\input` and not `\include`, and with the `\chapter` declaration outside the input{}-tag), since the proposal can also be generated as a stand-alone document.
+% \chapter{Initial Project Proposal}
+% \input{03_project-documentation/01_project-proposal}
+
+% Ensure all entries are printed, even if not referenced
+\glsaddall
+\printglossary
+\newpage
+
+\addcontentsline{toc}{chapter}{Bibliography}
+
+% Ensure all citations are printed, even if not referenced
+\nocite{*}
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+\end{document}

@@ -1,0 +1,128 @@
+\chapter{Quality Measures}
+
+\section{Working with Git}
+\begin{itemize}
+    \item We use conventional commits
+    \item We use Merge Requests in GitLab, direct pushes to master are forbidden
+    \item We rebase our commits locally and create a merge commit when merging into master
+\end{itemize}
+
+\section{Definition of Done (DoD)}
+
+\subsection{Feature (Defect / Story)}
+\begin{itemize}
+    \item Acceptance criteria / issue of user story is met
+    \item Code follows best practices and guidelines
+    \item No TODOs without an issue number are allowed
+    \item Project builds without errors or warnings
+    \item Tests are written and all tests are passing
+    \item Peer Code Review performed
+    \item Project deployed on the test environment identical to the production platform
+    \item Documentation updated
+    \item Associated with epic and release
+    \item Hours worked on are logged correctly
+\end{itemize}
+
+\subsection{Sprint}
+\begin{itemize}
+    \item DoD of each item included in the sprint is met
+    \item Product backlog updated
+    \item Sprint has a defined goal
+    \item Sprint marked as ready for the production deployment by the Product Owner
+\end{itemize}
+
+\subsection{Release}
+\begin{itemize}
+    \item Release is documented and all continuing tasks are associated
+    \item Code complete
+    \item Environments are prepared for release
+    \item QA is done \& all issues resolved
+    \item Manual tests pass
+    \item Check that no unfinished work has been left in any development or staging environment.
+\end{itemize}
+
+\section{Definition of Ready (DoR)}
+
+\subsection{Defect}
+\begin{itemize}
+    \item Steps to reproduce
+    \item Severity
+    \item Screenshots
+\end{itemize}
+
+\subsection{Story}
+\begin{itemize}
+    \item Use-Case (e.g.\ view current score)
+    \item Estimate
+    \item Epic link
+    \item Acceptance criteria list specified
+    \item Should be doable within a week, otherwise try to split it
+\end{itemize}
+
+\section{Test Concept}
+\subsection{Unit Tests}
+\begin{itemize}
+    \item Business Logic will be unit tested
+    \item Runs on every push to GitLab, merging is blocked until failing tests are fixed
+    \item Automated
+\end{itemize}
+
+\subsection{Integration Tests}
+\begin{itemize}
+    \item Framework / technology dependent code will be integration tested
+    \item Runs on every push to GitLab, merging is blocked until failing tests are fixed
+    \item The web API layer is tested by using \href{https://ktor.io/docs/testing.html}{Ktor testing}, allowing us to verify our REST endpoints
+    \item The data access layer is tested by using \href{https://www.testcontainers.org/}{Testcontainers}, allowing us to use a real PostgreSQL DB in our tests
+    \item Automated
+\end{itemize}
+
+\subsection{Usability Tests (See Chapter~\ref{ch:uxtesting})}
+\begin{itemize}
+    \item Project will be given to multiple people for testing (hallway testing)
+    \item Testers should be able to use website without having to ask any questions
+    \item Manual
+\end{itemize}
+
+\subsection{System Tests}
+\begin{itemize}
+    \item How full System works together - how components interact
+    \item Influenced by usability testing
+    \item Manual
+    \item \href{https://www.cypress.io}{Cypress} was evaluated for automated end-to-end testing, but we came to the conclusion that our time is better invested in manual usability testing and actually improving our app.
+\end{itemize}
+
+\section{Continuous Integration and Deployment}
+We use GitLab for continuous integration and have a pipeline which runs on every commit and builds both frontend and backend.
+For the backend, tests are run and a linter for the frontend.
+If all jobs succeed, a Docker image is built, pushed to the registry and tagged with the current branch name.
+Once a merge request is merged into the master branch the pipeline is run again and a Docker image tagged with latest is built.
+If that succeeds the new image is automatically deployed to our staging environment with the option to deploy to production with a single click in GitLab.
+See also~\nameref{sec:architecture_deployment}.
+
+\section{Code Quality Tools}
+We have chosen to integrate the following code quality tools to ensure proper achievement of the following NFRs (See Chapter~\ref{sec:NFR}):
+\begin{itemize}
+    \item NFR-13: Code Base Understanding
+    \item NFR-14: Test-Coverage
+    \item NFR-16: Lighthouse categories are acceptable
+\end{itemize}
+
+\subsection{Qodana}
+To ensure the integrity of our code we have integrated Qodana into our CI pipeline.
+We decided to use Qodana instead of Sonar to avoid the problem of self-hosting.
+Other reasons we decided Qodana was a reasonable choice are the easy integration into our CI pipeline and IntelliJ and also qodana works well with all our other used technologies.
+For our Backend, we have the Qodana JVM linter, which statically analyzes our Backend (Kotlin \& Java) code.
+Concretely, code smells, potential bugs, dead code and general improvements in the overall code structure are reported.
+For our Frontend (Vue \& TypeScript), we use Qodana JS, which is based on Webstorm's linters.
+
+\subsection{Lighthouse}
+We have also integrated \href{https://github.com/GoogleChrome/lighthouse-ci}{Lighthouse CI} to get a performance overview.
+We decided on Lighthouse CI because it's established in the industry and provides an in depth analysis.
+A single Lighthouse report provides a snapshot of a web page's performance at the time that it is run.
+Failing sections of the Lighthouse report indicate where improvements should be made.
+
+\subsection{Kover}
+To be able to test our Test-Coverage of 80\% we integrated \href{https://github.com/Kotlin/kotlinx-kover}{Kover}.
+Because Kover is a Gradle plugin for native Kotlin code coverage, it encouraged us to use it based on its easy setup.
+It's important to note that Kover is still in its incubator phase, however multiple reviews have shown promising results, which is why we decided it was fitting for our Kotlin setup.
+We have integrated a job in our CI pipeline that fails if the code coverage doesn't reach our specified minimum and provides a Kover Code Coverage Report, showing where the coverage needs to be improved.
