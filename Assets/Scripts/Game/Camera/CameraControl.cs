@@ -8,9 +8,15 @@ using UnityEngine.InputSystem;
 public class CameraControl : MonoBehaviour
 {
     private float _speedInput = 0f;
+    private Camera _cam;
     public float cameraSpeed;
     public float leftEnd;
     public float rightEnd;
+
+    private void Start()
+    {
+        _cam = GetComponent<Camera>();
+    }
 
     void FixedUpdate()
     {
@@ -29,5 +35,11 @@ public class CameraControl : MonoBehaviour
     {
         // Debug.Log($"Speed is set to {context.ReadValue<float>()}");
         _speedInput = context.ReadValue<float>();
+    }
+    
+    public void ChangeZoom(InputAction.CallbackContext context)
+    {
+        // Debug.Log($"Speed is set to {context.ReadValue<float>()}");
+        _cam.fieldOfView = 5;
     }
 }

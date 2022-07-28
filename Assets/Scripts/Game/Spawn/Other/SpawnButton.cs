@@ -20,7 +20,7 @@ public class SpawnButton : MonoBehaviour
 
         if (PlayerManager.instance.IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
         {
-            PlayerManager.instance.PlayCard(troopPrefab, lane);
+            PlayerManager.instance.PlayCard(troopPrefab, lane, null);
         }
     }
 }

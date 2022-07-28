@@ -49,7 +49,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool IsPlayableCard(float energyCost) => energyCost < energy && currentCooldown <= 0;
 
-    public void PlayCard(GameObject troopPrefab, int lane)
+    public void PlayCard(GameObject troopPrefab, int lane, GameObject playedCard)
     {
         // temporary
         if (!IsValidSpawn(lane, isLeftPlayer) || !IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
+        Destroy(playedCard);
         GameManager.instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
 
         var troop = troopPrefab.GetComponent<TroopHandler>();
