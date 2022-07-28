@@ -23,11 +23,12 @@ public class Thorn : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     private void OnDamageTaken(TroopHandler attacker, AttackType type)
     {
         if(type == AttackType.Effect || !attacker)
             return;
         if(type == attackTypes)
-            attacker.TakeDamage(damage);
+            GameManager.instance.troopManager.AttackTroop(new Attack(attacker, null, damage, AttackType.Effect));
     }
 }

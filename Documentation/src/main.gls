@@ -1,0 +1,59 @@
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{A}\relax \glsresetentrylist %
+\glossentry{acorns}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{26}}}\glsgroupskip
+\glsgroupheading{B}\relax \glsresetentrylist %
+\glossentry{bells}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{26}}}%
+\glossentry{bottoms-up}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimR 26}}}\glsgroupskip
+\glsgroupheading{C}\relax \glsresetentrylist %
+\glossentry{coiffeur-jass}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimR 26}}}%
+\glossentry{contract}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimR 26}}}\glsgroupskip
+\glsgroupheading{G}\relax \glsresetentrylist %
+\glossentry{game}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}%
+\glossentry{guschti}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimN 25}}}\glsgroupskip
+\glsgroupheading{J}\relax \glsresetentrylist %
+\glossentry{jass}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{2}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{24\delimN 25}}}%
+\glossentry{jass-table}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}%
+\glossentry{joker}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}\glsgroupskip
+\glsgroupheading{P}\relax \glsresetentrylist %
+\glossentry{pass}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}\glsgroupskip
+\glsgroupheading{R}\relax \glsresetentrylist %
+\glossentry{roses}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{26}}}%
+\glossentry{round}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}\glsgroupskip
+\glsgroupheading{S}\relax \glsresetentrylist %
+\glossentry{score}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}%
+\glossentry{scoreboard}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}%
+\glossentry{shields}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{26}}}%
+\glossentry{slalom}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimN 25}}}%
+\glossentry{swiss-suited-cards}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24}}}\glsgroupskip
+\glsgroupheading{T}\relax \glsresetentrylist %
+\glossentry{tops-down}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimR 26}}}%
+\glossentry{trick}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimR 26}}}%
+\glossentry{trump}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{24\delimN 25}}}%
+\end{theglossary}\glossarypostamble

@@ -25,7 +25,8 @@ public class HeroRevenge : MonoBehaviour
         }
 
         var enemy = other.gameObject.GetComponent<TroopHandler>();
-        enemy.TakeDamage(50);
+        
+        GameManager.instance.troopManager.AttackTroop(new Attack(enemy, null, 50, AttackType.Effect));
     }
 
     private void Respawn()
