@@ -43,20 +43,8 @@ public class PlayerManager : MonoBehaviour
         energyText.text = energyRounded.ToString("F1");
     }
 
-
-    public bool IsValidSpawn(int lane, bool isLeftPlayer) =>
-        !GameManager.instance.spawnManager.GetSpawnPoint(lane, isLeftPlayer).isDisabled;
-
-    public bool IsPlayableCard(float energyCost) => energyCost < energy && currentCooldown <= 0;
-
     public void PlayCard(GameObject troopPrefab, int lane, GameObject playedCard)
     {
-        // temporary
-        if (!IsValidSpawn(lane, isLeftPlayer) || !IsPlayableCard(troopPrefab.GetComponent<TroopHandler>().energyCost))
-        {
-            return;
-        }
-
         Destroy(playedCard);
         GameManager.instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
 
@@ -74,5 +62,10 @@ public class PlayerManager : MonoBehaviour
     {
         return thing.CompareTag("LeftPlayer") ? 1 : -1;
     }
+    
+    public bool IsPlayableCard(float energyCost) => energyCost < energy && currentCooldown <= 0;
+    
+    public bool IsValidSpawn(int lane) =>
+        !GameManager.instance.spawnManager.GetSpawnPoint(lane, isLeftPlayer).isDisabled;
 
 }

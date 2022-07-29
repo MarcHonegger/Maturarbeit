@@ -460,7 +460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 53121759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c404f5e8dae44f7a83f588ae3fe8a2, type: 3}
+  m_Script: {fileID: 11500000, guid: bcbbbbdc7541b4283a6ce40126433cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   newPlayerManager: {fileID: 0}
@@ -1725,8 +1725,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294935296
-  m_fontColor: {r: 0, g: 0.5152774, b: 1, a: 1}
+    rgba: 4284443903
+  m_fontColor: {r: 1, g: 0.42510933, b: 0.3726415, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2577,17 +2577,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 633781824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217ad1a74abca340952fa79388740f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4fc1cff8f5b4dd1b2f67d12e709e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardGameObject: {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
+  cost: 10
+  type: 0
   canvas: {fileID: 1387591435}
-  cam: {fileID: 0}
-  sprite1: {fileID: 480123713}
-  sprite2: {fileID: 48933446}
-  sprite3: {fileID: 902086205}
-  sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
-  currentPlayer: 1
 --- !u!1 &644999349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,17 +2671,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 644999349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217ad1a74abca340952fa79388740f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4fc1cff8f5b4dd1b2f67d12e709e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardGameObject: {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
+  cost: 5
+  type: 0
   canvas: {fileID: 1387591435}
-  cam: {fileID: 0}
-  sprite1: {fileID: 480123713}
-  sprite2: {fileID: 48933446}
-  sprite3: {fileID: 902086205}
-  sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
-  currentPlayer: 1
 --- !u!1 &677924959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,7 +2981,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 822289702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c404f5e8dae44f7a83f588ae3fe8a2, type: 3}
+  m_Script: {fileID: 11500000, guid: bcbbbbdc7541b4283a6ce40126433cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   newPlayerManager: {fileID: 0}
@@ -3116,7 +3108,6 @@ MonoBehaviour:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
   - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
   - {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
-  - {fileID: 0}
 --- !u!4 &824490737
 Transform:
   m_ObjectHideFlags: 0
@@ -4104,7 +4095,7 @@ GameObject:
   - component: {fileID: 1215591281}
   - component: {fileID: 1215591284}
   - component: {fileID: 1215591283}
-  - component: {fileID: 1215591282}
+  - component: {fileID: 1215591285}
   m_Layer: 5
   m_Name: 2Card5
   m_TagString: Untagged
@@ -4133,26 +4124,6 @@ RectTransform:
   m_AnchoredPosition: {x: 125, y: -450}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1215591282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215591280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217ad1a74abca340952fa79388740f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1387591435}
-  cam: {fileID: 0}
-  sprite1: {fileID: 480123713}
-  sprite2: {fileID: 48933446}
-  sprite3: {fileID: 902086205}
-  sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
-  currentPlayer: 1
 --- !u!114 &1215591283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4191,6 +4162,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215591280}
   m_CullTransparentMesh: 1
+--- !u!114 &1215591285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215591280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4fc1cff8f5b4dd1b2f67d12e709e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardGameObject: {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
+  cost: 12
+  type: 0
+  canvas: {fileID: 1387591435}
 --- !u!1 &1229276221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,6 +4346,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1295257743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295257745}
+  - component: {fileID: 1295257744}
+  m_Layer: 0
+  m_Name: HandManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1295257744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295257743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18057994e0064115a7266cdd0668046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1387591435}
+  laneOptionPrefab: {fileID: 467286294796943360, guid: f86c0718defe348a6a41d734e7c2ec4d, type: 3}
+  cardGameObjects:
+  - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
+  - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
+  - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
+  - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
+  - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
+  - {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
+  - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
+  - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
+  deck: []
+--- !u!4 &1295257745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295257743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7079247, y: -2.8850327, z: 8.890221}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303545902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,17 +4845,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1383062027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217ad1a74abca340952fa79388740f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4fc1cff8f5b4dd1b2f67d12e709e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardGameObject: {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
+  cost: 5
+  type: 0
   canvas: {fileID: 1387591435}
-  cam: {fileID: 0}
-  sprite1: {fileID: 480123713}
-  sprite2: {fileID: 48933446}
-  sprite3: {fileID: 902086205}
-  sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
-  currentPlayer: 1
 --- !u!1 &1387591432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,17 +5503,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1495672741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217ad1a74abca340952fa79388740f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f4fc1cff8f5b4dd1b2f67d12e709e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardGameObject: {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
+  cost: 6
+  type: 0
   canvas: {fileID: 1387591435}
-  cam: {fileID: 0}
-  sprite1: {fileID: 480123713}
-  sprite2: {fileID: 48933446}
-  sprite3: {fileID: 902086205}
-  sprite4: {fileID: 1889280092}
-  troopPrefab: {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
-  currentPlayer: 1
 --- !u!1 &1507755052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7088,7 +7123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energy: 0
   energyRounded: 0
-  energyGainPerSecond: 3
+  energyGainPerSecond: 2
   energyText: {fileID: 394953539}
   cooldownDuration: 2.5
   currentCooldown: 0

@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  energyCost: 5
+  energyCost: 6
   movementSpeed: 0.25
   currentMovementSpeed: 0
   ghostEffect: 0
