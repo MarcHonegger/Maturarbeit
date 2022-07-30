@@ -2,166 +2,186 @@
 
 \section{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
+Die Anforderungen der Schule halten sich in Grenzen. Zum einen gibt es nicht fast keine
+genauen Anforderungen und die restlichen sind sehr tief gehalten. Die drei Anforderungen der KZO sind:
+\begin{enumerate}
+    \item \textbf{Zeit} \\
+        Geplant ist ungefähr eine Lektion pro Woche, denn diese wird em Stundenplan für das Semester abgezogen.
+        jedoch ist diese Anfordeurngen bei uns nicht releveant, denn unser Projekt ist eine riesen Maturaarbeit.
+        Wir werden ohne Problem auf diese Zeitanforderung erreichen und auch bei weitem überschreiten.
+    \item \textbf{Begleitperson} \\
+        Jede Maturaarbeit braucht eine Begleitperson. Also eine Lehrperson, welche die Arbeit bewertet und einen Unterstüzt.
+        Letzteres, also Unterstützung, war bei uns sehr schwierig, denn keine Lehrperson kennt sich mit Unity und C\# gut aus.
+        Wir sind schon früh auf Herr Kernn, ein Informatik Lehrer, zugegangen.
+        Er hat uns an Martin Hunziker, Leiter der IT, weitergeleitet. Er nahm uns sehr gern auf, mit der Anmerkung, dass unsere Arbeit sehr schwierig sein wird, umzusetzen.
+    \item \textbf{Plagiat} \\
+        Arbeiten dürfen nicht einfach kopiert werden. Wir haben zwar gewisse Code Stücke aus dem Internet kopiert, jedoch sind diese keine Plagiate.
+        Der grösste Teil unseres Codes und alles unserer Schritftlichen Arbeit sind von uns geschrieben.
+\end{enumerate}
 
-\newcolumntype{s}{>{\columncolor[HTML]{c2c2cc}} m{3cm}} 
+\section {Unsere}
+Gewisse Features sind wichtiger als andere für das funktionieren des Spiels.
+Zum Beispiel sind Einstellungen, Truppen und Multiplayer notwendiger als die Monetariesierung, zumindest nach uns.
+Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
+\begin{enumerate}
+    \item \textbf{Notwendig:}
+        Ohne diese Features läuft das Spiel nicht oder ist sehr mangelhaft,
+        Fehler erfüllt und unspielbar. Ohne ist Idee des Spieles nicht erkennbar.
+    \item \textbf{Anvisiert:}
+        Diese Features sind unser Ziel. Sie wurden Herr Hunziker, also der Begleitperson, angekündigt und sind alle in einem Plan festgehalten.
+        Diese Ziele sollen dazu führen, dass das Spiel
+        gut spielbar ist und es Spass macht. Sie sind auch essentiel, das Spiel nicht zu monoton zu gestalten und sollten
+        alle bis zum Abgabe Termin der schritftlichen Arbeit vollendet sein.
+    \item \textbf{Möglichkeiten:}
+        Möglichkeiten das Spiel noch auf die Spitze zu bringen. Keine dieser Anforderungen ist nötig
+        für das spielen, jedoch können sie das Spielerlebnis spannender und ausgereifter machen. Diese
+        Ziele sind entweder in den Sternen geschrieben oder zu erreichen bis zur mündlichen Präsentation.
+        Vereinzelt können diese, wie die anvisierten Anforderungen, bis zur schritftlichen Abgabe erreicht werden.
+    \item \textbf{Verworfen:}
+        Weitere Ideen, welche wir hatten, jedoch als unmöglich oder nicht sinvoll errachten.
+\end{enumerate}
 
-\section {Notwendige Features}
+\subsection*{Notwendig}
+\begin{itemize}
+    \item \textbf{System} \\
+        Unser Spiel sollte auf den meisten modernen Geräten funktionieren. Es soll auf MacOS und
+        Windows fliessend gespielt werden können. Also mit mindestens 60FPS.
+    \item \textbf{Benutzeroberfläche} \\
+        Eine Startseite mit einem ''Spielen''-Knopf, einem ''Einstellungen''-Knopf, einem
+        ''Credits''-Knopf und einem ''Verlassen''-Knopf. Sie soll intuitiv sein und einigermassen
+        schön aussehen. Die Benutzeroberfläche soll mit Touch bedienbar sein, andere Eingabemöglichkeiten
+        werden nicht unterstützt.
+    \item \textbf{Lokaler Multiplayer} \\
+        Das Spiel soll im lokalen Netz gespielt werden können. So zum Beispiel mit Freunden oder Familie.
+        Es sollte mithilfe der IP-Adresse innerhalb des gleichen Netztes zusammengespielt werden können.
+    \item \textbf{Einstellungen} \\
+        Auflösung, Vollbild und Lautstärke müssen eingestellt werden können.
+    \item \textbf{Kamera} \\
+        Die Kamera ist beweglich und das ganze Schlachtfeld ist ersichtbar.
+    \item \textbf{Truppen} \\
+        Es braucht Truppen, die für einen kämpfen können. Diese sind notwendig für den Verlauf des Spieles
+        und ohne sie hat das Spiel keinen Sinn.
+    \item \textbf{Gewinnmöglichkeit} \\
+        Eine Chance das Spiel zu gewinnen oder verliren und es somit zu beenden. Dies kann sehr simpel
+        mit einer Linie vollendet werden, welche beim überschreiten das Spiel beendet.
+    \item \textbf{Lanes} \\
+        Unser Spiel ist zwar 2D, aber hat dennoch eine Tiefe.
+\end{itemize}
 
-\paragraph{Info:}
-% The following requirements are by no means complete, but cover all key-requirements to aid the enhancement of use-cases and UI mockups. 
-% Also, note that these requirements are not prioritized.
+\subsection*{Anvisiert}
+\begin{itemize}
+    \item \textbf{Helden} \\
+        Beide Spieler haben eine Art Truppe, welche ihre Sigelinie beschützt. Sie haben einen Rache Effekt, welcher die
+        Lane ausradiert, damit das Spiel nicht sofort vorbei ist.
+    \item \textbf{Design} \\
+        Das Spiel sollte vom Aussehen her was hergeben. Es sollte nicht wie ein Prototyp, sondern wie ein 
+        vollendetes Spiel aussehen. Zu beginn
+    \item \textbf{Deck} \\
+        Spieler könne ihr eigenes Deck aus einer Auswahl von Karten zusammenstellen. Im Spiel werden davon per Zufahl Karten gezogen.
+    \item \textbf{Truppen}
+    \begin{itemize}
+        \item \textbf{Nahkampf}
+            Eine Truppe mit wenig Reichweite.
+        \item \textbf{Fernkampf}
+            Eine Truppe die auf Reichweite angreift. Sie scheisst Projektive, zum Beispiel ein Bogenschütze,
+            der mit Pfeilen schiest.
+        \item \textbf{Suizid}
+            Eine Truppe die bei Berührung mit einem Gegner stirbt und einen Effekt auslöst.
+    \end{itemize}
+    \item \textbf{Effekte}
+    \begin{itemize}
+        \item \textbf{Gift:}
+            Zeitlich limitierter und wiederholender Schadenseffekt. Eine visuelle Markierung soll vorhanden sein
+            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein.
+        \item \textbf{Dorn:}
+            Truppen, welche Charaktere mit Dorn attackieren, erhalten schaden. Soll nach Auswahl auf Nahkämpfer,
+            Fernkämpfer oder beides wirken.
+        \item \textbf{Rache:}
+            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen.
+    \end{itemize}
+\end{itemize}
 
-\section {Nice to have}\label{sec:NFR}
+\subsection*{Möglichkeiten}
+\begin{itemize}
+    \item \textbf{Zauber} \\
+        Als Alternative sollen nicht alle Karten einfach eine Truppe herbeirufen. Gewisse Karten sollten nur einen Effekt auslösen.
+        Beispiele für Zauber:
+            "Heile deine Helden um 5 leben"
+            "Gib deinen Helden 5 Rüstung"
+            "Verursache allen gegnerischen Truppen 5 Schaden"
+            "Ziehe 3 Karten"
+    \item \textbf{Monetarisierung} \\
+    Hierfür sind uns drei Möglichkeiten eingefallen, hier jeweils die Vor- und Nachteile:
+    \begin{enumerate}
+        \item \textbf{Kaufbare Gegenstände}
+        \begin{itemize}
+            \item[+] Vielseitige und Nachhaltige Monetarisierung. Neue Features, bedeueten auch neue Geldmöglichkeit. Die Inhalte sollten
+                     auch erspielbar sein, somit kann bezahlen zwar zu Vorteilen führen, jedoch mit viel Spielen ereichbar sein.
+            \item[-] Pay-to-Win
+        \end{itemize}
+        \item \textbf{Skins}
+        \begin{itemize}
+            \item[+] Weit verbreitet und sehr beliebt bei Spielern. Gibt keinem Spieler Vorteile
+            \item[-] Wenig Nutzen und sehr aufwändig. Neue Designs zu erstellen, wäre bei uns nicht so sinvoll.
+                     Wir haben noch sehr viel Features zu implementieren und sind nicht Designer. Für uns braucht es sehr
+                     viel Zeit eine brauchbare Darstellung zu erstellen und der Mehrwert, welcher dem Spiel beigetragen wird, ist marginal.
+        \end{itemize}
+        \item \textbf{Kostenpflichtiges Spiel}
+        \begin{itemize}
+            \item[+] Einmalige Bezahlung, was für viele Nutzer lukrativer ist. Jedoch gilt dies vor allem bei Singleplayer Spielen.
+            \item[-] Wir nehmen an, dass wenige Leute bereit wären, Geld für unser Spiel zu bezahlen. Dafür wird es nicht genug ausgereift sein.
+                     Auch ist diese Methodik nicht nachhaltig und führt nur zu einer einmaligen Geldspritze. Viele grössere Spiele führen deshalb später
+                     DLCs ein, um das Speil zu erweitern. Jedoch ist dies bei einem Multiplayer Spiel Pay-to-Win.
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Online Multiplayer} \\
+        Besser als Multiplayer limitert auf das selbe Netz, ist Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Conputer auf einen anderen zu
+        verbinden dank Firewall von Router und Computer, nahezu umöglich. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
+        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten das ganze Multiplayer System unseres Spieles anpassen.
+    \item \textbf{Helden} \\
+        Eine Auswahl von Helden, mit unterschiedlichen Schaden, Leben und Effekten, würde das Spiel nochmals spannender machen. Auch sollten gewisse Truppen auf bestimmte Helden limitiert sein. 
+    \item \textbf{Design} \\
+        Wenn die Zeit vorhanden ist, kann das Design immer verbessert werden. Hier gehts es aber um den feinschlief, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
+    \item \textbf{Tutorial} \\
+        Eine Anleitung für Anfänger wäre sehr schön. Sie soll neuen Spielern das Anfangen erleichtern. Es sollte aber auch überspringbar sein,
+        damit alte Spieler, es nicht nochmals spielen müssen. Es soll nicht lange sein und nicht schwierig. Dennoch soll es alle Mechaniken des Spiels
+        erklären, am Besten Anahnd von Gameplay.
+    \item \textbf{Truppen}
+        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden.
+    \item Effekte
+    \begin{itemize}
+        \item \textbf{Wiederbelebung:}
+            Die Truppe wird wiederbelebt, sofort oder mit einer Verzögerung am Startpunkt.
+        \item \textbf{Rüstung:}
+            Die Truppe hat zusätzlichen zu den Leben Rüstung. Die Rüstung wird zuerst abgezogen und hat im Gegensatz zum Leben keine Limite.
+        \item \textbf{Aura:}
+            Die Truppe fügt gegenrischen Truppen in einem gewissen Radius permanent Schaden zu.
+    \end{itemize}
+    \item \textbf{Mehrsprachig} \\
+        Das Spiel soll in Englisch, Deutsch und Französisch spielbar sein.
+\end{itemize}
 
-\renewcommand{\arraystretch}{1.5}
-\subsection{Online Multiplayer}
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-7 \\
-    \hline
-    \textbf{Requirement} & Browser Support\\
-    \hline
-    \textbf{Trigger(s)} & User wants to use a specific browser\\
-    \hline
-    \textbf{Measure(s)} & Last 2 major version of any browser with more than 1\% usage (except IE 11) is supported\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-8 \\
-    \hline
-    \textbf{Requirement} & Mobile Device Support\\
-    \hline
-    \textbf{Trigger(s)} & User wants to access application using a phone or tablet\\
-    \hline
-    \textbf{Measure(s)} & The application must support being used on mobile devices\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-18 \\
-    \hline
-    \textbf{Requirement} & Unicode Support\\
-    \hline
-    \textbf{Trigger(s)} & User wants to include special characters or emojis in his username\\
-    \hline
-    \textbf{Measure(s)} & Support umlauts and emojis by using utf-8 and unicode\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-
-\subsection{Monetarisierung}
-\begin{tabular} { |s| m{10.5cm } | }
-    \hline
-    \textbf{ID} & NFR-1 \\
-    \hline
-    \textbf{Requirement} & Reasonable response time for the rendering of new scores \\
-    \hline
-    \textbf{Trigger(s)} & User doesn't want to wait to see scores \\
-    \hline
-    \textbf{Measure(s)} & Rendering of the new scores must be doable within 1 second\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-2 \\
-    \hline
-    \textbf{Requirement} & Authentication Response Time\\
-    \hline
-    \textbf{Trigger(s)} & User wants to be able to login in a timely manner\\
-    \hline
-    \textbf{Measure(s)} & Authentication of a user at login must be doable within 1 second\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-3 \\
-    \hline
-    \textbf{Requirement} & New Game Creation Time\\
-    \hline
-    \textbf{Trigger(s)} & User wants to start the game as soon as possible\\
-    \hline
-    \textbf{Measure(s)} & Setting up a new game must be doable within 1 second\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-
-\subsection{Graphiken}
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-4 \\
-    \hline
-    \textbf{Requirement} & Keyboard-only usability\\
-    \hline
-    \textbf{Trigger(s)} & User has no touch-screen or pointing device available\\ 
-    \hline
-    \textbf{Measure(s)} & Application must be usable with only a keyboard \\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-5 \\
-    \hline
-    \textbf{Requirement} & General Usability\\
-    \hline
-    \textbf{Trigger(s)} & Users want to be able to use the application without getting stuck\\
-    \hline
-    \textbf{Measure(s)} & Hallway testing shows eight people used the app without getting stuck\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-\newline
-\vspace*{0.5 cm}
-\newline
-\begin{tabular} { |s|m{10.5cm} | }
-    \hline
-    \textbf{ID} & NFR-6 \\
-    \hline
-    \textbf{Requirement} & User Guidance\\
-    \hline
-    \textbf{Trigger(s)} & User wants to be able to access a Help-Center\\
-    \hline
-    \textbf{Measure(s)} & Hallway testing shows eight people find the Help-Center and say it's helpful\\
-    \hline
-    \textbf{Testing} & Manual\\
-    \hline
-\end{tabular}
-
-
-\pagebreak
-\section {Skizzen}
-
-\paragraph{Disclaimer:}
-These are just Mock-ups.
-Design can still change, and colors aren't fixed and are just as a visual aid for where containers should go.
-
+\subsection*{Verworfen}
+\begin{itemize}
+    \item \textbf{Online Multiplayer} \\
+        Besser als Multiplayer limitert auf das selbe Netz, ist Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Conputer auf einen anderen zu
+        verbinden dank Firewall von Router und Computer, nahezu umöglich. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
+        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten das ganze Multiplayer System unseres Spieles anpassen.
+    \item \textbf{Shop} \\
+        Nicht alle Karten sind von Beginn an freigeben, sondern müssen freigespillt werden.
+        So kann zum Beispiel eine Ingame Währung erspillt werden und damit im Shop Karten oder sonstige Dinge gekauft werden.
+        Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetariesierung beitragen.
+        Jedoch ist ein Shop ohne Anti-Cheat und/oder Server die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn.
+    \item \textbf{Kampagne} \\
+        Singleplayer gegen bestimmte vorprogrammierte Gegner. Sie sollen immer schwieriger werden und bestimmte Herausforderungen mit sich bringen.
+        Bei Vollendung werden Belohnungen verteilt.
+    \item \textbf{Anti-Cheat} \\
+        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechnetet Spiel ein Ding der Unmöglichkeit.
+        Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema.
+    \item \textbf{Errungenschaften} \\
+        Eine Übersicht und die Möglichkeit die Errungenschaften zu erfüllen.
+        Gegebenenfalls Belohnungen verteilen, wie zum Beispiel bestimmte Karten freischalten.
+        Diese Erweiterung ist keines Falls notwendig und ein absolutes nice-to-have feature.
+\end{itemize}
 
 % \includegraphics[height=10cm, width=\textwidth]{resources/mockups/mockup-login}

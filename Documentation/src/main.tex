@@ -2,7 +2,22 @@
 
 \documentclass[11pt, oneside, a4paper]{book}
 
-\usepackage[german]{babel} 
+\usepackage[german]{babel}
+\usepackage{quoting,xparse}
+
+
+\NewDocumentCommand{\bywhom}{m}{% the Bourbaki trick
+  {\nobreak\hfill\penalty50\hskip1em\null\nobreak
+   \hfill\mbox{\normalfont(#1)}%
+   \parfillskip=0pt \finalhyphendemerits=0 \par}%
+}
+
+\NewDocumentEnvironment{pquotation}{m}
+  {\begin{quoting}[
+     indentfirst=true,
+     leftmargin=\parindent,
+     rightmargin=\parindent]\itshape}
+  {\bywhom{#1}\end{quoting}}
 
 \input{custom}
 
@@ -22,7 +37,7 @@
 \frontmatter
 
 \input{title-page}
-\input{01_extract/main}
+\input{01_abstract/main}
 \tableofcontents
 
 \mainmatter
@@ -45,8 +60,9 @@
 \input{04_schwierigkeiten/03_time-management}
 
 \part{Reflexion}
-\input{05_reflexion/01_rueckblick}
-\input{05_reflexion/02_naechstes-mal}
+\input{05_reflexion/01_team}
+\input{05_reflexion/02_elia}
+\input{05_reflexion/03_marc}
 
 
 % Note: The project proposal needs to be included in the following way (i.e. using `\input` and not `\include`, and with the `\chapter` declaration outside the input{}-tag), since the proposal can also be generated as a stand-alone document.
