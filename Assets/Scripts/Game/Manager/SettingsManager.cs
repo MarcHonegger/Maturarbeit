@@ -5,121 +5,140 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+namespace Manager
 {
-    public Button homeButton;
-    public Image homeButtonImage;
-    public TextMeshProUGUI resolutionText;
-    public List<Resolution> resolutions = new List<Resolution>();
-    private float _currentVolume;
-    private bool _unsavedChanges;
-    private bool _isFullscreen;
-    private int _currentResolution;
-
-    private void Start()
+    public class SettingsManager : MonoBehaviour
     {
-        if(PlayerPrefs.HasKey("settings"))
-            LoadValues();
-        else
+        public Button homeButton;
+        public Image homeButtonImage;
+        public List<TextMeshProUGUI> resolutionTexts;
+        public List<Resolution> resolutions;
+        public GameObject leavingOptionsPrefab;
+        public Transform canvasTransform;
+        public GameObject optionInteractable;
+        private float _currentVolume;
+        private bool _unsavedChanges;
+        private bool _isFullscreen;
+        private int _currentResolution;
+
+        private void Start()
         {
-            Safe();
+            if(PlayerPrefs.HasKey("settings"))
+                LoadValues();
+            else
+            {
+                Save();
+            }
         }
-    }
 
-    private void LoadValues()
-    {
-        SetVolume(PlayerPrefs.GetFloat("volume"));
-        _currentResolution = PlayerPrefs.GetInt("currentResolution");
-        _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
-        SetResolutionText();
-        _unsavedChanges = false;
-        DeactivateSafeButton();
-    }
-
-    public void LoadStartPage()
-    {
-        SceneManager.LoadScene("StartPageScene");
-    }
-
-    public void SetFullscreen(bool fullscreen)
-    {
-        _isFullscreen = fullscreen;
-        ActivateSafeButton();
-    }
-
-    public void SetVolume(float volume)
-    {
-        _currentVolume = volume;
-        GameMusicPlayer.instance.SetVolume(_currentVolume);
-        ActivateSafeButton();
-    }
-
-    private void SetResolution()
-    {
-        var currentResolution = resolutions[_currentResolution];
-        Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, _isFullscreen);
-        ActivateSafeButton();
-    }
-
-    private void SetResolutionText()
-    {
-        var currentResolution = resolutions[_currentResolution];
-        resolutionText.SetText($"{currentResolution.horizontal} x {currentResolution.vertical}");
-    }
-
-    public void ResolutionUp()
-    {
-        _currentResolution++;
-        if (_currentResolution > resolutions.Count - 1)
+        public void LoadValues()
         {
-            _currentResolution = 0;
+            SetVolume(PlayerPrefs.GetFloat("volume"));
+            _currentResolution = PlayerPrefs.GetInt("currentResolution");
+            _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
+            SetResolutionText();
+            _unsavedChanges = false;
+            DeactivateSafeButton();
         }
-        SetResolutionText();
-        ActivateSafeButton();
-    }
+
+        public void LoadStartPage()
+        {
+            if(_unsavedChanges)
+                OpenLeavingOptions();
+            else
+            {
+                SceneManager.LoadScene("StartPageScene");
+            }
+        }
+
+        private void OpenLeavingOptions()
+        {
+            optionInteractable.SetActive(false);
+            Instantiate(leavingOptionsPrefab, canvasTransform);
+        }
+
+        public void SetFullscreen(bool fullscreen)
+        {
+            _isFullscreen = fullscreen;
+            ActivateSafeButton();
+        }
+
+        public void SetVolume(float volume)
+        {
+            _currentVolume = volume;
+            GameMusicPlayer.instance.SetVolume(_currentVolume);
+            ActivateSafeButton();
+        }
+
+        private void SetResolution()
+        {
+            var currentResolution = resolutions[_currentResolution];
+            Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, _isFullscreen);
+            ActivateSafeButton();
+        }
+
+        private void SetResolutionText()
+        {
+            var currentResolution = resolutions[_currentResolution];
+            resolutionTexts[0].SetText($"{currentResolution.horizontal}");
+            resolutionTexts[1].SetText($"{currentResolution.vertical}");
+        }
+
+        public void ResolutionUp()
+        {
+            _currentResolution++;
+            if (_currentResolution > resolutions.Count - 1)
+            {
+                _currentResolution = 0;
+            }
+            SetResolutionText();
+            ActivateSafeButton();
+        }
     
-    public void ResolutionDown()
-    {
-        _currentResolution--;
-        if (_currentResolution < 0)
+        public void ResolutionDown()
         {
-            _currentResolution = resolutions.Count - 1;
+            _currentResolution--;
+            if (_currentResolution < 0)
+            {
+                _currentResolution = resolutions.Count - 1;
+            }
+            SetResolutionText();
+            ActivateSafeButton();
         }
-        SetResolutionText();
-        ActivateSafeButton();
-    }
 
-    private void ActivateSafeButton()
-    {
-        if(_unsavedChanges)
-            return;
-        _unsavedChanges = true;
-        homeButton.enabled = true;
-        homeButtonImage.color = Color.white;
-    }
+        private void ActivateSafeButton()
+        {
+            if(_unsavedChanges)
+                return;
+            _unsavedChanges = true;
+            homeButton.enabled = true;
+            homeButtonImage.color = Color.white;
+        }
 
-    private void DeactivateSafeButton()
-    {
-        homeButton.enabled = false;
-        homeButtonImage.color = new Color(200, 200, 200, 0.4f);
-    }
+        private void DeactivateSafeButton()
+        {
+            homeButton.enabled = false;
+            homeButtonImage.color = new Color(200, 200, 200, 0.4f);
+        }
 
-    public void Safe()
-    {
-        SetResolution();
+        public void Save()
+        {
+            SetResolution();
         
-        _unsavedChanges = false;
-        DeactivateSafeButton();
-        PlayerPrefs.SetFloat("volume", _currentVolume);
-        PlayerPrefs.SetInt("fullscreen", _isFullscreen ? 1 : 0);
-        PlayerPrefs.SetInt("currentResolution", _currentResolution);
-        PlayerPrefs.SetInt("settings", 0);
+            _unsavedChanges = false;
+            DeactivateSafeButton();
+            PlayerPrefs.SetFloat("volume", _currentVolume);
+            PlayerPrefs.SetInt("fullscreen", _isFullscreen ? 1 : 0);
+            PlayerPrefs.SetInt("currentResolution", _currentResolution);
+            PlayerPrefs.SetInt("settings", 0);
+        }
     }
-}
 
-[Serializable]
-public class Resolution {
-    public int horizontal, vertical;
+    [Serializable]
+    public class Resolution {
+        public int horizontal, vertical;
+    }
 }
