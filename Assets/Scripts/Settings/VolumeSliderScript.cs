@@ -10,11 +10,11 @@ public class VolumeSliderScript : MonoBehaviour
     public void Start()
     {
         _volumeSlider = GetComponent<Slider>();
-        _volumeSlider.onValueChanged.AddListener(OnVolumeChange);
-        var currentVolume = PlayerPrefs.GetFloat("volume");
+        var currentVolume =  PlayerPrefs.GetFloat("volume");
         _volumeSlider.value = currentVolume;
-    }
-
+    }  
+    
+    /*
     public void OnDestroy()
     {
         PlayerPrefs.SetFloat("volume", AudioListener.volume);
@@ -23,10 +23,11 @@ public class VolumeSliderScript : MonoBehaviour
         //_volumeSlider.onValueChanged.RemoveListener(OnVolumeChange);
     }
 
-    private static void OnVolumeChange(float value)
+    private static void OnVolumeChange(float volume)
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("volume");
-        Debug.Log($"{AudioListener.volume}");
         PlayerPrefs.SetFloat("volume", value);
+        AudioListener.volume = volume;
+        Debug.Log($"{AudioListener.volume}");
     }
+    */
 }

@@ -5,25 +5,14 @@ using UnityEngine.UI;
 
 public class FullscreenButtonScript : MonoBehaviour
 {
-    private Toggle _fullscreenToggle;
+    public Toggle fullscreenToggle;
 
     // Start is called before the first frame update
     void Start()
     {
-        _fullscreenToggle = GetComponent<Toggle>();
-        _fullscreenToggle.onValueChanged.AddListener(OnToggleFullscreen);
-        _fullscreenToggle.isOn = PlayerPrefs.GetString("FullscreenOn") == "Yes";
-
-    }
-
-    public void OnDestroy()
-    {
-        _fullscreenToggle.onValueChanged.RemoveListener(OnToggleFullscreen);
-    }
-
-    private static void OnToggleFullscreen(bool value)
-    {
-        Screen.fullScreen = value;
-        PlayerPrefs.SetString("FullscreenOn", value ? "Yes" : "No");
+        if (PlayerPrefs.HasKey("fullscreen"))
+        {
+            fullscreenToggle.isOn = PlayerPrefs.GetInt("fullscreen") != 0;
+        }
     }
 }

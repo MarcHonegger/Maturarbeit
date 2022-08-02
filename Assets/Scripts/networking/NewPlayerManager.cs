@@ -4,10 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Mirror;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using UnityEditorInternal.Profiling;
 using UnityEngine.SceneManagement;
 
 public class NewPlayerManager : NetworkBehaviour
