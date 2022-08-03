@@ -12,8 +12,11 @@ namespace Manager
 {
     public class SettingsManager : MonoBehaviour
     {
-        public Button homeButton;
-        public Image homeButtonImage;
+        public static SettingsManager instance;
+        public Button saveButton;
+        public Image saveButtonImage;
+        public Button cancelButton;
+        public Image cancelButtonImage;
         public List<TextMeshProUGUI> resolutionTexts;
         public List<Resolution> resolutions;
         public GameObject leavingOptionsPrefab;
@@ -22,7 +25,19 @@ namespace Manager
         private float _currentVolume;
         private bool _unsavedChanges;
         private bool _isFullscreen;
+        private bool _isMuted;
         private int _currentResolution;
+
+        private void Awake()
+        {
+            if (instance != null && instance != this)
+            {
+                Destroy(this);
+                return;
+            }
+
+            instance = this;
+        }
 
         private void Start()
         {
@@ -32,16 +47,6 @@ namespace Manager
             {
                 Save();
             }
-        }
-
-        public void LoadValues()
-        {
-            SetVolume(PlayerPrefs.GetFloat("volume"));
-            _currentResolution = PlayerPrefs.GetInt("currentResolution");
-            _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
-            SetResolutionText();
-            _unsavedChanges = false;
-            DeactivateSafeButton();
         }
 
         public void LoadStartPage()
@@ -63,21 +68,29 @@ namespace Manager
         public void SetFullscreen(bool fullscreen)
         {
             _isFullscreen = fullscreen;
-            ActivateSafeButton();
+            ActivateSaveButton();
+        }
+        
+        public void SetMute(bool muted)
+        {
+            GameMusicPlayer.instance.Mute(muted);
+            _isMuted = muted;
+            ActivateSaveButton();
         }
 
         public void SetVolume(float volume)
         {
             _currentVolume = volume;
             GameMusicPlayer.instance.SetVolume(_currentVolume);
-            ActivateSafeButton();
+            ActivateSaveButton();
         }
 
         private void SetResolution()
         {
             var currentResolution = resolutions[_currentResolution];
             Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, _isFullscreen);
-            ActivateSafeButton();
+            SetResolutionText();
+            ActivateSaveButton();
         }
 
         private void SetResolutionText()
@@ -95,7 +108,7 @@ namespace Manager
                 _currentResolution = 0;
             }
             SetResolutionText();
-            ActivateSafeButton();
+            ActivateSaveButton();
         }
     
         public void ResolutionDown()
@@ -106,32 +119,53 @@ namespace Manager
                 _currentResolution = resolutions.Count - 1;
             }
             SetResolutionText();
-            ActivateSafeButton();
+            ActivateSaveButton();
         }
 
-        private void ActivateSafeButton()
+        private void ActivateSaveButton()
         {
             if(_unsavedChanges)
                 return;
             _unsavedChanges = true;
-            homeButton.enabled = true;
-            homeButtonImage.color = Color.white;
+            saveButton.enabled = true;
+            saveButtonImage.color = Color.white;
+            cancelButton.enabled = true;
+            cancelButtonImage.color = Color.white;
         }
 
-        private void DeactivateSafeButton()
+        private void DeactivateSaveButton()
         {
-            homeButton.enabled = false;
-            homeButtonImage.color = new Color(200, 200, 200, 0.4f);
+            saveButton.enabled = false;
+            saveButtonImage.color = new Color(200, 200, 200, 0.4f);
+            cancelButton.enabled = false;
+            cancelButtonImage.color = new Color(200, 200, 200, 0.4f);
         }
+
+        public void LoadValues()
+        {
+            _currentVolume = PlayerPrefs.GetFloat("volume");
+            _currentResolution = PlayerPrefs.GetInt("currentResolution");
+            _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
+            _isMuted = PlayerPrefs.GetInt("muted") != 0;
+            
+            SetVolume(_currentVolume);
+            SetResolution();
+            ResetSettings?.Invoke();
+            
+            _unsavedChanges = false;
+            DeactivateSaveButton();
+        }
+        
+        public event Action ResetSettings;
 
         public void Save()
         {
-            SetResolution();
-        
+            SetResolution();   
             _unsavedChanges = false;
-            DeactivateSafeButton();
+            DeactivateSaveButton();
             PlayerPrefs.SetFloat("volume", _currentVolume);
             PlayerPrefs.SetInt("fullscreen", _isFullscreen ? 1 : 0);
+            PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
             PlayerPrefs.SetInt("currentResolution", _currentResolution);
             PlayerPrefs.SetInt("settings", 0);
         }

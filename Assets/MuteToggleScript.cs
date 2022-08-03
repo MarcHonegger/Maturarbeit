@@ -1,13 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FullscreenButtonScript : MonoBehaviour
+public class MuteToggleScript : MonoBehaviour
 {
-    public Toggle fullscreenToggle;
+    public Toggle muteToggle;
+    public VolumeSliderScript volumeSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,12 @@ public class FullscreenButtonScript : MonoBehaviour
 
     void Reset()
     {
-        if (PlayerPrefs.HasKey("fullscreen"))
-        {
-            fullscreenToggle.isOn = PlayerPrefs.GetInt("fullscreen") != 0;
+        var wasMuted = false;
+        if (PlayerPrefs.HasKey("muted"))
+        { 
+            wasMuted = PlayerPrefs.GetInt("muted") != 0;
         }
+        GameMusicPlayer.instance.Mute(wasMuted);
+        muteToggle.isOn = wasMuted;
     }
 }

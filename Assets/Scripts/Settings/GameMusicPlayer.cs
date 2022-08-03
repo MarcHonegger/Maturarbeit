@@ -29,4 +29,9 @@ public class GameMusicPlayer : MonoBehaviour
     {
         _audioSource.volume = volume;
     }
+    
+    public void Mute(bool muted)
+    {
+        _audioSource.mute = muted;
+    }
 }
