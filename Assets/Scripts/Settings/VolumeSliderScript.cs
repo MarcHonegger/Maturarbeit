@@ -18,7 +18,6 @@ public class VolumeSliderScript : MonoBehaviour
     public void Start()
     {
         SettingsManager.instance.ResetSettings += Reset;
-        Reset();
     }
 
     public void ChangeColor(bool muted)
@@ -42,10 +41,11 @@ public class VolumeSliderScript : MonoBehaviour
     private void Reset()
     {
         _volumeSlider = GetComponent<Slider>();
-        var currentVolume =  PlayerPrefs.GetFloat("volume");
-        _volumeSlider.value = currentVolume;
+        if(PlayerPrefs.HasKey("volume"))
+            _volumeSlider.value = PlayerPrefs.GetFloat("volume");
         
-        ChangeColor(PlayerPrefs.GetInt("muted") != 0);
+        if(PlayerPrefs.HasKey("muted"))
+            ChangeColor(PlayerPrefs.GetInt("muted") != 0);
     }
 
     /*

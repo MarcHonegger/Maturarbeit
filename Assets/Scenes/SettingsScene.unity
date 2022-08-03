@@ -1844,8 +1844,10 @@ MonoBehaviour:
   - horizontal: 1920
     vertical: 1080
   leavingOptionsPrefab: {fileID: 2290755568057026077, guid: 0306da8f3f7b761488d491c390011974, type: 3}
+  videoSettingsHaveChangedPrefab: {fileID: 2290755568057026077, guid: ebb6df9c8baf841f6902db3d177de739, type: 3}
   canvasTransform: {fileID: 1389026426}
   optionInteractable: {fileID: 476916520}
+  currentResolution: 0
 --- !u!4 &1022259706
 Transform:
   m_ObjectHideFlags: 0

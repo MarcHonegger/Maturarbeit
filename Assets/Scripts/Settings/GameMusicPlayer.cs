@@ -11,18 +11,15 @@ public class GameMusicPlayer : MonoBehaviour
     
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = PlayerPrefs.GetFloat("volume");
+        
         if (instance != null && instance != this) {
             Destroy(gameObject);
             return;
         }
         instance = this; 
         DontDestroyOnLoad(gameObject);
-    }
-
-    public void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-        _audioSource.volume = PlayerPrefs.GetFloat("volume");
     }
     
     public void SetVolume(float volume)

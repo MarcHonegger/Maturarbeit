@@ -20,13 +20,15 @@ namespace Manager
         public List<TextMeshProUGUI> resolutionTexts;
         public List<Resolution> resolutions;
         public GameObject leavingOptionsPrefab;
+        public GameObject videoSettingsHaveChangedPrefab;
         public Transform canvasTransform;
         public GameObject optionInteractable;
+        public int currentResolution;
         private float _currentVolume;
         private bool _unsavedChanges;
+        private bool _unsavedVideoChanges;
         private bool _isFullscreen;
         private bool _isMuted;
-        private int _currentResolution;
 
         private void Awake()
         {
@@ -64,10 +66,17 @@ namespace Manager
             optionInteractable.SetActive(false);
             Instantiate(leavingOptionsPrefab, canvasTransform);
         }
+        
+        private void OpenVideoSettingsHaveChanged()
+        {
+            optionInteractable.SetActive(false);
+            Instantiate(videoSettingsHaveChangedPrefab, canvasTransform);
+        }
 
         public void SetFullscreen(bool fullscreen)
         {
             _isFullscreen = fullscreen;
+            _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
         
@@ -85,40 +94,42 @@ namespace Manager
             ActivateSaveButton();
         }
 
-        private void SetResolution()
+        public void SetResolution()
         {
-            var currentResolution = resolutions[_currentResolution];
+            var currentResolution = resolutions[this.currentResolution];
             Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, _isFullscreen);
             SetResolutionText();
-            ActivateSaveButton();
+            _unsavedVideoChanges = false;
         }
 
-        private void SetResolutionText()
+        public void SetResolutionText()
         {
-            var currentResolution = resolutions[_currentResolution];
-            resolutionTexts[0].SetText($"{currentResolution.horizontal}");
-            resolutionTexts[1].SetText($"{currentResolution.vertical}");
+            var resolution = resolutions[this.currentResolution];
+            resolutionTexts[0].SetText($"{resolution.horizontal}");
+            resolutionTexts[1].SetText($"{resolution.vertical}");
         }
 
         public void ResolutionUp()
         {
-            _currentResolution++;
-            if (_currentResolution > resolutions.Count - 1)
+            currentResolution++;
+            if (currentResolution > resolutions.Count - 1)
             {
-                _currentResolution = 0;
+                currentResolution = 0;
             }
             SetResolutionText();
+            _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
     
         public void ResolutionDown()
         {
-            _currentResolution--;
-            if (_currentResolution < 0)
+            currentResolution--;
+            if (currentResolution < 0)
             {
-                _currentResolution = resolutions.Count - 1;
+                currentResolution = resolutions.Count - 1;
             }
             SetResolutionText();
+            _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
 
@@ -144,7 +155,7 @@ namespace Manager
         public void LoadValues()
         {
             _currentVolume = PlayerPrefs.GetFloat("volume");
-            _currentResolution = PlayerPrefs.GetInt("currentResolution");
+            currentResolution = PlayerPrefs.GetInt("currentResolution");
             _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
             _isMuted = PlayerPrefs.GetInt("muted") != 0;
             
@@ -160,14 +171,22 @@ namespace Manager
 
         public void Save()
         {
-            SetResolution();   
+            if (_unsavedVideoChanges)
+            {
+                SetResolution();   
+                OpenVideoSettingsHaveChanged();
+            }
             _unsavedChanges = false;
             DeactivateSaveButton();
             PlayerPrefs.SetFloat("volume", _currentVolume);
             PlayerPrefs.SetInt("fullscreen", _isFullscreen ? 1 : 0);
             PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
-            PlayerPrefs.SetInt("currentResolution", _currentResolution);
             PlayerPrefs.SetInt("settings", 0);
+        }
+
+        private bool ChangeCheck()
+        {
+            return true;
         }
     }
 
