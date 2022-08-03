@@ -1,10 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Manager;
+using TMPro;
 using UnityEngine;
 
 public class ResolutionHasChangedManager : MonoBehaviour
 {
+    private float _countDown;
+    public TextMeshProUGUI countDownText;
+
+    private void Start()
+    {
+        _countDown = 5;
+    }
+
+    private void Update()
+    {
+        _countDown -= Time.deltaTime;
+        countDownText.text = Mathf.Ceil(_countDown).ToString(CultureInfo.InvariantCulture);
+        if (_countDown <= 0)
+        {
+            CancelButtonPressed();
+        }
+    }
+
     public void CancelButtonPressed()
     {
         SettingsManager.instance.currentResolution = PlayerPrefs.GetInt("currentResolution");
