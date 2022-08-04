@@ -29,7 +29,8 @@ public class ResolutionHasChangedManager : MonoBehaviour
     public void CancelButtonPressed()
     {
         SettingsManager.instance.currentResolution = PlayerPrefs.GetInt("currentResolution");
-        SettingsManager.instance.SetResolutionText();
+        SettingsManager.instance.isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
+        SettingsManager.instance.SetVideoSettings();
         SettingsManager.instance.SetResolution();
         
         SettingsManager.instance.optionInteractable.SetActive(true);
@@ -39,7 +40,8 @@ public class ResolutionHasChangedManager : MonoBehaviour
     public void AcceptButtonPressed()
     {
         PlayerPrefs.SetInt("currentResolution", SettingsManager.instance.currentResolution);
-        SettingsManager.instance.SetResolutionText();
+        PlayerPrefs.SetInt("fullscreen", SettingsManager.instance.isFullscreen ? 1 : 0);
+        SettingsManager.instance.SetVideoSettings();
         
         SettingsManager.instance.optionInteractable.SetActive(true);
         Destroy(gameObject);
