@@ -19,15 +19,16 @@ namespace Manager
         public Image cancelButtonImage;
         public List<TextMeshProUGUI> resolutionTexts;
         public List<Resolution> resolutions;
+        public Toggle fullscreenToggle;
         public GameObject leavingOptionsPrefab;
         public GameObject videoSettingsHaveChangedPrefab;
         public Transform canvasTransform;
         public GameObject optionInteractable;
         public int currentResolution;
+        public bool isFullscreen;
         private float _currentVolume;
         private bool _unsavedChanges;
         private bool _unsavedVideoChanges;
-        private bool _isFullscreen;
         private bool _isMuted;
 
         private void Awake()
@@ -75,7 +76,7 @@ namespace Manager
 
         public void SetFullscreen(bool fullscreen)
         {
-            _isFullscreen = fullscreen;
+            isFullscreen = fullscreen;
             _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
@@ -97,16 +98,17 @@ namespace Manager
         public void SetResolution()
         {
             var currentResolution = resolutions[this.currentResolution];
-            Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, _isFullscreen);
-            SetResolutionText();
+            Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, isFullscreen);
+            SetVideoSettings();
             _unsavedVideoChanges = false;
         }
 
-        public void SetResolutionText()
+        public void SetVideoSettings()
         {
             var resolution = resolutions[this.currentResolution];
             resolutionTexts[0].SetText($"{resolution.horizontal}");
             resolutionTexts[1].SetText($"{resolution.vertical}");
+            fullscreenToggle.enabled = isFullscreen;
         }
 
         public void ResolutionUp()
@@ -116,7 +118,7 @@ namespace Manager
             {
                 currentResolution = 0;
             }
-            SetResolutionText();
+            SetVideoSettings();
             _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
@@ -128,7 +130,7 @@ namespace Manager
             {
                 currentResolution = resolutions.Count - 1;
             }
-            SetResolutionText();
+            SetVideoSettings();
             _unsavedVideoChanges = true;
             ActivateSaveButton();
         }
@@ -156,7 +158,7 @@ namespace Manager
         {
             _currentVolume = PlayerPrefs.GetFloat("volume");
             currentResolution = PlayerPrefs.GetInt("currentResolution");
-            _isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
+            isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
             _isMuted = PlayerPrefs.GetInt("muted") != 0;
             
             SetVolume(_currentVolume);
@@ -179,7 +181,6 @@ namespace Manager
             _unsavedChanges = false;
             DeactivateSaveButton();
             PlayerPrefs.SetFloat("volume", _currentVolume);
-            PlayerPrefs.SetInt("fullscreen", _isFullscreen ? 1 : 0);
             PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
             PlayerPrefs.SetInt("settings", 0);
         }
