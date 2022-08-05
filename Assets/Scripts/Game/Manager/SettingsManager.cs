@@ -47,7 +47,7 @@ namespace Manager
                 LoadValues();
             else
             {
-                Save();
+                GenerateSettingsPlayerPrefs();
             }
         }
 
@@ -150,6 +150,15 @@ namespace Manager
             cancelButtonImage.color = new Color(200, 200, 200, 0.4f);
         }
 
+        private void GenerateSettingsPlayerPrefs()
+        {
+            PlayerPrefs.SetInt("settings", 0);
+            PlayerPrefs.SetFloat("volume", _currentVolume);
+            PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
+            PlayerPrefs.SetInt("currentResolution", 0);
+            PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
+        }
+
         public void LoadValues()
         {
             _currentVolume = PlayerPrefs.GetFloat("volume");
@@ -200,7 +209,7 @@ namespace Manager
                 PlayerPrefs.GetInt("muted").AsBool() != _isMuted ||
                 // Video settings
                 PlayerPrefs.GetInt("fullscreen").AsBool() != isFullscreen ||
-                currentResolution != PlayerPrefs.GetInt("resolution");
+                currentResolution != PlayerPrefs.GetInt("currentResolution");
         }
     }
 
