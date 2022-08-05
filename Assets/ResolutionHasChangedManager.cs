@@ -30,7 +30,7 @@ public class ResolutionHasChangedManager : MonoBehaviour
     {
         SettingsManager.instance.currentResolution = PlayerPrefs.GetInt("currentResolution");
         SettingsManager.instance.isFullscreen = PlayerPrefs.GetInt("fullscreen") != 0;
-        SettingsManager.instance.SetVideoSettings();
+        SettingsManager.instance.SetVideoSettingsUI();
         SettingsManager.instance.SetResolution();
         
         SettingsManager.instance.optionInteractable.SetActive(true);
@@ -41,7 +41,7 @@ public class ResolutionHasChangedManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("currentResolution", SettingsManager.instance.currentResolution);
         PlayerPrefs.SetInt("fullscreen", SettingsManager.instance.isFullscreen ? 1 : 0);
-        SettingsManager.instance.SetVideoSettings();
+        SettingsManager.instance.SetVideoSettingsUI();
         
         SettingsManager.instance.optionInteractable.SetActive(true);
         Destroy(gameObject);

@@ -27,7 +27,6 @@ namespace Manager
         public int currentResolution;
         public bool isFullscreen;
         private float _currentVolume;
-        private bool _unsavedChanges;
         private bool _unsavedVideoChanges;
         private bool _isMuted;
 
@@ -54,7 +53,7 @@ namespace Manager
 
         public void LoadStartPage()
         {
-            if(_unsavedChanges)
+            if(SettingsHaveChanged())
                 OpenLeavingOptions();
             else
             {
@@ -78,37 +77,37 @@ namespace Manager
         {
             isFullscreen = fullscreen;
             _unsavedVideoChanges = true;
-            ActivateSaveButton();
+            ChangeCheck();
         }
         
         public void SetMute(bool muted)
         {
             GameMusicPlayer.instance.Mute(muted);
             _isMuted = muted;
-            ActivateSaveButton();
+            ChangeCheck();
         }
 
         public void SetVolume(float volume)
         {
             _currentVolume = volume;
             GameMusicPlayer.instance.SetVolume(_currentVolume);
-            ActivateSaveButton();
+            ChangeCheck();
         }
 
         public void SetResolution()
         {
-            var currentResolution = resolutions[this.currentResolution];
-            Screen.SetResolution(currentResolution.horizontal, currentResolution.vertical, isFullscreen);
-            SetVideoSettings();
+            var resolution = resolutions[currentResolution];
+            Screen.SetResolution(resolution.horizontal, resolution.vertical, isFullscreen);
+            SetVideoSettingsUI();
             _unsavedVideoChanges = false;
         }
 
-        public void SetVideoSettings()
+        public void SetVideoSettingsUI()
         {
-            var resolution = resolutions[this.currentResolution];
+            var resolution = resolutions[currentResolution];
             resolutionTexts[0].SetText($"{resolution.horizontal}");
             resolutionTexts[1].SetText($"{resolution.vertical}");
-            fullscreenToggle.enabled = isFullscreen;
+            fullscreenToggle.isOn = isFullscreen;
         }
 
         public void ResolutionUp()
@@ -118,9 +117,9 @@ namespace Manager
             {
                 currentResolution = 0;
             }
-            SetVideoSettings();
+            SetVideoSettingsUI();
             _unsavedVideoChanges = true;
-            ActivateSaveButton();
+            ChangeCheck();
         }
     
         public void ResolutionDown()
@@ -130,23 +129,20 @@ namespace Manager
             {
                 currentResolution = resolutions.Count - 1;
             }
-            SetVideoSettings();
+            SetVideoSettingsUI();
             _unsavedVideoChanges = true;
-            ActivateSaveButton();
+            ChangeCheck();
         }
 
-        private void ActivateSaveButton()
+        private void ActivateSaveButtons()
         {
-            if(_unsavedChanges)
-                return;
-            _unsavedChanges = true;
             saveButton.enabled = true;
             saveButtonImage.color = Color.white;
             cancelButton.enabled = true;
             cancelButtonImage.color = Color.white;
         }
 
-        private void DeactivateSaveButton()
+        private void DeactivateSaveButtons()
         {
             saveButton.enabled = false;
             saveButtonImage.color = new Color(200, 200, 200, 0.4f);
@@ -165,8 +161,7 @@ namespace Manager
             SetResolution();
             ResetSettings?.Invoke();
             
-            _unsavedChanges = false;
-            DeactivateSaveButton();
+            ChangeCheck();
         }
         
         public event Action ResetSettings;
@@ -178,21 +173,44 @@ namespace Manager
                 SetResolution();   
                 OpenVideoSettingsHaveChanged();
             }
-            _unsavedChanges = false;
-            DeactivateSaveButton();
             PlayerPrefs.SetFloat("volume", _currentVolume);
             PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
             PlayerPrefs.SetInt("settings", 0);
+            
+            ChangeCheck();
         }
 
-        private bool ChangeCheck()
+        private void ChangeCheck()
         {
-            return true;
+            if (SettingsHaveChanged())
+            {
+                ActivateSaveButtons();
+            }
+            else
+            {
+                DeactivateSaveButtons();
+            }
+        }
+
+        private bool SettingsHaveChanged()
+        {
+            return
+                // Audio settings
+                !Mathf.Approximately(PlayerPrefs.GetFloat("volume"), _currentVolume) ||
+                PlayerPrefs.GetInt("muted").AsBool() != _isMuted ||
+                // Video settings
+                PlayerPrefs.GetInt("fullscreen").AsBool() != isFullscreen ||
+                currentResolution != PlayerPrefs.GetInt("resolution");
         }
     }
 
     [Serializable]
     public class Resolution {
         public int horizontal, vertical;
+    }
+
+    internal static class PlayerPrefExtensions
+    {
+        internal static bool AsBool(this int playerPrefsInt) => playerPrefsInt != 0;
     }
 }
