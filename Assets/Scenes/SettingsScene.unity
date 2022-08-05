@@ -1853,8 +1853,8 @@ MonoBehaviour:
   videoSettingsHaveChangedPrefab: {fileID: 2290755568057026077, guid: ebb6df9c8baf841f6902db3d177de739, type: 3}
   canvasTransform: {fileID: 1389026426}
   optionInteractable: {fileID: 476916520}
-  currentResolution: 0
-  isFullscreen: 0
+  volumeSlider: {fileID: 447571511}
+  muteToggle: {fileID: 1418707897}
 --- !u!4 &1022259706
 Transform:
   m_ObjectHideFlags: 0
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1193566791, guid: e076df2f4169d4c709358b03c653ad20, type: 3}
+  m_Sprite: {fileID: 595806848, guid: e02d9dfe21211d14ea29a2afcf71b7f2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

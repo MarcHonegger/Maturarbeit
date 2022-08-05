@@ -24,7 +24,11 @@ namespace Manager
         public GameObject videoSettingsHaveChangedPrefab;
         public Transform canvasTransform;
         public GameObject optionInteractable;
+        public VolumeSliderScript volumeSlider;
+        public Toggle muteToggle;
+        [NonSerialized]
         public int currentResolution;
+        [NonSerialized]
         public bool isFullscreen;
         private float _currentVolume;
         private bool _unsavedVideoChanges;
@@ -89,6 +93,15 @@ namespace Manager
 
         public void SetVolume(float volume)
         {
+            // remove Mute
+            if (_isMuted)
+            {
+                GameMusicPlayer.instance.Mute(false);
+                _isMuted = false;
+                muteToggle.isOn = false;
+                volumeSlider.ChangeColor(false);
+            }
+
             _currentVolume = volume;
             GameMusicPlayer.instance.SetVolume(_currentVolume);
             ChangeCheck();
