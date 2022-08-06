@@ -1,14 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 
 public class CameraControl : MonoBehaviour
 {
     private float _speedInput = 0f;
+    private float _zoomInput = 0f;
     private Camera _cam;
+    public int minFieldOfView;
+    public int maximumFieldOfView;
     public float cameraSpeed;
     public float leftEnd;
     public float rightEnd;
@@ -20,6 +20,10 @@ public class CameraControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        var fieldOfView = _cam.fieldOfView;
+        fieldOfView -= _zoomInput;
+        _cam.fieldOfView = fieldOfView;
+        _cam.fieldOfView = Mathf.Min(maximumFieldOfView, Math.Max(minFieldOfView, fieldOfView));
         var cameraTransform = transform;
         var cameraPosition = cameraTransform.position;
         var targetPosition = cameraPosition + new Vector3(_speedInput * cameraSpeed * 4f, 0f, 0f);
@@ -27,7 +31,6 @@ public class CameraControl : MonoBehaviour
         {
             return;
         }
-
         transform.position = Vector3.Lerp(cameraPosition, targetPosition, 0.1f);
     }
 
@@ -40,6 +43,14 @@ public class CameraControl : MonoBehaviour
     public void ChangeZoom(InputAction.CallbackContext context)
     {
         // Debug.Log($"Speed is set to {context.ReadValue<float>()}");
-        _cam.fieldOfView = 5;
+        _zoomInput = context.ReadValue<float>();
+        onZoomChange.Invoke( CalculatedZoom());
     }
+
+    public float CalculatedZoom()
+    {
+        return _cam.fieldOfView / maximumFieldOfView;
+    }
+    
+    public Action<float> onZoomChange;
 }

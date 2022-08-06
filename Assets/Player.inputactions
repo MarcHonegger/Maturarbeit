@@ -59,7 +59,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "1D Axis",
+                    "name": "Arrow",
                     "id": "10c68977-b47b-482e-baf6-642c1b18da6f",
                     "path": "1DAxis",
                     "interactions": "",
@@ -72,7 +72,7 @@
                 {
                     "name": "Negative",
                     "id": "aed9f140-faa1-4b24-8175-edd466037150",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -83,13 +83,52 @@
                 {
                     "name": "Positive",
                     "id": "e8e20ed8-336e-43b0-9489-6349a9c26efc",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Y-Axis",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Settings",
+            "id": "e4d6a58d-fdfb-4df3-8992-431220e93554",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "16c73ea7-5237-47e3-b273-e5d8863a6181",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "08049167-7dc2-4679-bfc8-b8c995a2f172",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b6a3f5e-7e8a-4c5e-88f9-5130a0322ef0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

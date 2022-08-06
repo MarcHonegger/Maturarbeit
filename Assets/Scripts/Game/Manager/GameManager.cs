@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager;
     public SpawnManager spawnManager;
     public TroopManager troopManager;
+    public GameObject pauseMenu;
     
     public float tickRate;
     
@@ -30,7 +32,11 @@ public class GameManager : MonoBehaviour
         //NetworkIdentity netID2 = NetworkClient.connection.identity;
         //troopManager = netID2.GetComponent<TroopManager>();
     }
-    
 
-   
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        Debug.Log("Paused the Game");
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
 }

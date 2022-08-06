@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using Mirror.Examples.Basic;
+using networking;
 using UnityEngine;
 using UnityEngine.Serialization;
 

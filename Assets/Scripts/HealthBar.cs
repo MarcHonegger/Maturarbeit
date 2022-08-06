@@ -8,6 +8,19 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
+    private CameraControl _cameraControl;
+
+    private void Start()
+    {
+        _cameraControl = FindObjectOfType<CameraControl>();
+        _cameraControl.onZoomChange += FitToZoom;
+        FitToZoom(_cameraControl.CalculatedZoom());
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<CameraControl>().onZoomChange -= FitToZoom;
+    }
 
     public void SetMaximumHealth(float maximum)
     {
@@ -17,5 +30,10 @@ public class HealthBar : MonoBehaviour
     public void ChangeHealth(float value)
     {
         slider.value += value;
+    }
+
+    private void FitToZoom(float zoom)
+    {
+        transform.localScale = (1f - zoom / 3) * Vector3.one;
     }
 }
