@@ -2,11 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttackType
-{
-    Melee = 0, Ranged = 1, Effect = 2
-}
-
 public class Thorn : MonoBehaviour
 {
     private TroopHandler _troopHandler;

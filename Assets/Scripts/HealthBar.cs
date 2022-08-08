@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
         _cameraControl = FindObjectOfType<CameraControl>();
         _cameraControl.onZoomChange += FitToZoom;
         FitToZoom(_cameraControl.CalculatedZoom());
+        
         _redHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/RedFill");
         _blueHealthBarFill = Resources.Load<Sprite>("Game/HealthBar/BlueFill");
         ResetColor();
@@ -25,7 +26,7 @@ public class HealthBar : MonoBehaviour
 
     private void OnDestroy()
     {
-        FindObjectOfType<CameraControl>().onZoomChange -= FitToZoom;
+        _cameraControl.onZoomChange -= FitToZoom;
     }
     
     public void ResetColor()

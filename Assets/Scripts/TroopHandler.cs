@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using Mirror;
-using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
+public enum AttackType
+{
+    Melee = 0, Ranged = 1, Suicide = 2, Effect = 3
+}
 
 public class TroopHandler : NetworkBehaviour
 {
@@ -16,6 +15,8 @@ public class TroopHandler : NetworkBehaviour
     public float currentMovementSpeed;
     public float health;
     public GameObject deathPrefab;
+    public String bonusInfo;
+    public AttackType attackType;
     private Color _standardColor;
     
     public HealthBar healthBar;

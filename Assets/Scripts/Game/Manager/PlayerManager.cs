@@ -45,7 +45,7 @@ public class PlayerManager : MonoBehaviour
 
     public void PlayCard(GameObject troopPrefab, int lane, GameObject playedCard)
     {
-        Destroy(playedCard);
+        HandManager.instance.CardWasPlayed(playedCard);
         GameManager.instance.spawnManager.Spawn(troopPrefab, lane, isLeftPlayer);
 
         var troop = troopPrefab.GetComponent<TroopHandler>();

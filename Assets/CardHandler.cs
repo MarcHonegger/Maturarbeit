@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using Unity.Mathematics;
+using UnityEditor;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -19,13 +22,16 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public int cost;
     public CardType type;
 
-    /// <summary>
-    /// Drag and Drop for green cards
-    /// </summary>
+    // Card Infos
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI costText;
+    public TextMeshProUGUI damageText;
+    public Image troopImage;
+    public Image attackTypeImage;
     
-    [SerializeField] private Canvas canvas;
+    private Canvas _canvas;
     private RectTransform _rectTransform;
-    private bool disabled;
+    private bool _disabled;
     private Image _image;
 
     private void Awake()
@@ -36,6 +42,19 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private void Start()
     {
         _image = GetComponent<Image>();
+        _canvas = FindObjectOfType<Canvas>();
+        SetCardInfos();
+    }
+
+    private void SetCardInfos()
+    {
+        var troop = cardGameObject.GetComponent<TroopHandler>();
+        healthText.text = troop.health.ToString(CultureInfo.InvariantCulture);
+        cost = troop.energyCost;
+        costText.text = cost.ToString(CultureInfo.InvariantCulture);
+        troopImage.preserveAspect = true;
+        troopImage.sprite = cardGameObject.GetComponent<SpriteRenderer>().sprite;
+        attackTypeImage.sprite = Resources.Load<Sprite>($"Game/{troop.attackType}");
     }
 
     private void Update()
@@ -43,19 +62,19 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (!PlayerManager.instance.IsPlayableCard(cost))
         {
             _image.color = Color.gray;
-            disabled = true;
+            _disabled = true;
         }
         else
         {
             _image.color = Color.white;
-            disabled = false;
+            _disabled = false;
         }
     }
 
     // Start is called before the first frame update
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (disabled)
+        if (_disabled)
         {
             eventData.pointerDrag = null;
             return;
@@ -74,7 +93,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log($"Drag");
-        _rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
     public void OnPointerDown(PointerEventData eventData)

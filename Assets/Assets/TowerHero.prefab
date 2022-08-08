@@ -47,8 +47,9 @@ GameObject:
   - component: {fileID: 1672553425892360374}
   - component: {fileID: 5902040897976319380}
   - component: {fileID: 4798261207598031191}
+  - component: {fileID: 6095147526357854265}
   m_Layer: 6
-  m_Name: HeroTower
+  m_Name: TowerHero
   m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,13 +190,10 @@ MonoBehaviour:
   energyCost: 0
   movementSpeed: 0
   currentMovementSpeed: 0
-  ghostEffect: 0
-  thornDamage: 1
-  thornType: 1
   health: 8
   deathPrefab: {fileID: 6685142000718824078, guid: 242c033e3539ae440b5d4ca82df83cff, type: 3}
-  revengePrefab: {fileID: 4030166899045283584, guid: f479305014bf0684fa0d4de425cf7323, type: 3}
-  revenge: 1
+  bonusInfo: 
+  attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!114 &5902040897976319380
@@ -227,6 +225,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e73e98aac06829449e907d76ed2d22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6095147526357854265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472013461816801951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411136be15f984bb695af11c83befda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revengePrefab: {fileID: 4030166899045283584, guid: f479305014bf0684fa0d4de425cf7323, type: 3}
 --- !u!1001 &4102677459566374531
 PrefabInstance:
   m_ObjectHideFlags: 0

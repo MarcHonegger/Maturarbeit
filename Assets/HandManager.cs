@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = Unity.Mathematics.Random;
 
@@ -13,18 +15,18 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private Vector3 _oldPos;
     public GameObject laneOptionPrefab;
-    private readonly List<Image> _laneSprites = new List<Image>();
-    private readonly List<TextMeshProUGUI> _laneNumbers = new List<TextMeshProUGUI>();
-    private static Random _rng = new Random();  
+    private readonly List<Image> _laneSprites = new();
+    private readonly List<TextMeshProUGUI> _laneNumbers = new();
+    private static Random _rng;  
     private int _screenHeight;
     private int _screenWidth;
     private int _thirdScreenHeight;
     private int _quarterScreenWidth;
 
-    public List<GameObject> cardGameObjects = new List<GameObject>();
-
-    private List<CardHandler> _cardsInHand = new List<CardHandler>();
-    public List<CardHandler> deck = new List<CardHandler>();
+    public List<GameObject> troopsForDeck;
+    public GameObject cardPrefab;
+    public List<GameObject> cardsInDeck;
+    private readonly List<GameObject> _cardsInHand = new();
 
     public static HandManager instance;
     private void Awake()
@@ -37,21 +39,67 @@ public class HandManager : MonoBehaviour
 
         instance = this;
     }
-
-    public void ShuffleDeck()
-    {
-        int n = deck.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = _rng.NextInt(n + 1);  
-            (deck[k], deck[n]) = (deck[n], deck[k]);
-        } 
-    }
     
     void Start()
     {
         UpdateScreenSize();
         GenerateSprites();
+        ShuffleDeck();
+        CreateDeck();
+        for (int i = 0; i < 5; i++)
+        {
+            DrawCard(cardsInDeck.First());
+        }
+        InvokeRepeating(nameof(Test), 10, 10);
+        CreateDeck();
+    }
+
+    private void Test()
+    {
+        DrawCard(cardsInDeck.First());
+    }
+
+    private void CreateDeck()
+    {
+        cardsInDeck = new List<GameObject>();
+        foreach (var troop in troopsForDeck)
+        {
+            CreateCard(troop);
+        }
+    }
+
+    private void ShuffleDeck()
+    {
+        int n = cardsInDeck.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = _rng.NextInt(n + 1);  
+            (cardsInDeck[k], cardsInDeck[n]) = (cardsInDeck[n], cardsInDeck[k]);
+        } 
+    }
+
+    private void CreateCard(GameObject troop)
+    {
+        var card = Instantiate(cardPrefab, transform.parent);
+        card.name = $"Card {troop.name}";
+        card.GetComponent<CardHandler>().cardGameObject = troop;
+        card.SetActive(false);
+        cardsInDeck.Add(card);
+    }
+
+    private void DrawCard(GameObject card)
+    {
+        card.SetActive(true);
+        _cardsInHand.Add(card);
+        cardsInDeck.Remove(card);
+        ResetCardPositions();
+    }
+
+    public void CardWasPlayed(GameObject card)
+    {
+        Destroy(card);
+        _cardsInHand.Remove(card);
+        ResetCardPositions();
     }
 
     private void UpdateScreenSize()
@@ -120,20 +168,42 @@ public class HandManager : MonoBehaviour
         {
             if (mousePosition.x < _quarterScreenWidth)
             {
+                PlayerManager.instance.IsValidSpawn(0);
                 PlayerManager.instance.PlayCard(troopPrefab, 0, card);
             } 
             else if (mousePosition.x > _quarterScreenWidth && mousePosition.x < 2 * _quarterScreenWidth)
             {
+                PlayerManager.instance.IsValidSpawn(1);
                 PlayerManager.instance.PlayCard(troopPrefab, 1, card);
             }
             else if (mousePosition.x > 2 * _quarterScreenWidth && mousePosition.x < 3 * _quarterScreenWidth)
             {
+                PlayerManager.instance.IsValidSpawn(2);
                 PlayerManager.instance.PlayCard(troopPrefab, 2, card);
             }
             else if (mousePosition.x > 3 * _quarterScreenWidth && mousePosition.x < 4 * _quarterScreenWidth)
             {
+                PlayerManager.instance.IsValidSpawn(3);
                 PlayerManager.instance.PlayCard(troopPrefab, 3, card);
             }
+            else
+            {
+                ResetCardPositions();
+            }
+        }
+        else
+        {
+            ResetCardPositions();
+        }
+    }
+    
+    private void ResetCardPositions()
+    {
+        var position = new Vector3(100 * -_cardsInHand.Count / 2f, 0, 0);
+        foreach (var card in _cardsInHand)
+        {
+            card.transform.localPosition = position;
+            position += new Vector3(100, 0, 0);
         }
     }
 }
