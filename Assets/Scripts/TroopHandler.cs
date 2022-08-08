@@ -14,6 +14,7 @@ public class TroopHandler : NetworkBehaviour
     public float movementSpeed;
     public float currentMovementSpeed;
     public float health;
+    public float maximumHealth;
     public GameObject deathPrefab;
     public String bonusInfo;
     public AttackType attackType;
@@ -38,6 +39,7 @@ public class TroopHandler : NetworkBehaviour
 
     private void Start()
     {
+        health = maximumHealth;
         _cam = FindObjectOfType<Camera>();
         _canvas = FindObjectOfType<Canvas>();
         _canvasRect = _canvas.GetComponent<RectTransform>();
@@ -86,11 +88,9 @@ public class TroopHandler : NetworkBehaviour
     {
         ChangeTroopDesign();
         Invoke(nameof(ResetTroopDesign), 0.25f);
-
-        UpdateHealthBarValue(-amount);
-
         health -= amount;
         CheckDeath();
+        UpdateHealthBarValue();
     }
 
     [Server]
@@ -100,6 +100,16 @@ public class TroopHandler : NetworkBehaviour
         {
             Die();
         }
+    }
+    
+    
+    [Server]
+    public void ChangeHealth(float amount, bool onlyCurrent)
+    {
+        health = Mathf.Max(health + amount, maximumHealth);
+        if(!onlyCurrent)
+            maximumHealth += amount;
+        UpdateHealthBarValue();
     }
 
     private void ChangeTroopDesign()
@@ -139,11 +149,12 @@ public class TroopHandler : NetworkBehaviour
 
         _rectTransform = healthBar.GetComponent<RectTransform>();
         UpdateHealthBarPosition();
+        UpdateHealthBarValue();
     }
 
-    private void UpdateHealthBarValue(float healthChange)
+    private void UpdateHealthBarValue()
     {
-        healthBar.ChangeHealth(healthChange);
+        healthBar.HealthChanged(health, maximumHealth);
     }
 
     private void UpdateHealthBarPosition() => _rectTransform.anchoredPosition = GetScreenPoint();

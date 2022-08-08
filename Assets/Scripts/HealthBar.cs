@@ -39,9 +39,10 @@ public class HealthBar : MonoBehaviour
         slider.maxValue = maximum;
     }
 
-    public void ChangeHealth(float value)
+    public void HealthChanged(float currentHealth, float maximumHealth)
     {
-        slider.value += value;
+        slider.maxValue = maximumHealth;
+        slider.value = currentHealth;
     }
 
     private void FitToZoom(float zoom)

@@ -190,7 +190,8 @@ MonoBehaviour:
   energyCost: 0
   movementSpeed: 0
   currentMovementSpeed: 0
-  health: 8
+  health: 0
+  maximumHealth: 10
   deathPrefab: {fileID: 6685142000718824078, guid: 242c033e3539ae440b5d4ca82df83cff, type: 3}
   bonusInfo: 
   attackType: 0

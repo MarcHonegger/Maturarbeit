@@ -191,8 +191,11 @@ MonoBehaviour:
   energyCost: 0
   movementSpeed: 0
   currentMovementSpeed: 0
-  health: 25
+  health: 0
+  maximumHealth: 25
   deathPrefab: {fileID: 6685142000718824078, guid: 0b525bef520284dec9bf5faf6a453942, type: 3}
+  bonusInfo: 
+  attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!114 &5106616436032898437
@@ -256,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411136be15f984bb695af11c83befda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  revengePrefab: {fileID: 599366575436683681, guid: 57739707aae6b4f4ab4ad167048633a4, type: 3}
+  revengePrefab: {fileID: 4030166899045283584, guid: f479305014bf0684fa0d4de425cf7323, type: 3}
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0

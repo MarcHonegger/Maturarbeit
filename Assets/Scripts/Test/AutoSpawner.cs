@@ -17,9 +17,9 @@ public class AutoSpawner : MonoBehaviour
         for (int i = 0; i < gameObjects.Count; i++)
         {
             TroopHandler troop = gameObjects[i].GetComponent<TroopHandler>();
-            troop.health += healthBuffs[i];
+            troop.ChangeHealth(healthBuffs[i], false);
             GameManager.instance.spawnManager.Spawn(gameObjects[i], lanes[i], isPlayerLeftList[i]);
-            troop.health -= healthBuffs[i];
+            troop.ChangeHealth(-healthBuffs[i], false);
         }
     }
 }

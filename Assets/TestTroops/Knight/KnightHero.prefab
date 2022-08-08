@@ -188,11 +188,13 @@ MonoBehaviour:
   energyCost: 0
   movementSpeed: 0
   currentMovementSpeed: 0
-  ghostEffect: 0
-  health: 15
+  health: 0
+  maximumHealth: 15
+  deathPrefab: {fileID: 0}
+  bonusInfo: 
+  attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
-  newPlayerManager: {fileID: 0}
 --- !u!114 &5106616436032898437
 MonoBehaviour:
   m_ObjectHideFlags: 0

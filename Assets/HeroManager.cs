@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -6,9 +7,20 @@ using UnityEngine;
 
 public class HeroManager : NetworkBehaviour
 {
+    [Serializable]
+    public struct Regeneration
+    {
+        public float time;
+        public float value;
+    }
+    
     public GameObject heroPrefab;
     public NewPlayerManager newPlayerManager;
     public float spawnPointGap;
+
+    public float scaleTime;
+    public float healthScale;
+    public Regeneration healthRegeneration;
 
     public override void OnStartServer()
     {
@@ -27,6 +39,26 @@ public class HeroManager : NetworkBehaviour
             CompareTag("LeftPlayer"), 
             transform);
             // heroGameObject.transform.Rotate(new Vector3(45, 0, 0));
+        }
+        InvokeRepeating(nameof(Scale), scaleTime, scaleTime);
+        InvokeRepeating(nameof(Heal), healthRegeneration.time, healthRegeneration.time);
+    }
+
+    [Server]
+    private void Scale()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.GetComponent<TroopHandler>().ChangeHealth(healthScale, false);
+        }
+    }
+
+    [Server]
+    private void Heal()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.GetComponent<TroopHandler>().ChangeHealth(healthRegeneration.value, true);
         }
     }
 }
