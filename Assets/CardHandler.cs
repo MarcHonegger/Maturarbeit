@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
 using Unity.Mathematics;
-using UnityEditor;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
