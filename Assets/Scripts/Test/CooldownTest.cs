@@ -19,7 +19,6 @@ public class CooldownTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _image.color =
-            PlayerManager.instance.currentCooldown > 0 ? onCooldownColor : readyColor;
+        _image.color = PlayerManager.instance.currentCooldown > 0 ? onCooldownColor : readyColor;
     }
 }
