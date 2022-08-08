@@ -33,6 +33,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private RectTransform _rectTransform;
     private bool _disabled;
     private Image _image;
+    private int _siblingIndex;
 
     private void Awake()
     {
@@ -79,12 +80,15 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             eventData.pointerDrag = null;
             return;
         }
+        _siblingIndex = transform.GetSiblingIndex();
+        transform.SetAsLastSibling();
         Debug.Log($"BeginDrag");
         HandManager.instance.StartRendering();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.SetSiblingIndex(_siblingIndex);
         Debug.Log($"EndDrag");
         HandManager.instance.StopRendering();
         HandManager.instance.CheckPosition(Mouse.current.position.ReadValue(), cardGameObject, gameObject);

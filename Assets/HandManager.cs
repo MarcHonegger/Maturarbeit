@@ -15,18 +15,20 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private Vector3 _oldPos;
     public GameObject laneOptionPrefab;
-    private readonly List<Image> _laneSprites = new();
-    private readonly List<TextMeshProUGUI> _laneNumbers = new();
-    private static Random _rng;  
+    private readonly List<Image> _laneSprites = new List<Image>();
+    private readonly List<TextMeshProUGUI> _laneNumbers = new List<TextMeshProUGUI>();
+    private static Random _rng = new Unity.Mathematics.Random(0x6E624EB7u);  
     private int _screenHeight;
     private int _screenWidth;
     private int _thirdScreenHeight;
     private int _quarterScreenWidth;
 
+    public int cardDistance;
     public List<GameObject> troopsForDeck;
     public GameObject cardPrefab;
     public List<GameObject> cardsInDeck;
-    private readonly List<GameObject> _cardsInHand = new();
+    public int amountOfCardsAtStart;
+    private readonly List<GameObject> _cardsInHand = new List<GameObject>();
 
     public static HandManager instance;
     private void Awake()
@@ -44,19 +46,19 @@ public class HandManager : MonoBehaviour
     {
         UpdateScreenSize();
         GenerateSprites();
-        ShuffleDeck();
         CreateDeck();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < amountOfCardsAtStart; i++)
         {
             DrawCard(cardsInDeck.First());
         }
         InvokeRepeating(nameof(Test), 10, 10);
-        CreateDeck();
     }
 
     private void Test()
     {
         DrawCard(cardsInDeck.First());
+        if(cardsInDeck.Count == 0)
+            CreateDeck();
     }
 
     private void CreateDeck()
@@ -66,6 +68,7 @@ public class HandManager : MonoBehaviour
         {
             CreateCard(troop);
         }
+        ShuffleDeck();
     }
 
     private void ShuffleDeck()
@@ -199,11 +202,12 @@ public class HandManager : MonoBehaviour
     
     private void ResetCardPositions()
     {
-        var position = new Vector3(100 * -_cardsInHand.Count / 2f, 0, 0);
+        Vector3 position = new Vector3(cardDistance * -_cardsInHand.Count / 2f, 0, 0);
         foreach (var card in _cardsInHand)
         {
             card.transform.localPosition = position;
-            position += new Vector3(100, 0, 0);
+            position += new Vector3(cardDistance, 0, 0);
+            card.transform.SetAsLastSibling();
         }
     }
 }

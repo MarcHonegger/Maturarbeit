@@ -5486,7 +5486,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5916,6 +5916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1387591435}
   laneOptionPrefab: {fileID: 467286294796943360, guid: f86c0718defe348a6a41d734e7c2ec4d, type: 3}
+  cardDistance: 75
   troopsForDeck:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
   - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
@@ -5924,6 +5925,7 @@ MonoBehaviour:
   - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
   cardPrefab: {fileID: 916700416832614751, guid: d0486b5294fba4240a08b3f8b4ff3b9c, type: 3}
   cardsInDeck: []
+  amountOfCardsAtStart: 3
 --- !u!4 &1295257745
 Transform:
   m_ObjectHideFlags: 0
