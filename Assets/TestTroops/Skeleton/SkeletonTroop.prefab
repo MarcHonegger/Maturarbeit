@@ -157,6 +157,8 @@ MonoBehaviour:
   currentMovementSpeed: 0
   health: 3
   deathPrefab: {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
+  bonusInfo: 
+  attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
 --- !u!65 &3951796804929373383
