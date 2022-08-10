@@ -10,7 +10,7 @@ public class StartPage : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("OfflineScene");
     }
     
     public void LoadSettings()

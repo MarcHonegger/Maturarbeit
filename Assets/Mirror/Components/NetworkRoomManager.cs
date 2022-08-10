@@ -235,7 +235,7 @@ namespace Mirror
                 if (player != null)
                 {
                     player.OnClientExitRoom();
-                }
+                }   
         }
 
         #region server handlers
@@ -699,14 +699,14 @@ namespace Mirror
 
             if (NetworkServer.active && IsSceneActive(GameplayScene))
             {
-                GUILayout.BeginArea(new Rect(Screen.width - 150f, 10f, 140f, 30f));
-                if (GUILayout.Button("Return to Room"))
+                GUILayout.BeginArea(new Rect(Screen.width - 250f, 10f, 140f, 30f));
+                if (GUILayout.Button("Return to Lobby"))
                     ServerChangeScene(RoomScene);
                 GUILayout.EndArea();
             }
 
             if (IsSceneActive(RoomScene))
-                GUI.Box(new Rect(10f, 180f, 520f, 150f), "PLAYERS");
+                GUI.Box(new Rect(10f, 180f, 220f, 150f), "PLAYERS");
         }
 
         #endregion
