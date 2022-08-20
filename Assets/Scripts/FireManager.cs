@@ -27,7 +27,7 @@ public class FireManager : MonoBehaviour
     {
         var spawnManager = GameManager.instance.spawnManager;
         var spawnPointDistanceX = spawnManager.spawnPointDistance.x;
-        var amountNeeded = Mathf.Floor((spawnPointDistanceX * 0.85f)/ distance);
+        var amountNeeded = Mathf.Floor((spawnPointDistanceX - 15)/ distance);
         // var startPosition = spawnManager.spawnPointStart + new Vector3(CompareTag("LeftPlayer") ? 0 : spawnPointDistanceX, transform.position.y, transform.position.z);
         var startPosition = transform.position;
         for (int i = 0; i < amountNeeded; i++)

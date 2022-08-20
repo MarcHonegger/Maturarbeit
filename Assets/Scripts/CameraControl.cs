@@ -10,12 +10,14 @@ public class CameraControl : MonoBehaviour
     public int minFieldOfView;
     public int maximumFieldOfView;
     public float cameraSpeed;
-    public float leftEnd;
-    public float rightEnd;
+    private int leftEnd = 0;
+    private int rightEnd;
 
     private void Start()
     {
         _cam = GetComponent<Camera>();
+
+        rightEnd = (int) GameManager.instance.spawnManager.spawnPointDistance.x;
     }
 
     void FixedUpdate()

@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 53121760}
   m_Layer: 0
   m_Name: DeathLine
-  m_TagString: Untagged
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,7 +586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53121759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 822289703}
   m_Layer: 0
   m_Name: DeathLine (1)
-  m_TagString: Untagged
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3042,7 +3042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822289702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 120, y: 0, z: 0}
+  m_LocalPosition: {x: 225, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5100,8 +5100,6 @@ MonoBehaviour:
   minFieldOfView: 20
   maximumFieldOfView: 80
   cameraSpeed: 3
-  leftEnd: 0
-  rightEnd: 80
 --- !u!108 &1676553839
 Light:
   m_ObjectHideFlags: 0
@@ -5665,8 +5663,8 @@ MonoBehaviour:
   syncInterval: 0.1
   spawnPoints: []
   spawnPointAmount: 4
-  spawnPointStart: {x: -2.5, y: 0, z: 3}
-  spawnPointDistance: {x: 100, y: 0, z: 0}
+  spawnPointStart: {x: 0, y: 0, z: 3}
+  spawnPointDistance: {x: 200, y: 0, z: 0}
   spawnPointSpacing: {x: 0, y: 0, z: -2}
   spawnPointPrefab: {fileID: 5593859673854605779, guid: e2b9330458d2d434fb1ef9baf36bfcea, type: 3}
   spawnPointParent: {fileID: 0}
