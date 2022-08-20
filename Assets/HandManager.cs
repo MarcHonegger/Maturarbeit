@@ -124,7 +124,7 @@ public class HandManager : MonoBehaviour
             var laneOptionImage = laneOption.GetComponent<Image>();
             
             laneOptionImage.enabled = false;
-            laneNumber.enabled = false;
+            laneNumber.enabled = false; 
             _laneSprites.Add(laneOptionImage);
             _laneNumbers.Add(laneNumber);
         }
