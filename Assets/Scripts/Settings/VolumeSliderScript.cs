@@ -17,7 +17,8 @@ public class VolumeSliderScript : MonoBehaviour
     
     public void Start()
     {
-        SettingsManager.instance.ResetSettings += Reset;
+        if(SettingsManager.instance)
+            SettingsManager.instance.ResetSettings += Reset;
     }
 
     public void ChangeColor(bool muted)
@@ -35,7 +36,8 @@ public class VolumeSliderScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        SettingsManager.instance.ResetSettings -= Reset;
+        if(SettingsManager.instance)
+            SettingsManager.instance.ResetSettings -= Reset;
     }
 
     private void Reset()

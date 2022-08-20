@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 918297736232603718}
   - component: {fileID: 349099300167040254}
   - component: {fileID: -6387844736368926125}
+  - component: {fileID: -7872924917935146486}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -189,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295c53c952ee2425186f04e4c4a4f881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   slider: {fileID: 918297736232603718}
 --- !u!114 &-6387844736368926125
 MonoBehaviour:
@@ -207,6 +210,40 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 6c224d6ead930456296b68f22e7d5c98
   hasSpawned: 0
+--- !u!114 &-7872924917935146486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189989392098843020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &1936358330244481561
 GameObject:
   m_ObjectHideFlags: 0

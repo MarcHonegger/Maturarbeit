@@ -35,6 +35,12 @@ namespace networking
         {
             SceneManager.LoadSceneAsync("GameOverOverlay", LoadSceneMode.Single);
         }
+        
+        [ClientRpc]
+        public void RpcAbortGame()
+        {
+            SceneManager.LoadSceneAsync("StartPageScene", LoadSceneMode.Single);
+        }
 
         [Server]
         public void SetSide()

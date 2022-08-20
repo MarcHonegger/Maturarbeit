@@ -1,18 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : NetworkBehaviour
 {
     public Slider slider;
     private CameraControl _cameraControl;
     
     private Sprite _redHealthBarFill;
     private Sprite _blueHealthBarFill;
-
+    
     private void Start()
     {
         _cameraControl = FindObjectOfType<CameraControl>();
@@ -34,17 +35,20 @@ public class HealthBar : MonoBehaviour
         transform.GetChild(1).GetComponent<Image>().sprite = CompareTag("LeftPlayer") ? _redHealthBarFill : _blueHealthBarFill;
     }
 
+    [Server]
     public void SetMaximumHealth(float maximum)
     {
         slider.maxValue = maximum;
     }
 
+    [Server]
     public void HealthChanged(float currentHealth, float maximumHealth)
     {
         slider.maxValue = maximumHealth;
         slider.value = currentHealth;
     }
 
+    [Server]
     private void FitToZoom(float zoom)
     {
         transform.localScale = (1f - zoom / 3) * Vector3.one;

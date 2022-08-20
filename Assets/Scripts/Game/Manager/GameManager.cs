@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     
     public float tickRate;
     
+    public InputAction pauseAction;
+    
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -31,12 +33,23 @@ public class GameManager : MonoBehaviour
         // troopManager = GetComponentInChildren<TroopManager>();
         //NetworkIdentity netID2 = NetworkClient.connection.identity;
         //troopManager = netID2.GetComponent<TroopManager>();
+        
+        pauseAction.performed += OnPause;
     }
 
-    public void PauseGame(InputAction.CallbackContext context)
+    private void OnEnable()
+        {
+            pauseAction.Enable();
+        }
+    
+    private void OnDisable()
+        {
+            pauseAction.Disable();
+        }
+
+    
+    private void OnPause(InputAction.CallbackContext context)
     {
-        Debug.Log("Paused the Game");
-        Time.timeScale = 0;
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 }

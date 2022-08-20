@@ -110,19 +110,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "08049167-7dc2-4679-bfc8-b8c995a2f172",
+                    "id": "e57215c9-0482-41ae-8a81-efd7a9b677e4",
                     "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1b6a3f5e-7e8a-4c5e-88f9-5130a0322ef0",
-                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

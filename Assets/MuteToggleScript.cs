@@ -12,13 +12,15 @@ public class MuteToggleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SettingsManager.instance.ResetSettings += Reset;
+        if(SettingsManager.instance)
+            SettingsManager.instance.ResetSettings += Reset;
         Reset();
     }
 
     private void OnDestroy()
     {
-        SettingsManager.instance.ResetSettings -= Reset;
+        if(SettingsManager.instance)
+            SettingsManager.instance.ResetSettings -= Reset;
     }
 
     void Reset()

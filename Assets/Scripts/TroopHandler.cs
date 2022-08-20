@@ -76,7 +76,7 @@ public class TroopHandler : NetworkBehaviour
     public void StartMoving() => currentMovementSpeed = movementSpeed;
     public void StopMoving() => currentMovementSpeed = 0;
 
-    [ClientRpc]
+    [Server]
     public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
         DamageTaken?.Invoke(attacker, type);
