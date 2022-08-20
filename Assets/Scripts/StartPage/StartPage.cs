@@ -10,7 +10,7 @@ public class StartPage : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("OfflineScene");
     }
     
     public void LoadSettings()
@@ -21,5 +21,10 @@ public class StartPage : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("CreditsScene");
     }
 }
