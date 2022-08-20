@@ -22,4 +22,9 @@ public class StartPage : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
 }
