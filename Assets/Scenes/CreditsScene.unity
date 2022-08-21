@@ -200,7 +200,7 @@ MonoBehaviour:
     consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
     dolore magna aliquam erat volutpat.   \r\n\r\nUt wisi enim ad minim veniam, quis
     nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-    consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse\n<align>"
+    consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
