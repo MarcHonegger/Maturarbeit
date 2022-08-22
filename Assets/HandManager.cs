@@ -28,6 +28,7 @@ public class HandManager : MonoBehaviour
     public GameObject cardPrefab;
     public List<GameObject> cardsInDeck;
     public int amountOfCardsAtStart;
+    public int maxAmountOfCardsInHand;
     private readonly List<GameObject> _cardsInHand = new List<GameObject>();
 
     public static HandManager instance;
@@ -56,9 +57,13 @@ public class HandManager : MonoBehaviour
 
     private void Test()
     {
-        DrawCard(cardsInDeck.First());
         if(cardsInDeck.Count == 0)
             CreateDeck();
+        else if (_cardsInHand.Count >= maxAmountOfCardsInHand)
+        {
+            return;
+        }
+        DrawCard(cardsInDeck.First());
     }
 
     private void CreateDeck()
@@ -89,6 +94,21 @@ public class HandManager : MonoBehaviour
         card.SetActive(false);
         cardsInDeck.Add(card);
     }
+
+    /*
+    private void EndDragCard(GameObject card)
+    {
+        _cardsInHand.Add(card);
+        ResetCardPositions();
+    }
+    
+    public void DragCard(GameObject card)
+    {
+        _cardsInHand.Remove(card);
+        ResetCardPositions();
+        card.transform.SetAsLastSibling();
+    }
+    */
 
     private void DrawCard(GameObject card)
     {
@@ -191,11 +211,15 @@ public class HandManager : MonoBehaviour
             }
             else
             {
+                // EndDragCard(card);
+                card.GetComponent<CardHandler>().isDragged = false;
                 ResetCardPositions();
             }
         }
         else
         {
+            // EndDragCard(card);
+            card.GetComponent<CardHandler>().isDragged = false;
             ResetCardPositions();
         }
     }
@@ -205,6 +229,8 @@ public class HandManager : MonoBehaviour
         Vector3 position = new Vector3(cardDistance * -_cardsInHand.Count / 2f, 0, 0);
         foreach (var card in _cardsInHand)
         {
+            if(card.GetComponent<CardHandler>().isDragged)
+                continue;
             card.transform.localPosition = position;
             position += new Vector3(cardDistance, 0, 0);
             card.transform.SetAsLastSibling();

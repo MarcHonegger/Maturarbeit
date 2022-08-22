@@ -28,7 +28,8 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public TextMeshProUGUI damageText;
     public Image troopImage;
     public Image attackTypeImage;
-    
+
+    public bool isDragged;
     private Canvas _canvas;
     private RectTransform _rectTransform;
     private bool _disabled;
@@ -61,7 +62,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         if (!PlayerManager.instance.IsPlayableCard(cost))
         {
-            _image.color = Color.gray;
+            _image.color = Color.red;
             _disabled = true;
         }
         else
@@ -81,6 +82,8 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         }
         Debug.Log($"BeginDrag");
         HandManager.instance.StartRendering();
+        isDragged = true;
+        // HandManager.instance.DragCard(gameObject);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -94,6 +97,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         Debug.Log($"Drag");
         _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
+        // HandManager.instance.DragCard(gameObject);
     }
 
     public void OnPointerDown(PointerEventData eventData)
