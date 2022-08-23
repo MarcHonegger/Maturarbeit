@@ -34,10 +34,12 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private RectTransform _rectTransform;
     private bool _disabled;
     private Image _image;
+    private Vector3 _normalScale;
 
     private void Awake()
     {
         _rectTransform = GetComponent<RectTransform>();
+        _normalScale = transform.localScale;
     }
 
     private void Start()
@@ -56,6 +58,22 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         troopImage.preserveAspect = true;
         troopImage.sprite = cardGameObject.GetComponent<SpriteRenderer>().sprite;
         attackTypeImage.sprite = Resources.Load<Sprite>($"Game/{troop.attackType}");
+    }
+
+    public void PlayCardIsDrawnAnimation()
+    {
+        transform.localScale = 0.75f * Vector3.one;
+        InvokeRepeating(nameof(ScaleUp01), 0.02f, 0.02f);
+    }
+
+    private void ScaleUp01()
+    {
+        transform.localScale += 0.125f * Vector3.one;
+        if (transform.localScale.x >= _normalScale.x + 0.3f)
+        {
+            transform.localScale = _normalScale;
+            CancelInvoke(nameof(ScaleUp01));
+        }
     }
 
     private void Update()

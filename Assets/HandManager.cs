@@ -50,7 +50,7 @@ public class HandManager : MonoBehaviour
         CreateDeck();
         for (int i = 0; i < amountOfCardsAtStart; i++)
         {
-            DrawCard(cardsInDeck.First());
+            DrawCard(cardsInDeck.First(), false);
         }
         InvokeRepeating(nameof(Test), 10, 10);
     }
@@ -63,7 +63,7 @@ public class HandManager : MonoBehaviour
         {
             return;
         }
-        DrawCard(cardsInDeck.First());
+        DrawCard(cardsInDeck.First(), true);
     }
 
     private void CreateDeck()
@@ -110,11 +110,13 @@ public class HandManager : MonoBehaviour
     }
     */
 
-    private void DrawCard(GameObject card)
+    private void DrawCard(GameObject card, bool animated)
     {
         card.SetActive(true);
         _cardsInHand.Add(card);
         cardsInDeck.Remove(card);
+        if(animated)
+            card.GetComponent<CardHandler>().PlayCardIsDrawnAnimation();
         ResetCardPositions();
     }
 
