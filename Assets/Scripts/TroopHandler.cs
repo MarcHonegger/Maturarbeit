@@ -123,7 +123,7 @@ public class TroopHandler : NetworkBehaviour
         _spriteRenderer.color = _standardColor;
     }
 
-    [ClientRpc]
+    [Server]
     public void Die()
     {
         Debug.Log($"Died {gameObject.name}");
