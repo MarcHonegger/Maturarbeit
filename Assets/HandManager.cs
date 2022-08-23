@@ -59,7 +59,7 @@ public class HandManager : MonoBehaviour
     {
         if(cardsInDeck.Count == 0)
             CreateDeck();
-        else if (_cardsInHand.Count >= maxAmountOfCardsInHand)
+        if (_cardsInHand.Count >= maxAmountOfCardsInHand)
         {
             return;
         }
