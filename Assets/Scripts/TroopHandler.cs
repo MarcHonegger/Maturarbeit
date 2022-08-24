@@ -135,6 +135,7 @@ public class TroopHandler : NetworkBehaviour
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
         Destroy(deathObject, 4f);
 
+        // TODO
         NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(gameObject);
     }

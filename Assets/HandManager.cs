@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using TMPro;
 using Unity.Mathematics;
@@ -9,6 +11,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = Unity.Mathematics.Random;
+
+public class Deck
+{
+    public List<String> cardNames;
+}
 
 public class HandManager : MonoBehaviour
 {
@@ -23,6 +30,7 @@ public class HandManager : MonoBehaviour
     private int _thirdScreenHeight;
     private int _quarterScreenWidth;
 
+    public String currentDeckName;
     public int cardDistance;
     public List<GameObject> troopsForDeck;
     public GameObject cardPrefab;
@@ -30,6 +38,7 @@ public class HandManager : MonoBehaviour
     public int amountOfCardsAtStart;
     public int maxAmountOfCardsInHand;
     private readonly List<GameObject> _cardsInHand = new List<GameObject>();
+    private string _saveFile;
 
     public static HandManager instance;
     private void Awake()
@@ -41,10 +50,14 @@ public class HandManager : MonoBehaviour
         }
 
         instance = this;
+        
+        _saveFile = Application.persistentDataPath + "/gamedata.json";
     }
     
     void Start()
     {
+        LoadDeck();
+        
         UpdateScreenSize();
         GenerateSprites();
         CreateDeck();
@@ -53,6 +66,15 @@ public class HandManager : MonoBehaviour
             DrawCard(cardsInDeck.First(), false);
         }
         InvokeRepeating(nameof(Test), 10, 10);
+    }
+
+    private void LoadDeck()
+    {
+        if (File.Exists(_saveFile))
+        {
+            var currentDeck = JsonUtility.FromJson<Deck>(currentDeckName);
+            
+        }
     }
 
     private void Test()
