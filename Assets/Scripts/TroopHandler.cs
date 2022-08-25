@@ -133,11 +133,34 @@ public class TroopHandler : NetworkBehaviour
         GameObject deathObject = Instantiate(deathPrefab, position, Quaternion.identity);
         deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
         deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
+        NetworkServer.Spawn(deathObject);
+        RPCTag(deathObject);
         Destroy(deathObject, 4f);
-
-        NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
-        NetworkServer.Destroy(gameObject);
+        /*NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
+        NetworkServer.Destroy(gameObject);*/
+        RpcDestroyHealth();
+        Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
+        Destroy(gameObject);
+        
+        
     }
+
+    
+
+    [ClientRpc]
+    public void RPCTag(GameObject deathObject)
+    {
+        deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
+    }
+
+    [ClientRpc]
+    public void RpcDestroyHealth()
+    {
+        Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
+        Destroy(gameObject);
+    }
+    
+   
 
     private void GenerateHealthBar()
     {

@@ -182,25 +182,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-    At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-    no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-    amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-    et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-    sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-    sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-    magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-    dolor sit amet.   \r\n\r\nDuis autem vel eum iriure dolor in hendrerit in vulputate
-    velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-    vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-    delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-    consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-    dolore magna aliquam erat volutpat.   \r\n\r\nUt wisi enim ad minim veniam, quis
-    nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-    consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"
+  m_text: "<align=center> <size=40>Credits\n\n<size=35>Marc:\n<size=30>- Original
+    Concept / Idea\n- President of M&E Ltd. \n- Scripter\n- Lead UI Designer\n- Network
+    Developer\n- Corporate / Community Communications Co-Manager\n\n<size=35>Eli:\n<size=30>CEO
+    of M&E Ltd.\n- Scripter\n- UI Artist (2.5d)\n- Lead Network Developer\n- Corporate
+    / Community Communications Co-Manager\n\n<size=35>Hunzi:\n<size=30>- Thesis Supervisor\n-
+    Main Examinor\n\n<size=35>Special Thanks:\n<size=30>- Pascal : LaTeX, Rare Code
+    Reviews\n- Jezek : Discussant \"Should our Art be graded?\"\n- Lena : Marc's
+    Distraction Nr. 1\n\n- Testers:\n...\n...\n...\n\n\n<size=40>- AND YOU <3\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -684,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11b4021498f2bd42b277c41f6cd7625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 35
+  delay: 25
   sceneToLoad: StartPageScene
 --- !u!4 &2009305866
 Transform:

@@ -397,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -43, y: 73}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210687994
@@ -420,7 +420,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Host: \"Start Host\"; \nClient: \"Find Servers\"; click on Server; \n"
+  m_text: 'Some Text
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -554,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4216766217863648251, guid: c743831bca552a44b8f6ad533ac956af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -31.009039
       objectReference: {fileID: 0}
     - target: {fileID: 4216766217863648251, guid: c743831bca552a44b8f6ad533ac956af, type: 3}
       propertyPath: m_LocalRotation.w
@@ -574,11 +576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4216766217863648251, guid: c743831bca552a44b8f6ad533ac956af, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4216766217863648251, guid: c743831bca552a44b8f6ad533ac956af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4216766217863648251, guid: c743831bca552a44b8f6ad533ac956af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -690,6 +692,7 @@ GameObject:
   - component: {fileID: 2008127834}
   - component: {fileID: 2008127833}
   - component: {fileID: 2008127830}
+  - component: {fileID: 2008127836}
   m_Layer: 0
   m_Name: NetworkRoomManager
   m_TagString: Untagged
@@ -820,6 +823,12 @@ MonoBehaviour:
   - {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
   - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
   - {fileID: 94973235738464153, guid: ead09e62c37d9424281a0c600b1dbdb2, type: 3}
+  - {fileID: 1176012555850750164, guid: 386a8f517567944728cf951956436fb7, type: 3}
+  - {fileID: 6685142000718824078, guid: ec9face08db7a43e28564e2d3295820b, type: 3}
+  - {fileID: 6685142000718824078, guid: 78d9942874ef94ba494b807c91245e52, type: 3}
+  - {fileID: 6685142000718824078, guid: d98bfd91783a74027b37ec12437e1db1, type: 3}
+  - {fileID: 6685142000718824078, guid: c66b00672b73d497189cda0f21d9f4e8, type: 3}
+  - {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
   showRoomGUI: 1
   minPlayers: 0
   roomPlayerPrefab: {fileID: -3186234988500504575, guid: ead09e62c37d9424281a0c600b1dbdb2, type: 3}
@@ -828,3 +837,17 @@ MonoBehaviour:
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
+--- !u!114 &2008127836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008127829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5af1a5c386c66c48a294c5364802e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetX: 4
+  offsetY: 0

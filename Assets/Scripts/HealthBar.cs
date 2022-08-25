@@ -41,12 +41,14 @@ public class HealthBar : NetworkBehaviour
         slider.maxValue = maximum;
     }
 
-    [Server]
+    //[Server]
     public void HealthChanged(float currentHealth, float maximumHealth)
     {
         slider.maxValue = maximumHealth;
         slider.value = currentHealth;
     }
+
+    
 
     [Server]
     private void FitToZoom(float zoom)
