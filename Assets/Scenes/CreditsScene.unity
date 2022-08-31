@@ -184,12 +184,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "<align=center> <size=40>Credits\n\n<size=35>Marc:\n<size=30>- Original
     Concept / Idea\n- President of M&E Ltd. \n- Scripter\n- Lead UI Designer\n- Network
-    Developer\n- Corporate / Community Communications Co-Manager\n\n<size=35>Eli:\n<size=30>CEO
+    Developer\n- Corporate / Community Communications Co-Manager\n\n<size=35>Elia:\n<size=30>CEO
     of M&E Ltd.\n- Scripter\n- UI Artist (2.5d)\n- Lead Network Developer\n- Corporate
-    / Community Communications Co-Manager\n\n<size=35>Hunzi:\n<size=30>- Thesis Supervisor\n-
-    Main Examinor\n\n<size=35>Special Thanks:\n<size=30>- Pascal : LaTeX, Rare Code
-    Reviews\n- Jezek : Discussant \"Should our Art be graded?\"\n- Lena : Marc's
-    Distraction Nr. 1\n\n- Testers:\n...\n...\n...\n\n\n<size=40>- AND YOU <3\n\n"
+    / Community Communications Co-Manager\n\n<size=35>Hunziker:\n<size=30>- Thesis
+    Supervisor\n- Main Examinor\n\n<size=35>Special Thanks:\n<size=30>- Pascal :
+    LaTeX, Rare Code Reviews\n- Jezek : Discussant \"Should our Art be graded?\"\n-
+    Lena : Marc's Distraction Nr. 1\n\n- Testers:\n...\n...\n...\n\n\n<size=40>-
+    AND YOU <3\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
