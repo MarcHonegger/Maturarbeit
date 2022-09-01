@@ -15,7 +15,7 @@ namespace networking
         {
             base.OnStartServer();
             Debug.Log("Server started");
-
+    
             foreach (var troop in troopPrefabs)
             {
                 _troops.Add(troop);
