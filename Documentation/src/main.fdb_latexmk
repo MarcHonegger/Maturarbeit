@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1661180077 "main.aux" "main.bbl" "main" 1661181652
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 0
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst" 1292289607 23907 a5f93555796fb564b924339521f10a7c ""
   "bibliography.bib" 1659449858 224 11727b7cb66b1be8ae6e149266b4afe9 ""
-  "main.aux" 1661181652 5246 c01a47691308a4923385ec3f2d431618 "pdflatex"
+  "main.aux" 0 -1 0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1661181651 "/Users/marchonegger/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1661181652
+["pdflatex"] 1662018202 "/Users/marchonegger/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1662018202
   "/Users/marchonegger/Maturarbeit/Documentation/src/main.tex" 1661180089 1917 ed0b50ae192f0412b41743718ba6f26b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -34,6 +34,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb" 1215737283 145929 f25e56369a345c4ff583b067cd87ce8e ""
@@ -151,8 +152,8 @@
   "01_ziel/01_vision.tex" 1661180775 993 79dc70b8f975d5117fded37f4c10b93a ""
   "01_ziel/02_anforderungen.tex" 1661180991 13019 8af328ddfb11c58aa74d9a6a780ca020 ""
   "01_ziel/03_skizzen.tex" 1659449858 89 7516476af798c5f404f337cb50a4a26d ""
-  "01_ziel/04_risiko.tex" 1661181651 2528 4f7391e4f5e941111b06f2b916455e18 ""
-  "02_produkt/01_heutige-stand.tex" 1659449858 3861 ac4c72782e7d984f18bf3658aaaad7f4 ""
+  "01_ziel/04_risiko.tex" 1662018201 5316 a3876fef10b8ca3a9a83d8925c2747aa ""
+  "02_produkt/01_heutige-stand.tex" 1662018201 3890 48c88397b022594552d970586b1da42e ""
   "02_produkt/02_architektur.tex" 1659449858 22 d437265e99f6e164bfee14b65d5e5dcd ""
   "02_produkt/03_feedback.tex" 1659449858 711 41e55087b4e3e8a6499a4d685548073f ""
   "02_produkt/04_Zukunft.tex" 1659449858 17 f15ffcc304666494aec9ca3e6a068c86 ""
@@ -164,12 +165,12 @@
   "04_reflexion/03_marc.tex" 1659449858 62 005783f01143bea8a7a8596be4889910 ""
   "custom.tex" 1659449858 2567 93612e62b52bf58338871365cab1dfe0 ""
   "glossary.tex" 1661181111 3315 c78753dae2302851ba442aaf46bd2df6 ""
-  "main.aux" 1661181652 5246 c01a47691308a4923385ec3f2d431618 "pdflatex"
-  "main.bbl" 1661180077 255 61469ce4e4b6515eb86a1805158b6d9e "bibtex main"
-  "main.gls" 1661181652 2554 bf821a6749a91b6c225ec4ee803a9897 ""
-  "main.out" 1661181652 2713 b6be053b82019f6cb401d86f0f76a86f "pdflatex"
+  "main.aux" 1662018202 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.bbl" 0 -1 0 "bibtex main"
+  "main.glo" 0 -1 0 "pdflatex"
+  "main.gls" 0 -1 0 ""
+  "main.out" 0 -1 0 "pdflatex"
   "main.tex" 1661180089 1917 ed0b50ae192f0412b41743718ba6f26b ""
-  "main.toc" 1661181652 1967 e71086126d47a084f3072665908b2c04 "pdflatex"
   "resources/DummyLogo.png" 1661169060 455807 773a4ba0678539d9260bdbeb4d03e88c ""
   "title-page.tex" 1661179930 771 29ea79bebda684a3806b970e70686957 ""
   (generated)
