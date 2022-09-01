@@ -15,7 +15,7 @@ namespace networking
         {
             base.OnStartServer();
             Debug.Log("Server started");
-
+    
             foreach (var troop in troopPrefabs)
             {
                 _troops.Add(troop);
@@ -31,9 +31,32 @@ namespace networking
         }
 
         [ClientRpc]
-        public void RpcGameOver()
+        public void RpcGameOver(int whowon)
         {
-            SceneManager.LoadSceneAsync("GameOverOverlay", LoadSceneMode.Single);
+            //  0 = winner = host = leftplayer
+            if (whowon == 0)
+            {
+                if (isClientOnly)
+                {
+                    SceneManager.LoadSceneAsync("GameOverLoose", LoadSceneMode.Single);
+                }
+                else
+                {
+                    SceneManager.LoadSceneAsync("GameOverWin", LoadSceneMode.Single);
+                }
+            }
+            else
+            {
+                if (isClientOnly)
+                {
+                    SceneManager.LoadSceneAsync("GameOverWin", LoadSceneMode.Single);
+                }
+                else
+                {
+                    SceneManager.LoadSceneAsync("GameOverLoose", LoadSceneMode.Single);
+                }
+            }
+
         }
         
         [ClientRpc]

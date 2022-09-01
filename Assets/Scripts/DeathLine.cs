@@ -26,10 +26,16 @@ public class DeathLine : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            int winner = 0;
             Debug.Log("DeathLine");
             NetworkIdentity netID = NetworkClient.connection.identity;
             newPlayerManager = netID.GetComponent<NewPlayerManager>();
-            newPlayerManager.RpcGameOver();
+            if (gameObject.tag == "LeftPlayer")
+            {
+                winner = 1;
+            }
+            newPlayerManager.RpcGameOver(winner);
+            
         }
     }
 }

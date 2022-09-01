@@ -50,9 +50,10 @@ GameObject:
   - component: {fileID: 5587177054649690428}
   - component: {fileID: 8713527303106596621}
   - component: {fileID: -7105354607688195874}
+  - component: {fileID: -8652334709754159621}
   m_Layer: 6
   m_Name: SkeletonTroop
-  m_TagString: RightPlayer
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +294,22 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &-8652334709754159621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6685142000718824078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  animator: {fileID: 1830484138906261887}
 --- !u!1001 &3447990481138062994
 PrefabInstance:
   m_ObjectHideFlags: 0
