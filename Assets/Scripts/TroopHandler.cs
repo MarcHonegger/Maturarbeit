@@ -141,8 +141,6 @@ public class TroopHandler : NetworkBehaviour
         RpcDestroyHealth();
         Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         Destroy(gameObject);
-        
-        
     }
 
     
@@ -154,10 +152,9 @@ public class TroopHandler : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcDestroyHealth()
+    private void RpcDestroyHealth()
     {
         Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
-        Destroy(gameObject);
     }
     
    
