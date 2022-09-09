@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5902040897976319380}
   - component: {fileID: 4798261207598031191}
   - component: {fileID: 6095147526357854265}
+  - component: {fileID: 4927077858856838267}
   m_Layer: 6
   m_Name: TowerHero
   m_TagString: RightPlayer
@@ -239,6 +240,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revengePrefab: {fileID: 4030166899045283584, guid: f479305014bf0684fa0d4de425cf7323, type: 3}
+--- !u!114 &4927077858856838267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472013461816801951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1001 &4102677459566374531
 PrefabInstance:
   m_ObjectHideFlags: 0
