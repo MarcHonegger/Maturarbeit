@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -3749974571649879861}
   m_Layer: 6
   m_Name: BabaSkeletonTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
