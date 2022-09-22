@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411136be15f984bb695af11c83befda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   revengePrefab: {fileID: 4030166899045283584, guid: f479305014bf0684fa0d4de425cf7323, type: 3}
 --- !u!114 &4927077858856838267
 MonoBehaviour:

@@ -140,11 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  energyCost: 12
-  movementSpeed: 0.05
+  energyCost: 5
+  movementSpeed: 0.15
   currentMovementSpeed: 0
   health: 0
-  maximumHealth: 20
+  maximumHealth: 25
   deathPrefab: {fileID: 6685142000718824078, guid: c66b00672b73d497189cda0f21d9f4e8, type: 3}
   bonusInfo: 
   attackType: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   attackRange: 1.5
-  attackDamage: 0.5
-  attackSpeed: 0.5
+  attackDamage: 1
+  attackSpeed: 1
   dieAfterAttack: 0
 --- !u!114 &7813487363649539661
 MonoBehaviour:

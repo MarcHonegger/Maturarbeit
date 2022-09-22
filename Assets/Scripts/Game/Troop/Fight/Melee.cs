@@ -66,6 +66,7 @@ public class Melee : NetworkBehaviour
         InvokeRepeating(nameof(Attack), attackSpeed, attackSpeed);
     }
 
+    [ClientRpc]
     private void OnNoEnemyInRange()
     {
         CancelInvoke(nameof(Attack));

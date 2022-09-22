@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class Revenge : MonoBehaviour
+public class Revenge : NetworkBehaviour
 {
     private TroopHandler _troopHandler;
 
@@ -16,6 +17,12 @@ public class Revenge : MonoBehaviour
     }
 
     void OnDeath()
+    {
+        RpcCallRevenge();
+    }
+    
+    [ClientRpc]
+    private void RpcCallRevenge()
     {
         GameObject revengeObject = Instantiate(revengePrefab, transform.position, Quaternion.identity);
         revengeObject.tag = gameObject.tag;
