@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3597874818168291526}
   - component: {fileID: 4173130988334246947}
   - component: {fileID: 4397817106362560934}
+  - component: {fileID: -6791265480789027542}
   m_Layer: 0
   m_Name: HeroRevenge
   m_TagString: Untagged
@@ -132,3 +133,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6791265480789027542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761921613752032350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 863f054d0f21eae4aa313c81c27d8eef
+  hasSpawned: 0
