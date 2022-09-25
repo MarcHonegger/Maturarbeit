@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,9 +19,7 @@ public class Poison : MonoBehaviour
         InvokeRepeating(nameof(PoisonDamage), 0, tickRate);
         Invoke(nameof(ResetHealthBarColor), duration);
         Invoke(nameof(SelfDestruct), duration);
-        _target.healthBar.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
     }
-
     public void RestartPoison()
     {
         CancelInvoke(nameof(ResetHealthBarColor));
@@ -28,13 +27,19 @@ public class Poison : MonoBehaviour
         
         Invoke(nameof(SelfDestruct), duration);
         Invoke(nameof(ResetHealthBarColor), duration);
+        
+        ChangeHealthBarColor();
     }
 
     private void SelfDestruct()
     {
         Destroy(gameObject);
     }
-
+    
+    private void ChangeHealthBarColor()
+    {
+        _target.healthBar.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
+    }
     private void ResetHealthBarColor()
     {
         _target.healthBar.ResetColor();
