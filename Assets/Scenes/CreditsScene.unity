@@ -182,15 +182,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<align=center> <size=40>Credits\n\n<size=35>Marc:\n<size=30>- Original
-    Concept / Idea\n- President of M&E Ltd. \n- Scripter\n- Lead UI Designer\n- Network
-    Developer\n- Corporate / Community Communications Co-Manager\n\n<size=35>Elia:\n<size=30>CEO
-    of M&E Ltd.\n- Scripter\n- UI Artist (2.5d)\n- Lead Network Developer\n- Corporate
-    / Community Communications Co-Manager\n\n<size=35>Hunziker:\n<size=30>- Thesis
-    Supervisor\n- Main Examinor\n\n<size=35>Special Thanks:\n<size=30>- Pascal :
-    LaTeX, Rare Code Reviews\n- Jezek : Discussant \"Should our Art be graded?\"\n-
-    Lena : Marc's Distraction Nr. 1\n\n- Testers:\n...\n...\n...\n\n\n<size=40>-
-    AND YOU <3\n\n"
+  m_text: "<align=center> <size=50>Credits\n\n<size=40>Marc Honegger:\n<size=30>-
+    Original Concept / Idea\n- President of M&E Ltd. \n- Scripter\n- Lead UI Designer\n-
+    Network Developer\n- Corporate / Community Communications Co-Manager\n\n<size=40>Elia
+    Sch\xFCrpf:\n<size=30>CEO of M&E Ltd.\n- Scripter\n- UI Artist (2.5d)\n- Lead
+    Network Developer\n- Corporate / Community Communications Co-Manager\n\n<size=40>Martin
+    Hunziker:\n<size=30>- Thesis Supervisor\n- Main Examinor\n\n<size=40>Special
+    Thanks:\n<size=30>- Pascal Honegger: LaTeX, Rare Code Reviews\n- Jan Jezek :
+    Discussant \"Should our Art be graded?\"\n- Lena : Marc's Distraction Nr. 1\n\n-
+    Testers:\n...\n...\n...\n\n\n<size=50>- AND YOU <3\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -287,6 +287,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &136415779
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 751204539923821890, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_Name
+      value: DefaultSoundmanager
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 694.8992
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 522.58685
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.12551
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 751204539923821895, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d684dd2aea9753c4487e261df2733b9d, type: 3}
 --- !u!1 &725614631
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6590699551581193672}
   - component: {fileID: 6590699551581193673}
+  - component: {fileID: 6590699551581193674}
   m_Layer: 0
   m_Name: GoToStartPage
   m_TagString: Untagged
@@ -945,3 +1003,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee5f9dfb79ff154f902e1da77912412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  NetworkRoomID: {fileID: 0}
+--- !u!114 &6590699551581193674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590699551581193670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 3220344108
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0

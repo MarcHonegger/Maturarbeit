@@ -1849,7 +1849,7 @@ MonoBehaviour:
     vertical: 900
   - horizontal: 1920
     vertical: 1080
-  - horizontal: 3440
+  - horizontal: 2560
     vertical: 1440
   fullscreenToggle: {fileID: 583395088}
   leavingOptionsPrefab: {fileID: 2290755568057026077, guid: 0306da8f3f7b761488d491c390011974, type: 3}

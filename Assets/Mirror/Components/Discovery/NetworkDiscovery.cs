@@ -37,7 +37,7 @@ namespace Mirror.Discovery
 
         /// <summary>
         /// Process the request from a client
-        /// </summary>
+        /// </summary> 
         /// <remarks>
         /// Override if you wish to provide more information to the clients
         /// such as the name of the host player
