@@ -31,7 +31,7 @@ public class PoisonTroop : MonoBehaviour
     // Update is called once per frame
     private void OnDamageTaken(TroopHandler attacker, AttackType type)
     {
-        if(type == AttackType.Effect || !attacker)
+        if(type == AttackType.Effect || !attacker || poisonType == PoisonType.OnDamageDone)
             return;
         Poison foundPoisons = attacker.GetComponentsInChildren<Poison>().FirstOrDefault(p => p.poisonId == poisonId);
         if (foundPoisons is null)

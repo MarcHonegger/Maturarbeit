@@ -79,7 +79,7 @@ public class TroopHandler : NetworkBehaviour
     [Server]
     public void TakeDamage(float amount, TroopHandler attacker, AttackType type)
     {
-        DamageTaken?.Invoke(attacker, type);
+        bla(attacker, type);
         TakeDamage(amount);
     }
     
@@ -93,6 +93,12 @@ public class TroopHandler : NetworkBehaviour
         UpdateHealthBarValue();
     }
 
+    [ClientRpc]
+    private void bla(TroopHandler attacker, AttackType type)
+    {
+        DamageTaken?.Invoke(attacker, type);
+    }
+    
     [Server]
     private void CheckDeath()
     {
@@ -103,7 +109,7 @@ public class TroopHandler : NetworkBehaviour
     }
     
     
-    [Server]
+    [ClientRpc]
     public void ChangeHealth(float amount, bool onlyCurrent)
     {
         health = Mathf.Max(health + amount, maximumHealth);

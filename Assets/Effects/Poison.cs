@@ -20,6 +20,7 @@ public class Poison : MonoBehaviour
         Invoke(nameof(ResetHealthBarColor), duration);
         Invoke(nameof(SelfDestruct), duration);
     }
+    
     public void RestartPoison()
     {
         CancelInvoke(nameof(ResetHealthBarColor));
@@ -40,6 +41,7 @@ public class Poison : MonoBehaviour
     {
         _target.healthBar.transform.GetChild(1).GetComponent<Image>().sprite = Resources.Load<Sprite>("Game/HealthBar/GreenFill");
     }
+    
     private void ResetHealthBarColor()
     {
         _target.healthBar.ResetColor();
