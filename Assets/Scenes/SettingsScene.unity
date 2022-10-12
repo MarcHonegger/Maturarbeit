@@ -1518,6 +1518,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &858988795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,6 +1849,8 @@ MonoBehaviour:
     vertical: 900
   - horizontal: 1920
     vertical: 1080
+  - horizontal: 3440
+    vertical: 1440
   fullscreenToggle: {fileID: 583395088}
   leavingOptionsPrefab: {fileID: 2290755568057026077, guid: 0306da8f3f7b761488d491c390011974, type: 3}
   videoSettingsHaveChangedPrefab: {fileID: 2290755568057026077, guid: ebb6df9c8baf841f6902db3d177de739, type: 3}

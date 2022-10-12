@@ -54,7 +54,7 @@ public class HeroManager : NetworkBehaviour
     }
 
     [Server]
-    private void Heal()
+    private void Heal() 
     {
         foreach (Transform child in transform)
         {

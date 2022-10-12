@@ -112,9 +112,24 @@ public class TroopHandler : NetworkBehaviour
     [ClientRpc]
     public void ChangeHealth(float amount, bool onlyCurrent)
     {
-        health = Mathf.Max(health + amount, maximumHealth);
-        if(!onlyCurrent)
+        
+        if (!onlyCurrent)
+        {
             maximumHealth += amount;
+            
+            Debug.Log("!grösser");
+        }
+        if (health + amount >= maximumHealth)
+        {
+            health = maximumHealth;
+            Debug.Log("if");
+        }
+        else
+        {
+            health += amount;
+            Debug.Log("else");
+        }
+
         UpdateHealthBarValue();
     }
 
