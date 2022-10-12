@@ -5,7 +5,7 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Poison : MonoBehaviour
+public class Poison : NetworkBehaviour
 {
     public float tickRate;
     public float damage;
@@ -47,6 +47,7 @@ public class Poison : MonoBehaviour
         _target.healthBar.ResetColor();
     }
 
+    [Server]
     private void PoisonDamage()
     {
         _target.TakeDamage(damage);
