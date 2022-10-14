@@ -113,7 +113,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log($"Drag");
+        //Debug.Log($"Drag");
         _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
         // HandManager.instance.DragCard(gameObject);
     }

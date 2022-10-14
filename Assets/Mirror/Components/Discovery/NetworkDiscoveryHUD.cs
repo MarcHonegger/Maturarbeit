@@ -58,12 +58,14 @@ namespace Mirror.Discovery
             }
 
             // Dedicated server
-            if (GUILayout.Button("Start Server"))
-            {
-                discoveredServers.Clear();
-                NetworkManager.singleton.StartServer();
-                networkDiscovery.AdvertiseServer();
-            }
+            // <summary> Serveronly wont work, we would need a complete recode for it
+            // if (GUILayout.Button("Start Server"))
+            // {
+            //     Debug.Log("No hosting Serveronly for you");
+            //     // discoveredServers.Clear();
+            //     // NetworkManager.singleton.StartServer();
+            //     // networkDiscovery.AdvertiseServer();
+            // }
 
             GUILayout.EndHorizontal();
 

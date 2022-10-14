@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Mirror;
+using Telepathy;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +13,7 @@ namespace networking
 
         private readonly List<GameObject> _troops = new();
         // ReSharper disable Unity.PerformanceAnalysis
+        
         public override void OnStartServer()
         {
             base.OnStartServer();
@@ -28,7 +31,13 @@ namespace networking
             base.OnStartClient();
             SetSide();
             Debug.Log("Client started");
+            
         }
+
+        
+        
+        
+
 
         [ClientRpc]
         public void RpcGameOver(int whowon)

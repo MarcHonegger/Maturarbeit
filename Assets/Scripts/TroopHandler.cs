@@ -117,17 +117,17 @@ public class TroopHandler : NetworkBehaviour
         {
             maximumHealth += amount;
             
-            Debug.Log("!grösser");
+            //Debug.Log("!grösser");
         }
         if (health + amount >= maximumHealth)
         {
             health = maximumHealth;
-            Debug.Log("if");
+            //Debug.Log("if");
         }
         else
         {
             health += amount;
-            Debug.Log("else");
+            //Debug.Log("else");
         }
 
         UpdateHealthBarValue();
