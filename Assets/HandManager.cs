@@ -133,11 +133,31 @@ public class HandManager : MonoBehaviour
         _screenWidth = Screen.width;
         _thirdScreenHeight = _screenHeight / 3;
         _quarterScreenWidth = _screenWidth / 4;
+        // Debug.Log(_screenHeight);
+        // Debug.Log(_screenWidth);
+        // Debug.Log(Screen.currentResolution.height);
+        // Debug.Log(Screen.currentResolution.width);
+        
+        // _screenHeight = Screen.currentResolution.height;
+        // _screenWidth = Screen.currentResolution.width;
+        // _thirdScreenHeight = _screenHeight / 3;
+        // _quarterScreenWidth = _screenWidth / 4;
+        // Debug.Log(Screen.width);
+        // Debug.Log(Screen.currentResolution.width);
+        // Debug.Log(Screen.height);
+        // Debug.Log(Screen.currentResolution.height);
+        
+        
     }
 
     private void GenerateSprites()
     {
-        Vector3 laneOptionScale = new Vector3(_quarterScreenWidth / 100f, _thirdScreenHeight * 2 / 100f, 1);
+        //Vector3 laneOptionScale = new Vector3(_quarterScreenWidth / 100f, _thirdScreenHeight * 2 / 100f, 1);
+        // <summary>
+        //the canvas automatically scales, so the need for calculating a changing scaling number is not needed
+        
+        
+        Vector3 laneOptionScale = new Vector3(4.8f, 7.2f, 1f);
 
         var laneOptionParent = Instantiate(new GameObject("laneOverlay"), canvas.transform).transform;
         for (int i = 0; i < 4; i++)
