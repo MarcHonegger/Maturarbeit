@@ -932,7 +932,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4833947124097453042}
         m_TargetAssemblyTypeName: LoadStart, Assembly-CSharp
         m_MethodName: LoadStartPage
         m_Mode: 1
