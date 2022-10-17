@@ -102,29 +102,42 @@ Wir konnten fast all unsere Anforderungen erfüllen.
         IMPORTANT\\
         IMPORTANT\\
     \item \textbf{Gewinnmöglichkeit} \\
-        Um zu Gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten.
+        Um zu Gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt die
+        ganze Linie auf der sich der Held befand.
     \item \textbf{Lanes} \\
-        Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien in der Tiefe verschoben.
+        Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe verschoben.
     \item \textbf{Synchronisation} \\
         Unser Spiel Synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected kann er versuchen
-        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft und das gewählte Protokoll TCP.
+        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft und das gewählte Protokoll TCP. Geht ein Packet verloren, wird es automatisch
+        erneut gesendet. Dies hilft und dabei, die Synchronisation zu jeder Zeit aufrecht zu erhalten.
     \item \textbf{Crossplay}
-        Die Möglichkeit sich mit einem Windows Rechner und einem macOS Rechner zu verbinden und zusammenzuspielen.
+        Es ist möglich sich mit einem Windows Rechner und einem macOS Rechner zu verbinden. Allerdings muss dem Spiel dazu die Kommunikation durch die Firewall teilweise erlaubt sein.
+        Bei einer eher aggressiveren Firewall wird zudem teilweise der Server-Broadcast geblockt. Dies hätte zur Folge, dass man die Server nicht automatisch finden kann. 
+        Verbinden sollte man sich allerdings trotzdem noch können.   
 \end{itemize}
 
 \subsection*{Anvisiert}
 \begin{itemize}
     \item \textbf{Helden} \\
-        Beide Spieler haben eine Art Truppe, welche ihre Siegeslinie beschützt. Sie haben einen Racheeffekt, welcher die
-        Lane ausradiert, damit das Spiel nicht sofort vorbei ist.
+        Beide Spieler haben im Moment den gleichen Helden. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
+        temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
-        Das Spiel sollte vom Aussehen her was hergeben. Es sollte nicht wie ein Prototyp, sondern wie ein 
-        vollendetes Spiel aussehen. 
+        \\
+        \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
+        Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gewinkelt. Auch 
+        die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut.  
     \item \textbf{Deck} \\
-        Zu Beginn Spieler könne ihr eigenes Deck aus einer Auswahl von Karten zusammenstellen. Im Spiel werden davon per Zufall Karten gezogen.
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
     \item \textbf{Bot} \\
-        Ein sehr simpler Algorithmus um alleine gegen den Computer zu spielen auf den Schwierigkeitsstufen \textit{'Einfach', 'Mittel', 'Schwierig'}.
-        Es sollen rein zufällig Truppen geschickt werden, bei höherer Schwierigkeit mehr.
+        \textit{Fürs erste Fürs erste verworfen}
     \item \textbf{Truppen}
     \begin{itemize}
         \item \textbf{Nahkampf}
@@ -139,77 +152,58 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \begin{itemize}
         \item \textbf{Gift:}
             Zeitlich limitierter und wiederholender Schadenseffekt. Eine visuelle Markierung soll vorhanden sein
-            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein.
+            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein. (Hier: Pilz-Truppe)
         \item \textbf{Dorn:}
-            Truppen, welche Charaktere mit Dorn attackieren, erhalten schaden. Soll nach Auswahl auf Nahkämpfer,
-            Fernkämpfer oder beides wirken.
+            \textit{Fürs Erste verworfen}
         \item \textbf{Rache:}
-            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen.
+            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen. (Hier: Helden mit Feuer)
     \end{itemize}
 \end{itemize}
 
 \subsection*{Möglichkeiten}
 \begin{itemize}
     \item \textbf{Zauber} \\
-        Als Alternative sollen nicht alle Karten einfach eine Truppe herbeirufen. Gewisse Karten sollten nur einen Effekt auslösen.
-        Beispiele für Zauber:
-            "Heile deine Helden um 5 leben"
-            "Gib deinen Helden 5 Rüstung"
-            "Verursache allen gegnerischen Truppen 5 Schaden"
-            "Ziehe 3 Karten"
+        \textit{Fürs Erste verworfen}
     \item \textbf{Monetarisierung} \\
-    Hierfür sind uns drei Möglichkeiten eingefallen, hier jeweils die Vor- und Nachteile:
+    Hierfür sind uns drei Möglichkeiten eingefallen:
     \begin{enumerate}
         \item \textbf{Kaufbare Gegenstände}
         \begin{itemize}
-            \item[+] Vielseitige und Nachhaltige Monetarisierung. Neue Features, bedeuten auch neue Geldmöglichkeit. Die Inhalte sollten
-                     auch erspielbar sein, somit kann bezahlen zwar zu Vorteilen führen, jedoch mit viel Spielen trotzdem erreichbar sein.
-            \item[-] Pay-to-Win
+            \item \textit{Fürs Erste verworfen}
         \end{itemize}
         \item \textbf{Skins}
         \begin{itemize}
-            \item[+] Weit verbreitet und sehr beliebt bei Spielern. Gibt keinem Spieler Vorteile
-            \item[-] Wenig Nutzen und sehr aufwändig. Neue Designs zu erstellen, wäre bei uns nicht so sinnvoll.
-                     Wir haben noch sehr viel Features zu implementieren und sind nicht Designer. Für uns braucht es sehr
-                     viel Zeit eine brauchbare Darstellung zu erstellen und der Mehrwert, welcher dem Spiel beigetragen wird, ist marginal.
+            \item \textit{Fürs Erste verworfen}
         \end{itemize}
         \item \textbf{Kostenpflichtiges Spiel}
         \begin{itemize}
-            \item[+] Einmalige Bezahlung, was für viele Nutzer lukrativer ist. Jedoch gilt dies vor allem bei Singleplayer Spielen.
-            \item[-] Wir nehmen an, dass wenige Leute bereit wären, Geld für unser Spiel zu bezahlen.
-                    Dafür wird es nicht genug ausgereift sein.
-                    Auch ist diese Methodik nicht nachhaltig und führt nur zu einer einmaligen Geldspritze.
-                    Viele grössere Spiele führen deshalb später
-                    DLCs ein, um das Spiel zu erweitern.
-                    Jedoch ist dies bei einem Multiplayer Spiel Pay-to-Win.
-                    Abschliessen müssten wir höchstwahrscheinlich selbst Geld vorauswerfen, um unser Spiel anbieten zu können, z.B. auf Steam.
+            \item Wir haben eventuell vor unser Spiel nach Vollendung der Dev Phase zu veröffentlichen. Allerdings auf keinen Fall für einen hohen Preis.
         \end{itemize}
         
     \end{enumerate}
     \item \textbf{Helden} \\
-        Eine Auswahl von Helden, mit unterschiedlichem Schaden, Leben und Effekten, würde das Spiel nochmals spannender machen. Auch sollten gewisse Truppen auf bestimmte Helden limitiert sein. 
+        \textit{Eine Auswahl von Helden wurde fürs Erste verworfen}
     \item \textbf{Design} \\
-        Wenn die Zeit vorhanden ist, kann das Design immer verbessert werden. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
+        Wir werden auch in Zukunft das Design noch verbessern. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
     \item \textbf{Tutorial} \\
-        Eine Anleitung für Anfänger wäre sehr schön. Sie soll neuen Spielern das Anfangen erleichtern. Es sollte aber auch überspringbar sein,
-        damit alte Spieler, es nicht nochmals spielen müssen. Es soll nicht lange sein und nicht schwierig. Dennoch soll es alle Mechaniken des Spiels
-        erklären, am besten Anhand von Gameplay.
+        \textit{Ein Tutorial wurde aus Zeitgründen fürs Erste verworfen}
     \item \textbf{Truppen}
-        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden.
+        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
+        Wir haben alle Programme mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
     \item Effekte
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Die Truppe wird wiederbelebt, sofort an Ort und Stelle oder mit einer Verzögerung am Startpunkt.
+            \textit{Fürs Erste verworfen}
         \item \textbf{Rüstung:}
-            Die Truppe hat zusätzlichen zu den Leben auch Rüstung. Die Rüstung wird zuerst abgezogen und hat im Gegensatz zum Leben keine Limite.
+            \textit{Fürs Erste Verworfen}
         \item \textbf{Aura:}
-            Die Truppe fügt gegnerischen Truppen in einem gewissen Radius permanent Schaden zu.
+            \textit{Fürs Erste Verworfen}
     \end{itemize}
     \item \textbf{Mehrsprachig} \\
-        Das Spiel soll in Englisch, Deutsch und Französisch spielbar sein.
+        \textit{Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.}
 \end{itemize}
 
-\subsection*{Verworfen}
+\subsection*{Fürs erste verworfen}
 \begin{itemize}
     \item \textbf{Online Multiplayer} \\
         Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu

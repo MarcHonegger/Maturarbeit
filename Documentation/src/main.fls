@@ -1257,6 +1257,16 @@ INPUT ./resources/pause.png
 INPUT resources/pause.png
 INPUT ./resources/pause.png
 INPUT ./resources/pause.png
+INPUT ./resources/25d.png
+INPUT ./resources/25d.png
+INPUT resources/25d.png
+INPUT ./resources/25d.png
+INPUT ./resources/25d.png
+INPUT ./resources/25dtwo.png
+INPUT ./resources/25dtwo.png
+INPUT resources/25dtwo.png
+INPUT ./resources/25dtwo.png
+INPUT ./resources/25dtwo.png
 INPUT ./02_produkt/02_architektur.tex
 INPUT ./02_produkt/02_architektur.tex
 INPUT ./02_produkt/02_architektur.tex

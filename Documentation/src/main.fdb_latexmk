@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex main"] 1666024265 "main.aux" "main.bbl" "main" 1666024268
+["bibtex main"] 1666026677 "main.aux" "main.bbl" "main" 1666026677
   "bibliography.bib" 0 -1 0 ""
   "c:/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst" 1659478508 23907 a5f93555796fb564b924339521f10a7c ""
-  "main.aux" 1666024267 5118 61a2adf4ab9e831bbce737035558ba24 "pdflatex"
+  "main.aux" 1666026675 5118 67405627b48e4a3db9cde0f4e6f536b3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1666024265 "c:/Users/Poly/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666024268
+["pdflatex"] 1666026673 "c:/Users/Poly/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666026677
   "01_ziel/01_vision.tex" 1666012642 1057 d55a8aec917210b3e4e850d011ff51c9 ""
   "01_ziel/02_anforderungen.tex" 1666016276 13357 e86fcf7225750eabbdbcd60ee4751d29 ""
   "01_ziel/03_skizzen.tex" 1661431474 92 7516476af798c5f404f337cb50a4a26d ""
   "01_ziel/04_risiko.tex" 1666015544 4567 ce0f29250c3a3cdba3ff8530c6f718c9 ""
-  "02_produkt/01_heutige-stand.tex" 1666024264 15675 988bbeeda0aaa71abc30191ccfec5168 ""
+  "02_produkt/01_heutige-stand.tex" 1666026677 14510 3b2fba9d92e0090cda97ee8cfe4a9c4c ""
   "02_produkt/02_architektur.tex" 1665565455 71 831be0f50bf240089295b2011a7daf7a ""
   "02_produkt/03_feedback.tex" 1663691983 20 4f6504fe275cdf3f8f9825cfa4775802 ""
   "02_produkt/04_zukunft.tex" 1661431474 17 f15ffcc304666494aec9ca3e6a068c86 ""
@@ -168,13 +168,15 @@
   "c:/texlive/2022/texmf.cnf" 1659483401 713 e69b156964470283e0530f5060668171 ""
   "custom.tex" 1661034097 2644 93612e62b52bf58338871365cab1dfe0 ""
   "glossary.tex" 1666016488 4617 88e0740b5650e17cdb653f395886709c ""
-  "main.aux" 1666024267 5118 61a2adf4ab9e831bbce737035558ba24 "pdflatex"
+  "main.aux" 1666026675 5118 67405627b48e4a3db9cde0f4e6f536b3 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.glo" 1666024267 2094 58f8d2ea13886327309d39b215986c9d "pdflatex"
+  "main.glo" 1666026675 2094 f641cb2059f531285e1a0eecc1bbb307 "pdflatex"
   "main.gls" 0 -1 0 ""
-  "main.out" 1666024267 2836 d0ec5df4713f67b1b519d0aa5db3a306 "pdflatex"
+  "main.out" 1666026675 2836 d0ec5df4713f67b1b519d0aa5db3a306 "pdflatex"
   "main.tex" 1665565455 2001 ed0b50ae192f0412b41743718ba6f26b ""
-  "main.toc" 1666024267 2000 46193eb0f06b92c382ddd1df40a973a8 "pdflatex"
+  "main.toc" 1666026675 2000 e1ef589add58c6e5ab98898bcd238d40 "pdflatex"
+  "resources/25d.png" 1666025766 304094 a28edc81caeb4b29ebad0ba02290bfc2 ""
+  "resources/25dtwo.png" 1666025946 297504 7a12487955dc4d348f5cdff94edba1fd ""
   "resources/Roadmap.png" 1665565455 491202 a5119fbc23c657a54657126b5a680309 ""
   "resources/bla.png" 1665565455 119961 79b065323ffc58ff64cff7c4cf871f4d ""
   "resources/credits.png" 1666019071 515992 a0bdf9d1cb90d2126161874de3b9373a ""
