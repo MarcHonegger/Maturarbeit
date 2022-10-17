@@ -598,7 +598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Maturarbeit
+  m_text: Laneclash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
   m_sharedMaterial: {fileID: -5179438776436813421, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
