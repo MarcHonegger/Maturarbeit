@@ -2,41 +2,41 @@
 
 \section{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
-Die Anforderungen der Schule halten sich in Grenzen. Zum einen gibt es nicht fast keine
-genauen Anforderungen und die restlichen sind sehr tief gehalten. Die drei Anforderungen der KZO sind:
+Die Anforderungen der Schule halten sich in Grenzen. Zum einen gibt es fast keine
+genauen Anforderungen und die Anforderungen, die es gibt, sind relativ tief gehalten. Die drei Anforderungen der KZO sind:
 \begin{enumerate}
     \item \textbf{Zeit} \\
         Geplant ist ungefähr eine Lektion pro Woche, denn diese wir dem Stundenplan für das Semester abgezogen.
-        Jedoch ist diese Anforderungen bei uns nicht relevant, denn unser Projekt ist eine riesige Maturaarbeit.
-        Wir werden ohne Problem auf diese Zeitanforderung erreichen und auch bei Weitem überschreiten.
+        Jedoch ist diese Anforderung bei uns nicht relevant, denn unser Projekt ist eine riesige Maturitätsarbeit.
+        Wir werden ohne Probleme diese Zeitanforderung erreichen und auch bei Weitem überschreiten.
     \item \textbf{Begleitperson} \\
-        Jede Maturaarbeit braucht eine Begleitperson. Also eine Lehrperson, welche die Arbeit bewertet und einen unterstützt.
-        Letzteres, also Unterstützung, war bei uns sehr schwierig, denn keine Lehrperson kennt sich mit Unity und C\# gut aus.
-        Wir sind schon früh auf Herr Kern, ein Informatiklehrer, zugegangen.
-        Er hat uns an Martin Hunziker, Leiter der IT, weitergeleitet. Er nahm uns sehr gern auf, mit der Anmerkung, dass unsere Arbeit sehr schwierig sein wird, umzusetzen.
+        Jede Maturitätsarbeit braucht eine Begleitperson. Also eine Lehrperson, welche die Arbeit bewertet und einen unterstützt.
+        Letzteres, also Unterstützung, war bei uns sehr schwierig, denn keine Lehrperson kennt sich mit Unity und C\# genug gut aus.
+        Wir sind bereits früh auf Herrn Kern, ein Informatiklehrer, zugegangen.
+        Er hat uns an Martin Hunziker, Leiter der IT, weitergeleitet. Dieser nahm uns sehr gerne auf, mit der Anmerkung, dass unsere Arbeit sehr schwierig sein wird, umzusetzen.
     \item \textbf{Plagiat} \\
-        Arbeiten dürfen nicht einfach kopiert werden. Wir haben zwar gewisse Code Stücke aus dem Internet kopiert, jedoch sind diese keine Plagiate.
+        Arbeiten dürfen nicht einfach kopiert werden. Wir haben uns zwar bei gewissen Problemen online inspirieren lassen, jedoch sind diese keine Plagiate.
         Der grösste Teil unseres Codes und alles unserer schriftlichen Arbeit sind von uns geschrieben.
 \end{enumerate}
 
-\section {Unsere}
-Gewisse Features sind wichtiger als andere für das Funktionieren des Spiels.
-Zum Beispiel sind Einstellungen, Truppen und Multiplayer notwendiger als die Monetarisierung, zumindest nach uns.
+\section {Unsere eigenen Anforderungen}
+Gewisse Features sind für das Funktionieren des Spiels wichtiger als andere.
+Zum Beispiel sind Einstellungen, Truppen und Multiplayer notwendiger als die Monetarisierung, zumindest nach unserer Ansicht.
 Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
 \begin{enumerate}
     \item \textbf{Notwendig:}
         Ohne diese Features läuft das Spiel nicht oder ist sehr mangelhaft,
-        Fehler erfüllt und unspielbar. Ohne ist Idee des Spieles nicht erkennbar.
+        voller Fehler und unspielbar. Ohne diese Features ist Idee des Spieles nicht erkennbar.
     \item \textbf{Anvisiert:}
         Diese Features sind unser Ziel. Sie wurden Herr Hunziker, also der Begleitperson, angekündigt und sind alle in einem Plan festgehalten.
         Diese Ziele sollen dazu führen, dass das Spiel
-        gut spielbar ist und es Spass macht. Sie sind auch essenziell, das Spiel nicht zu monoton zu gestalten und sollten
+        gut spielbar ist und es Spass macht. Sie sind auch dafür essenziell, das Spiel nicht zu monoton zu gestalten und sollten
         alle bis zum Abgabetermin der schriftlichen Arbeit vollendet sein.
     \item \textbf{Möglichkeiten:}
         Möglichkeiten das Spiel noch auf die Spitze zu bringen. Keine dieser Anforderungen ist nötig
-        für das spielen, jedoch können sie das Spielerlebnis spannender und ausgereifter machen. Diese
+        für das Spielen, jedoch können sie das Spielerlebnis spannender und ausgereifter machen. Diese
         Ziele sind entweder in den Sternen geschrieben oder zu erreichen bis zur mündlichen Präsentation.
-        Vereinzelt können diese, wie die anvisierten Anforderungen, bis zur schriftlichen Abgabe erreicht werden.
+        Vereinzelt können diese, wie die anvisierten Anforderungen, noch bis zur schriftlichen Abgabe erreicht werden.
     \item \textbf{Verworfen:}
         Weitere Ideen, welche wir hatten, jedoch als unmöglich oder nicht sinnvoll erachten.
 \end{enumerate}
@@ -65,7 +65,11 @@ Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
         Eine Chance das Spiel zu gewinnen oder verlieren und es somit zu beenden. Dies kann sehr simpel
         mit einer Linie vollendet werden, welche beim Überschreiten das Spiel beendet.
     \item \textbf{Lanes} \\
-        Unser Spiel ist zwar 2D, aber hat dennoch eine Tiefe.
+        Unser Spiel ist zwar 2.5D, aber hat dennoch eine Tiefe.
+    \item \textbf{Synchronisation} \\
+        Unser Spiel soll in Echtzeit spielbar sein, deswegen müssen die beiden Spieler Synchronisiert das Gleiche sehen. Eine De-Synchronisation wäre verheerend. 
+    \item \textbf{Crossplay}
+        Die Möglichkeit sich mit einem Windows Rechner und einem macOS Rechner zu verbinden und zusammenzuspielen.
 \end{itemize}
 
 \subsection*{Anvisiert}
@@ -142,10 +146,6 @@ Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
         \end{itemize}
         
     \end{enumerate}
-    \item \textbf{Online Multiplayer} \\
-        Besser als Multiplayer limitiert auf dasselbe Netz, ist Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu
-        verbinden dank Firewall von Router und Computer, nahezu unmöglich. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
-        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten das ganze Multiplayer System unseres Spieles anpassen.
     \item \textbf{Helden} \\
         Eine Auswahl von Helden, mit unterschiedlichem Schaden, Leben und Effekten, würde das Spiel nochmals spannender machen. Auch sollten gewisse Truppen auf bestimmte Helden limitiert sein. 
     \item \textbf{Design} \\
@@ -159,9 +159,9 @@ Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
     \item Effekte
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Die Truppe wird wiederbelebt, sofort oder mit einer Verzögerung am Startpunkt.
+            Die Truppe wird wiederbelebt, sofort an Ort und Stelle oder mit einer Verzögerung am Startpunkt.
         \item \textbf{Rüstung:}
-            Die Truppe hat zusätzlichen zu den Leben Rüstung. Die Rüstung wird zuerst abgezogen und hat im Gegensatz zum Leben keine Limite.
+            Die Truppe hat zusätzlichen zu den Leben auch Rüstung. Die Rüstung wird zuerst abgezogen und hat im Gegensatz zum Leben keine Limite.
         \item \textbf{Aura:}
             Die Truppe fügt gegnerischen Truppen in einem gewissen Radius permanent Schaden zu.
     \end{itemize}
@@ -172,13 +172,13 @@ Deshalb ist dieser Abschnitt in 4 Gruppen unterteilt:
 \subsection*{Verworfen}
 \begin{itemize}
     \item \textbf{Online Multiplayer} \\
-        Besser als Multiplayer limitiert auf dasselbe Netz, ist Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu
-        verbinden dank Firewall von Router und Computer, nahezu unmöglich. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
-        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten das ganze Multiplayer System unseres Spieles anpassen.
+        Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu
+        verbinden dank der Firewall von Router und Computer, nahezu unmöglich. Es würden sich viele weitere Probleme ergeben, wie zum Beispiel Port-Forwarding. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
+        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten allerdings das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte.
     \item \textbf{Shop} \\
         Nicht alle Karten sind von Beginn an freigeben, sondern müssen freigespielt werden.
         So kann zum Beispiel eine Ingame Währung erspielt werden und damit im Shop Karten oder sonstige Dinge gekauft werden.
-        Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetariesierung beitragen.
+        Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetarisierung beitragen.
         Jedoch ist ein Shop ohne Anti-Cheat und/oder Server die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn.
     \item \textbf{Kampagne} \\
         Singleplayer gegen bestimmte vorprogrammierte Gegner. Sie sollen immer schwieriger werden und bestimmte Herausforderungen mit sich bringen.
