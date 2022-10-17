@@ -13,7 +13,7 @@ public class ResolutionHasChangedManager : MonoBehaviour
 
     private void Start()
     {
-        _countDown = 5;
+        _countDown = 10;
     }
 
     private void Update()

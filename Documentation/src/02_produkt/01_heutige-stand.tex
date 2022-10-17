@@ -19,28 +19,95 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \item \textbf{Benutzeroberfläche} \\
     \begin {itemize}
         \item \textbf{Startpage} \\
-        \includegraphics[height=7cm]{resources/laneclash.png}\\
-        Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelnten Tester bewerteten die Startseite
+            \\
+            \includegraphics[height=7cm]{resources/laneclash.png}\\
+            Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelten Tester bewerteten die Startseite
         als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
+        \item \textbf{Credits}\\
+            \\
+            \includegraphics*[width = 7cm]{resources/credits.png}\\
+            Es gibt die Möglichkeit die Credits vorzeitig zu Verlassen. Dies geschieht durch das Drücken des Knopfes mit dem Haus als Icon. Die Tester fanden dies auch sehr intuitiv.
+        \item \textbf{Settings}\\
+            \\
+            \includegraphics*[height=7cm]{resources/setting.png}\\
+            Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter, leiser zu stellen
+            oder zu muten. Wenn man Einstellungen geändert hat, muss man dies bestätigen. \\
+            \includegraphics*[height=3cm]{resources/resolution.png}\\
+            Wenn man die Auflösung ändert und dies bestätigt, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
+            Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
+        \item \textbf{Server Management}\\
+            \\
+            \includegraphics*[height = 3cm]{resources/server.png}\\
+            Nach Interaktion mit dem ''Start''-Knopf gibt es die Möglichkeit einen Server zu Hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
+            automatisch nach bereits existierenden Servern suchen.\\
+            \\
+            \includegraphics*[width=6cm]{resources/discovered.png}\\
+            Den gewollten Server kann man mit einem einfachen Linksklick auswählen.
+        \item \textbf{Lobby Management}\\
+            \\
+            \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
+            Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
+            Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. Wir wollten zuerst
+            eine Möglichkeit für einen ''Schlüssel'' hinzufügen, allerdings stellte dies sich als überflüssig dar, da alle Spieler unter einem Dach sitzen.
+        \item \textbf{InGame-UI}\\
+            \\
+            \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
+            Der Host hat im Spiel die Möglichkeit, den Server zurück zur Lobby zu schicken, und das Spiel somit neuzustarten. Er kann auch direkt aufhören zu hosten. 
+            Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
+            \\
+            \includegraphics*[height=2cm]{resources/pause.png}\\
+            Im Pausemenu kann man ausserdem auf die Schnelle die Musiklautstärke und die Stärke des Schneefalls ändern.
+
+
     \end {itemize}
 
     \item \textbf{Lokaler Multiplayer} \\
-        Das Spiel soll im lokalen Netz gespielt werden können. So zum Beispiel mit Freunden oder Familie.
-        Es sollte mithilfe der IP-Adresse innerhalb des gleichen Netzes zusammengespielt werden können.
+        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen auch auf demselben Gerät. Als Protokoll haben wir TCP gewählt. Dies, da TCP viel Zuverlässiger ist.
+        Folgende vier Punkte waren entscheidend in der Wahl von TCP über UDP:
+        \begin{itemize}
+            \item \textbf{Zuverlässigkeit}\\
+                Keine Probleme mit verloren gegangenen Paketen. Ging ein Paket verloren, sendet TCP es einfach erneut. Entweder werden alle Daten erfolgreich übermittelt,
+                oder man bekommt einen Error.
+            \item \textbf{Sequenziert}\\
+                TCP stellt sicher, dass jede Nachricht in der gleichen Reihenfolge eintrifft, in der sie gesendet wurde. Wenn man ''a'' dann ''b'' sendet, erhält man auf der
+                anderen Seite garantiert auch zuerst ''a'' dann ''b''.
+            \item \textbf{Verbindungsorientiert}\\
+                TCP hat das Konzept einer Verbindung. Eine Verbindung bleibt so lange offen, bis entweder der Client oder der Server sich dazu entscheiden, sie zu schliessen.
+                Anschliessend werden sowohl Client als auch Host benachrichtigt, dass die Verbindung beendet wurde.
+            \item \textbf{Überlastungskontrolle} \\
+                Wenn ein Server überlastet wird, drosselt TCP selbstständig die Daten, um einen Zusammenbruch durch Überlastung zu verhindern.
+
+
+        \end{itemize}
     \item \textbf{Einstellungen} \\
-        Auflösung, Vollbild und Lautstärke müssen eingestellt werden können.
+        Auflösung, Vollbild, Lautstärke und Stärke des Schneefalls können eingestellt werden.
     \item \textbf{Kamera} \\
-        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar.
+        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Dabei kann man auch zoomen. Kontrollierbar ist dies mit den Pfeiltasten.
     \item \textbf{Truppen} \\
-        Es braucht Truppen, die für einen kämpfen können. Diese sind notwendig für den Verlauf des Spieles
-        und ohne sie hat das Spiel keinen Sinn.
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
     \item \textbf{Gewinnmöglichkeit} \\
-        Eine Chance das Spiel zu gewinnen oder verlieren und es somit zu beenden. Dies kann sehr simpel
-        mit einer Linie vollendet werden, welche beim Überschreiten das Spiel beendet.
+        Um zu Gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten.
     \item \textbf{Lanes} \\
-        Unser Spiel ist zwar 2.5D, aber hat dennoch eine Tiefe.
+        Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien in der Tiefe verschoben.
     \item \textbf{Synchronisation} \\
-        Unser Spiel soll in Echtzeit spielbar sein, deswegen müssen die beiden Spieler Synchronisiert das Gleiche sehen. Eine De-Synchronisation wäre verheerend. 
+        Unser Spiel Synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected kann er versuchen
+        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft und das gewählte Protokoll TCP.
     \item \textbf{Crossplay}
         Die Möglichkeit sich mit einem Windows Rechner und einem macOS Rechner zu verbinden und zusammenzuspielen.
 \end{itemize}
