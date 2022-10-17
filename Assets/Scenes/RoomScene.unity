@@ -479,7 +479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -286.37, y: 0}
+  m_AnchoredPosition: {x: -286.37, y: 368.95}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850170112
@@ -502,7 +502,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lobby Management
+  m_text: '<size=40>Lobby Management
+
+    <size=30>-to start the game, both players
+    need to verify that they are ready by pressing "ready"
+
+    -the host has also
+    the authority to remove a client by pressing "remove" under the Client''s name
+
+    -to
+    reset the game the host game press "back to lobby" to return to this screen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
   m_sharedMaterial: {fileID: -5179438776436813421, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}

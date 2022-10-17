@@ -1203,6 +1203,10 @@ INPUT 02_produkt/01_heutige-stand.tex
 INPUT ./02_produkt/01_heutige-stand.tex
 INPUT ./02_produkt/01_heutige-stand.tex
 INPUT 02_produkt/01_heutige-stand.tex
+INPUT ./resources/laneclash.png
+INPUT ./resources/laneclash.png
+INPUT resources/laneclash.png
+INPUT ./resources/laneclash.png
 INPUT ./02_produkt/02_architektur.tex
 INPUT ./02_produkt/02_architektur.tex
 INPUT ./02_produkt/02_architektur.tex

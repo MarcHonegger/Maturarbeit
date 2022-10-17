@@ -407,7 +407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320, y: 0}
+  m_AnchoredPosition: {x: -320, y: 151.25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210687994
@@ -430,7 +430,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Server Management
+  m_text: '<size=40>Server Management
+
+    <size=30>-to host a server press "host
+
+    -To
+    Find a server press "Find Servers"
+
+    -To Join a not automatically found server,
+    enter the host''s ipv4 address and press "Client"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
   m_sharedMaterial: {fileID: -5179438776436813421, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
@@ -1056,7 +1064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000033379, y: -236}
+  m_AnchoredPosition: {x: 0.000033379, y: -332.21}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7044143415705057166
