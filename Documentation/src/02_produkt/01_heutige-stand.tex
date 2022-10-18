@@ -1,6 +1,9 @@
-TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
 
-\section{KZO}
+\chapter*{Aktuelles Produkt}
+\section{Aktuelle Features}
+    TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
+
+\subsection{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
 \begin{enumerate}
     \item \textbf{Zeit} \\
@@ -12,6 +15,7 @@ TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
         Zwar sind einige Grafiken aus dem Internet, jedoch sind alle Nutzungsfrei. Auch sonst haben wir keinen Code geklaut und verwendet. 
 \end{enumerate}
 
+\subsection{Unsere eigenen Anforderungen}
 \subsection*{Notwendig}
 \begin{itemize}
     \item \textbf{System} \\
@@ -176,59 +180,64 @@ TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
 \subsection*{Fürs erste verworfen}
 \begin{itemize}
     \item \textbf{Online Multiplayer} \\
-        Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu
-        verbinden dank der Firewall von Router und Computer, nahezu unmöglich. Es würden sich viele weitere Probleme ergeben, wie zum Beispiel Port-Forwarding. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
-        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten allerdings das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte.
+        Um sich mit Rechnern ausserhalb des eigenen Netzwerkes verbinden zu können, müssten wir das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte. 
+        Ausserhalb würde sich die Frage nach der Finanzierung stellen, falls wir einen externen Server kaufen / mieten würden. 
     \item \textbf{Shop} \\
-        Nicht alle Karten sind von Beginn an freigeben, sondern müssen freigespielt werden.
-        So kann zum Beispiel eine Ingame Währung erspielt werden und damit im Shop Karten oder sonstige Dinge gekauft werden.
-        Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetarisierung beitragen.
-        Jedoch ist ein Shop ohne Anti-Cheat und/oder Server die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn.
+        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn. Wir müssten dann ausserdem ein Ranking-System
+        hinzufügen, damit wir die Spieler belohnen können.
     \item \textbf{Kampagne} \\
-        Singleplayer gegen bestimmte vorprogrammierte Gegner. Sie sollen immer schwieriger werden und bestimmte Herausforderungen mit sich bringen.
-        Bei Vollendung werden Belohnungen verteilt.
+        Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
+        früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider eine komplette Zeitverschwendung wäre.
     \item \textbf{Anti-Cheat} \\
         Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechnetet Spiel ein Ding der Unmöglichkeit.
         Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema. Allerdings hat der Host sozusagen über fast alles die Macht, der Client kann also fast
-        gar nicht kaputt machen. 
+        gar nicht kaputt machen. Wir hoffen ausserdem auf die Menschen, die unser Spiel spielen, und darauf dass sie nicht versuchen zu schummeln.
     \item \textbf{Errungenschaften} \\
-        Eine Übersicht und die Möglichkeit die Errungenschaften zu erfüllen.
-        Gegebenenfalls Belohnungen verteilen, wie zum Beispiel bestimmte Karten freischalten.
-        Diese Erweiterung ist keines Falls notwendig und ein absolutes nice-to-have Feature.
+        Belohnungen zu erhalten ist immer toll. Wenn es eine Währung wäre, bräuchten wir allerdings auch einen Shop. Man müsste ausserdem neue Dinge hinzufügen,
+        die man zuerst erspielen muss. Es könnten auch Pokale sein, allerdings bräuchten wir dann bereits wieder ein Ranking-System.
     \item \textbf{Bot} \\
-        Aus Zeitgründen fürs Erste verworfen. 
+        Ein guter Bot passt sich der Spielweise des Gegners an. Einen so guten Bot zu programmieren ist eine eigene Herausforderung für sich. Wir hatten zwar die Idee,
+        dass der Bot immer zufällige Truppen zu zufälligen Zeiten spielt. Allerdings würde dies auch eine Menge Balancing benötigen, wofür wir im Moment leider zu wenig
+        Zeit haben.
     \item \textbf{Helden} \\
-        Eine Auswahl von Helden wurde aus Zeitgründen fürs Erste verworfen
+        Wir hatten als Ziel, mehrere verschiedene Helden zu gestalten und zu programmieren. Allerdings stellte sich relativ früh heraus, dass wir die nötigen Ressourcen
+        lieber an einer anderen Stelle investieren. Wir haben nun einen Helden, allerdings würde sich das Ausbauen der Helden nach der Abgabe als spannend gestalten.
     \item \textbf{Ingame-Chatfenster}\\
-        Wir hatten eine funktionierende Version, allerdings stellte sich dies als überflüssig heraus, da man normalerweise neben der Person sitzt, mit der man spielt.
+        Wir hatten eine funktionierende Version, allerdings stellte sich dies als überflüssig heraus. Der Grund ist, dass man normalerweise neben der Person sitzt,
+        mit der man im Moment spielt.
     \item \textbf{Mehrsprachig} \\
         Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.
     \item Effekte
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Fürs Erste verworfen
+            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Der Effekt Wiederbelebung würde wahrscheinlich ein Vielfaches davon kosten,
+            wenn man die Truppe erneut losschicken würde. 
          \item \textbf{Rüstung:}
-            Fürs Erste Verworfen
+            Uns schien dies nicht nötig zu sein. Dies da es sich erst lohnen würde, sobald wir mehr Truppen, Effekte und mehr hinzugefügt hätten.
         \item \textbf{Aura:}
-            Fürs Erste Verworfen
+            Das Prinzip einer Aura hört sich ganz gut an. Allerdings müssten wir sehr wahrscheinlich einen Recode des Damage-Systems machen. Dies würde uns mehr Zeit kosten,
+            als es im Moment wert wäre.
     \end{itemize}
     \item \textbf{Tutorial} \\
-        Ein Tutorial wurde aus Zeitgründen fürs Erste verworfen
+        Ein Tutorial ist ein immenser Zeitaufwand. Es muss so gestalten sein, dass der Spieler gar nicht bemerkt, dass es ein Tutorial ist. Wir haben uns ausserdem darauf 
+        geachtet, das ganze Spiel so intuitiv wie möglich zu gestalten.
     \item \textbf{Monetarisierung} \\
+    Ohne Anti-Cheat leider vollkommen nutzlos.
     \begin{enumerate}
         \item \textbf{Kaufbare Gegenstände}
         \begin{itemize}
-            \item Fürs Erste verworfen
+            \item Neben Schummelmöglichkeiten, stellt sich hier ausserdem die Gefahr eines möglichen Pay-to-Win.
         \end{itemize}
         \item \textbf{Skins}
         \begin{itemize}
-            \item Fürs Erste verworfen
+            \item Der Spieler bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
         \end{itemize}
     \end{enumerate}
     \item \textbf{Zauber} \\
-        Fürs Erste verworfen. hatten funktionierende test version, würde aber viele änderungen mit sich ziehen.
+        Wir hatten zu einem frühen Zeitpunkt eine einigermassen funktionierende Testversion. Der Zauber wurde dem Spieler auch auf einer Karte verteilt. 
+        Eine erneute Nutzung davon würde allerdings viele Änderungen des gesamten Spiels bedeuten. Dies hätte sehr wahrscheinlich auch einen Recode zur Folge.
     \begin{itemize}
         \item \textbf{Dornen:}
-            Fürs Erste verworfen
+            Nachdem wir den Zauber ''Gift'' hinzugefügt haben, sahen wir den Grund nicht, nun auch noch Dornen hinzuzufügen.
     \end{itemize}
 \end{itemize}
