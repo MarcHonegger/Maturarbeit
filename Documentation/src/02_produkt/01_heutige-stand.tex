@@ -1,4 +1,4 @@
-Wir konnten fast all unsere Anforderungen erfüllen.
+TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
 
 \section{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
@@ -48,7 +48,7 @@ Wir konnten fast all unsere Anforderungen erfüllen.
             \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
             Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
             Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. Wir wollten zuerst
-            eine Möglichkeit für einen ''Schlüssel'' hinzufügen, allerdings stellte dies sich als überflüssig dar, da alle Spieler unter einem Dach sitzen.
+            eine Möglichkeit für einen ''Schlüssel'' hinzufügen, allerdings stellte sich dies als überflüssig heraus, da alle Spieler unter einem Dach sitzen.
         \item \textbf{InGame-UI}\\
             \\
             \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
@@ -62,8 +62,8 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \end {itemize}
 
     \item \textbf{Lokaler Multiplayer} \\
-        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen auch auf demselben Gerät. Als Protokoll haben wir TCP gewählt. Dies, da TCP viel Zuverlässiger ist.
-        Folgende vier Punkte waren entscheidend in der Wahl von TCP über UDP:
+        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen auch auf demselben Gerät. Als Protokoll haben wir TCP gewählt. Dies, da TCP viel zuverlässiger ist.
+        Folgende vier Punkte waren entscheidend für die Wahl von TCP über UDP:
         \begin{itemize}
             \item \textbf{Zuverlässigkeit}\\
                 Keine Probleme mit verloren gegangenen Paketen. Ging ein Paket verloren, sendet TCP es einfach erneut. Entweder werden alle Daten erfolgreich übermittelt,
@@ -124,8 +124,8 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \item \textbf{Design} \\
         \\
         \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
-        Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gewinkelt. Auch 
-        die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut.  
+        Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
+        die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
     \item \textbf{Deck} \\
         IMPORTANT\\
         IMPORTANT\\
@@ -136,8 +136,6 @@ Wir konnten fast all unsere Anforderungen erfüllen.
         IMPORTANT\\
         IMPORTANT\\
         IMPORTANT\\
-    \item \textbf{Bot} \\
-        \textit{Fürs erste Fürs erste verworfen}
     \item \textbf{Truppen}
     \begin{itemize}
         \item \textbf{Nahkampf}
@@ -153,8 +151,6 @@ Wir konnten fast all unsere Anforderungen erfüllen.
         \item \textbf{Gift:}
             Zeitlich limitierter und wiederholender Schadenseffekt. Eine visuelle Markierung soll vorhanden sein
             und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein. (Hier: Pilz-Truppe)
-        \item \textbf{Dorn:}
-            \textit{Fürs Erste verworfen}
         \item \textbf{Rache:}
             Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen. (Hier: Helden mit Feuer)
     \end{itemize}
@@ -162,45 +158,19 @@ Wir konnten fast all unsere Anforderungen erfüllen.
 
 \subsection*{Möglichkeiten}
 \begin{itemize}
-    \item \textbf{Zauber} \\
-        \textit{Fürs Erste verworfen}
     \item \textbf{Monetarisierung} \\
-    Hierfür sind uns drei Möglichkeiten eingefallen:
     \begin{enumerate}
-        \item \textbf{Kaufbare Gegenstände}
-        \begin{itemize}
-            \item \textit{Fürs Erste verworfen}
-        \end{itemize}
-        \item \textbf{Skins}
-        \begin{itemize}
-            \item \textit{Fürs Erste verworfen}
-        \end{itemize}
         \item \textbf{Kostenpflichtiges Spiel}
         \begin{itemize}
             \item Wir haben eventuell vor unser Spiel nach Vollendung der Dev Phase zu veröffentlichen. Allerdings auf keinen Fall für einen hohen Preis.
         \end{itemize}
-        
     \end{enumerate}
-    \item \textbf{Helden} \\
-        \textit{Eine Auswahl von Helden wurde fürs Erste verworfen}
     \item \textbf{Design} \\
         Wir werden auch in Zukunft das Design noch verbessern. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
-    \item \textbf{Tutorial} \\
-        \textit{Ein Tutorial wurde aus Zeitgründen fürs Erste verworfen}
     \item \textbf{Truppen}
         Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
         Wir haben alle Programme mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
-    \item Effekte
-    \begin{itemize}
-        \item \textbf{Wiederbelebung:}
-            \textit{Fürs Erste verworfen}
-        \item \textbf{Rüstung:}
-            \textit{Fürs Erste Verworfen}
-        \item \textbf{Aura:}
-            \textit{Fürs Erste Verworfen}
-    \end{itemize}
-    \item \textbf{Mehrsprachig} \\
-        \textit{Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.}
+    
 \end{itemize}
 
 \subsection*{Fürs erste verworfen}
@@ -225,4 +195,40 @@ Wir konnten fast all unsere Anforderungen erfüllen.
         Eine Übersicht und die Möglichkeit die Errungenschaften zu erfüllen.
         Gegebenenfalls Belohnungen verteilen, wie zum Beispiel bestimmte Karten freischalten.
         Diese Erweiterung ist keines Falls notwendig und ein absolutes nice-to-have Feature.
+    \item \textbf{Bot} \\
+        Aus Zeitgründen fürs Erste verworfen. 
+    \item \textbf{Helden} \\
+        Eine Auswahl von Helden wurde aus Zeitgründen fürs Erste verworfen
+    \item \textbf{Ingame-Chatfenster}\\
+        Wir hatten eine funktionierende Version, allerdings stellte sich dies als überflüssig heraus, da man normalerweise neben der Person sitzt, mit der man spielt.
+    \item \textbf{Mehrsprachig} \\
+        Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.
+    \item Effekte
+    \begin{itemize}
+        \item \textbf{Wiederbelebung:}
+            Fürs Erste verworfen
+         \item \textbf{Rüstung:}
+            Fürs Erste Verworfen
+        \item \textbf{Aura:}
+            Fürs Erste Verworfen
+    \end{itemize}
+    \item \textbf{Tutorial} \\
+        Ein Tutorial wurde aus Zeitgründen fürs Erste verworfen
+    \item \textbf{Monetarisierung} \\
+    \begin{enumerate}
+        \item \textbf{Kaufbare Gegenstände}
+        \begin{itemize}
+            \item Fürs Erste verworfen
+        \end{itemize}
+        \item \textbf{Skins}
+        \begin{itemize}
+            \item Fürs Erste verworfen
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Zauber} \\
+        Fürs Erste verworfen. hatten funktionierende test version, würde aber viele änderungen mit sich ziehen.
+    \begin{itemize}
+        \item \textbf{Dornen:}
+            Fürs Erste verworfen
+    \end{itemize}
 \end{itemize}
