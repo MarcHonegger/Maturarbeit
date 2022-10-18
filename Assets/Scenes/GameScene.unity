@@ -1957,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153761, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_RootOrder
@@ -5093,7 +5093,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 3000
   field of view: 50
   orthographic: 0
   orthographic size: 13
@@ -5314,7 +5314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153761, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_RootOrder
@@ -5600,7 +5600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153761, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3546501029695153791, guid: 180883e21580447418fc2da81cf83dfc, type: 3}
       propertyPath: m_RootOrder
@@ -25642,7 +25642,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -20
-  m_Sprite: {fileID: 21300000, guid: be062c1e6d6e5734c9c71190da33e922, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae46af98f491af049848b5378314e5f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -25661,8 +25661,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8247743235436022060}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 32.7, y: -19, z: 7.9}
-  m_LocalScale: {x: 36.7, y: 24.7, z: 5.024}
+  m_LocalPosition: {x: 50, y: -2033, z: 1255}
+  m_LocalScale: {x: 180, y: 213.6, z: 1.1005555}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
