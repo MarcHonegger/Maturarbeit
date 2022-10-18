@@ -37,12 +37,19 @@ public class RangePoint : MonoBehaviour
         var enemyNode = enemiesInRange.Last;
         enemyNode.Value.Death += () =>
         {
-            bool wasFirstEnemy = enemiesInRange.First == enemyNode;
-            enemiesInRange.Remove(enemyNode);
-            if (enemiesInRange.Count == 0)
-                NoEnemyInRange?.Invoke();
-            else if (wasFirstEnemy)
-                NewEnemyInRange?.Invoke(enemiesInRange.First.Value);
+            try
+            {
+                bool wasFirstEnemy = enemiesInRange.First == enemyNode;
+                enemiesInRange.Remove(enemyNode);
+                if (enemiesInRange.Count == 0)
+                    NoEnemyInRange?.Invoke();
+                else if (wasFirstEnemy)
+                    NewEnemyInRange?.Invoke(enemiesInRange.First.Value);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("killed troop not existing" + e);
+            }
         };
     }
 
