@@ -1,6 +1,9 @@
-Wir konnten fast all unsere Anforderungen erfüllen.
 
-\section{KZO}
+\chapter*{Aktuelles Produkt}
+\section{Aktuelle Features}
+    TL;DR: Wir konnten fast all unsere Anforderungen erfüllen.
+
+\subsection{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
 \begin{enumerate}
     \item \textbf{Zeit} \\
@@ -12,6 +15,7 @@ Wir konnten fast all unsere Anforderungen erfüllen.
         Zwar sind einige Grafiken aus dem Internet, jedoch sind alle Nutzungsfrei. Auch sonst haben wir keinen Code geklaut und verwendet. 
 \end{enumerate}
 
+\subsection{Unsere eigenen Anforderungen}
 \subsection*{Notwendig}
 \begin{itemize}
     \item \textbf{System} \\
@@ -19,45 +23,123 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \item \textbf{Benutzeroberfläche} \\
     \begin {itemize}
         \item \textbf{Startpage} \\
-        \includegraphics[height=7cm]{resources/laneclash.png}\\
-        Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelnten Tester bewerteten die Startseite
+            \\
+            \includegraphics[height=7cm]{resources/laneclash.png}\\
+            Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelten Tester bewerteten die Startseite
         als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
+        \item \textbf{Credits}\\
+            \\
+            \includegraphics*[width = 7cm]{resources/credits.png}\\
+            Es gibt die Möglichkeit die Credits vorzeitig zu Verlassen. Dies geschieht durch das Drücken des Knopfes mit dem Haus als Icon. Die Tester fanden dies auch sehr intuitiv.
+        \item \textbf{Settings}\\
+            \\
+            \includegraphics*[height=7cm]{resources/setting.png}\\
+            Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter, leiser zu stellen
+            oder zu muten. Wenn man Einstellungen geändert hat, muss man dies bestätigen. \\
+            \includegraphics*[height=3cm]{resources/resolution.png}\\
+            Wenn man die Auflösung ändert und dies bestätigt, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
+            Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
+        \item \textbf{Server Management}\\
+            \\
+            \includegraphics*[height = 3cm]{resources/server.png}\\
+            Nach Interaktion mit dem ''Start''-Knopf gibt es die Möglichkeit einen Server zu Hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
+            automatisch nach bereits existierenden Servern suchen.\\
+            \\
+            \includegraphics*[width=6cm]{resources/discovered.png}\\
+            Den gewollten Server kann man mit einem einfachen Linksklick auswählen.
+        \item \textbf{Lobby Management}\\
+            \\
+            \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
+            Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
+            Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. Wir wollten zuerst
+            eine Möglichkeit für einen ''Schlüssel'' hinzufügen, allerdings stellte sich dies als überflüssig heraus, da alle Spieler unter einem Dach sitzen.
+        \item \textbf{InGame-UI}\\
+            \\
+            \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
+            Der Host hat im Spiel die Möglichkeit, den Server zurück zur Lobby zu schicken, und das Spiel somit neuzustarten. Er kann auch direkt aufhören zu hosten. 
+            Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
+            \\
+            \includegraphics*[height=2cm]{resources/pause.png}\\
+            Im Pausemenu kann man ausserdem auf die Schnelle die Musiklautstärke und die Stärke des Schneefalls ändern.
+
+
     \end {itemize}
 
     \item \textbf{Lokaler Multiplayer} \\
-        Das Spiel soll im lokalen Netz gespielt werden können. So zum Beispiel mit Freunden oder Familie.
-        Es sollte mithilfe der IP-Adresse innerhalb des gleichen Netzes zusammengespielt werden können.
+        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen auch auf demselben Gerät. Als Protokoll haben wir TCP gewählt. Dies, da TCP viel zuverlässiger ist.
+        Folgende vier Punkte waren entscheidend für die Wahl von TCP über UDP:
+        \begin{itemize}
+            \item \textbf{Zuverlässigkeit}\\
+                Keine Probleme mit verloren gegangenen Paketen. Ging ein Paket verloren, sendet TCP es einfach erneut. Entweder werden alle Daten erfolgreich übermittelt,
+                oder man bekommt einen Error.
+            \item \textbf{Sequenziert}\\
+                TCP stellt sicher, dass jede Nachricht in der gleichen Reihenfolge eintrifft, in der sie gesendet wurde. Wenn man ''a'' dann ''b'' sendet, erhält man auf der
+                anderen Seite garantiert auch zuerst ''a'' dann ''b''.
+            \item \textbf{Verbindungsorientiert}\\
+                TCP hat sich auf das Konzept einer Verbindung konzentriert. Eine Verbindung bleibt so lange offen, bis entweder der Client oder der Server sich dazu entscheiden, sie zu schliessen.
+                Anschliessend werden sowohl Client als auch Host benachrichtigt, dass die Verbindung beendet wurde.
+            \item \textbf{Überlastungskontrolle} \\
+                Wenn ein Server überlastet wird, drosselt TCP selbstständig die Daten, um einen Zusammenbruch durch Überlastung zu verhindern.
+
+
+        \end{itemize}
     \item \textbf{Einstellungen} \\
-        Auflösung, Vollbild und Lautstärke müssen eingestellt werden können.
+        Auflösung, Vollbild, Lautstärke und Stärke des Schneefalls können eingestellt werden.
     \item \textbf{Kamera} \\
-        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar.
+        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Dabei kann man auch zoomen. Kontrollierbar ist dies mit den Pfeiltasten.
     \item \textbf{Truppen} \\
-        Es braucht Truppen, die für einen kämpfen können. Diese sind notwendig für den Verlauf des Spieles
-        und ohne sie hat das Spiel keinen Sinn.
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
     \item \textbf{Gewinnmöglichkeit} \\
-        Eine Chance das Spiel zu gewinnen oder verlieren und es somit zu beenden. Dies kann sehr simpel
-        mit einer Linie vollendet werden, welche beim Überschreiten das Spiel beendet.
+        Um zu Gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt die
+        ganze Linie auf der sich der Held befand.
     \item \textbf{Lanes} \\
-        Unser Spiel ist zwar 2.5D, aber hat dennoch eine Tiefe.
+        Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe verschoben.
     \item \textbf{Synchronisation} \\
-        Unser Spiel soll in Echtzeit spielbar sein, deswegen müssen die beiden Spieler Synchronisiert das Gleiche sehen. Eine De-Synchronisation wäre verheerend. 
+        Unser Spiel Synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected kann er versuchen
+        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft und das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
+        erneut gesendet. Dies hilft und dabei, die Synchronisation zu jeder Zeit aufrecht zu erhalten.
     \item \textbf{Crossplay}
-        Die Möglichkeit sich mit einem Windows Rechner und einem macOS Rechner zu verbinden und zusammenzuspielen.
+        Es ist möglich sich mit einem Windows Rechner und einem macOS Rechner zu verbinden. Allerdings muss dem Spiel dazu die Kommunikation durch die Firewall teilweise erlaubt sein.
+        Bei einer eher aggressiveren Firewall wird zudem teilweise der Server-Broadcast geblockt. Dies hätte zur Folge, dass man die Server nicht automatisch finden kann. 
+        Verbinden sollte man sich allerdings trotzdem noch können.   
 \end{itemize}
 
 \subsection*{Anvisiert}
 \begin{itemize}
     \item \textbf{Helden} \\
-        Beide Spieler haben eine Art Truppe, welche ihre Siegeslinie beschützt. Sie haben einen Racheeffekt, welcher die
-        Lane ausradiert, damit das Spiel nicht sofort vorbei ist.
+        Beide Spieler haben im Moment den gleichen Helden. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
+        temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
-        Das Spiel sollte vom Aussehen her was hergeben. Es sollte nicht wie ein Prototyp, sondern wie ein 
-        vollendetes Spiel aussehen. 
+        \\
+        \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
+        Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
+        die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
     \item \textbf{Deck} \\
-        Zu Beginn Spieler könne ihr eigenes Deck aus einer Auswahl von Karten zusammenstellen. Im Spiel werden davon per Zufall Karten gezogen.
-    \item \textbf{Bot} \\
-        Ein sehr simpler Algorithmus um alleine gegen den Computer zu spielen auf den Schwierigkeitsstufen \textit{'Einfach', 'Mittel', 'Schwierig'}.
-        Es sollen rein zufällig Truppen geschickt werden, bei höherer Schwierigkeit mehr.
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
+        IMPORTANT\\
     \item \textbf{Truppen}
     \begin{itemize}
         \item \textbf{Nahkampf}
@@ -72,95 +154,90 @@ Wir konnten fast all unsere Anforderungen erfüllen.
     \begin{itemize}
         \item \textbf{Gift:}
             Zeitlich limitierter und wiederholender Schadenseffekt. Eine visuelle Markierung soll vorhanden sein
-            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein.
-        \item \textbf{Dorn:}
-            Truppen, welche Charaktere mit Dorn attackieren, erhalten schaden. Soll nach Auswahl auf Nahkämpfer,
-            Fernkämpfer oder beides wirken.
+            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein. (Hier: Pilz-Truppe)
         \item \textbf{Rache:}
-            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen.
+            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen. (Hier: Helden mit Feuer)
     \end{itemize}
 \end{itemize}
 
 \subsection*{Möglichkeiten}
 \begin{itemize}
-    \item \textbf{Zauber} \\
-        Als Alternative sollen nicht alle Karten einfach eine Truppe herbeirufen. Gewisse Karten sollten nur einen Effekt auslösen.
-        Beispiele für Zauber:
-            "Heile deine Helden um 5 leben"
-            "Gib deinen Helden 5 Rüstung"
-            "Verursache allen gegnerischen Truppen 5 Schaden"
-            "Ziehe 3 Karten"
     \item \textbf{Monetarisierung} \\
-    Hierfür sind uns drei Möglichkeiten eingefallen, hier jeweils die Vor- und Nachteile:
     \begin{enumerate}
-        \item \textbf{Kaufbare Gegenstände}
-        \begin{itemize}
-            \item[+] Vielseitige und Nachhaltige Monetarisierung. Neue Features, bedeuten auch neue Geldmöglichkeit. Die Inhalte sollten
-                     auch erspielbar sein, somit kann bezahlen zwar zu Vorteilen führen, jedoch mit viel Spielen trotzdem erreichbar sein.
-            \item[-] Pay-to-Win
-        \end{itemize}
-        \item \textbf{Skins}
-        \begin{itemize}
-            \item[+] Weit verbreitet und sehr beliebt bei Spielern. Gibt keinem Spieler Vorteile
-            \item[-] Wenig Nutzen und sehr aufwändig. Neue Designs zu erstellen, wäre bei uns nicht so sinnvoll.
-                     Wir haben noch sehr viel Features zu implementieren und sind nicht Designer. Für uns braucht es sehr
-                     viel Zeit eine brauchbare Darstellung zu erstellen und der Mehrwert, welcher dem Spiel beigetragen wird, ist marginal.
-        \end{itemize}
         \item \textbf{Kostenpflichtiges Spiel}
         \begin{itemize}
-            \item[+] Einmalige Bezahlung, was für viele Nutzer lukrativer ist. Jedoch gilt dies vor allem bei Singleplayer Spielen.
-            \item[-] Wir nehmen an, dass wenige Leute bereit wären, Geld für unser Spiel zu bezahlen.
-                    Dafür wird es nicht genug ausgereift sein.
-                    Auch ist diese Methodik nicht nachhaltig und führt nur zu einer einmaligen Geldspritze.
-                    Viele grössere Spiele führen deshalb später
-                    DLCs ein, um das Spiel zu erweitern.
-                    Jedoch ist dies bei einem Multiplayer Spiel Pay-to-Win.
-                    Abschliessen müssten wir höchstwahrscheinlich selbst Geld vorauswerfen, um unser Spiel anbieten zu können, z.B. auf Steam.
+            \item Wir haben eventuell vor unser Spiel nach Vollendung der Dev Phase zu veröffentlichen. Allerdings auf keinen Fall für einen hohen Preis.
         \end{itemize}
-        
     \end{enumerate}
-    \item \textbf{Helden} \\
-        Eine Auswahl von Helden, mit unterschiedlichem Schaden, Leben und Effekten, würde das Spiel nochmals spannender machen. Auch sollten gewisse Truppen auf bestimmte Helden limitiert sein. 
     \item \textbf{Design} \\
-        Wenn die Zeit vorhanden ist, kann das Design immer verbessert werden. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
-    \item \textbf{Tutorial} \\
-        Eine Anleitung für Anfänger wäre sehr schön. Sie soll neuen Spielern das Anfangen erleichtern. Es sollte aber auch überspringbar sein,
-        damit alte Spieler, es nicht nochmals spielen müssen. Es soll nicht lange sein und nicht schwierig. Dennoch soll es alle Mechaniken des Spiels
-        erklären, am besten Anhand von Gameplay.
+        Wir werden auch in Zukunft das Design noch verbessern. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
     \item \textbf{Truppen}
-        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden.
+        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
+        Wir haben alle Programme mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
+    
+\end{itemize}
+
+\subsection*{Fürs erste verworfen}
+\begin{itemize}
+    \item \textbf{Online Multiplayer} \\
+        Um sich mit Rechnern ausserhalb des eigenen Netzwerkes verbinden zu können, müssten wir das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte. 
+        Ausserhalb würde sich die Frage nach der Finanzierung stellen, falls wir einen externen Server kaufen / mieten würden. 
+    \item \textbf{Shop} \\
+        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn. Wir müssten dann ausserdem ein Ranking-System
+        hinzufügen, damit wir die Spieler belohnen können.
+    \item \textbf{Kampagne} \\
+        Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
+        früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider eine komplette Zeitverschwendung wäre.
+    \item \textbf{Anti-Cheat} \\
+        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechnetet Spiel ein Ding der Unmöglichkeit.
+        Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema. Allerdings hat der Host sozusagen über fast alles die Macht, der Client kann also fast
+        gar nicht kaputt machen. Wir hoffen ausserdem auf die Menschen, die unser Spiel spielen, und darauf dass sie nicht versuchen zu schummeln.
+    \item \textbf{Errungenschaften} \\
+        Belohnungen zu erhalten ist immer toll. Wenn es eine Währung wäre, bräuchten wir allerdings auch einen Shop. Man müsste ausserdem neue Dinge hinzufügen,
+        die man zuerst erspielen muss. Es könnten auch Pokale sein, allerdings bräuchten wir dann bereits wieder ein Ranking-System.
+    \item \textbf{Bot} \\
+        Ein guter Bot passt sich der Spielweise des Gegners an. Einen so guten Bot zu programmieren ist eine eigene Herausforderung für sich. Wir hatten zwar die Idee,
+        dass der Bot immer zufällige Truppen zu zufälligen Zeiten spielt. Allerdings würde dies auch eine Menge Balancing benötigen, wofür wir im Moment leider zu wenig
+        Zeit haben.
+    \item \textbf{Helden} \\
+        Wir hatten als Ziel, mehrere verschiedene Helden zu gestalten und zu programmieren. Allerdings stellte sich relativ früh heraus, dass wir die nötigen Ressourcen
+        lieber an einer anderen Stelle investieren. Wir haben nun einen Helden, allerdings würde sich das Ausbauen der Helden nach der Abgabe als spannend gestalten.
+    \item \textbf{Ingame-Chatfenster}\\
+        Wir hatten eine funktionierende Version, allerdings stellte sich dies als überflüssig heraus. Der Grund ist, dass man normalerweise neben der Person sitzt,
+        mit der man im Moment spielt.
+    \item \textbf{Mehrsprachig} \\
+        Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.
     \item Effekte
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Die Truppe wird wiederbelebt, sofort an Ort und Stelle oder mit einer Verzögerung am Startpunkt.
-        \item \textbf{Rüstung:}
-            Die Truppe hat zusätzlichen zu den Leben auch Rüstung. Die Rüstung wird zuerst abgezogen und hat im Gegensatz zum Leben keine Limite.
+            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Der Effekt Wiederbelebung würde wahrscheinlich ein Vielfaches davon kosten,
+            wenn man die Truppe erneut losschicken würde. 
+         \item \textbf{Rüstung:}
+            Uns schien dies nicht nötig zu sein. Dies da es sich erst lohnen würde, sobald wir mehr Truppen, Effekte und mehr hinzugefügt hätten.
         \item \textbf{Aura:}
-            Die Truppe fügt gegnerischen Truppen in einem gewissen Radius permanent Schaden zu.
+            Das Prinzip einer Aura hört sich ganz gut an. Allerdings müssten wir sehr wahrscheinlich einen Recode des Damage-Systems machen. Dies würde uns mehr Zeit kosten,
+            als es im Moment wert wäre.
     \end{itemize}
-    \item \textbf{Mehrsprachig} \\
-        Das Spiel soll in Englisch, Deutsch und Französisch spielbar sein.
-\end{itemize}
-
-\subsection*{Verworfen}
-\begin{itemize}
-    \item \textbf{Online Multiplayer} \\
-        Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist von einem Computer auf einen anderen zu
-        verbinden dank der Firewall von Router und Computer, nahezu unmöglich. Es würden sich viele weitere Probleme ergeben, wie zum Beispiel Port-Forwarding. Dies ist einer der Gründe, weshalb ein Server sehr praktisch ist. Mit diesem ist dieses
-        Problem gelöst. Server sind aber teuer und aufwändig. Wir müssten allerdings das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte.
-    \item \textbf{Shop} \\
-        Nicht alle Karten sind von Beginn an freigeben, sondern müssen freigespielt werden.
-        So kann zum Beispiel eine Ingame Währung erspielt werden und damit im Shop Karten oder sonstige Dinge gekauft werden.
-        Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetarisierung beitragen.
-        Jedoch ist ein Shop ohne Anti-Cheat und/oder Server die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn.
-    \item \textbf{Kampagne} \\
-        Singleplayer gegen bestimmte vorprogrammierte Gegner. Sie sollen immer schwieriger werden und bestimmte Herausforderungen mit sich bringen.
-        Bei Vollendung werden Belohnungen verteilt.
-    \item \textbf{Anti-Cheat} \\
-        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechnetet Spiel ein Ding der Unmöglichkeit.
-        Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema.
-    \item \textbf{Errungenschaften} \\
-        Eine Übersicht und die Möglichkeit die Errungenschaften zu erfüllen.
-        Gegebenenfalls Belohnungen verteilen, wie zum Beispiel bestimmte Karten freischalten.
-        Diese Erweiterung ist keines Falls notwendig und ein absolutes nice-to-have Feature.
+    \item \textbf{Tutorial} \\
+        Ein Tutorial ist ein immenser Zeitaufwand. Es muss so gestalten sein, dass der Spieler gar nicht bemerkt, dass es ein Tutorial ist. Wir haben uns ausserdem darauf 
+        geachtet, das ganze Spiel so intuitiv wie möglich zu gestalten.
+    \item \textbf{Monetarisierung} \\
+    Ohne Anti-Cheat leider vollkommen nutzlos.
+    \begin{enumerate}
+        \item \textbf{Kaufbare Gegenstände}
+        \begin{itemize}
+            \item Neben Schummelmöglichkeiten, stellt sich hier ausserdem die Gefahr eines möglichen Pay-to-Win.
+        \end{itemize}
+        \item \textbf{Skins}
+        \begin{itemize}
+            \item Der Spieler bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Zauber} \\
+        Wir hatten zu einem frühen Zeitpunkt eine einigermassen funktionierende Testversion. Der Zauber wurde dem Spieler auch auf einer Karte verteilt. 
+        Eine erneute Nutzung davon würde allerdings viele Änderungen des gesamten Spiels bedeuten. Dies hätte sehr wahrscheinlich auch einen Recode zur Folge.
+    \begin{itemize}
+        \item \textbf{Dornen:}
+            Nachdem wir den Zauber ''Gift'' hinzugefügt haben, sahen wir den Grund nicht, nun auch noch Dornen hinzuzufügen.
+    \end{itemize}
 \end{itemize}
