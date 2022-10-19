@@ -194,6 +194,7 @@ MonoBehaviour:
   health: 0
   maximumHealth: 10
   deathPrefab: {fileID: 6685142000718824078, guid: 242c033e3539ae440b5d4ca82df83cff, type: 3}
+  troopName: 
   bonusInfo: 
   attackType: 0
   healthBar: {fileID: 0}

@@ -41,9 +41,9 @@ public class SpawnPoint : MonoBehaviour
 
     private void TroopOutOfRange()
     {
-        _troopCount--;
         if (_troopCount > 1)
             return;
+        _troopCount--;
         OpenPortal();
         // _spriteRenderer.color = normalColor;
     }

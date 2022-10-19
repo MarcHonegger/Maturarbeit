@@ -16,6 +16,7 @@ public class TroopHandler : NetworkBehaviour
     public float health;
     public float maximumHealth;
     public GameObject deathPrefab;
+    public String troopName;
     public String bonusInfo;
     public AttackType attackType;
     private Color _standardColor;
