@@ -158,6 +158,7 @@ MonoBehaviour:
   health: 0
   maximumHealth: 25
   deathPrefab: {fileID: 6685142000718824078, guid: 78d9942874ef94ba494b807c91245e52, type: 3}
+  troopName: Giant Skeleton
   bonusInfo: 
   attackType: 0
   healthBar: {fileID: 0}

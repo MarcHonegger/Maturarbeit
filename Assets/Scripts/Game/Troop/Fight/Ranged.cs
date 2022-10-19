@@ -67,6 +67,7 @@ public class Ranged : NetworkBehaviour
         InvokeRepeating(nameof(Shoot), attackSpeed, attackSpeed);
     }
 
+    [ClientRpc]
     private void OnNoEnemyInRange()
     {
         CancelInvoke(nameof(Shoot));

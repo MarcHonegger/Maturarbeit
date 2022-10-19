@@ -15,7 +15,8 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private Vector3 _oldPos;
     public GameObject laneOptionPrefab;
-    private readonly List<Image> _laneSprites = new List<Image>();
+    private readonly List<Image> _laneImages = new List<Image>();
+    private readonly List<Image> _laneLineImages = new List<Image>();
     private readonly List<TextMeshProUGUI> _laneNumbers = new List<TextMeshProUGUI>();
     private static Random _rng = new Unity.Mathematics.Random(0x6E624EB7u);  
     private int _screenHeight;
@@ -166,11 +167,20 @@ public class HandManager : MonoBehaviour
             laneOption.transform.localScale = laneOptionScale;
             var laneNumber = laneOption.GetComponentInChildren<TextMeshProUGUI>();
             laneNumber.text = (i + 1).ToString();
+            var laneNumberLines = laneOption.transform.Find("laneNumberLines");
+            laneNumberLines.GetChild(i).GetComponent<Image>().color = Color.red;
             var laneOptionImage = laneOption.GetComponent<Image>();
             
             laneOptionImage.enabled = false;
-            laneNumber.enabled = false; 
-            _laneSprites.Add(laneOptionImage);
+            laneNumber.enabled = false;
+
+            foreach (Transform laneLine in laneNumberLines.transform)
+            {
+                var laneLineImage = laneLine.GetComponent<Image>();
+                laneLineImage.enabled = false;
+                _laneLineImages.Add(laneLineImage);
+            }
+            _laneImages.Add(laneOptionImage);
             _laneNumbers.Add(laneNumber);
         }
     }
@@ -182,9 +192,13 @@ public class HandManager : MonoBehaviour
     
     public void StopRendering()
     {
+        foreach (var image in _laneLineImages)
+        {
+            image.enabled = false;
+        }
         for (int i = 0; i < 4; i++)
         {
-            _laneSprites[i].enabled = false;
+            _laneImages[i].enabled = false;
             _laneNumbers[i].enabled = false;
         }
         CancelInvoke(nameof(UpdateRendering));
@@ -196,12 +210,20 @@ public class HandManager : MonoBehaviour
         {
             if (PlayerManager.instance.IsValidSpawn(i))
             {
-                _laneSprites[i].enabled = true;
+                foreach (var image in _laneLineImages)
+                {
+                    image.enabled = true;
+                }
+                _laneImages[i].enabled = true;
                 _laneNumbers[i].enabled = true;
             }
             else
             {
-                _laneSprites[i].enabled = false;
+                foreach (var image in _laneLineImages)
+                {
+                    image.enabled = false;
+                }
+                _laneImages[i].enabled = false;
                 _laneNumbers[i].enabled = false;
             }
         }
@@ -213,22 +235,38 @@ public class HandManager : MonoBehaviour
         {
             if (mousePosition.x < _quarterScreenWidth)
             {
-                PlayerManager.instance.IsValidSpawn(0);
+                if (!PlayerManager.instance.IsValidSpawn(0))
+                {
+                    ResetCardPositions();
+                    return;
+                }
                 PlayerManager.instance.PlayCard(troopPrefab, 0, card);
             } 
             else if (mousePosition.x > _quarterScreenWidth && mousePosition.x < 2 * _quarterScreenWidth)
             {
-                PlayerManager.instance.IsValidSpawn(1);
+                if (!PlayerManager.instance.IsValidSpawn(1))
+                {
+                    ResetCardPositions();
+                    return;
+                }
                 PlayerManager.instance.PlayCard(troopPrefab, 1, card);
             }
             else if (mousePosition.x > 2 * _quarterScreenWidth && mousePosition.x < 3 * _quarterScreenWidth)
             {
-                PlayerManager.instance.IsValidSpawn(2);
+                if (!PlayerManager.instance.IsValidSpawn(2))
+                {
+                    ResetCardPositions();
+                    return;
+                }
                 PlayerManager.instance.PlayCard(troopPrefab, 2, card);
             }
             else if (mousePosition.x > 3 * _quarterScreenWidth && mousePosition.x < 4 * _quarterScreenWidth)
             {
-                PlayerManager.instance.IsValidSpawn(3);
+                if (!PlayerManager.instance.IsValidSpawn(3))
+                {
+                    ResetCardPositions();
+                    return;
+                }
                 PlayerManager.instance.PlayCard(troopPrefab, 3, card);
             }
             else
@@ -246,7 +284,7 @@ public class HandManager : MonoBehaviour
         }
     }
     
-    private void ResetCardPositions()
+    public void ResetCardPositions()
     {
         Vector3 position = new Vector3(cardDistance * -_cardsInHand.Count / 2f, 0, 0);
         foreach (var card in _cardsInHand)
