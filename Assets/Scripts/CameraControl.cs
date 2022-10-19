@@ -1,8 +1,9 @@
 using System;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraControl : MonoBehaviour
+public class CameraControl : NetworkBehaviour
 {
     private float _speedInput = 0f;
     private float _zoomInput = 0f;
@@ -18,6 +19,29 @@ public class CameraControl : MonoBehaviour
         _cam = GetComponent<Camera>();
 
         rightEnd = (int) GameManager.instance.spawnManager.spawnPointDistance.x;
+        setClientPos();
+        
+    }
+
+    void setClientPos()
+    {
+        if (isClientOnly)
+        {
+            transform.position = new Vector3(100, 37.5f, -30f);
+        }
+    }
+    
+    
+    private GameObject getObject()
+    {
+        foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
+        {
+            if (go.name == "Main Camera")
+            {
+                return go;
+            }
+        }
+        return null;
     }
 
     void FixedUpdate()

@@ -5054,6 +5054,7 @@ GameObject:
   - component: {fileID: 1676553835}
   - component: {fileID: 1676553838}
   - component: {fileID: 1676553839}
+  - component: {fileID: 1676553840}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5139,6 +5140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cde222874c1b4ecfb86f41bd8f17e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   minFieldOfView: 20
   maximumFieldOfView: 80
   cameraSpeed: 3
@@ -5204,6 +5207,23 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1676553840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676553834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2395025538
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1001 &1687874181
 PrefabInstance:
   m_ObjectHideFlags: 0
