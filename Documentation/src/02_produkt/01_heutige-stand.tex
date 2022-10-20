@@ -1,12 +1,12 @@
 
 \chapter{Aktuelle Features}
-TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
+Kurz gesagt, wir konnten fast alle unsere Anforderung erfüllen.
 
 \section{KZO}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
 \begin{enumerate}
     \item \textbf{Zeit} \\
-        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 50 Stunden um einen Faktor von sechs überschritten. Unser gemessener Zeitaufwand, während aktivem Programmieren,
+        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 100 Stunden (50 Stunden pro Person) um einen Faktor von drei überschritten. Unser gemessener Zeitaufwand, während aktivem Programmieren,
         beträgt über 330 Stunden. Da sind die Stunden, in denen wir uns in der Freizeit, und mit Herrn Hunziker getroffen haben, gar nicht notiert.
     \item \textbf{Begleitperson} \\
         Wir hatten zum Glück kein Problem eine Begleitperson zu finden. Martin Hunziker war gerne bereit unsere Arbeit im Blick zu behalten.
@@ -17,11 +17,11 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
 \section{Unsere eigenen Anforderungen}
 \subsection{Notwendig}
     \begin{itemize}
-    \item \textbf{System} \\
+    \item \textbf{Systemanforderungen} \\
         Unser Spiel funktioniert sowohl auf macOS als auch auf Windows. Dies ausserdem mit einer FPS von 300, bis teilweise 500, bei den meisten modernen Geräten
     \item \textbf{Benutzeroberfläche} \\
     \begin {itemize}
-        \item \textbf{Startpage} \\
+        \item \textbf{Startseite} \\
             \\
             \includegraphics[height=7cm]{resources/laneclash.png}\\
             Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelten Tester bewerteten die Startseite
@@ -34,7 +34,7 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
             \\
             \includegraphics*[height=7cm]{resources/setting.png}\\
             Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter, leiser zu stellen
-            oder zu muten. Wenn man Einstellungen geändert hat, muss man dies bestätigen. \\
+            oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. \\
             \includegraphics*[height=3cm]{resources/resolution.png}\\
             Wenn man die Auflösung ändert und dies bestätigt, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
             Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
@@ -59,7 +59,7 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
             Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
             \\
             \includegraphics*[height=2cm]{resources/pause.png}\\
-            Im Pausemenu kann man ausserdem auf die Schnelle die Musiklautstärke und die Stärke des Schneefalls ändern.
+            Im Pausemenu kann man ausserdem auf die Schnelle die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
 
 
     \end {itemize}
@@ -85,7 +85,7 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
     \item \textbf{Einstellungen} \\
         Auflösung, Vollbild, Lautstärke und Stärke des Schneefalls können eingestellt werden.
     \item \textbf{Kamera} \\
-        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Dabei kann man auch zoomen. Kontrollierbar ist dies mit den Pfeiltasten.
+        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Mit den Pfeiltasten kann man die Kamera frei bewegen und hinein- bzw. hinauszoomen.
     \item \textbf{Truppen} \\
         IMPORTANT\\
         IMPORTANT\\
@@ -111,8 +111,8 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
         Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe verschoben.
     \item \textbf{Synchronisation} \\
         Unser Spiel Synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected kann er versuchen
-        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft und das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
-        erneut gesendet. Dies hilft und dabei, die Synchronisation zu jeder Zeit aufrecht zu erhalten.
+        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
+        erneut gesendet. Dies hilft uns dabei, die Synchronisation zu jeder Zeit aufrecht zu erhalten.
     \item \textbf{Crossplay}
         Es ist möglich sich mit einem Windows Rechner und einem macOS Rechner zu verbinden. Allerdings muss dem Spiel dazu die Kommunikation durch die Firewall teilweise erlaubt sein.
         Bei einer eher aggressiveren Firewall wird zudem teilweise der Server-Broadcast geblockt. Dies hätte zur Folge, dass man die Server nicht automatisch finden kann. 
@@ -178,9 +178,9 @@ TL;DR: Wir konnten fast alle unsere Anforderungen erfüllen.
         Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
         früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider eine komplette Zeitverschwendung wäre.
     \item \textbf{Anti-Cheat} \\
-        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechnetet Spiel ein Ding der Unmöglichkeit.
+        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechneten Spiel ein Ding der Unmöglichkeit.
         Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema. Allerdings hat der Host sozusagen über fast alles die Macht, der Client kann also fast
-        gar nicht kaputt machen. Wir hoffen ausserdem auf die Menschen, die unser Spiel spielen, und darauf dass sie nicht versuchen zu schummeln.
+        gar nichts kaputt machen. Wir hoffen ausserdem auf die Menschen, die unser Spiel spielen, und darauf dass sie nicht versuchen zu schummeln.
     \item \textbf{Errungenschaften} \\
         Belohnungen zu erhalten ist immer toll. Wenn es eine Währung wäre, bräuchten wir allerdings auch einen Shop. Man müsste ausserdem neue Dinge hinzufügen,
         die man zuerst erspielen muss. Es könnten auch Pokale sein, allerdings bräuchten wir dann bereits wieder ein Ranking-System.
