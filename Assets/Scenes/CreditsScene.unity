@@ -188,11 +188,12 @@ MonoBehaviour:
     Schuerpf:\n<size=30>- CEO of M&E Ltd.\n- Scripter\n- UI Artist (2.5d)\n- Lead
     Network Developer\n- Corporate / Community Communications Co-Manager\n\n<size=50>Martin
     Hunziker:\n<size=30>- Thesis Supervisor\n- Main Examinor\n\n<size=50>Special
-    Thanks:\n<size=30>- Pascal Honegger: LaTeX, Rare Code Reviews\n- Jan Jezek :
-    Discussant \"Should our Art be graded?\"\n- Lena : Marc's Distraction Nr. 1\n\n<size=50>-
-    Testers:\n<size=30>- Jeannette V.\r\n- Lena L.\r\n- Marco F.\r\n- Nicolas H.\r\n-
-    Pascal H.\r\n- Petra S.\r\n- Samuel M.\r\n- Simon H.\r\n- Thea S.\r\n- Thomas
-    S.\r\n\n\n\n<size=60>- AND YOU <3\n\n"
+    Thanks:\n<size=40>- Albert Kern: Would have put his hand into the fire for us\n<size=30>-
+    Pascal Honegger: LaTeX, Rare Code Reviews\n- Jan Jezek : Discussant \"Should
+    our Art be graded?\"\n- Lena L.: Marc's Distraction Nr. 1\n\n<size=50>- Testers:\n<size=30>-
+    Jeannette V.\r\n- Lena L.\r\n- Marco F.\r\n- Nicolas H.\r\n- Pascal H.\r\n- Petra
+    S.\r\n- Samuel M.\r\n- Simon H.\r\n- Thea S.\r\n- Thomas S.\r\n\n\n\n<size=60>-
+    AND YOU <3\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
   m_sharedMaterial: {fileID: -5179438776436813421, guid: 1cc30b7e71ae8244a9e81857c01f0137, type: 2}
