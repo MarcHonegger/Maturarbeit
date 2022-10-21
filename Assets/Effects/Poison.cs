@@ -17,6 +17,7 @@ public class Poison : NetworkBehaviour
     {
         _target = GetComponentInParent<TroopHandler>();
         InvokeRepeating(nameof(PoisonDamage), 0, tickRate);
+        ChangeHealthBarColor();
         Invoke(nameof(ResetHealthBarColor), duration);
         Invoke(nameof(SelfDestruct), duration);
     }
