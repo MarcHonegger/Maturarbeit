@@ -1,60 +1,57 @@
-\chapter{Risiko}
-Wir haben die Risiken eingeteilt in verschiedene Gefahrenstufen.
-Die Einstufung geschah basierend auf Wahrscheinlichkeit, wie schlimm ist der Worstcase und wie gut kann das Risiko reduziert werden.
-Jedes Risiko ist dann unterteilt in:
+\chapter{Risikoanalyse}
+Wir haben mögliche Risiken in verschiedene Gefahrenstufen eingeteilt.
+Die Einstufung geschah basierend auf der Eintritswahrscheinlichkeit(wahrscheinlich, undwahrscheinlich, sehr wahrscheinlich) und Auswirkung(2: kritisch und unbedenklich). wie schlimm der Worstcase ist und wie gut das Risiko reduziert werden kann.
+Um das Risiko zu managen, haben wir für jedes Risiko eine Reduktionsstrategie definiert. 
+das Risiko 
+
+
+in den folgenden Teilkapiteln dokumentieren wir die identifizierten Risiken nach folgendem Schema:
+
+
+Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
 \begin{enumerate}
-    \item Risiko (Wahrscheinlichkeit und Schaden)
-    \begin{enumerate}
-        \item Reduktionsstrategie: Strategie um die Wahrscheinlichkeit und/oder Schaden zu reduzieren.
-        \item Reduziertes Risiko: Risiko nach der Umsetzung der Reduktionsstrategie.
-        \item Tatsächliches Outcome: Das tatsächliche Endresultat
-    \end{enumerate}
+    \item Reduktionsstrategie: Strategie um die Wahrscheinlichkeit und/oder Auswirkung zu reduzieren.
+    \item Reduziertes Risiko: Risiko nach der Umsetzung der Reduktionsstrategie.
+    \item Tatsächliches Outcome: Das tatsächliche Endresultat
 \end{enumerate}
+
 
 \section{Hoch}
 \begin{enumerate}
-    \item Vergange Maturitätsarbeiten, welche ein Videospiel als Ziel hatten, sind gescheitert (Wahrscheinlich und Kritisch)
+    \item Vergange Maturitätsarbeiten, die ein Videospiel als Ziel hatten, sind gescheitert (Wahrscheinlich und Kritisch)
     \begin{enumerate}
-        \item Reduktionsstrategie: Sich des Risikos bewusst sein und bereit sein, viel Zeit und Arbeit zu investieren
-        \item Reduziertes Risiko: Das Risiko ist reduziert immer noch sehr hoch.
-            Wir haben uns beide an Multiplayer fest gefressen und werden es höchst wahrscheinlich trotzdem umsetzen
-        \item Tatsächliches Outcome: Wie erwartet ist die Maturaarbeit nach 250h immer noch weit entfernt von vollständig.
-            Dennoch ist das Ziel erreicht von einem funktionierendem Videospiel.
+        \item Reduktionsstrategie: Klare Anforderungsspezifikation, Planung und Aufteilung der Arbeitspakete, laufende Überprüfung der Planung/Zielerreichung, regelmässiger gegenseitiger Austausch zum Fortschritt.
+        Bereitschaft den empfohlenen Zeitaufwand massiv zu überschreiten.
+        \item Reduziertes Risiko: Die Eintretenswahrscheinlichkeit ist reduziert. Beim Eintreten ist der Erfolg der Arbeit allerdings immer noch gefährdet.
+        \item Tatsächliches Outcome: Risiko nicht eingetreten, Maturitätsarbeit mit funktionierendem Videospiel fertiggestellt.
     \end{enumerate}
 
-    \item Beide Teammitglieder haben keine Ahnung von der Entwicklung einer Multiplayer-Funktion (Wahrscheinlich und Kritisch)
+    \item Beide Teammitglieder haben keine Ahnung von der Entwicklung eines netzwerkfähigen Multiplayer-Spiels (Wahrscheinlich und Kritisch)
     \begin{enumerate}
-        \item Reduktionsstrategie: Andere Spielideen erarbeiten, die ohne Multiplayer funktionieren.
-        \item Reduziertes Risiko: Das Risiko ist reduziert immer noch sehr hoch.
+        \item Reduktionsstrategie: Erstellen der grundsätzlichen Multiplayerfunktionalität in einer einzelnen Spielinstanz, danach Ausbau auf mehrere Spielinstanzen über das lokale Netzwerk (Host und Client)
+        \item Reduziertes Risiko: Spiel am selben Rechner ist sehr wahrscheinlich möglich, primäres Ziel der Arbeit ist auch ohne Netzwerkfähigkeit erfüllt.
+            Das Risiko ist reduziert immer noch sehr hoch.
               Wir haben uns beide an Multiplayer fest gefressen und werden es höchst wahrscheinlich trotzdem umsetzen
-        \item Tatsächliches Outcome: Multiplayer ist mit Abstand der grösste Zeitfresser.
-              Der Multiplayer alleine hat über 100h Arbeit, also fast ein Drittel unserer Arbeit ausgemacht.
+        \item Tatsächliches Outcome: Mehrere Spieler können übers Netz zusammen spielen, Ziel nur mit beträchtlichem Aufwand erreicht (1/3 der gesamten Entwicklungszeit)
     \end{enumerate}
 
-    \item Es könnten sich Bugs in der abgabebereiten Version verstecken (Wahrscheinlich und Kritisch)
+    \item Spiel enthält unentdeckte / unbekannte Fehler die den Spielspass verderben(Wahrscheinlich und Kritisch)
     \begin{enumerate}
-        \item Reduktionsstrategie: So viel testen wie nur möglich. Sich ausserdem auf die kritischen Bugs konzentrieren. 
-        \item Reduziertes Risiko: Das Risiko ist selbst reduziert sehr hoch. Wir wollen ein perfektes Game abgeben.
-        \item Tatsächliches Outcome: Wir haben unser Möglichstes gegeben. Wir können nur die Daumen drücken, dass Herr Hunziker keine neuen Bugs findet.
+        \item Reduktionsstrategie: So viel testen wie möglich/sinnvoll. Bugs kategorisieren, sich auf kritsche Bugs konzentrieren, Code Reviews
+        \item Reduziertes Risiko: Wir schätzen das reduzierte Risiko immernoch als hoch ein, da selbst wenn die Eintritswahrscheinlichkeit stark reduziert ist, kann der eine unentdeckte Fehler den ganzen Spielspass vermiesen.
+        \item Tatsächliches Outcome: Nach Abschluss der Alpha Testphase sind keine Fehler bekannt. wir drücken nun die Daumen, dass herr hunziker keine Bugs findet
     \end{enumerate}
 
-    \item Die Version für die Abgabe könnte aus unbekannten Gründen crashen (Unwahrscheinlich und Kritisch)
-    \begin{enumerate}
-        \item Reduktionsstrategie: So viel testen wie nur möglich.
-        \item Reduziertes Risiko: Das Risiko ist selbst reduziert sehr hoch. Man konnte bereits des Öfteren beobachten, wie sich eine schlechte erste Version auf eine Firma auswirken kann.
-        \item Tatsächliches Outcome: Wir haben unser Möglichstes gegeben. Wir könnten nur noch die Daumen drücken und hoffen, dass es keine fatalen Fehler gibt.
-    \end{enumerate}
 
 \end{enumerate}
 
 \section{Mässig}
 \begin{enumerate}
-    \item Elia hat noch nie mit Unity gearbeitet (Wahrscheinlich und Unbedenklich)
+    \item Elia hat noch nie mit Unity gearbeitet (Sehr wahrscheinlich und Unbedenklich)
     \begin{enumerate}
-        \item Reduktionsstrategie: Elia befasst sich zu Beginn mit Unity
-        \item Reduziertes Risiko: Weiterhin kann angenommen werden, dass Elia auf gewisse Schwierigkeiten mit Unity stossen wird.
-              Jedoch sollten diese nicht viel Zeit oder Mühe benötigen. 
-        \item Tatsächliches Outcome: Elia konnte alles Nötige zu Beginn erlernen und bei allfälligen Fragen auf das Internet oder Marc zurückgreifen.
+        \item Reduktionsstrategie: Elia befasst sich zu Beginn mit Unity, marc hat vorwissen und kann elia unterstützen
+        \item Reduziertes Risiko: Falls elia auf schwierigkeiten stösst, kann dies zu zeitlichen Mehraufwand führen.
+        \item Tatsächliches Outcome: Elia konnte alles Nötige zu Beginn erlernen, Probleme durch Internetrecherchen klären oder Marc fragen. Risiko nicht eingetreten, 
     \end{enumerate}
 \end{enumerate}
 
@@ -63,7 +60,7 @@ Jedes Risiko ist dann unterteilt in:
     \item Wir werden selbst nicht mit unserem Spiel zufrieden sein. (Wahrscheinlich und Unbedenklich)
     \begin{enumerate}
         \item Reduktionsstrategie: Sich bewusst sein, dass wir nur 2 Schüler sind, die keine bisherigen Erfahrungen hatten. Wir dürfen uns nicht an etwas ''festfressen''.
-        \item Reduziertes Risiko: Es stellt sich das Risiko, dass wir unsere Zeit verschwenden. Wir müssen teilweise einfach weitermachen.
-        \item Tatsächliches Outcome: Man ist nie richtig fertig mit einem Spiel. Es gibt immer Dinge, die man Verbessern könnte. So könnten auch wir noch tausende weitere Stunden investieren.
+        \item Reduziertes Risiko: realistische Erwartungshaltung
+        \item Tatsächliches Outcome: basierend auf der uns zu verfügugnsstehenden Zeit und unserem Wissen sind wird zufrieden mit unserem Produkt. Es gibt immernoch Dinge, die wir gerne verbessern und hinzufügen würden. so könnten wird noch tausende Stunden investieren
     \end{enumerate}
 \end{enumerate}

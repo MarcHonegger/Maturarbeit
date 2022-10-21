@@ -1,40 +1,41 @@
-
-\chapter{Aktuelle Features}
+\chapter{Resultat}
 Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
 
-\section{KZO}
+\section{Maturitätsarbeit}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
 \begin{enumerate}
     \item \textbf{Zeit} \\
-        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 100 Stunden (50 Stunden pro Person) um einen Faktor von drei überschritten. Unser gemessener Zeitaufwand, während aktivem Programmieren,
-        beträgt über 330 Stunden. Hier sind die Stunden, in denen wir uns in der Schule über das Projekt unterhalten haben, gar nicht notiert.
+        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 100 Stunden (50 Stunden pro Person) um den Faktor drei überschritten. Unser gemessener Zeitaufwand, während dem aktivem Programmieren,
+        beträgt über 330 Stunden. Hier sind die Stunden, in denen wir uns in der Schule über das Projekt unterhalten haben, nicht notiert.
     \item \textbf{Begleitperson} \\
-        Wir hatten zum Glück kein Problem eine Begleitperson zu finden. Martin Hunziker war gerne bereit unsere Arbeit im Blick zu behalten.
+        Wir hatten glücklicherweise kein Problem eine Begleitperson zu finden. Martin Hunziker war gerne bereit, unsere Arbeit im Blick zu behalten.
     \item \textbf{Plagiat} \\
-        Zwar sind einige Grafiken aus dem Internet, jedoch sind alle Nutzungsfrei. Auch sonst haben wir keinen Code geklaut und verwendet. 
+        Einige Grafiken sind zwar aus dem Internet, jedoch sind alle Nutzungsfrei. Wir haben keinen Code geklaut und verwendet. 
 \end{enumerate}
 
-\section{Unsere eigenen Anforderungen}
+\section{Spiel}
+In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap:foo} gestellten Anforderung grupiert dargestellt. 
 \subsection{Notwendig}
     \begin{itemize}
     \item \textbf{Systemanforderungen} \\
-        Unser Spiel funktioniert sowohl auf macOS als auch auf Windows. Dies ausserdem mit einer FPS von 300, bis teilweise 500, bei den meisten modernen Geräten
+        Unser Spiel funktioniert sowohl auf macOS als auch auf Windows. Es läuft zudem mit einer FPS von 300, bis teilweise 500, bei den meisten modernen Rechnern.
     \item \textbf{Benutzeroberfläche} \\
     \begin {itemize}
         \item \textbf{Startseite} \\
             \\
             \includegraphics[height=7cm]{resources/laneclash.png}\\
-            Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere vereinzelten Tester bewerteten die Startseite
-        als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
+            Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere Tester bewerteten die Startseite
+            als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
         \item \textbf{Credits}\\
             \\
             \includegraphics*[width = 7cm]{resources/credits.png}\\
-            Es gibt die Möglichkeit die Credits vorzeitig zu Verlassen. Dies geschieht durch das Drücken des Knopfes mit dem Haus als Icon. Die Tester fanden dies auch sehr intuitiv.
+            Es gibt die Möglichkeit die Credits vorzeitig zu verlassen. Dies geschieht durch das Drücken des Knopfes mit den Hausbutton. Die Tester fanden dies auch sehr intuitiv.
         \item \textbf{Settings}\\
             \\
             \includegraphics*[height=7cm]{resources/setting.png}\\
             Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter, leiser zu stellen
             oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. \\
+            \\
             \includegraphics*[height=3cm]{resources/resolution.png}\\
             Wenn man die Auflösung ändert und dies bestätigt, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
             Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
@@ -45,17 +46,16 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
             automatisch nach bereits existierenden Servern suchen.\\
             \\
             \includegraphics*[width=6cm]{resources/discovered.png}\\
-            Den gewollten Server kann man mit einem einfachen Linksklick auswählen.
+            Den Server kann man mit einem Linksklick auswählen.
         \item \textbf{Lobby Management}\\
             \\
             \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
             Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
-            Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. Wir wollten zuerst
-            eine Möglichkeit für einen ''Schlüssel'' hinzufügen, allerdings stellte sich dies als überflüssig heraus, da alle Spieler unter einem Dach sitzen.
+            Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. 
         \item \textbf{InGame-UI}\\
             \\
             \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
-            Der Host hat im Spiel die Möglichkeit, den Server zurück zur Lobby zu schicken, und das Spiel somit neuzustarten. Er kann auch direkt aufhören zu hosten. 
+            Der Host hat die Möglichkeit das Spiel zu beenden. Er kann auch direkt aufhören zu hosten. 
             Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
             \\
             \includegraphics*[height=2cm]{resources/pause.png}\\
@@ -65,17 +65,17 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
     \end {itemize}
 
     \item \textbf{Lokaler Multiplayer} \\
-        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen auch auf demselben Gerät. Als Protokoll haben wir TCP gewählt. Dies, da TCP viel zuverlässiger ist.
-        Folgende vier Punkte waren entscheidend für die Wahl von TCP über UDP:
+        Das Spiel kann im lokalen Netz gespielt werden. Zum Testen kann man das Spiel auch zweimal parallel auf demselben Gerät laufen lassen. Als Protokoll haben wir TCP gewählt.
+        Folgende vier Punkte waren entscheidend für die Wahl von TCP gegenüber UDP:
         \begin{itemize}
             \item \textbf{Zuverlässigkeit}\\
-                Keine Probleme mit verloren gegangenen Paketen. Ging ein Paket verloren, sendet TCP es einfach erneut. Entweder werden alle Daten erfolgreich übermittelt,
-                oder man bekommt einen Error.
+                Es gibt keine Probleme mit verloren gegangenen Paketen. Ging ein Paket verloren, sendet TCP es einfach erneut. Entweder werden alle Daten erfolgreich übermittelt,
+                oder es folgt eine Errormeldung.
             \item \textbf{Sequenziert}\\
-                TCP stellt sicher, dass jede Nachricht in der gleichen Reihenfolge eintrifft, in der sie gesendet wurde. Wenn man ''a'' dann ''b'' sendet, erhält man auf der
-                anderen Seite garantiert auch zuerst ''a'' dann ''b''.
+                TCP stellt sicher, dass jede Nachricht in der gleichen Reihenfolge eintrifft, in der sie gesendet wurde. Wenn man ''a'' vor ''b'' sendet, erhält man auf der
+                anderen Seite garantiert auch zuerst ''a'' und dann ''b''.
             \item \textbf{Verbindungsorientiert}\\
-                TCP hat sich auf das Konzept einer Verbindung konzentriert. Eine Verbindung bleibt so lange offen, bis entweder der Client oder der Server sich dazu entscheiden, sie zu schliessen.
+                TCP hat sich auf das Konzept einer Verbindung spezialisiert. Eine Verbindung bleibt so lange geöffnet, bis entweder der Client oder der Server sich dazu entscheiden, sie zu schliessen.
                 Anschliessend werden sowohl Client als auch Host benachrichtigt, dass die Verbindung beendet wurde.
             \item \textbf{Überlastungskontrolle} \\
                 Wenn ein Server überlastet wird, drosselt TCP selbstständig die Daten, um einen Zusammenbruch durch Überlastung zu verhindern.
@@ -104,25 +104,25 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
         IMPORTANT\\
         IMPORTANT\\
         IMPORTANT\\
-    \item \textbf{Gewinnmöglichkeit} \\
-        Um zu Gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt die
+    \item \textbf{Spielende} \\
+        Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt die
         ganze Linie auf der sich der Held befand.
     \item \textbf{Lanes} \\
-        Unser Spiel hat 4 sogenannten Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe verschoben.
+        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach Hinten verschoben. Dadurch entsteht ein 2.5d-Effekt
     \item \textbf{Synchronisation} \\
-        Unser Spiel Synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected kann er versuchen
-        sich erneut zu verbinden und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
-        erneut gesendet. Dies hilft uns dabei, die Synchronisation zu jeder Zeit aufrecht zu erhalten.
+        Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen
+        sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren wird es automatisch
+        erneut gesendet. Dies hilft uns dabei, die Synchronisation zu jeder Zeit aufrechtzuerhalten.
     \item \textbf{Crossplay}
         Es ist möglich sich mit einem Windows Rechner und einem macOS Rechner zu verbinden. Allerdings muss dem Spiel dazu die Kommunikation durch die Firewall teilweise erlaubt sein.
         Bei einer eher aggressiveren Firewall wird zudem teilweise der Server-Broadcast geblockt. Dies hätte zur Folge, dass man die Server nicht automatisch finden kann. 
-        Verbinden sollte man sich allerdings trotzdem noch können.   
+        Verbinden kann mich sich allerdings trotzdem noch.   
 \end{itemize}
 
 \subsection{Anvisiert}
 \begin{itemize}
     \item \textbf{Helden} \\
-        Beide Spieler haben im Moment den gleichen Helden. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
+        Beide Spieler haben im Moment den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
         temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
         \\
@@ -130,20 +130,11 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
         Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
         die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
     \item \textbf{Truppen}
-    \begin{itemize}
-        \item \textbf{Nahkampf}
-            Eine Truppe mit wenig Reichweite.
-        \item \textbf{Fernkampf}
-            Eine Truppe die auf Reichweite angreift. Sie schiesst Projektive, zum Beispiel ein Bogenschütze,
-            der mit Pfeilen schiesst.
-        \item \textbf{Suizid}
-            Eine Truppe die bei Berührung mit einem Gegner stirbt und einen Effekt auslöst.
-    \end{itemize}
     \item \textbf{Effekte}
     \begin{itemize}
         \item \textbf{Gift:}
-            Zeitlich limitierter und wiederholender Schadenseffekt. Eine visuelle Markierung soll vorhanden sein
-            und das gleiche Gift, also der gleichen Truppe, soll nur einmal auf jemanden sein. (Hier: Pilz-Truppe)
+        Zeitlich limitierter und wiederholender Schadenseffekt.
+        Eine visuelle Markierung ist vorhanden und der Gifteffekt kumuliert sich nicht(Hier: Pilz-Truppe).
         \item \textbf{Rache:}
             Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen. (Hier: Helden mit Feuer)
     \end{itemize}
@@ -155,13 +146,13 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
     \begin{enumerate}
         \item \textbf{Kostenpflichtiges Spiel}
         \begin{itemize}
-            \item Wir haben eventuell vor, unser Spiel nach Vollendung der Dev Phase zu veröffentlichen. Allerdings auf keinen Fall für einen hohen Preis.
+            \item Wir haben eventuell vor, unser Spiel nach Vollendung der Entwicklungsphase zu veröffentlichen. Allerdings wird der Preis auf keinen Fall hoch sein.
         \end{itemize}
     \end{enumerate}
     \item \textbf{Design} \\
-        Wir werden auch in Zukunft das Design noch verbessern. Hier gehts es aber um den Feinschliff, z.B. mehr Hintergründe, und mehr Dinge selbst zu designen.
+        Wir werden auch in Zukunft das Design noch verbessern. 
     \item \textbf{Truppen}
-        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt. Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
+        Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt: Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
         Wir haben alle Programme mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
     
 \end{itemize}
@@ -170,13 +161,13 @@ Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
 \begin{itemize}
     \item \textbf{Online Multiplayer} \\
         Um sich mit Rechnern ausserhalb des eigenen Netzwerkes verbinden zu können, müssten wir das ganze Multiplayer System unseres Spieles anpassen, was einen kompletten Recode zur Folge hätte. 
-        Ausserhalb würde sich die Frage nach der Finanzierung stellen, falls wir einen externen Server kaufen / mieten würden. 
+        Ausserdem, würde sich die Frage nach der Finanzierung stellen, falls wir einen externen Server kaufen / mieten würden. 
     \item \textbf{Shop} \\
-        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für Cheater und hat somit nicht viel Sinn. Wir müssten dann ausserdem ein Ranking-System
+        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für Cheater und ist somit für uns nicht sinnvoll. Wir müssten dann ausserdem ein Ranking-System
         hinzufügen, damit wir die Spieler belohnen können.
     \item \textbf{Kampagne} \\
         Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
-        früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider eine komplette Zeitverschwendung wäre.
+        früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider unsere Kapazität überschreitet..
     \item \textbf{Anti-Cheat} \\
         Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechneten Spiel ein Ding der Unmöglichkeit.
         Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema. Allerdings hat der Host sozusagen über fast alles die Macht, der Client kann also fast
