@@ -22,44 +22,60 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \item \textbf{Benutzeroberfläche} \\
     \begin {itemize}
         \item \textbf{Startseite} \\
-            \\
-            \includegraphics[height=7cm]{resources/laneclash.png}\\
             Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere Tester bewerteten die Startseite
             als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
+            \begin{center}
+                \includegraphics[height=7cm]{resources/laneclash.png}\\
+            \end{center}
+
         \item \textbf{Credits}\\
-            \\
-            \includegraphics*[width = 7cm]{resources/credits.png}\\
             Es gibt die Möglichkeit die Credits vorzeitig zu verlassen. Dies geschieht durch das Drücken des Hausbuttons. Die Tester fanden dies auch sehr intuitiv.
+            \begin{center}
+                \includegraphics*[width = 7cm]{resources/credits.png}\\
+            \end{center}
+            
         \item \textbf{Settings}\\
-            \\
-            \includegraphics*[height=7cm]{resources/setting.png}\\
             Man kann hier die Auflösung ändern und auswählen, ob das Spiel als Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter oder leiser zu stellen
-            oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. \\
-            \\
-            \includegraphics*[height=3cm]{resources/resolution.png}\\
+            oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. 
+            \begin{center}
+                \includegraphics*[height=7cm]{resources/setting.png}\\
+            \end{center}
             Nach Bestätigung der Änderung der Auflösung, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
             Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
+            \begin{center}
+                \includegraphics*[height=3cm]{resources/resolution.png}\\
+            \end{center}
+            
         \item \textbf{Server Management}\\
-            \\
-            \includegraphics*[height = 3cm]{resources/server.png}\\
             Nach Bedienung des ''Start''-Knopfs gibt es die Möglichkeit einen Server zu Hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
-            automatisch nach bereits existierenden Servern suchen.\\
-            \\
-            \includegraphics*[width=6cm]{resources/discovered.png}\\
+            automatisch nach bereits existierenden Servern suchen.
+            \begin{center}
+                \includegraphics*[height = 3cm]{resources/server.png}\\
+            \end{center}
             Den Server kann man mit einem Linksklick auswählen.
+            \begin{center}
+                \includegraphics*[width=6cm]{resources/discovered.png}\\
+            \end{center}
+            
         \item \textbf{Lobby Management}\\
-            \\
-            \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
             Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
             Der Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. 
+            \begin{center}
+                \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\ 
+            \end{center}
+            
         \item \textbf{InGame-UI}\\
-            \\
-            \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
             Der Host hat die Möglichkeit das Spiel zu beenden. Er kann auch direkt aufhören zu hosten. 
-            Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
-            \\
-            \includegraphics*[height=2cm]{resources/pause.png}\\
+            Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.
+            \begin{center}
+                \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
+            \end{center}
             Im Pausenmenu kann man ausserdem leicht die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
+            \begin{center}
+                \includegraphics*[height=2cm]{resources/pause.png}\\
+            \end{center}
+            
+            
 
 
     \end {itemize}
@@ -108,7 +124,7 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt alle
         Truppen, die sich auf jener Linie des Helden befanden.
     \item \textbf{Lanes} \\
-        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Dadurch entsteht ein 2.5d-Effekt
+        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Der Spieler hat die Auswahl, in welcher Reihe er seine Truppen auf den Gegner zuschicken will.
     \item \textbf{Synchronisation} \\
         Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer dasselbe. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen
         sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
@@ -125,10 +141,12 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         Beide Spieler haben bei unserer aktuellen Version den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
         temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
-        \\
-        \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
         Wir haben uns für ein 2.5d Design entschieden. Der Vorteil ist, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
         die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
+        \begin{center}
+            \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
+        \end{center}
+        
     \item \textbf{Effekte}
     \begin{itemize}
         \item \textbf{Gift:}
