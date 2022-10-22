@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1666436766 "main.aux" "main.bbl" "main" 1666436766
+["bibtex main"] 1666443233 "main.aux" "main.bbl" "main" 1666443233
   "bibliography.bib" 0 -1 0 ""
   "c:/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst" 1663525374 23907 a5f93555796fb564b924339521f10a7c ""
-  "main.aux" 1666436649 8763 d4ae8b51daf07d1b9637d0822043dba3 "pdflatex"
+  "main.aux" 1666443229 8763 d4ae8b51daf07d1b9637d0822043dba3 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1666436643 "c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666436766
+["pdflatex"] 1666443217 "c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666443233
   "01_ziel/01_vision.tex" 1666428862 1289 2259b89042da3c2f6bae3f5e999b857a ""
   "01_ziel/02_anforderungen.tex" 1666435380 14153 c9e5086826766137bc6cef6732fab193 ""
   "01_ziel/03_skizzen.tex" 1666436284 814 f0622113414517fcc5a57b81c90748ca ""
@@ -14,8 +14,8 @@
   "02_produkt/01_heutige-stand.tex" 1666435367 15882 d0a96c57c1ac96092fbcb39e47058343 ""
   "02_produkt/02_architektur.tex" 1666428489 210 b86432602304bb058ead264348c0fb88 ""
   "02_produkt/03_zukunft.tex" 1666436765 3391 b250176ed6de7d308e1cba146a8c70d0 ""
-  "03_organisation/01_technologien.tex" 1666435727 5849 7adbeb8f44466366413f8c7e9005fa24 ""
-  "03_organisation/02_team-management.tex" 1666280739 3203 a95aabcbeace50d98f896e2cacb96b11 ""
+  "03_organisation/01_technologien.tex" 1666442058 5856 a8f49277a88f5b416257130c2e7b4a58 ""
+  "03_organisation/02_team-management.tex" 1666443216 3245 c147420073f125d5e57f1e8e01475594 ""
   "03_organisation/03_time-management.tex" 1666360458 934 c89f0bba23467527b02f781dac66f36f ""
   "04_reflexion/01_team.tex" 1666360458 192 de2121419da49467fb52a05d1d518486 ""
   "04_reflexion/02_elia.tex" 1666360458 1721 ecd1aef5cdd0734c92e1c0d56336557f ""
@@ -166,12 +166,12 @@
   "c:/texlive/2022/texmf.cnf" 1663538345 713 e69b156964470283e0530f5060668171 ""
   "custom.tex" 1660040233 2644 93612e62b52bf58338871365cab1dfe0 ""
   "glossary.tex" 1666360458 5247 3c1d2e146ff7d55dd4b96b6b99dcbbd4 ""
-  "main.aux" 1666436649 8763 d4ae8b51daf07d1b9637d0822043dba3 "pdflatex"
+  "main.aux" 1666443229 8763 d4ae8b51daf07d1b9637d0822043dba3 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
   "main.gls" 1666435153 3598 e072889b6b728afbdff3c9ccfbe7d4f4 ""
-  "main.out" 1666436649 6769 cf163f8e7e87bc569e0b911a6a51e6d1 "pdflatex"
+  "main.out" 1666443229 6769 cf163f8e7e87bc569e0b911a6a51e6d1 "pdflatex"
   "main.tex" 1666431606 1973 0dc807cf8677fc71e87a5d89c27ac46e ""
-  "main.toc" 1666436649 4341 c1d24f8d9f9efec9024bcca1cc6b7f07 "pdflatex"
+  "main.toc" 1666443229 4341 c1d24f8d9f9efec9024bcca1cc6b7f07 "pdflatex"
   "resources/25d.png" 1666280740 304094 a28edc81caeb4b29ebad0ba02290bfc2 ""
   "resources/25dtwo.png" 1666280741 297504 7a12487955dc4d348f5cdff94edba1fd ""
   "resources/SK_auswahl.png" 1666280741 1083613 964012e2217a30eee2f3f6de60f398d6 ""
