@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1666443289 "main.aux" "main.bbl" "main" 1666443304
+["bibtex main"] 1666445279 "main.aux" "main.bbl" "main" 1666445293
   "bibliography.bib" 0 -1 0 ""
   "c:/texlive/2022/texmf-dist/bibtex/bst/base/alpha.bst" 1663525374 23907 a5f93555796fb564b924339521f10a7c ""
-  "main.aux" 1666443301 8764 653c940d5d89333f8810baeb869656b0 "pdflatex"
+  "main.aux" 1666445291 8764 653c940d5d89333f8810baeb869656b0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1666443289 "c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666443304
+["pdflatex"] 1666445279 "c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" "main.pdf" "main" 1666445293
   "01_ziel/01_vision.tex" 1666428862 1289 2259b89042da3c2f6bae3f5e999b857a ""
   "01_ziel/02_anforderungen.tex" 1666435380 14153 c9e5086826766137bc6cef6732fab193 ""
   "01_ziel/03_skizzen.tex" 1666436284 814 f0622113414517fcc5a57b81c90748ca ""
@@ -15,10 +15,10 @@
   "02_produkt/02_architektur.tex" 1666428489 210 b86432602304bb058ead264348c0fb88 ""
   "02_produkt/03_zukunft.tex" 1666436765 3391 b250176ed6de7d308e1cba146a8c70d0 ""
   "03_organisation/01_technologien.tex" 1666442058 5856 a8f49277a88f5b416257130c2e7b4a58 ""
-  "03_organisation/02_team-management.tex" 1666443216 3245 c147420073f125d5e57f1e8e01475594 ""
+  "03_organisation/02_team-management.tex" 1666444531 3217 809d53bb904c0a47966c7ba2a9f91d37 ""
   "03_organisation/03_time-management.tex" 1666360458 934 c89f0bba23467527b02f781dac66f36f ""
-  "04_reflexion/01_team.tex" 1666443273 2931 969feaaa975d53935fcc991ec94db247 ""
-  "04_reflexion/02_elia.tex" 1666360458 1721 ecd1aef5cdd0734c92e1c0d56336557f ""
+  "04_reflexion/01_team.tex" 1666444647 2938 56351d02b244f3623d02519a6a6d3e94 ""
+  "04_reflexion/02_elia.tex" 1666444899 1735 88a34bfbabbc6694844714ce8062f891 ""
   "04_reflexion/03_marc.tex" 1666360458 63 7427d6c3ff4f4dd6ade4b03d42ef31da ""
   "c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex" 1666431606 1973 0dc807cf8677fc71e87a5d89c27ac46e ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1663526853 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -165,13 +165,13 @@
   "c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1663538585 3058677 1fd599ed1b5f0f7f6be2bf672c0a3f8a ""
   "c:/texlive/2022/texmf.cnf" 1663538345 713 e69b156964470283e0530f5060668171 ""
   "custom.tex" 1660040233 2644 93612e62b52bf58338871365cab1dfe0 ""
-  "glossary.tex" 1666360458 5247 3c1d2e146ff7d55dd4b96b6b99dcbbd4 ""
-  "main.aux" 1666443301 8764 653c940d5d89333f8810baeb869656b0 "pdflatex"
+  "glossary.tex" 1666445276 5234 9887a756a185ec646fa19ff167695913 ""
+  "main.aux" 1666445291 8764 653c940d5d89333f8810baeb869656b0 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
   "main.gls" 1666435153 3598 e072889b6b728afbdff3c9ccfbe7d4f4 ""
-  "main.out" 1666443301 6770 2a34ff8c8a984849e66e28e6abedaa35 "pdflatex"
+  "main.out" 1666445291 6770 2a34ff8c8a984849e66e28e6abedaa35 "pdflatex"
   "main.tex" 1666431606 1973 0dc807cf8677fc71e87a5d89c27ac46e ""
-  "main.toc" 1666443301 4342 0f676c8c83c63011bdc4fc669087b23f "pdflatex"
+  "main.toc" 1666445291 4342 0f676c8c83c63011bdc4fc669087b23f "pdflatex"
   "resources/25d.png" 1666280740 304094 a28edc81caeb4b29ebad0ba02290bfc2 ""
   "resources/25dtwo.png" 1666280741 297504 7a12487955dc4d348f5cdff94edba1fd ""
   "resources/SK_auswahl.png" 1666280741 1083613 964012e2217a30eee2f3f6de60f398d6 ""
