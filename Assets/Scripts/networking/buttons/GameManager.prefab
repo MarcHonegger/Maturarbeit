@@ -45,13 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e319261062d44a5aa97b621c687d024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  tickRate: 0.1
-  clientStarted: 0
   audioManager: {fileID: 0}
   spawnManager: {fileID: 0}
   troopManager: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  tickRate: 0.1
+  pauseAction:
+    m_Name: Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2539cda9-5279-4d0c-88c2-8a030cd9783e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &4790248681054670079
 MonoBehaviour:
   m_ObjectHideFlags: 0

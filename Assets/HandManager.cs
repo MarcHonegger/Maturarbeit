@@ -15,9 +15,9 @@ public class HandManager : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private Vector3 _oldPos;
     public GameObject laneOptionPrefab;
-    private readonly List<Image> _laneImages = new List<Image>();
-    private readonly List<Image> _laneLineImages = new List<Image>();
-    private readonly List<TextMeshProUGUI> _laneNumbers = new List<TextMeshProUGUI>();
+    private List<Image> _laneImages = new List<Image>();
+    private List<Image> _laneLineImages = new List<Image>();
+    private List<TextMeshProUGUI> _laneNumbers = new List<TextMeshProUGUI>();
     private static Random _rng = new Unity.Mathematics.Random(0x6E624EB7u);  
     private int _screenHeight;
     private int _screenWidth;
@@ -31,6 +31,7 @@ public class HandManager : MonoBehaviour
     public int amountOfCardsAtStart;
     public int maxAmountOfCardsInHand;
     private readonly List<GameObject> _cardsInHand = new List<GameObject>();
+    private Transform _laneOptionParent;
 
     public static HandManager instance;
     private void Awake()
@@ -160,10 +161,10 @@ public class HandManager : MonoBehaviour
         
         Vector3 laneOptionScale = new Vector3(4.8f, 7.2f, 1f);
 
-        var laneOptionParent = Instantiate(new GameObject("laneOverlay"), canvas.transform).transform;
+        _laneOptionParent = Instantiate(new GameObject("laneOverlay"), canvas.transform).transform;
         for (int i = 0; i < 4; i++)
         {
-            var laneOption = Instantiate(laneOptionPrefab, new Vector3(_quarterScreenWidth / 2f + _quarterScreenWidth * i, _thirdScreenHeight * 2f, 0f), quaternion.identity, laneOptionParent);
+            var laneOption = Instantiate(laneOptionPrefab, new Vector3(_quarterScreenWidth / 2f + _quarterScreenWidth * i, _thirdScreenHeight * 2f, 0f), quaternion.identity, _laneOptionParent);
             laneOption.transform.localScale = laneOptionScale;
             var laneNumber = laneOption.GetComponentInChildren<TextMeshProUGUI>();
             laneNumber.text = (i + 1).ToString();
@@ -183,6 +184,18 @@ public class HandManager : MonoBehaviour
             _laneImages.Add(laneOptionImage);
             _laneNumbers.Add(laneNumber);
         }
+    }
+    
+    private void DeleteSprites()
+    {
+        StopRendering();
+        foreach (Transform laneOption in _laneOptionParent)
+        {
+            Destroy(laneOption.gameObject);
+        }
+        _laneLineImages = new List<Image>();
+        _laneImages = new List<Image>();
+        _laneNumbers = new List<TextMeshProUGUI>();
     }
 
     public void StartRendering()
@@ -206,6 +219,13 @@ public class HandManager : MonoBehaviour
 
     private void UpdateRendering()
     {
+        if (_screenWidth != Screen.width || _screenHeight != Screen.height)
+        {
+            UpdateScreenSize();
+            DeleteSprites();
+            GenerateSprites();
+        }
+        
         for (int i = 0; i < 4; i++)
         {
             if (PlayerManager.instance.IsValidSpawn(i))

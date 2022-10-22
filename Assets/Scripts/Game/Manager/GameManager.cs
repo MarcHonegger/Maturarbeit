@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public AudioManager audioManager;
     public SpawnManager spawnManager;
     public TroopManager troopManager;
     public GameObject pauseMenu;
