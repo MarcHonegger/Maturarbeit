@@ -1,20 +1,20 @@
 \chapter{Resultat}
-Kurz gesagt; wir konnten fast alle unsere Anforderung erfüllen.
+Kurz gesagt: Wir konnten fast alle unsere Anforderung erfüllen.
 
 \section{Maturitätsarbeit}
 % \includegraphics[height=18cm]{resources/diagrams/use-case}
 \begin{enumerate}
     \item \textbf{Zeit} \\
-        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 100 Stunden (50 Stunden pro Person) um den Faktor drei überschritten. Unser gemessener Zeitaufwand, während dem aktivem Programmieren,
+        Geplant war ungefähr eine Lektion pro Woche. Wir haben die geschätzten 100 Stunden (50 Stunden pro Person) um den Faktor drei überschritten. Unser gemessener Zeitaufwand, während des aktiven Programmierens,
         beträgt über 330 Stunden. Hier sind die Stunden, in denen wir uns in der Schule über das Projekt unterhalten haben, nicht notiert.
     \item \textbf{Begleitperson} \\
         Wir hatten glücklicherweise kein Problem eine Begleitperson zu finden. Martin Hunziker war gerne bereit, unsere Arbeit im Blick zu behalten.
     \item \textbf{Plagiat} \\
-        Einige Grafiken sind zwar aus dem Internet, jedoch sind alle Nutzungsfrei. Wir haben keinen Code geklaut und verwendet. 
+        Einige Grafiken sind zwar aus dem Internet, jedoch sind alle nutzungsfrei. Wir haben keinen Code geklaut und verwendet. 
 \end{enumerate}
 
 \section{Spiel}
-In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap:foo} gestellten Anforderung grupiert dargestellt. 
+In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gestellten Anforderungen gruppiert dargestellt. 
 \subsection{Notwendig}
     \begin{itemize}
     \item \textbf{Systemanforderungen} \\
@@ -29,20 +29,20 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
         \item \textbf{Credits}\\
             \\
             \includegraphics*[width = 7cm]{resources/credits.png}\\
-            Es gibt die Möglichkeit die Credits vorzeitig zu verlassen. Dies geschieht durch das Drücken des Knopfes mit den Hausbutton. Die Tester fanden dies auch sehr intuitiv.
+            Es gibt die Möglichkeit die Credits vorzeitig zu verlassen. Dies geschieht durch das Drücken des Hausbuttons. Die Tester fanden dies auch sehr intuitiv.
         \item \textbf{Settings}\\
             \\
             \includegraphics*[height=7cm]{resources/setting.png}\\
-            Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter, leiser zu stellen
+            Man kann hier die Auflösung ändern und auswählen, ob das Spiel als Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit die Musik lauter oder leiser zu stellen
             oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. \\
             \\
             \includegraphics*[height=3cm]{resources/resolution.png}\\
-            Wenn man die Auflösung ändert und dies bestätigt, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
+            Nach Bestätigung der Änderung der Auflösung, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
             Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
         \item \textbf{Server Management}\\
             \\
             \includegraphics*[height = 3cm]{resources/server.png}\\
-            Nach Interaktion mit dem ''Start''-Knopf gibt es die Möglichkeit einen Server zu Hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
+            Nach Bedienung des ''Start''-Knopfs gibt es die Möglichkeit einen Server zu Hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
             automatisch nach bereits existierenden Servern suchen.\\
             \\
             \includegraphics*[width=6cm]{resources/discovered.png}\\
@@ -51,7 +51,7 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
             \\
             \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\
             Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
-            Dieser Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. 
+            Der Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit den Spieler (2) aus der Lobby zu entfernen. 
         \item \textbf{InGame-UI}\\
             \\
             \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
@@ -59,7 +59,7 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
             Auch der Client hat durchgehend die Möglichkeit den Server zu verlassen.\\
             \\
             \includegraphics*[height=2cm]{resources/pause.png}\\
-            Im Pausemenu kann man ausserdem auf die Schnelle die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
+            Im Pausenmenu kann man ausserdem leicht die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
 
 
     \end {itemize}
@@ -105,13 +105,13 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
         IMPORTANT\\
         IMPORTANT\\
     \item \textbf{Spielende} \\
-        Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt die
-        ganze Linie auf der sich der Held befand.
+        Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt alle
+        Truppen, die sich auf jener Linie des Helden befanden.
     \item \textbf{Lanes} \\
-        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach Hinten verschoben. Dadurch entsteht ein 2.5d-Effekt
+        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Dadurch entsteht ein 2.5d-Effekt
     \item \textbf{Synchronisation} \\
-        Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer das Gleiche. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen
-        sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren wird es automatisch
+        Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer dasselbe. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen
+        sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
         erneut gesendet. Dies hilft uns dabei, die Synchronisation zu jeder Zeit aufrechtzuerhalten.
     \item \textbf{Crossplay}
         Es ist möglich sich mit einem Windows Rechner und einem macOS Rechner zu verbinden. Allerdings muss dem Spiel dazu die Kommunikation durch die Firewall teilweise erlaubt sein.
@@ -122,25 +122,24 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
 \subsection{Anvisiert}
 \begin{itemize}
     \item \textbf{Helden} \\
-        Beide Spieler haben im Moment den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
+        Beide Spieler haben bei unserer aktuellen Version den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
         temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
         \\
         \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
-        Wir haben uns für ein 2.5d Design entschieden. Dabei ist der Vorteil, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
+        Wir haben uns für ein 2.5d Design entschieden. Der Vorteil ist, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
         die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
-    \item \textbf{Truppen}
     \item \textbf{Effekte}
     \begin{itemize}
         \item \textbf{Gift:}
-        Zeitlich limitierter und wiederholender Schadenseffekt.
-        Eine visuelle Markierung ist vorhanden und der Gifteffekt kumuliert sich nicht(Hier: Pilz-Truppe).
+        Zeitlich limitierter und sich wiederholender Schadenseffekt.
+        Eine visuelle Markierung ist vorhanden und der Gifteffekt kumuliert sich nicht (hier: Pilz-Truppe).
         \item \textbf{Rache:}
-            Truppen mit Rache haben einen Effekt nach ihrem Tod. Zum Beispiel eine Truppe beschwören oder Schaden verursachen. (Hier: Helden mit Feuer)
+            Truppen mit Rache haben einen Effekt nach ihrem Tod. Sie können zum Beispiel eine Truppe beschwören oder Schaden verursachen (ier: Helden mit Feuer).
     \end{itemize}
 \end{itemize}
 
-\subsection{Möglichkeiten}
+\subsection{Möglich}
 \begin{itemize}
     \item \textbf{Monetarisierung} \\
     \begin{enumerate}
@@ -167,40 +166,38 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
         hinzufügen, damit wir die Spieler belohnen können.
     \item \textbf{Kampagne} \\
         Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
-        früh gegen eine Kampagne entschieden, da dies nach unserer Meinung nach in diesem Stadium leider unsere Kapazität überschreitet..
+        früh gegen eine Kampagne entschieden, da diese in diesem Stadium leider unsere Kapazität überschreitet.
     \item \textbf{Anti-Cheat} \\
-        Dies ist für uns ohne Erfahrung in diesem Bereich und einem lokal berechneten Spiel ein Ding der Unmöglichkeit.
         Wir haben keine Erfahrung in diesem Bereich und es ist ein extrem komplexes Thema. Allerdings hat der Host sozusagen über fast alles die Macht, der Client kann also fast
-        gar nichts kaputt machen. Wir hoffen ausserdem auf die Menschen, die unser Spiel spielen, und darauf dass sie nicht versuchen zu schummeln.
+        gar nichts kaputt machen. Wir hoffen ausserdem auf die Ehrlichkeit der Menschen, die unser Spiel spielen.
     \item \textbf{Errungenschaften} \\
-        Belohnungen zu erhalten ist immer toll. Wenn es eine Währung wäre, bräuchten wir allerdings auch einen Shop. Man müsste ausserdem neue Dinge hinzufügen,
-        die man zuerst erspielen muss. Es könnten auch Pokale sein, allerdings bräuchten wir dann bereits wieder ein Ranking-System.
+        Belohnungen zu erhalten ist immer toll. Wir haben zwei Arten von möglichen Belohnungen diskutiert und verworfen: eine Währung und / oder Pokale.
+        Für die Währung bräuchten wir allerdings auch einen Shop. Wir müsste ausserdem neue Gegenständes hinzufügen,
+        die man zuerst erspielen muss. Für die Pokale bräuchten wir ein Ranking-System.
     \item \textbf{Bot} \\
-        Ein guter Bot passt sich der Spielweise des Gegners an. Einen so guten Bot zu programmieren ist eine eigene Herausforderung für sich. Wir hatten zwar die Idee,
+        Ein guter Bot passt sich der Spielweise des Gegners an. Einen so guten Bot zu programmieren ist eine Herausforderung für sich. Wir hatten die Idee,
         dass der Bot immer zufällige Truppen zu zufälligen Zeiten spielt. Allerdings würde dies auch eine Menge Balancing benötigen, wofür wir im Moment leider zu wenig
         Zeit haben.
     \item \textbf{Helden} \\
         Wir hatten als Ziel, mehrere verschiedene Helden zu gestalten und zu programmieren. Allerdings stellte sich relativ früh heraus, dass wir die nötigen Ressourcen
-        lieber an einer anderen Stelle investieren. Wir haben nun einen Helden, allerdings würde sich das Ausbauen der Helden nach der Abgabe als spannend gestalten.
+        lieber an einer anderen Stelle investieren. Wir haben nun einen einzigen Helden, allerdings würde sich das Ausbauen der Helden nach der Abgabe als spannend gestalten.
     \item \textbf{Ingame-Chatfenster}\\
-        Wir hatten eine funktionierende Version, allerdings stellte sich dies als überflüssig heraus. Der Grund ist, dass man normalerweise neben der Person sitzt,
+        Wir hatten eine funktionierende Version erstellt und implementiertm Allerdings stellte sich dies als überflüssig heraus, da man normalerweise neben der Person sitzt,
         mit der man im Moment spielt.
     \item \textbf{Mehrsprachig} \\
         Das Spiel ist im Moment nur in Englisch verfügbar. Eventuell werden wir dies nach der Abgabe der schriftlichen Arbeit noch anpassen.
-    \item Effekte
+    \item \textbf{Effekte}
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Der Effekt Wiederbelebung würde wahrscheinlich ein Vielfaches davon kosten,
-            wenn man die Truppe erneut losschicken würde. 
+            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Er würde den Spieler wahrscheinlich ein Vielfaches davon kosten,
+            als wenn er neue Truppen losschicken würde. 
         \item \textbf{Rüstung:}
-            Uns schien dies nicht nötig zu sein. Dies da es sich erst lohnen würde, sobald wir mehr Truppen, Effekte und mehr hinzugefügt hätten.
+            Uns schien dies nicht nötig zu sein. Dies würde sich erst lohnen, sobald wir mehr Truppen, Effekte oder anderes hinzugefügt hätten.
         \item \textbf{Aura:}
-            Das Prinzip einer Aura hört sich ganz gut an. Allerdings müssten wir sehr wahrscheinlich einen Recode des Damage-Systems machen. Dies würde uns mehr Zeit kosten,
-            als es im Moment wert wäre.
+            Das Prinzip einer Aura klingt faszinierend. Allerdings hätte dies sehr wahrscheinlich einen Recode des Damage-Systems zur Folge und würde unsere Ressourcen sprengen.
     \end{itemize}
     \item \textbf{Tutorial} \\
-        Ein Tutorial ist ein immenser Zeitaufwand. Es muss so gestalten sein, dass der Spieler gar nicht bemerkt, dass es ein Tutorial ist. Wir haben uns ausserdem darauf 
-        geachtet, das ganze Spiel so intuitiv wie möglich zu gestalten.
+        Da wir bei der Entwicklung einen Schwerpunkt auf die intuitive Bedienbarkeit gelegt haben, konnten wir auf ein Tutorial und den damit verbundenen immensen Zeitaufwand verzichten.
     \item \textbf{Monetarisierung} \\
     Ohne Anti-Cheat leider vollkommen nutzlos.
     \begin{enumerate}
@@ -214,13 +211,13 @@ In den folgenden Teilkapiteln wird die Erfüllungen der in Kapitel \autoref{chap
         \end{itemize}
     \end{enumerate}
     \item \textbf{Zauber} \\
-        Wir hatten zu einem frühen Zeitpunkt eine einigermassen funktionierende Testversion. Der Zauber wurde dem Spieler auch auf einer Karte verteilt. 
-        Eine erneute Nutzung davon würde allerdings viele Änderungen des gesamten Spiels bedeuten. Dies hätte sehr wahrscheinlich auch einen Recode zur Folge.
+        Wir hatten bereits zu einem frühen Zeitpunkt eine funktionierende Testversion. Der Zauber wurde dem Spieler durch Karte verteilt. \\
+        Im Laufe der Zeit haben wir das Damagesystem allerdings so umgeändert, dass der Prototyp schon fast nutzlos war. Ein kompletter Recode des Prototypen wäre nötig.
     \begin{itemize}
         \item \textbf{Dornen:}
-            Nachdem wir den Zauber ''Gift'' hinzugefügt hatten, sahen wir den Grund nicht, nun auch noch Dornen hinzuzufügen.
+            Nachdem wir den Zauber ''Gift'' hinzugefügt hatten, erschien und das zusätzliche Hinzufügen der Dornen überflüssig.
     \end{itemize}
     \item \textbf{Deck} \\
         Die Möglichkeit sich ein eigenes Deck zusammenzustellen, aus dem man dann die Karten zieht, wurde leider aus Zeitgründen fürs Erste verworfen. Allerdings können wir
-        fast schon garantieren, dass wir dies bis zu der Präsentation noch hinzufügen werden.     
+        fast schon garantieren, dass wir dies bis zu unserer Präsentation noch hinzufügen werden.     
 \end{itemize}

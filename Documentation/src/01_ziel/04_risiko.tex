@@ -1,29 +1,24 @@
 \chapter{Risikoanalyse}
-Wir haben mögliche Risiken in verschiedene Gefahrenstufen eingeteilt.
-Die Einstufung geschah basierend auf der Eintritswahrscheinlichkeit(wahrscheinlich, undwahrscheinlich, sehr wahrscheinlich) und Auswirkung(2: kritisch und unbedenklich). wie schlimm der Worstcase ist und wie gut das Risiko reduziert werden kann.
-Um das Risiko zu managen, haben wir für jedes Risiko eine Reduktionsstrategie definiert. 
-das Risiko 
-
-
-in den folgenden Teilkapiteln dokumentieren wir die identifizierten Risiken nach folgendem Schema:
-
-
-Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
+Wir haben mögliche Risiken in verschiedene Stufen eingeteilt.
+Die Einstufung geschah basierend auf der Eintrittswahrscheinlichkeit (unwahrscheinlich, wahrscheinlich, sehr wahrscheinlich) und Auswirkung (unbedenklich, kritisch). 
+Um das Risiko zu managen, haben wir für jedes Risiko eine Reduktionsstrategie definiert.\\
+In den folgenden Teilkapiteln dokumentieren wir die identifizierten Risiken nach folgendem Schema:\\
+\\
+- Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
 \begin{enumerate}
-    \item Reduktionsstrategie: Strategie um die Wahrscheinlichkeit und/oder Auswirkung zu reduzieren.
+    \item Reduktionsstrategie: Strategie um die Wahrscheinlichkeit und/oder die Auswirkung zu reduzieren.
     \item Reduziertes Risiko: Risiko nach der Umsetzung der Reduktionsstrategie.
     \item Tatsächliches Outcome: Das tatsächliche Endresultat
 \end{enumerate}
-
 
 \section{Hoch}
 \begin{enumerate}
     \item Vergange Maturitätsarbeiten, die ein Videospiel als Ziel hatten, sind gescheitert (Wahrscheinlich und Kritisch)
     \begin{enumerate}
-        \item Reduktionsstrategie: Klare Anforderungsspezifikation, Planung und Aufteilung der Arbeitspakete, laufende Überprüfung der Planung/Zielerreichung, regelmässiger gegenseitiger Austausch zum Fortschritt.
+        \item Reduktionsstrategie: Klare Anforderungsspezifikation, Planung und Aufteilung der Arbeitspakete, laufende Überprüfung der Planung/Zielerreichung, regelmässiger gegenseitiger Austausch zum Fortschritt,
         Bereitschaft den empfohlenen Zeitaufwand massiv zu überschreiten.
-        \item Reduziertes Risiko: Die Eintretenswahrscheinlichkeit ist reduziert. Beim Eintreten ist der Erfolg der Arbeit allerdings immer noch gefährdet.
-        \item Tatsächliches Outcome: Risiko nicht eingetreten, Maturitätsarbeit mit funktionierendem Videospiel fertiggestellt.
+        \item Reduziertes Risiko: Die Eintrittswahrscheinlichkeit ist reduziert. Beim Eintreten ist der Erfolg der Arbeit allerdings immer noch gefährdet.
+        \item Tatsächliches Outcome: Risiko nicht eingetreten. Maturitätsarbeit mit funktionierendem Videospiel fertiggestellt.
     \end{enumerate}
 
     \item Beide Teammitglieder haben keine Ahnung von der Entwicklung eines netzwerkfähigen Multiplayer-Spiels (Wahrscheinlich und Kritisch)
@@ -31,17 +26,16 @@ Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
         \item Reduktionsstrategie: Erstellen der grundsätzlichen Multiplayerfunktionalität in einer einzelnen Spielinstanz, danach Ausbau auf mehrere Spielinstanzen über das lokale Netzwerk (Host und Client)
         \item Reduziertes Risiko: Spiel am selben Rechner ist sehr wahrscheinlich möglich, primäres Ziel der Arbeit ist auch ohne Netzwerkfähigkeit erfüllt.
             Das Risiko ist reduziert immer noch sehr hoch.
-              Wir haben uns beide an Multiplayer fest gefressen und werden es höchst wahrscheinlich trotzdem umsetzen
-        \item Tatsächliches Outcome: Mehrere Spieler können übers Netz zusammen spielen, Ziel nur mit beträchtlichem Aufwand erreicht (1/3 der gesamten Entwicklungszeit)
+            Wir haben uns beide an Multiplayer fest gefressen und werden es höchst wahrscheinlich trotzdem umsetzen
+        \item Tatsächliches Outcome: Risiko nicht eingetreten. Mehrere Spieler können übers Netz zusammen spielen, Ziel nur mit beträchtlichem Aufwand erreicht (1/3 der gesamten Entwicklungszeit).
     \end{enumerate}
 
-    \item Spiel enthält unentdeckte / unbekannte Fehler die den Spielspass verderben(Wahrscheinlich und Kritisch)
+    \item Spiel enthält unentdeckte / unbekannte Fehler die den Spielspass verderben (Wahrscheinlich und Kritisch)
     \begin{enumerate}
-        \item Reduktionsstrategie: So viel testen wie möglich/sinnvoll. Bugs kategorisieren, sich auf kritsche Bugs konzentrieren, Code Reviews
-        \item Reduziertes Risiko: Wir schätzen das reduzierte Risiko immernoch als hoch ein, da selbst wenn die Eintritswahrscheinlichkeit stark reduziert ist, kann der eine unentdeckte Fehler den ganzen Spielspass vermiesen.
-        \item Tatsächliches Outcome: Nach Abschluss der Alpha Testphase sind keine Fehler bekannt. wir drücken nun die Daumen, dass herr hunziker keine Bugs findet
+        \item Reduktionsstrategie: So viel testen wie möglich/sinnvoll, Bugs kategorisieren, sich auf kritsche Bugs konzentrieren, Code Reviews
+        \item Reduziertes Risiko: Wir schätzen das reduzierte Risiko immernoch als hoch ein, da selbst wenn die Eintritswahrscheinlichkeit stark reduziert ist; kann dieser eine unentdeckte Fehler den ganzen Spielspass vermiesen.
+        \item Tatsächliches Outcome: Nach Abschluss der Alpha Testphase sind keine Fehler bekannt. Wir drücken nun die Daumen, dass Herr Hunziker keine Bugs findet.
     \end{enumerate}
-
 
 \end{enumerate}
 
@@ -49,9 +43,9 @@ Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
 \begin{enumerate}
     \item Elia hat noch nie mit Unity gearbeitet (Sehr wahrscheinlich und Unbedenklich)
     \begin{enumerate}
-        \item Reduktionsstrategie: Elia befasst sich zu Beginn mit Unity, marc hat vorwissen und kann elia unterstützen
-        \item Reduziertes Risiko: Falls elia auf schwierigkeiten stösst, kann dies zu zeitlichen Mehraufwand führen.
-        \item Tatsächliches Outcome: Elia konnte alles Nötige zu Beginn erlernen, Probleme durch Internetrecherchen klären oder Marc fragen. Risiko nicht eingetreten, 
+        \item Reduktionsstrategie: Elia befasst sich zu Beginn mit Unity, Marc hat Vorwissen und kann Elia unterstützen
+        \item Reduziertes Risiko: Falls Elia auf Schwierigkeiten stösst, kann dies zu zeitlichen Mehraufwand führen.
+        \item Tatsächliches Outcome: Risiko nicht eingetreten. Elia konnte alles Nötige zu Beginn erlernen, Probleme durch Internetrecherchen klären oder Marc fragen. 
     \end{enumerate}
 \end{enumerate}
 
@@ -59,8 +53,8 @@ Risiko (Eintrittswahrscheinlichkeit und Auswirkung)
 \begin{enumerate}
     \item Wir werden selbst nicht mit unserem Spiel zufrieden sein. (Wahrscheinlich und Unbedenklich)
     \begin{enumerate}
-        \item Reduktionsstrategie: Sich bewusst sein, dass wir nur 2 Schüler sind, die keine bisherigen Erfahrungen hatten. Wir dürfen uns nicht an etwas ''festfressen''.
-        \item Reduziertes Risiko: realistische Erwartungshaltung
-        \item Tatsächliches Outcome: basierend auf der uns zu verfügugnsstehenden Zeit und unserem Wissen sind wird zufrieden mit unserem Produkt. Es gibt immernoch Dinge, die wir gerne verbessern und hinzufügen würden. so könnten wird noch tausende Stunden investieren
+        \item Reduktionsstrategie: Sich bewusst sein, dass wir nur zwei Schüler sind, die keine bisherigen Erfahrungen hatten. Wir dürfen uns nicht an etwas ''festfressen''.
+        \item Reduziertes Risiko: Realistische Erwartungshaltung
+        \item Tatsächliches Outcome: Basierend auf der uns zu verfügungsstehenden Zeit und unserem Wissen, sind wird zufrieden mit unserem Produkt. Es gibt immer noch Dinge, die wir gerne verbessern und hinzufügen würden. So könnten wird noch Tausende Stunden investieren.
     \end{enumerate}
 \end{enumerate}
