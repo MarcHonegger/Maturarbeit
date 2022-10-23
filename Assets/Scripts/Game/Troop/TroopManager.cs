@@ -69,5 +69,5 @@ public class TroopManager : NetworkBehaviour
     private void Attack(TroopHandler target, TroopHandler attacker, float damage, AttackType type)
     {
         target.TakeDamage(damage, attacker, type);
-    }
+    } 
 }
