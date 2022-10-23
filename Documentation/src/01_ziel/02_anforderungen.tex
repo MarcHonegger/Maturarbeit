@@ -11,7 +11,7 @@ und die, die es gibt, sind relativ vage formuliert. Die drei Hauptanforderungen 
         Wir werden diese Zeitanforderung ohne Probleme erreichen und bei Weitem überschreiten.
     \item \textbf{Begleitperson} \\
         \textit{Jede Maturitätsarbeit benötigt eine Begleitperson. }\\Diese Lehrperson bewertet die Arbeit und unterstützt die Schüler bei Bedarf.
-        Wir sind bereits früh auf Herrn Kern (Informatiklehrer der KZO) zugegangen.
+        Wir sind bereits früh auf Herrn Arlbert Kern (Informatiklehrer der KZO) zugegangen.
         Er hat uns an Herrn Martin Hunziker (Leiter der IT der KZO) verwiesen. Dieser nahm uns sehr gerne mit der Anmerkung auf, dass die Umsetzung unserer Idee sehr schwierig sein werde.
         %Letzteres, also Unterstützung, war bei uns sehr schwierig, denn keine Lehrperson kennt sich mit Unity und C\# genug gut aus.
     \item \textbf{Plagiat} \\
@@ -21,20 +21,21 @@ und die, die es gibt, sind relativ vage formuliert. Die drei Hauptanforderungen 
 
 \section{Anforderungen an das Spiel}
 \label{chap:foo}
-Gewisse Features sind für das Funktionieren des Spiels wichtiger als andere.
-Zum Beispiel sind für uns Einstellungen, Truppen und Multiplayer notwendiger als die Monetarisierung.
+Gewisse \glspl{Feature} sind für das Funktionieren des Spiels wichtiger als andere.
+Zum Beispiel sind für uns Einstellungen, Truppen und \gls{Multiplayer} notwendiger als die Monetarisierung.
 Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
 \begin{enumerate}
     \item \textbf{Notwendig:}
         Ohne diese Features läuft das Spiel nicht oder ist sehr mangelhaft,
-        voller Fehler und unspielbar. Ohne diese Funktionen ist Idee des Spieles nicht erkennbar.
+        voller Fehler und unspielbar. Ohne diese Funktionen ist die Idee des Spieles nicht erkennbar.
     \item \textbf{Anvisiert:}
         Diese Features sind unser Ziel. Sie wurden Herrn Hunziker angekündigt und sind alle in unserem Plan festgehalten.
         Diese Funktionen sollen dazu führen, dass das Spiel
         gut spielbar ist und es Spass macht. Sie sind auch dafür essenziell, das Spiel nicht zu monoton zu gestalten und sollten
         alle bis zum Abgabetermin der schriftlichen Arbeit vollendet sein.
-    \item \textbf{Möglichkeiten:}
-        Dies sind Möglichkeiten, den Spielspass auf ein neues Niveau zu heben. Keine dieser Anforderungen ist für das Spielen nötig,
+    \item \textbf{Möglich:}
+        Dies sind Möglichkeiten, den Spielspass auf ein neues Niveau zu heben. Allerdings benötigt ist der Zeitaufwand für die Programmierung dieser Funktionen sehr gross.
+        Keine dieser Anforderungen ist für das Spielen nötig,
         kann das Spielerlebnis jedoch spannender und ausgereifter machen. Diese
         Ideen sind teilweise nur Konzepte, die noch bis zur mündlichen Präsentation zu erreichen sind.
         Vereinzelt können diese, wie die anvisierten Anforderungen, noch bis zur schriftlichen Abgabe erreicht werden.
@@ -46,18 +47,18 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
 \begin{itemize}
     \item \textbf{Systemanforderungen} \\
         Unser Spiel soll auf den meisten modernen Computern funktionieren. Es soll auf macOS und
-        Windows fliessend gespielt werden können (mindestens 60FPS).
+        Windows fliessend gespielt werden können (mindestens 60\gls{FPS}).
     \item \textbf{Benutzeroberfläche} \\
         Die Startseite soll Folgendes enthalten: einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen
         ''Credits''-Knopf und einen ''Verlassen''-Knopf. Die Benutzeroberfläche soll intuitiv bedienbar sein und
         schön aussehen. Sie soll mit der Maus bedienbar sein. Andere Eingabemöglichkeiten
         werden nicht unterstützt.
-    \item \textbf{Lokaler Multiplayer} \\
+    \item \textbf{\gls{Lokal}er Multiplayer} \\
         Das Spiel soll im lokalen Netz gespielt werden können, so zum Beispiel mit Freunden oder Familie.
         Es sollte mithilfe der IP-Adresse innerhalb des gleichen Netzes zusammengespielt werden können.
     \item \textbf{Einstellungen} \\
         Die Auflösung, Vollbild und Lautstärke müssen im UI eingestellt werden können.
-    \item \textbf{Kamera} \\
+    \item \textbf{\gls{Kamera}} \\
         Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar.
     \item \textbf{Truppen} \\
         Es braucht Truppen, die für einen Spieler kämpfen können. Diese sind für den Spielverlauf notwendig.
@@ -65,17 +66,17 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
     \item \textbf{Gewinnmöglichkeit} \\
         Es soll eine Möglichkeit geben, das Spiel zu gewinnen oder zu verlieren und es somit zu beenden. Diese Anforderung kann sehr simpel
         mit einer Linie verwirklicht werden, welche beim Überschreiten einer Truppe das Spiel beendet.
-    \item \textbf{Lanes} \\
+    \item \textbf{\glspl{Lane}} \\
         Der Spieler soll auswählen dürfen, an welcher Stelle er seine Truppe heraufbeschwören will. Dabei soll er die Auswahl zwischen vier Linien haben. Diese Linien sind in die Tiefe verschobenen Abgrenzungen.
     \item \textbf{Synchronisation} \\
         Unser Spiel soll in Echtzeit spielbar sein, deswegen müssen die beiden Spieler synchronisiert dasselbe sehen. Eine Desynchronisation wäre verheerend. 
-    \item \textbf{Crossplay}
+    \item \textbf{\gls{Crossplay}}
         Wir wollen die Möglichkeit erreichen, einen Windows Rechner und einem macOS Rechner zu verbinden und zusammenzuspielen.
 \end{itemize}
 
 \subsection{Anvisiert}
 \begin{itemize}
-    \item \textbf{Helden} \\
+    \item \textbf{\gls{Helden}} \\
         Beide Spieler haben eine Art Truppe, welche ihre Siegeslinie beschützt. Sie haben einen Racheeffekt, welcher die
         Lane ausradiert, damit das Spiel nicht sofort vorbei ist.
     \item \textbf{Design} \\
@@ -135,14 +136,14 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
     \end{itemize}
     \item \textbf{Design} \\
         Wenn ausreichend Zeit vorhanden ist, kann das Design immer weiter verbessert werden. Hier geht es um den Feinschliff, z.B. mehr Hintergründe, Details und mehr selbsterstellte Designs.
-    \item \textbf{Tutorial} \\
+    \item \textbf{\gls{Tutorial}} \\
         Eine Anleitung für Anfänger wäre sehr schön. Sie soll neuen Spielern das Anfangen erleichtern. Sie sollte aber auch überspringbar sein,
         damit erfahrene Spieler das Tutorial nicht erneut spielen müssen. Es soll weder allzu lang noch zu schwierig sein. Idealerweise soll es ''anhand von Gameplay'' alle Mechaniken des Spiels
         erklären.
     \item \textbf{Mehrsprachig} \\
-        Das Spiel soll in Englisch, Deutsch und Französisch spielbar sein.
-    \item \textbf{Ingame-Chatfenster}\\
-        Ein Textfeld, in dem man mit Gegner chatten kann, würde einen zusätzlichen Fun-Effect bieten.
+        Das Spiel soll in Englisch, Deutsch und Französisch verfügbar sein.
+    \item \textbf{\gls{Ingame}-Chatfenster}\\
+        Ein Textfeld, in dem man mit Gegner chatten kann, würde einen zusätzlichen Spassfaktor bieten.
     \item \textbf{Monetarisierung} \\
     Es sind uns drei Möglichkeiten eingefallen, wie wir mit dem Spiel Geld verdienen könnten. Es folgen jeweils die Vor- und Nachteile:
     \begin{enumerate}
@@ -150,9 +151,9 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
         \begin{itemize}
             \item[+] Vielseitige und nachhaltige Monetarisierung. Neue Features bedeuten auch neue Einnahmemöglichkeiten. Die käuflichen Inhalte sollten
                         auch erspielbar sein. Somit kann bezahlen zwar zu Vorteilen führen, diese können jedoch mit einer hohen Spielzeit trotzdem erreichbar sein.
-            \item[-] Pay-to-Win
+            \item[-] \gls{Pay-to-Win}
         \end{itemize}
-        \item \textbf{Skins}
+        \item \textbf{\gls{Skins}}
         \begin{itemize}
             \item[+] Weit verbreitet und sehr beliebt bei Spielern geben sie keinem Spieler Vorteile.
             \item[-] Wenig Nutzen und sehr aufwendig. Neue Designs zu erstellen, wäre bei uns nicht sinnvoll.
@@ -160,12 +161,12 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
         \end{itemize}
         \item \textbf{Kostenpflichtiges Spiel}
         \begin{itemize}
-            \item[+] Einmalige Bezahlung bei Spielkauf, was für viele Nutzer lukrativer ist. Die gilt jedoch vor allem bei Singleplayer-Spielen.
+            \item[+] Einmalige Bezahlung bei Spielkauf, was für viele Nutzer lukrativer ist. Die gilt jedoch vor allem bei \gls{Singleplayer}-Spielen.
             \item[-] Wir nehmen an, dass wenige Nutzer bereit wären, Geld für unser Spiel zu bezahlen.
                     Dafür wird es vorerst nicht genug ausgereift sein.
                     Auch ist diese Methodik nicht nachhaltig und führt nur zu einer einmaligen Geldspritze.
                     Viele grössere Spiele führen deshalb später
-                    DLCs ein, um das Spiel zu erweitern.
+                    \glspl{DLC} ein, um das Spiel zu erweitern.
                     Jedoch ist dies bei einem Multiplayer Spiel Pay-to-Win.
                     Wir müssen mit hoher Wahrscheinlichkeit vorerst Geld investieren, um unser Spiel anbieten zu können.
         \end{itemize}
@@ -174,18 +175,18 @@ Deshalb ist der folgende Abschnitt in vier Stufen unterteilt:
 
 \subsection{Bereits früh verworfen}
 \begin{itemize}
-    \item \textbf{Online Multiplayer} \\
-        Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist die direkte Verbindung zwischen zwei Computern, die sich in unterschiedlichen Netzen befinden, dank der heutigen Firewalls von Routern und Computern für uns nahezu unmöglich. 
+    \item \textbf{\gls{Online} Multiplayer} \\
+        Besser als ein Multiplayer, der limitiert auf dasselbe Netz ist, ist ein Multiplayer, der weltweit verfügbar ist. Jedoch ist die direkte Verbindung zwischen zwei Computern, die sich in unterschiedlichen Netzen befinden, dank der heutigen \glspl{Firewall} von Routern und Computern für uns nahezu unmöglich. 
         Es würden sich viele weitere Probleme ergeben, wie zum Beispiel Port-Forwarding. Dies ist einer der Gründe, weshalb ein Server sehr praktisch wäre. Mit diesem wäre dieses
         Problem gelöst. Server sind aber teuer und aufwendig zu programmieren und zu warten. 
-    \item \textbf{Shop} \\
+    \item \textbf{\gls{Shop}} \\
         Nicht alle Karten sind von Beginn an freigegeben, sondern müssen freigespielt werden.
         So kann zum Beispiel eine Ingame Währung erspielt werden und damit im Shop Karten oder sonstige Dinge gekauft werden.
         Der Shop kann mit Zahlungsmethoden ausgestattet werden und so zur Monetarisierung beitragen.
     \item \textbf{Kampagne} \\
         Im Singleplayer spielt man gegen bestimmte vorprogrammierte Gegner. Sie sollen immer stärker werden und bestimmte Herausforderungen mit sich bringen.
         Bei einem Sieg werden Belohnungen verteilt.
-    \item \textbf{Anti-Cheat} \\
+    \item \textbf{\gls{Anti-Cheat}} \\
         In allen grösseren Spielen ist eine sehr komplexe Software vorhandeln, um das Schummeln zu verhindern.
         Teilweise geschieht dies auf Systemebene oder sogar auf Kernel-Level.
     \item \textbf{Errungenschaften} \\
