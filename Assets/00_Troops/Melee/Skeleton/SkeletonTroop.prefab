@@ -157,7 +157,7 @@ MonoBehaviour:
   movementSpeed: 1
   currentMovementSpeed: 0
   health: 0
-  maximumHealth: 3
+  maximumHealth: 2
   deathPrefab: {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
   troopName: Tiny Skeleton
   bonusInfo: 
@@ -208,8 +208,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   attackRange: 1.5
-  attackDamage: 0.25
-  attacksPerSecond: 1
+  attackDamage: 0.15
+  attacksPerSecond: 3
   currentAttacksPerSecond: 0
   dieAfterAttack: 0
 --- !u!95 &1830484138906261887

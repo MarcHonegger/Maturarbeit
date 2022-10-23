@@ -58,6 +58,8 @@ public class Ranged : NetworkBehaviour
         shot.GetComponent<Projectile>().endPoint = shotPoint.position.x + (attackRange + 0.5f) * _direction;
         shot.GetComponent<Projectile>().shooter = GetComponent<TroopHandler>();
         // shot.transform.RotateAround(transform.position, Vector3.right, 45);
+        
+        Attacked?.Invoke();
     }
     
     private void OnNewEnemyInRange(TroopHandler enemy)
@@ -74,4 +76,6 @@ public class Ranged : NetworkBehaviour
         _animator.SetTrigger(StopAttackingAnimation);
         _troopHandler.StartMoving();
     }
+    
+    public event Action Attacked;
 }

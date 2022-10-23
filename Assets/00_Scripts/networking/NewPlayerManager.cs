@@ -34,10 +34,6 @@ namespace networking
             
         }
 
-        
-        
-        
-
 
         [ClientRpc]
         public void RpcGameOver(int whowon)

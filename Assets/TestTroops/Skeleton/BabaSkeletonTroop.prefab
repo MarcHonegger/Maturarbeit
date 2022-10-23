@@ -208,7 +208,8 @@ MonoBehaviour:
   syncInterval: 0.1
   attackRange: 2.5
   attackDamage: 4
-  attackSpeed: 1
+  attacksPerSecond: 0
+  currentAttacksPerSecond: 0
   dieAfterAttack: 0
 --- !u!95 &5554729864751745727
 Animator:

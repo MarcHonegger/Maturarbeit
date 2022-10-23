@@ -47,13 +47,14 @@ public class Melee : NetworkBehaviour
 
     private void Attack()
     {
-        AddAttackSpeed(0.1f, true);
         _troopHandler.StopMoving();
         DealDamage();
         _animator.SetTrigger(AttackAnimation);
+        
+        Attacked?.Invoke();
     }
 
-    public void AddAttackSpeed(float attackSpeedBuff, bool absolute)
+    public void BuffAttackSpeed(float attackSpeedBuff, bool absolute)
     {
         if(absolute)
             currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond + attackSpeedBuff) * 100) / 100;
@@ -66,8 +67,33 @@ public class Melee : NetworkBehaviour
         
         SetAttackSpeed();
     }
+    
+    public void NerfAttackSpeed(float attackSpeedNerf, bool absolute)
+    {
+        if(absolute)
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond - attackSpeedNerf) * 100) / 100;
+        else
+        {
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond / (1 + attackSpeedNerf) * 100)) / 100;
+        }
 
+        currentAttacksPerSecond = Mathf.Max(attacksPerSecond * 0.75f, currentAttacksPerSecond);
+        
+        SetAttackSpeed();
+    }
+    
     public void SetAttackSpeed()
+    {
+        _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
+        
+        if(IsInvoking(nameof(Attack)))
+        {
+            CancelInvoke(nameof(Attack));
+            InvokeRepeating(nameof(Attack), 1 / currentAttacksPerSecond, 1 / currentAttacksPerSecond);
+        }
+    }
+
+    public void SetAttackSpeed(float value)
     {
         _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
         
@@ -104,4 +130,6 @@ public class Melee : NetworkBehaviour
         _animator.SetTrigger(StopAttackingAnimation);
         _troopHandler.StartMoving();
     }
+    
+    public event Action Attacked;
 }

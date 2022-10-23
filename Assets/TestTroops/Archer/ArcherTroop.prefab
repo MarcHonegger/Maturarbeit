@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: -7982779565675055576}
   m_Layer: 6
   m_Name: ArcherTroop
-  m_TagString: RightPlayer
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
