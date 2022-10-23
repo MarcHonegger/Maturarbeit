@@ -9,7 +9,8 @@ public class Melee : NetworkBehaviour
 {
     public float attackRange;
     public float attackDamage;
-    public float attackSpeed;
+    public float attacksPerSecond;
+    public float currentAttacksPerSecond;
     public bool dieAfterAttack;
 
     private RangePoint _rangePoint;
@@ -18,6 +19,7 @@ public class Melee : NetworkBehaviour
     private Animator _animator;
     private static readonly int AttackAnimation = Animator.StringToHash("Attack");
     private static readonly int StopAttackingAnimation = Animator.StringToHash("StopAttacking");
+    private static readonly int AttackSpeed = Animator.StringToHash("AttackSpeed");
 
     // Start is called before the first frame update
     
@@ -30,6 +32,9 @@ public class Melee : NetworkBehaviour
 
         _rangePoint.NewEnemyInRange += OnNewEnemyInRange;
         _rangePoint.NoEnemyInRange += OnNoEnemyInRange;
+
+        currentAttacksPerSecond = attacksPerSecond;
+        SetAttackSpeed();
     }
 
     private void OnDestroy()
@@ -42,9 +47,35 @@ public class Melee : NetworkBehaviour
 
     private void Attack()
     {
+        AddAttackSpeed(0.1f, true);
         _troopHandler.StopMoving();
         DealDamage();
         _animator.SetTrigger(AttackAnimation);
+    }
+
+    public void AddAttackSpeed(float attackSpeedBuff, bool absolute)
+    {
+        if(absolute)
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond + attackSpeedBuff) * 100) / 100;
+        else
+        {
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond * (1 + attackSpeedBuff) * 100)) / 100;
+        }
+
+        currentAttacksPerSecond = Mathf.Min(attacksPerSecond * 2.5f, currentAttacksPerSecond);
+        
+        SetAttackSpeed();
+    }
+
+    public void SetAttackSpeed()
+    {
+        _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
+        
+        if(IsInvoking(nameof(Attack)))
+        {
+            CancelInvoke(nameof(Attack));
+            InvokeRepeating(nameof(Attack), 1 / currentAttacksPerSecond, 1 / currentAttacksPerSecond);
+        }
     }
     
     [Server]
@@ -63,7 +94,7 @@ public class Melee : NetworkBehaviour
         }
         _troopHandler.StopMoving();
         _animator.SetTrigger(AttackAnimation);
-        InvokeRepeating(nameof(Attack), attackSpeed, attackSpeed);
+        InvokeRepeating(nameof(Attack), 1 / attacksPerSecond, attacksPerSecond);
     }
 
     [ClientRpc]
