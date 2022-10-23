@@ -1,3 +1,7 @@
+
+
+\renewcommand{\figurename}{Abb.}
+
 \chapter{Resultat}
 Kurz gesagt: Wir konnten fast alle unsere Anforderung erfüllen.
 
@@ -24,56 +28,93 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         \item \textbf{Startseite} \\
             Unsere Startseite hat einen ''Spielen''-Knopf, einen ''Einstellungen''-Knopf, einen ''Credits''-Knopf und einen ''Verlassen''-Knopf. Unsere Tester bewerteten die Startseite
             als intuitiv verständlich. Bedienbar mit der Maus, hatten die Tester keine Probleme sich zurechtzufinden.
-            \begin{center}
+            \begin{figure}[H]
+                \centering
                 \includegraphics[height=7cm]{resources/laneclash.png}\\
-            \end{center}
+                \caption{Startseite}
+            \end{figure}
 
         \item \textbf{Credits}\\
             Es gibt die Möglichkeit, die Credits vorzeitig zu verlassen. Dies geschieht durch das Drücken des Hausbuttons. Die Tester fanden dies auch sehr intuitiv.
-            \begin{center}
-                \includegraphics*[width = 7cm]{resources/credits.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width = 7cm]{resources/credits.png}\\
+                \caption{Credits}
+            \end{figure}
             
         \item \textbf{Settings}\\
             Man kann hier die Auflösung ändern und auswählen, ob das Spiel als Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit, die Musik lauter oder leiser zu stellen
             oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. 
-            \begin{center}
-                \includegraphics*[height=7cm]{resources/setting.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[height=7cm]{resources/setting.png}\\
+                \caption{Settings}
+            \end{figure}
             Nach Bestätigung der Änderung der Grafikoptionen, werden die Änderungen angewendet und man hat zehn Sekunden Zeit erneut zu bestätigen. Sonst werden die Änderungen zurückgesetzt.
             Dies wurde implementiert, um eventuellen Problemen vorzubeugen. 
-            \begin{center}
-                \includegraphics*[height=3cm]{resources/resolution.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[height=3cm]{resources/resolution.png}\\
+                \caption{Resolution}
+            \end{figure}
             
         \item \textbf{Server Management}\\
             Nach Bedienung des ''Start''-Knopfs gibt es die Möglichkeit, einen Server zu hosten oder einer bereits existierenden Lobby als Client beizutreten. Ausserdem kann man
             automatisch nach bereits existierenden Servern suchen.
-            \begin{center}
-                \includegraphics*[height = 3cm]{resources/server.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[height = 3cm]{resources/server.png}\\
+                \caption{Server Management}
+            \end{figure}
             Den Server kann man mit einem Linksklick auswählen.
-            \begin{center}
-                \includegraphics*[width=6cm]{resources/discovered.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=6cm]{resources/discovered.png}\\
+                \caption{Server Discovery}
+            \end{figure}
             
         \item \textbf{Lobby Management}\\
             Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
             Der Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit, den Spieler (2) aus der Lobby zu entfernen. 
-            \begin{center}
-                \includegraphics*[width = 5cm]{resources/lobby.png} \includegraphics*[width=5cm]{resources/lobbyc.png}\\ 
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \begin{minipage}[H]{6.5cm}
+                \centering
+                \includegraphics[height=3.5cm]{resources/lobby.png}\\
+                \caption{Lobby mit Host-View}
+                \end{minipage}
+                \begin{minipage}[H]{6.5cm}
+                \centering
+                \includegraphics[height=3.5cm]{resources/lobbyc.png}\\
+                \caption{Lobby mit Client-View}
+                \end{minipage}
+            \end{figure}
             
         \item \textbf{InGame-UI}\\
             Der Host hat die Möglichkeit, das Spiel zu beenden. Er kann auch direkt aufhören zu hosten. 
             Auch der Client hat durchgehend die Möglichkeit, den Server zu verlassen.
-            \begin{center}
-                \includegraphics*[height=2cm]{resources/returnlobby.png} \includegraphics*[height=2cm]{resources/stopclient.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \begin{minipage}[H]{7cm}
+                \centering
+                \includegraphics[height=2cm]{resources/returnlobby.png}\\
+                \caption{Leave-Options mit Host-View}
+                \end{minipage}
+                \begin{minipage}[H]{7cm}
+                \centering
+                \includegraphics[height=2cm]{resources/stopclient.png}\\
+                \caption{Leave-Options mit Client-View}
+                \end{minipage}
+            \end{figure}
+            %\begin{center}
+            %    \includegraphics[height=2cm]{resources/returnlobby.png} \includegraphics[height=2cm]{resources/stopclient.png}\\
+            %\end{center}
             Im Pausenmenu kann man ausserdem leicht die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
-            \begin{center}
-                \includegraphics*[height=2cm]{resources/pause.png}\\
-            \end{center}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[height=4cm]{resources/pause.png}\\
+                \caption{Pausemenu}
+            \end{figure}
             
             
 
@@ -143,9 +184,25 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \item \textbf{Design} \\
         Wir haben uns für ein 2.5d Design entschieden. Der Vorteil ist, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
         die Kamera schaut in einem 45 Grad Winkel auf das Geschehen. Dadurch ergibt sich die Illusion einer Perspektive, in der man von der Seite auf das Geschehen schaut. 
-        \begin{center}
-            \includegraphics*[height=5cm]{resources/25d.png} \includegraphics*[height=5cm]{resources/25dtwo.png}\\
-        \end{center}
+        %\begin{center}
+        %    \includegraphics[height=5cm]{resources/25d.png} \includegraphics[height=5cm]{resources/25dtwo.png}\\
+        %\end{center}
+
+
+
+        \begin{figure}[H]
+            \centering
+            \begin{minipage}[H]{7cm}
+            \centering
+            \includegraphics[height=4cm]{resources/25d.png}\\
+            \caption{Grafiken von der Seite}
+            \end{minipage}\hfill
+            \begin{minipage}[H]{7cm}
+            \centering
+            \includegraphics[height=4cm]{resources/25dtwo.png}\\
+            \caption{Grafiken von vorne}
+            \end{minipage}
+        \end{figure}
         
     \item \textbf{Effekte}
     \begin{itemize}
