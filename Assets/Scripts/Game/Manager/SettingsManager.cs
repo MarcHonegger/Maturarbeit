@@ -47,12 +47,9 @@ namespace Manager
 
         private void Start()
         {
-            if(PlayerPrefs.HasKey("settings"))
-                LoadValues();
-            else
-            {
+            if(!PlayerPrefs.HasKey("settings"))
                 GenerateSettingsPlayerPrefs();
-            }
+            LoadValues();
         }
 
         public void LoadStartPage()
@@ -175,7 +172,7 @@ namespace Manager
             PlayerPrefs.SetInt("settings", 0);
             PlayerPrefs.SetFloat("volume", _currentVolume);
             PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
-            PlayerPrefs.SetInt("currentResolution", 0);
+            PlayerPrefs.SetInt("currentResolution", 3);
             PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
         }
 
