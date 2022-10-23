@@ -1,11 +1,11 @@
 \chapter{Architektur}
 Die folgenden UML-Diagramme sind nicht vollständig.
-Wir haben versuecht einen kleinen, aber dennoch guten Einblick in unsree Architektur zu liefern.
-Dieser Abschnitt ist sicher für die Technik Interessierten, jedoch muss man kein Informatiker sein, um dieses Kapitel zu verstehen.
+Wir versuchen einen kleinen aber dennoch guten Einblick in unsere Architektur zu liefern.
+Dieser Abschnitt sicher spannend für technikinteressierte Leser. Man muss jedoch kein Informatiker sein, um dieses Kapitel zu verstehen.
 
-\section{Klassenarchitektur}
+\section{Klassendiagramm}
 Folgend ist der Klassenaufbau unseres Spieles zu sehen.
-Das Rote (S) steht für Singleton.
+Das rote (S) steht für Singleton.
 Dies sind Klassen, die in dem ganzen Spiel nur genau einmal existieren können.
 Die erste Graphik zeigt den momentanen Stand, wobei mit der Entwicklung des Deckbauers die neue Klasse "DeckManager" hinzukommen wird. \\
 \includegraphics[width=14cm]{resources/Singletons.png} \\
@@ -13,13 +13,15 @@ Die erste Graphik zeigt den momentanen Stand, wobei mit der Entwicklung des Deck
 \includegraphics[width=14.5cm]{resources/Singletons 2.png} \\
 \textit{zukünftiger Aufbau}
 
-\section{Nahkampftruppe}
-Folgend ist die Abfolge unseres Codes zusehen, falls eine Truppe in die Reichweite einer Nahkampftruppe kommt.
-Das die Suizidtruppe auf den gleichen Prinzipen basiert, ist sie hier mit der zweiten Abbildung abgebildet. \\
+\section{Sequenzdiagramme}
+\subsection{Nahkampftruppe}
+Folgend ist die Abfolge unseres Codes zusehen, falls eine Truppe in die Reichweite einer Nahkampftruppe kommt.\\
 \includegraphics[width=15cm]{resources/MeleeAttacks.png} \\
+\subsection{Suizidtruppe}
+Da die Suizidtruppe auf den gleichen Prinzipen basiert, ist sie hier mit der zweiten Abbildung abgebildet. \\
 \includegraphics[width=15cm]{resources/SuicideAttacks.png} \\
 
-\section{Fernkampftruppe}
+\subsection{Fernkampftruppe}
 Folgend ist abgebildet wie eine Fernkampftruppe auf einen neuen Gegner reagiert.
 Falls der Gegner stirbt und das Projektil nichts trifft, ist auf der zweiten Abbildung abgebildet.
 \includegraphics[width=15cm]{resources/RangedAttacks.png} \\
