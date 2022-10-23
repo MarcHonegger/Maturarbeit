@@ -155,7 +155,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   energyCost: 8
-  movementSpeed: 0
+  movementSpeed: 0.7
   currentMovementSpeed: 0
   health: 0
   maximumHealth: 10
