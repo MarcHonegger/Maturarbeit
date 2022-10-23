@@ -965,7 +965,7 @@ MonoBehaviour:
   snowSlider: {fileID: 53280261}
   snowSliderHandlerImage: {fileID: 1501735413}
   darkHandler: {fileID: 1663964239, guid: 0ab9f08177bf849db936c6925c4aba37, type: 3}
-  brightHandler: {fileID: 1151953696, guid: d0f80e051a8984c92b084ea550a25db4, type: 3}
+  brightHandler: {fileID: 141287066, guid: b021291b514684be38fbd721bf9ece1f, type: 3}
   volumeSlider: {fileID: 32210757}
 --- !u!1 &198519118
 GameObject:
