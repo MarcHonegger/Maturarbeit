@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
+using Mirror.Discovery;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     public float tickRate;
     
     public InputAction pauseAction;
+
+    private NetworkDiscoveryHUD _discoveryHUD;
+    private NetworkRoomManager _networkRoomManager;
     
     private void Awake()
     {
@@ -32,6 +36,11 @@ public class GameManager : MonoBehaviour
         // troopManager = GetComponentInChildren<TroopManager>();
         //NetworkIdentity netID2 = NetworkClient.connection.identity;
         //troopManager = netID2.GetComponent<TroopManager>();
+        _discoveryHUD = FindObjectOfType<NetworkDiscoveryHUD>();
+        _networkRoomManager = FindObjectOfType<NetworkRoomManager>();
+            
+        _discoveryHUD.enabled = false;
+        _networkRoomManager.showRoomGUI = false;
         
         pauseAction.performed += OnPause;
     }
@@ -50,5 +59,7 @@ public class GameManager : MonoBehaviour
     private void OnPause(InputAction.CallbackContext context)
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        _discoveryHUD.enabled = pauseMenu.activeSelf;
+        FindObjectOfType<NetworkRoomManager>().showRoomGUI = pauseMenu.activeSelf;
     }
 }
