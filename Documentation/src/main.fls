@@ -1214,7 +1214,6 @@ INPUT 01_ziel/02_anforderungen.tex
 INPUT ./01_ziel/02_anforderungen.tex
 INPUT ./01_ziel/02_anforderungen.tex
 INPUT 01_ziel/02_anforderungen.tex
-INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./01_ziel/04_risiko.tex
 INPUT ./01_ziel/04_risiko.tex
@@ -1343,6 +1342,7 @@ INPUT 02_produkt/03_zukunft.tex
 INPUT ./02_produkt/03_zukunft.tex
 INPUT ./02_produkt/03_zukunft.tex
 INPUT 02_produkt/03_zukunft.tex
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./03_organisation/01_technologien.tex
 INPUT ./03_organisation/01_technologien.tex
 INPUT ./03_organisation/01_technologien.tex
