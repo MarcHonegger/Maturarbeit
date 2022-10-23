@@ -3,7 +3,7 @@ guid: c17c3ef1d1e1ef64c802f95eba7ba5e9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1177,7 +1178,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       ui-large-buttons-horizontal - Kopie_5: -1194552044
-      ui-large-buttons-horizontal - Kopie_48: 1422735732
       ui-large-buttons-horizontal - Kopie_9: -1753022068
       ui-large-buttons-horizontal - Kopie_24: -715809318
       ui-large-buttons-horizontal - Kopie_49: 265479418
@@ -1223,9 +1223,10 @@ TextureImporter:
       ui-large-buttons-horizontal - Kopie_32: 1321345314
       ui-large-buttons-horizontal - Kopie_19: 338363534
       ui-large-buttons-horizontal - Kopie_40: 482262297
+      ui-large-buttons-horizontal - Kopie_47: 494270621
       ui-large-buttons-horizontal - Kopie_18: 167086828
       ui-large-buttons-horizontal - Kopie_33: -1271991261
-      ui-large-buttons-horizontal - Kopie_47: 494270621
+      ui-large-buttons-horizontal - Kopie_48: 1422735732
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

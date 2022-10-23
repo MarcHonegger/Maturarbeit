@@ -3,7 +3,7 @@ guid: e076df2f4169d4c709358b03c653ad20
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -3513,10 +3514,10 @@ TextureImporter:
       ui-small-buttons_54: 1904971423
       ui-small-buttons_51: 56273793
       ui-small-buttons_6: 1712597763
-      ui-small-buttons_36: 451282262
       ui-small-buttons_49: 595340845
-      ui-small-buttons_20: 1212632449
       ui-small-buttons_93: 2029492890
+      ui-small-buttons_36: 451282262
+      ui-small-buttons_20: 1212632449
       ui-small-buttons_157: -862654239
       ui-small-buttons_134: -1698593302
       ui-small-buttons_78: 264445667
