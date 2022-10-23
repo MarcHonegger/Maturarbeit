@@ -49,21 +49,4 @@ public class VolumeSliderScript : MonoBehaviour
         if(PlayerPrefs.HasKey("muted"))
             ChangeColor(PlayerPrefs.GetInt("muted") != 0);
     }
-
-    /*
-    public void OnDestroy()
-    {
-        PlayerPrefs.SetFloat("volume", AudioListener.volume);
-        Debug.Log($"you final volume: {AudioListener.volume}");
-        //causes Error
-        //_volumeSlider.onValueChanged.RemoveListener(OnVolumeChange);
-    }
-
-    private static void OnVolumeChange(float volume)
-    {
-        PlayerPrefs.SetFloat("volume", value);
-        AudioListener.volume = volume;
-        Debug.Log($"{AudioListener.volume}");
-    }
-    */
 }

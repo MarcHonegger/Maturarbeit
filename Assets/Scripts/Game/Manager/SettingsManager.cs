@@ -101,6 +101,13 @@ namespace Manager
                 muteToggle.isOn = false;
                 volumeSlider.ChangeColor(false);
             }
+            if (volume <= 0.01f)
+            {
+                GameMusicPlayer.instance.Mute(true);
+                _isMuted = true;
+                muteToggle.isOn = true;
+                volumeSlider.ChangeColor(true);
+            }
 
             _currentVolume = volume;
             GameMusicPlayer.instance.SetVolume(_currentVolume);
