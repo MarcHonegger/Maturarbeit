@@ -230,18 +230,18 @@ public class HandManager : MonoBehaviour
         {
             if (PlayerManager.instance.IsValidSpawn(i))
             {
-                foreach (var image in _laneLineImages)
+                for (int j = (4 * i); j < 4 + (4 * i); j++)
                 {
-                    image.enabled = true;
+                    _laneLineImages[j].enabled = true;
                 }
                 _laneImages[i].enabled = true;
                 _laneNumbers[i].enabled = true;
             }
             else
             {
-                foreach (var image in _laneLineImages)
+                for (int j = (4 * i)- 1; j < 4 + ((4 * i)- 1); j++)
                 {
-                    image.enabled = false;
+                    _laneLineImages[j].enabled = false;
                 }
                 _laneImages[i].enabled = false;
                 _laneNumbers[i].enabled = false;
@@ -257,6 +257,7 @@ public class HandManager : MonoBehaviour
             {
                 if (!PlayerManager.instance.IsValidSpawn(0))
                 {
+                    card.GetComponent<CardHandler>().isDragged = false;
                     ResetCardPositions();
                     return;
                 }
@@ -266,6 +267,7 @@ public class HandManager : MonoBehaviour
             {
                 if (!PlayerManager.instance.IsValidSpawn(1))
                 {
+                    card.GetComponent<CardHandler>().isDragged = false;
                     ResetCardPositions();
                     return;
                 }
@@ -275,6 +277,7 @@ public class HandManager : MonoBehaviour
             {
                 if (!PlayerManager.instance.IsValidSpawn(2))
                 {
+                    card.GetComponent<CardHandler>().isDragged = false;
                     ResetCardPositions();
                     return;
                 }
@@ -284,6 +287,7 @@ public class HandManager : MonoBehaviour
             {
                 if (!PlayerManager.instance.IsValidSpawn(3))
                 {
+                    card.GetComponent<CardHandler>().isDragged = false;
                     ResetCardPositions();
                     return;
                 }
@@ -303,8 +307,8 @@ public class HandManager : MonoBehaviour
             ResetCardPositions();
         }
     }
-    
-    public void ResetCardPositions()
+
+    private void ResetCardPositions()
     {
         Vector3 position = new Vector3(cardDistance * -_cardsInHand.Count / 2f, 0, 0);
         foreach (var card in _cardsInHand)

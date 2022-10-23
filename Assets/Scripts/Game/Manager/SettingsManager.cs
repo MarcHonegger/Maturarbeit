@@ -173,7 +173,7 @@ namespace Manager
             PlayerPrefs.SetFloat("volume", _currentVolume);
             _isMuted = false;
             PlayerPrefs.SetInt("muted", 0);
-            PlayerPrefs.SetInt("currentResolution", 3);
+            PlayerPrefs.SetInt("currentResolution", 4);
             PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
         }
 
