@@ -3,6 +3,7 @@ schauen wie evtl den glossar hinweisen
 in unserem plan festgehalten neu formulieren
 neu gendern, evtl Thea fragen
 abbildungsbeschreibung
-UML: die wo uf sich zrugg gönd: prüefe ob die nöd au uf de gliich status/klass zrugggönd und denn au so en balke brauchen
 schreiben wieso ich nicht von mai bis august gearbeitet habe
 meine ziele in erstens zweitens drittes formulieren
+
+ingame UI VERALTET
