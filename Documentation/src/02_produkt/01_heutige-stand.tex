@@ -74,7 +74,7 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
             \end{figure}
             
         \item \textbf{Lobby Management}\\
-            Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler bereit, also ''ready'', sind. 
+            Player (1) ist dabei immer der Host, und Player (2) immer der Client. Das eigentliche Spiel beginnt erst, sobald beide Spieler*innen bereit, also ''ready'', sind. 
             Der Status ''ready'' wird dabei immer aktualisiert dargestellt. Der Host hat ausserdem die Möglichkeit, den Spieler (2) aus der Lobby zu entfernen. 
             \begin{figure}[H]
                 \centering
@@ -165,9 +165,9 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt alle
         Truppen, die sich auf jener Linie des Helden befanden.
     \item \textbf{Lanes} \\
-        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Der Spieler hat die Auswahl, in welcher Reihe er seine Truppen auf den Gegner zuschicken will.
+        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Der*die Spieler*in hat die Auswahl, in welcher Reihe er*sie seine Truppen auf den Gegner zuschicken will.
     \item \textbf{Synchronisation} \\
-        Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler immer dasselbe. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen,
+        Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler*innen immer dasselbe. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen,
         sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
         erneut gesendet. Dies hilft uns dabei, die Synchronisation zu jeder Zeit aufrechtzuerhalten.
     \item \textbf{Crossplay}
@@ -179,7 +179,7 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
 \subsection{Anvisiert}
 \begin{itemize}
     \item \textbf{Helden} \\
-        Beide Spieler haben bei unserer aktuellen Version den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
+        Beide Spieler*innen haben bei unserer aktuellen Version den gleichen Heldentyp. Dies ist ein magischer Turm. Er hat keine Angriffsmöglichkeiten. Allerdings kann er sich passiv heilen und so als eine
         temporäre Grenze zwischen den gegnerischen Truppen und den eigenen Portalen agieren. Die eigenen Truppen werden durch diese Portale hinter den Helden gespawned.
     \item \textbf{Design} \\
         Wir haben uns für ein 2.5d Design entschieden. Der Vorteil ist, dass wir 2d Grafiken benutzen können. Die Sprites werden dabei um 45 Grad gedreht. Auch 
@@ -237,8 +237,8 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         Um sich mit Rechnern ausserhalb des eigenen Netzwerkes verbinden zu können, müssten wir das ganze Multiplayer-System unseres Spieles anpassen, was einen kompletten \gls{Recode} zur Folge hätte. 
         Ausserdem, würde sich die Frage nach der Finanzierung stellen, falls wir einen externen Server kaufen / mieten würden. 
     \item \textbf{Shop} \\
-        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für Cheater und ist somit für uns nicht sinnvoll. Wir müssten dann ausserdem ein Ranking-System
-        hinzufügen, damit wir die Spieler belohnen können.
+        Ein Shop ohne Anti-Cheat und/oder Server ist die perfekte Angriffsfläche für \gls{Cheater} und ist somit für uns nicht sinnvoll. Wir müssten dann ausserdem ein Ranking-System
+        hinzufügen, damit wir die Spieler*innen belohnen können.
     \item \textbf{Kampagne} \\
         Unser Spiel ist vor allem auf den Multiplayer ausgelegt. Eine Kampagne setzt ausserdem voraus, dass man einen offline Gegner (''Bot'') hat. Wir haben uns bereits 
         früh gegen eine Kampagne entschieden, da diese in diesem Stadium leider unsere Kapazität überschreitet.
@@ -265,7 +265,7 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \item \textbf{Effekte}
     \begin{itemize}
         \item \textbf{Wiederbelebung:}
-            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Er würde den Spieler wahrscheinlich ein Vielfaches davon kosten,
+            Die Möglichkeit einer Wiederbelebung würde sich nur für spezielle Truppen anbieten. Er würde den*die Spieler*in wahrscheinlich ein Vielfaches davon kosten,
             als wenn er neue Truppen losschicken würde. 
         \item \textbf{Rüstung:}
             Uns schien dies nicht nötig zu sein. Dies würde sich erst lohnen, sobald wir mehr Truppen, Effekte oder anderes hinzugefügt hätten.
@@ -283,11 +283,11 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
         \end{itemize}
         \item \textbf{Skins}
         \begin{itemize}
-            \item Der Spieler bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
+            \item Der*die Spieler*in bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
         \end{itemize}
     \end{enumerate}
     \item \textbf{Zauber} \\
-        Wir hatten bereits zu einem frühen Zeitpunkt eine funktionierende Testversion. Der Zauber wurde dem Spieler durch Karte verteilt. \\
+        Wir hatten bereits zu einem frühen Zeitpunkt eine funktionierende Testversion. Der Zauber wurde dem*der Spieler*in durch Karte verteilt. \\
         Im Laufe der Zeit haben wir das Damage-System allerdings so umgeändert, dass der Prototyp schon fast nutzlos war. Ein kompletter Recode des Prototypen wäre nötig.
     \begin{itemize}
         \item \textbf{Dornen:}
