@@ -7,31 +7,57 @@ Dieser Abschnitt sicher spannend für technikinteressierte Leser. Man muss jedoc
 Folgend ist der Klassenaufbau unseres Spieles zu sehen.
 Das rote (S) steht für Singleton.
 Dies sind Klassen, die im ganzen Spiel nur genau einmal existieren können.
-Die erste Graphik zeigt den momentanen Stand, wobei mit der Entwicklung des Deckbauers die neue Klasse "DeckManager" hinzukommen wird. \\
-\includegraphics[width=14cm]{resources/Singletons.png} \\
-\textit{momentaner Aufbau} \\
-\includegraphics[width=14.5cm]{resources/Singletons 2.png} \\
-\textit{zukünftiger Aufbau}
+Die erste Graphik zeigt den momentanen Stand, wobei mit der Entwicklung des Deckbauers die neue Klasse "DeckManager" hinzukommen wird. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{resources/Singletons.png} \\
+    \caption{momentaner Aufbau}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{resources/Singletons 2.png} \\
+    \caption{zukünftiger Aufbau}
+\end{figure}
 
 \section{Sequenzdiagramme}
 \subsection{Nahkampftruppe}
-Folgend ist die Abfolge unseres Codes zusehen, falls eine Truppe in Reichweite einer Nahkampftruppe kommt.\\
-\includegraphics[width=15cm]{resources/MeleeAttacks.png} \\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{resources/MeleeAttacks.png}\\
+    \caption{Abfolge, wenn eine Truppe in Reichweite einer Nahkampftruppe kommt}
+\end{figure}
+
 \subsection{Suizidtruppe}
-Da die Suizidtruppe auf den gleichen Prinzipen basiert, ist sie hier mit der zweiten Abbildung abgebildet. \\
-\includegraphics[width=15cm]{resources/SuicideAttacks.png} \\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{resources/SuicideAttacks.png}\\
+    \caption{Suizidtruppe mit ähnlichen Prinzipien}
+\end{figure}
+
+
 
 \subsection{Fernkampftruppe}
-Folgend ist abgebildet wie eine Fernkampftruppe auf einen neuen Gegner reagiert.\\
-\includegraphics[width=15cm]{resources/RangedAttacks.png} \\
-\\
-Die folgende Abbildung zeigt den Ablauf, falls der Gegner stirbt und das Projektil keinen Schaden anrichtet\\
-\includegraphics[width=15cm]{resources/Projectile.png}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{resources/RangedAttacks.png}\\
+    \caption{Reaktion einer Fernkampftruppe auf neue Gegner}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{resources/Projectile.png}\\
+    \caption{Gegner stirbt bevor das Projektion Schaden anrichtet}
+\end{figure}
 
-\section{Gift}
-Folgend ist die Sequenz abgebildet, falls eine giftige Truppe angegriffen wird. \\
-\includegraphics[width=15cm]{resources/Poison.png} \\
+
+\subsection{Gift}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{resources/Poison.png} \\
+    \caption{Reaktion einer Truppe die den Effekt Gift besitzt}
+\end{figure}
 
 
-\section*{github file system / source / version control}
+
+    \section{GitHub file system / source / version control}
 \url{https://www.youtube.com/watch?v=IQT37uwpcg4}
