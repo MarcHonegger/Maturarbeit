@@ -90,20 +90,19 @@ namespace Manager
 
         public void SetVolume(float volume)
         {
-            // remove Mute
-            if (_isMuted)
-            {
-                GameMusicPlayer.instance.Mute(false);
-                _isMuted = false;
-                muteToggle.isOn = false;
-                volumeSlider.ChangeColor(false);
-            }
             if (volume <= 0.01f)
             {
                 GameMusicPlayer.instance.Mute(true);
                 _isMuted = true;
                 muteToggle.isOn = true;
                 volumeSlider.ChangeColor(true);
+            }
+            else if (_isMuted)
+            {
+                GameMusicPlayer.instance.Mute(false);
+                _isMuted = false;
+                muteToggle.isOn = false;
+                volumeSlider.ChangeColor(false);
             }
 
             _currentVolume = volume;
@@ -170,8 +169,10 @@ namespace Manager
         private void GenerateSettingsPlayerPrefs()
         {
             PlayerPrefs.SetInt("settings", 0);
+            _currentVolume = 1;
             PlayerPrefs.SetFloat("volume", _currentVolume);
-            PlayerPrefs.SetInt("muted", _isMuted ? 1 : 0);
+            _isMuted = false;
+            PlayerPrefs.SetInt("muted", 0);
             PlayerPrefs.SetInt("currentResolution", 3);
             PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
         }
@@ -186,7 +187,7 @@ namespace Manager
             SetVolume(_currentVolume);
             SetResolution();
             ResetSettings?.Invoke();
-            
+
             ChangeCheck();
         }
         
