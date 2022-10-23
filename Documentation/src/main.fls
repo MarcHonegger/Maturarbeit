@@ -1308,6 +1308,11 @@ INPUT ./resources/MeleeAttacks.png
 INPUT resources/MeleeAttacks.png
 INPUT ./resources/MeleeAttacks.png
 INPUT ./resources/MeleeAttacks.png
+INPUT ./resources/SuicideAttacks.png
+INPUT ./resources/SuicideAttacks.png
+INPUT resources/SuicideAttacks.png
+INPUT ./resources/SuicideAttacks.png
+INPUT ./resources/SuicideAttacks.png
 INPUT ./resources/RangedAttacks.png
 INPUT ./resources/RangedAttacks.png
 INPUT resources/RangedAttacks.png
