@@ -1,0 +1,4 @@
+Abstract
+Als kind fasziniert vom videospiel, nun selbst angepackt haben elia und marc ein real-time strategie pvp multiplayer spiel entwickelt.
+trotz vielen macken und tücken habe sie ihr ziel erreicht.
+in dieser dokumentation 
