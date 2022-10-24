@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rage : MonoBehaviour
 {
     public float rageBuff;
-    private float _beforeBuff;
+    public float _beforeBuff;
     
     void Start()
     {
@@ -14,7 +14,11 @@ public class Rage : MonoBehaviour
         if (melee)
         {
             _beforeBuff = melee.currentAttacksPerSecond;
-            GetComponentInChildren<RangePoint>().NewEnemyInRange += (_) => melee.SetAttackSpeed(_beforeBuff);
+            GetComponentInChildren<RangePoint>().NewEnemyInRange += (_) =>
+            {
+                melee.SetAttackSpeed(_beforeBuff);
+                _beforeBuff = melee.currentAttacksPerSecond;
+            };
             melee.Attacked += () =>
             {
                 melee.BuffAttackSpeed(rageBuff, false);

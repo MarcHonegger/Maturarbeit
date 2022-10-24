@@ -85,16 +85,16 @@ public class Melee : NetworkBehaviour
     public void SetAttackSpeed()
     {
         _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
-        
-        if(IsInvoking(nameof(Attack)))
-        {
-            CancelInvoke(nameof(Attack));
-            InvokeRepeating(nameof(Attack), 1 / currentAttacksPerSecond, 1 / currentAttacksPerSecond);
-        }
+
+        if (!IsInvoking(nameof(Attack)))
+            return;
+        CancelInvoke(nameof(Attack));
+        InvokeRepeating(nameof(Attack), 1f / currentAttacksPerSecond, 1f / currentAttacksPerSecond);
     }
 
     public void SetAttackSpeed(float value)
     {
+        currentAttacksPerSecond = value;
         _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
         
         if(IsInvoking(nameof(Attack)))

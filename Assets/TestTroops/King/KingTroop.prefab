@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: -1922302962864248543}
   m_Layer: 6
   m_Name: KingTroop
-  m_TagString: RightPlayer
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +215,8 @@ MonoBehaviour:
   syncInterval: 0.1
   attackRange: 1.5
   attackDamage: 12
-  attackSpeed: 0
+  attacksPerSecond: 0
+  currentAttacksPerSecond: 0
   dieAfterAttack: 1
 --- !u!114 &7813487363649539661
 MonoBehaviour:

@@ -208,8 +208,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   attackRange: 1.5
-  attackDamage: 0.15
-  attacksPerSecond: 3
+  attackDamage: 2
+  attacksPerSecond: 0.5
   currentAttacksPerSecond: 0
   dieAfterAttack: 0
 --- !u!95 &1830484138906261887
