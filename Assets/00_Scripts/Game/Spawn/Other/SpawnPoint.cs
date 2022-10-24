@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
@@ -43,11 +44,11 @@ public class SpawnPoint : MonoBehaviour
     {
         if (_troopCount > 1)
             return;
-        _troopCount--;
+        _troopCount = 0;
         OpenPortal();
         // _spriteRenderer.color = normalColor;
     }
-
+    
     private void OpenPortal()
     {
         isDisabled = false;

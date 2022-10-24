@@ -22,10 +22,15 @@ public class SpawnManager : NetworkBehaviour
     private void Awake()
     {
         spawnPointParent = new GameObject("SpawnPoints");
+        //if (isServerOnly)
+        //{
         GenerateSpawnPoints("left", Vector3.zero);
         GenerateSpawnPoints("right", spawnPointDistance);
+        //}
+            
     }
 
+    //[ClientRpc]
     private void GenerateSpawnPoints(string player, Vector3 offset)
     {
         var currentPosition = spawnPointStart + offset;
@@ -33,6 +38,7 @@ public class SpawnManager : NetworkBehaviour
         for (int s = 0; s < spawnPointAmount; s++)
         {
             var spawnPointGameObject = Instantiate(spawnPointPrefab, currentPosition, Quaternion.identity);
+            //NetworkServer.Spawn(spawnPointGameObject);
 
             spawnPointGameObject.transform.SetParent(spawnPointParent.transform);
             spawnPointGameObject.gameObject.GetComponent<BoxCollider>().size = spawnAreaSize;
