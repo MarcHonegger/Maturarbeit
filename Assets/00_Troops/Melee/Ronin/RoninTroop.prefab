@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  energyCost: 8
+  energyCost: 11
   movementSpeed: 0.7
   currentMovementSpeed: 0
   health: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  attackRange: 1.75
+  attackRange: 2
   attackDamage: 5
   attacksPerSecond: 1
   currentAttacksPerSecond: 0

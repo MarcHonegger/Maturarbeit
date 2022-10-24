@@ -103,7 +103,7 @@ public class PlayerManager : NetworkBehaviour
     private void RPCResetMana()
     {
         Debug.Log("Resetting Mana");
-        energy = 0f;
+        energy = 3f;
         hasResetted = true;
     }
     
