@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1004243117
@@ -260,10 +260,14 @@ MonoBehaviour:
   cardDistance: 175
   troopsForDeck:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
+  - {fileID: 6685142000718824078, guid: ed5aaaa466a0c4668a10e38dd3550e7f, type: 3}
+  - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
+  - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
+  - {fileID: 6685142000718824078, guid: f31efabb9746f444d9348bd2fc8702d8, type: 3}
   cardPrefab: {fileID: 916700416832614751, guid: d0486b5294fba4240a08b3f8b4ff3b9c, type: 3}
   cardsInDeck: []
-  amountOfCardsAtStart: 1
-  maxAmountOfCardsInHand: 1
+  amountOfCardsAtStart: 5
+  maxAmountOfCardsInHand: 5
 --- !u!4 &1295257745
 Transform:
   m_ObjectHideFlags: 0
