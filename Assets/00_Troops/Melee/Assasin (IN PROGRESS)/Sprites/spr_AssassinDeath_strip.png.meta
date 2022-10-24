@@ -103,18 +103,282 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 28
+        width: 18
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d621c1fab8ed74ba999a897cda8bfeb5
+      internalID: 1511578378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 28
+        width: 22
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cff593d634944e0928272a266f73e5
+      internalID: 918972639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 28
+        width: 16
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd2a112dc2444f2499447fd08e80b4e
+      internalID: -591159746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_3
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 28
+        width: 14
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad54666171706470c92be7995a09bc47
+      internalID: 1507403164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_4
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 28
+        width: 12
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ee4d99c63bb4687adb82c71f372c50
+      internalID: -999366416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_5
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 28
+        width: 12
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f57d942d2378433499224c7a482235f
+      internalID: 56250246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_6
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 28
+        width: 12
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac229864b08014df98f7bc64bb917025
+      internalID: -1561182409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 28
+        width: 14
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8409f6b810c264822b03cd5534831416
+      internalID: 766759864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_8
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 28
+        width: 15
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947dcbe5872d542ab832d2e36abffb6b
+      internalID: 709226460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_9
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 28
+        width: 42
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f70a513ec50d49dca57ae6f53990c9e
+      internalID: -2068814323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_10
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 28
+        width: 35
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb60300570db4c3e96942d9f71b972e
+      internalID: -708104237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_AssassinDeath_strip_11
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 28
+        width: 35
+        height: 5
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeeea22a858224bd4ae95c633b8fef67
+      internalID: 247329133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4df7482fa377045db867b222481bb0f5
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_AssassinDeath_strip_5: 56250246
+      spr_AssassinDeath_strip_8: 709226460
+      spr_AssassinDeath_strip_3: 1507403164
+      spr_AssassinDeath_strip_2: -591159746
+      spr_AssassinDeath_strip_4: -999366416
+      spr_AssassinDeath_strip_6: -1561182409
+      spr_AssassinDeath_strip_1: 918972639
+      spr_AssassinDeath_strip_10: -708104237
+      spr_AssassinDeath_strip_7: 766759864
+      spr_AssassinDeath_strip_9: -2068814323
+      spr_AssassinDeath_strip_0: 1511578378
+      spr_AssassinDeath_strip_11: 247329133
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -3,7 +3,7 @@ guid: e47e15d1bad8a46a09bc818ef1288a69
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1377,7 +1378,6 @@ TextureImporter:
       spr_King2Combo_strip_no_bkg_24: -230047009
       spr_King2Combo_strip_no_bkg_21: 429424999
       spr_King2Combo_strip_no_bkg_52: 448486262
-      spr_King2Combo_strip_no_bkg_42: 344413440
       spr_King2Combo_strip_no_bkg_46: -1164764112
       spr_King2Combo_strip_no_bkg_34: 2069502600
       spr_King2Combo_strip_no_bkg_19: 1989039149
@@ -1417,6 +1417,7 @@ TextureImporter:
       spr_King2Combo_strip_no_bkg_38: -5902803
       spr_King2Combo_strip_no_bkg_50: 1413095356
       spr_King2Combo_strip_no_bkg_40: -1746716881
+      spr_King2Combo_strip_no_bkg_42: 344413440
       spr_King2Combo_strip_no_bkg_41: 804209137
       spr_King2Combo_strip_no_bkg_3: -37506095
       spr_King2Combo_strip_no_bkg_1: -475196321

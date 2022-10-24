@@ -3,7 +3,7 @@ guid: 715ab0125dc0249eba129c8fa76fd6c8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1426,12 +1427,12 @@ TextureImporter:
       spr_KingDeath_strip_no_bkg_17: 2107503848
       spr_KingDeath_strip_no_bkg_22: -208946993
       spr_KingDeath_strip_no_bkg_5: -526493565
-      spr_KingDeath_strip_no_bkg_15: 854099220
-      spr_KingDeath_strip_no_bkg_49: 1451486587
       spr_KingDeath_strip_no_bkg_53: -1773263029
+      spr_KingDeath_strip_no_bkg_55: 319216573
+      spr_KingDeath_strip_no_bkg_15: 854099220
       spr_KingDeath_strip_no_bkg_52: -870460687
       spr_KingDeath_strip_no_bkg_3: 195339124
-      spr_KingDeath_strip_no_bkg_55: 319216573
+      spr_KingDeath_strip_no_bkg_49: 1451486587
       spr_KingDeath_strip_no_bkg_19: -1490349507
       spr_KingDeath_strip_no_bkg_31: -739651137
       spr_KingDeath_strip_no_bkg_38: -1556472865

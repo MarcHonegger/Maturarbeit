@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -685,7 +685,7 @@ TextureImporter:
       spr_PrototypeDeath_stripWithEffects_1: -254674248
       spr_PrototypeDeath_stripWithEffects_25: 1419910296
       spr_PrototypeDeath_stripWithEffects_34: 366488233
-      spr_PrototypeDeath_stripWithEffects_36: 85377386
+      spr_PrototypeDeath_stripWithEffects_33: 289635688
       spr_PrototypeDeath_stripWithEffects_30: -762889344
       spr_PrototypeDeath_stripWithEffects_37: 2139191789
       spr_PrototypeDeath_stripWithEffects_6: -856315769
@@ -717,9 +717,9 @@ TextureImporter:
       spr_PrototypeDeath_stripWithEffects_2: 784193768
       spr_PrototypeDeath_stripWithEffects_21: -1500351761
       spr_PrototypeDeath_stripWithEffects_32: 1064919238
-      spr_PrototypeDeath_stripWithEffects_12: -1568256392
+      spr_PrototypeDeath_stripWithEffects_36: 85377386
       spr_PrototypeDeath_stripWithEffects_14: 1844037112
-      spr_PrototypeDeath_stripWithEffects_33: 289635688
+      spr_PrototypeDeath_stripWithEffects_12: -1568256392
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

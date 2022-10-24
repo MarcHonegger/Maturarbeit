@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 2137821248209328411}
   m_Layer: 6
   m_Name: StrikerTroop
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
