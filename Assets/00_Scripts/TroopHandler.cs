@@ -145,7 +145,7 @@ public class TroopHandler : NetworkBehaviour
         _spriteRenderer.color = _standardColor;
     }
 
-    [Server]
+    [ClientRpc]
     public void Die()
     {
         Debug.Log($"Died {gameObject.name}");
@@ -165,7 +165,7 @@ public class TroopHandler : NetworkBehaviour
         // Destroy(gameObject);
     }
 
-    
+
 
     [ClientRpc]
     public void RPCTag(GameObject deathObject)

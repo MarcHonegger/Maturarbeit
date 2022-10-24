@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5593859673854605776}
   - component: {fileID: 776671426268925487}
   - component: {fileID: 1081800352404617988}
-  - component: {fileID: 5151031296569333586}
   - component: {fileID: 6184498198099066850}
   m_Layer: 8
   m_Name: SpawnPoint
@@ -138,23 +137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5151031296569333586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5593859673854605779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: e2b9330458d2d434fb1ef9baf36bfcea
-  hasSpawned: 0
 --- !u!114 &6184498198099066850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +149,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e7f7b2f9c8b4e9786c6b86e19c0de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   isDisabled: 0
