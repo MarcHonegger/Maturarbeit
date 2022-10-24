@@ -2941,6 +2941,11 @@ MonoBehaviour:
   - {fileID: 6685142000718824078, guid: ed5aaaa466a0c4668a10e38dd3550e7f, type: 3}
   - {fileID: 6685142000718824078, guid: f31efabb9746f444d9348bd2fc8702d8, type: 3}
   - {fileID: 6685142000718824078, guid: 7955f8f72b8bb4413a3e541d3415cf05, type: 3}
+  - {fileID: 6685142000718824078, guid: 046cd63e9797041d8a7f216a56872c44, type: 3}
+  - {fileID: 6685142000718824078, guid: c135e1bd8a32a4c37b1915dd6d7b510f, type: 3}
+  - {fileID: 6685142000718824078, guid: 91b583245c95e4727abd2e981e9fb213, type: 3}
+  - {fileID: 6685142000718824078, guid: 556cd64a122434a9fafc4f507be294e8, type: 3}
+  - {fileID: 1176012555850750164, guid: dd6866b21e38b42acb29d6e1194110b6, type: 3}
 --- !u!4 &824490737
 Transform:
   m_ObjectHideFlags: 0
@@ -4074,12 +4079,13 @@ MonoBehaviour:
   cardDistance: 75
   troopsForDeck:
   - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
-  - {fileID: 6685142000718824078, guid: d08b51d7bb99b48918de6f7076588ff7, type: 3}
   - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
   - {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
   - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
   - {fileID: 6685142000718824078, guid: ed5aaaa466a0c4668a10e38dd3550e7f, type: 3}
   - {fileID: 6685142000718824078, guid: f31efabb9746f444d9348bd2fc8702d8, type: 3}
+  - {fileID: 6685142000718824078, guid: 046cd63e9797041d8a7f216a56872c44, type: 3}
+  - {fileID: 6685142000718824078, guid: 556cd64a122434a9fafc4f507be294e8, type: 3}
   cardPrefab: {fileID: 916700416832614751, guid: d0486b5294fba4240a08b3f8b4ff3b9c, type: 3}
   cardsInDeck: []
   amountOfCardsAtStart: 4
@@ -5590,7 +5596,7 @@ MonoBehaviour:
   syncInterval: 0.1
   energy: 0
   energyRounded: 0
-  energyGainPerSecond: 2
+  energyGainPerSecond: 0.75
   energyText: {fileID: 394953539}
   cooldownDuration: 2.5
   currentCooldown: 0
