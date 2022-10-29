@@ -17,7 +17,7 @@ public class TroopHandler : NetworkBehaviour
     public float maximumHealth;
     public GameObject deathPrefab;
     public String troopName;
-    public String bonusInfo;
+    public String type;
     public AttackType attackType;
     private Color _standardColor;
     
@@ -150,17 +150,13 @@ public class TroopHandler : NetworkBehaviour
     {
         Debug.Log($"Died {gameObject.name}");
         Death?.Invoke();
-        
-        if (isServerOnly)
-        {
-            Vector3 position = transform.position;
-            GameObject deathObject = Instantiate(deathPrefab, position, Quaternion.identity);
-            deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
-            deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
-            NetworkServer.Spawn(deathObject);
-            RPCTag(deathObject);
-            Destroy(deathObject, 4f);
-        }
+        Vector3 position = transform.position;
+        GameObject deathObject = Instantiate(deathPrefab, position, Quaternion.identity);
+        deathObject.transform.RotateAround(deathObject.transform.GetChild(0).position, Vector3.right, 45);
+        deathObject.GetComponent<SpriteRenderer>().flipX = !CompareTag("LeftPlayer");
+        NetworkServer.Spawn(deathObject);
+        RPCTag(deathObject);
+        Destroy(deathObject, 4f);
         /*NetworkServer.Destroy(gameObject.GetComponent<TroopHandler>().healthBar.gameObject);
         NetworkServer.Destroy(gameObject);*/
         RpcDestroyHealth();

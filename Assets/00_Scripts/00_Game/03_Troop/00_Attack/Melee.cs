@@ -120,7 +120,7 @@ public class Melee : NetworkBehaviour
         }
         _troopHandler.StopMoving();
         _animator.SetTrigger(AttackAnimation);
-        InvokeRepeating(nameof(Attack), 1 / attacksPerSecond, attacksPerSecond);
+        InvokeRepeating(nameof(Attack), 1 / attacksPerSecond, 1 / attacksPerSecond);
     }
 
     [ClientRpc]

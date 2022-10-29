@@ -161,7 +161,7 @@ MonoBehaviour:
   maximumHealth: 12
   deathPrefab: {fileID: 6685142000718824078, guid: fa621d15d27f84dc89aaf6a275accbab, type: 3}
   troopName: Striker
-  bonusInfo: 
+  type: Cyber
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}

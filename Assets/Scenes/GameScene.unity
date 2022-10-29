@@ -1922,6 +1922,8 @@ MonoBehaviour:
   - {fileID: 1176012555850750164, guid: dd6866b21e38b42acb29d6e1194110b6, type: 3}
   - {fileID: 6685142000718824078, guid: 480500764fc0a4d1d9883a82b02dfca4, type: 3}
   - {fileID: 6685142000718824078, guid: 887c182c78235443fa338a5f332e50cc, type: 3}
+  - {fileID: 6685142000718824078, guid: ab73bed9082034ac2923d4ebf933b62f, type: 3}
+  - {fileID: 6685142000718824078, guid: 6db9fb492b0814d7a87d9472d276a372, type: 3}
 --- !u!4 &824490737
 Transform:
   m_ObjectHideFlags: 0
@@ -2797,6 +2799,7 @@ MonoBehaviour:
   - {fileID: 6685142000718824078, guid: 046cd63e9797041d8a7f216a56872c44, type: 3}
   - {fileID: 6685142000718824078, guid: 556cd64a122434a9fafc4f507be294e8, type: 3}
   - {fileID: 6685142000718824078, guid: 480500764fc0a4d1d9883a82b02dfca4, type: 3}
+  - {fileID: 6685142000718824078, guid: ab73bed9082034ac2923d4ebf933b62f, type: 3}
   cardPrefab: {fileID: 916700416832614751, guid: d0486b5294fba4240a08b3f8b4ff3b9c, type: 3}
   cardsInDeck: []
   amountOfCardsAtStart: 4

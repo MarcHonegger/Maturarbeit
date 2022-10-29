@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: -8652334709754159621}
   m_Layer: 6
   m_Name: Ronin
-  m_TagString: RightPlayer
+  m_TagString: LeftPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   maximumHealth: 5
   deathPrefab: {fileID: 6685142000718824078, guid: 7955f8f72b8bb4413a3e541d3415cf05, type: 3}
   troopName: Ronin
-  bonusInfo: 
+  type: Cyber
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}

@@ -26,7 +26,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI costText;
-    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI typeText;
     public Image troopImage;
     public Image attackTypeImage;
 
@@ -57,6 +57,7 @@ public class CardHandler : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         cost = troop.energyCost;
         costText.text = cost.ToString(CultureInfo.InvariantCulture);
         nameText.text = troop.troopName;
+        typeText.text = troop.type;
         troopImage.preserveAspect = true;
         troopImage.sprite = cardGameObject.GetComponent<SpriteRenderer>().sprite;
         attackTypeImage.sprite = Resources.Load<Sprite>($"Game/{troop.attackType}");

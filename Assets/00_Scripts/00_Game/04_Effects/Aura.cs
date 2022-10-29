@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class Aura : MonoBehaviour
+public class Aura : NetworkBehaviour
 {
     // Start is called before the first frame update
     void Start()

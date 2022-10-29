@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 2137821248209328411}
   m_Layer: 6
   m_Name: Assassin
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
   health: 0
   maximumHealth: 6
   deathPrefab: {fileID: 6685142000718824078, guid: 887c182c78235443fa338a5f332e50cc, type: 3}
-  troopName: Ronin
-  bonusInfo: 
+  troopName: Assasin
+  type: Cyber
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}

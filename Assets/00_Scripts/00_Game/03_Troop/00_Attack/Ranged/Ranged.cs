@@ -8,7 +8,8 @@ using UnityEngine;
 public class Ranged : NetworkBehaviour
 {
     public float attackRange;
-    public float attackSpeed;
+    public float attacksPerSecond;
+    public float currentAttacksPerSecond;
     public GameObject projectile;
 
     private int _direction;
@@ -22,6 +23,7 @@ public class Ranged : NetworkBehaviour
     private Animator _animator;
     private static readonly int AttackAnimation = Animator.StringToHash("Attack");
     private static readonly int StopAttackingAnimation = Animator.StringToHash("StopAttacking");
+    private static readonly int AttackSpeed = Animator.StringToHash("AttackSpeed");
     
     void Start()
     {
@@ -42,12 +44,65 @@ public class Ranged : NetworkBehaviour
             localPosition = new Vector3(localPosition.x * -1, localPosition.y, localPosition.z);
             shotPoint.localPosition = localPosition;
         }
+
+        currentAttacksPerSecond = attacksPerSecond;
+        SetAttackSpeed();
     }
 
     private void OnDestroy()
     {
         _rangePoint.NewEnemyInRange -= OnNewEnemyInRange;
         _rangePoint.NoEnemyInRange -= OnNoEnemyInRange;
+    }
+    
+    public void BuffAttackSpeed(float attackSpeedBuff, bool absolute)
+    {
+        if(absolute)
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond + attackSpeedBuff) * 100) / 100;
+        else
+        {
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond * (1 + attackSpeedBuff) * 100)) / 100;
+        }
+
+        currentAttacksPerSecond = Mathf.Min(attacksPerSecond * 2.5f, currentAttacksPerSecond);
+        
+        SetAttackSpeed();
+    }
+    
+    public void NerfAttackSpeed(float attackSpeedNerf, bool absolute)
+    {
+        if(absolute)
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond - attackSpeedNerf) * 100) / 100;
+        else
+        {
+            currentAttacksPerSecond = Mathf.Round((currentAttacksPerSecond / (1 + attackSpeedNerf) * 100)) / 100;
+        }
+
+        currentAttacksPerSecond = Mathf.Max(attacksPerSecond * 0.75f, currentAttacksPerSecond);
+        
+        SetAttackSpeed();
+    }
+    
+    public void SetAttackSpeed()
+    {
+        _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
+
+        if (!IsInvoking(nameof(Attack)))
+            return;
+        CancelInvoke(nameof(Attack));
+        InvokeRepeating(nameof(Attack), 1f / currentAttacksPerSecond, 1f / currentAttacksPerSecond);
+    }
+
+    public void SetAttackSpeed(float value)
+    {
+        currentAttacksPerSecond = value;
+        _animator.SetFloat(AttackSpeed, currentAttacksPerSecond);
+        
+        if(IsInvoking(nameof(Attack)))
+        {
+            CancelInvoke(nameof(Attack));
+            InvokeRepeating(nameof(Attack), 1 / currentAttacksPerSecond, 1 / currentAttacksPerSecond);
+        }
     }
 
     private void Shoot()
@@ -66,7 +121,7 @@ public class Ranged : NetworkBehaviour
     {
         _troopHandler.StopMoving();
         _animator.SetTrigger(AttackAnimation);
-        InvokeRepeating(nameof(Shoot), attackSpeed, attackSpeed);
+        InvokeRepeating(nameof(Shoot), 1 / attacksPerSecond, 1 / attacksPerSecond);
     }
 
     [ClientRpc]

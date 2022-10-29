@@ -195,7 +195,7 @@ MonoBehaviour:
   maximumHealth: 10
   deathPrefab: {fileID: 6685142000718824078, guid: 242c033e3539ae440b5d4ca82df83cff, type: 3}
   troopName: 
-  bonusInfo: 
+  type: 
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e73e98aac06829449e907d76ed2d22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &6095147526357854265
 MonoBehaviour:
   m_ObjectHideFlags: 0

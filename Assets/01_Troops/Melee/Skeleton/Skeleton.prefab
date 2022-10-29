@@ -160,7 +160,7 @@ MonoBehaviour:
   maximumHealth: 2
   deathPrefab: {fileID: 6685142000718824078, guid: d7e743e93ebc74d41b11827f0e7faf4f, type: 3}
   troopName: Tiny Skeleton
-  bonusInfo: 
+  type: Medieval
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}

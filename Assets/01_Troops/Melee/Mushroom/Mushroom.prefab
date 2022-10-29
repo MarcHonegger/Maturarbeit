@@ -147,7 +147,7 @@ MonoBehaviour:
   maximumHealth: 12
   deathPrefab: {fileID: 6685142000718824078, guid: c66b00672b73d497189cda0f21d9f4e8, type: 3}
   troopName: Shroom
-  bonusInfo: 
+  type: Medieval
   attackType: 0
   healthBar: {fileID: 0}
   healthBarPrefab: {fileID: 1189989392098843020, guid: 6c224d6ead930456296b68f22e7d5c98, type: 3}
