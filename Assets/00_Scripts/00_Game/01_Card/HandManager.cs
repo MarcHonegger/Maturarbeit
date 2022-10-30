@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -9,6 +11,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = Unity.Mathematics.Random;
+using SerializedDecks = System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<(string name, int amount)>>;
 
 public class HandManager : MonoBehaviour
 {
@@ -32,6 +35,9 @@ public class HandManager : MonoBehaviour
     public int maxAmountOfCardsInHand;
     private readonly List<GameObject> _cardsInHand = new List<GameObject>();
     private Transform _laneOptionParent;
+    
+    private string _path;
+    private string _currentDeckName;
 
     public static HandManager instance;
     private void Awake()
@@ -44,17 +50,50 @@ public class HandManager : MonoBehaviour
 
         instance = this;
     }
-    
+
     void Start()
     {
+        _path = Application.dataPath + Path.AltDirectorySeparatorChar + "Decks.json";
+        LoadDeck();
+        CreateDeck();
+        
         UpdateScreenSize();
         GenerateSprites();
-        CreateDeck();
         for (int i = 0; i < amountOfCardsAtStart; i++)
         {
             DrawCard(cardsInDeck.First(), false);
         }
         InvokeRepeating(nameof(Test), 10, 10);
+    }
+    
+    
+    public void LoadDeck()
+    {
+        using StreamReader reader = new StreamReader(_path);
+        string json = reader.ReadToEnd();
+
+        List<(GameObject troopGameObject, int amount)> currentDeck;
+        var decks = JsonConvert.DeserializeObject<SerializedDecks>(json) ?? new SerializedDecks();
+        (string deckName, var deckCards) = decks.FirstOrDefault();
+        if (deckCards is null)
+        {
+            _currentDeckName = "Default";
+            currentDeck = new List<(GameObject troopGameObject, int amount)>(); // Default Deck => Should not happen?
+        }
+        else
+        {
+            _currentDeckName = deckName;
+            currentDeck = deckCards.Select(d => (Resources.Load<GameObject>(d.name), d.amount)).ToList();
+        }
+        
+        foreach (var card in currentDeck)
+        {
+            for (int i = 0; i < card.amount; i++)
+            {
+                Debug.Log(card.troopGameObject.name + " added to current deck");
+                troopsForDeck.Add(card.troopGameObject);
+            }
+        }
     }
 
     private void Test()

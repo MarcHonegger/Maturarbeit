@@ -47,6 +47,11 @@ public class StartPage : MonoBehaviour
         SceneManager.LoadScene("OfflineScene");
     }
     
+    public void LoadDeckBuilder()
+    {
+        SceneManager.LoadScene("DeckBuilderScene");
+    }
+    
     public void LoadSettings()
     {
         SceneManager.LoadScene("SettingsScene");

@@ -2789,17 +2789,7 @@ MonoBehaviour:
   canvas: {fileID: 1387591435}
   laneOptionPrefab: {fileID: 467286294796943360, guid: f86c0718defe348a6a41d734e7c2ec4d, type: 3}
   cardDistance: 75
-  troopsForDeck:
-  - {fileID: 6685142000718824078, guid: 2f3a1e55057814c6e8e5238beb06cc0b, type: 3}
-  - {fileID: 6685142000718824078, guid: d5262db463d884f4da8c20545ef7981e, type: 3}
-  - {fileID: 6685142000718824078, guid: c3767bbcb90c9477da0721d34d1df454, type: 3}
-  - {fileID: 6685142000718824078, guid: 96d17811195574f4fbe4f8828be71f46, type: 3}
-  - {fileID: 6685142000718824078, guid: ed5aaaa466a0c4668a10e38dd3550e7f, type: 3}
-  - {fileID: 6685142000718824078, guid: f31efabb9746f444d9348bd2fc8702d8, type: 3}
-  - {fileID: 6685142000718824078, guid: 046cd63e9797041d8a7f216a56872c44, type: 3}
-  - {fileID: 6685142000718824078, guid: 556cd64a122434a9fafc4f507be294e8, type: 3}
-  - {fileID: 6685142000718824078, guid: 480500764fc0a4d1d9883a82b02dfca4, type: 3}
-  - {fileID: 6685142000718824078, guid: ab73bed9082034ac2923d4ebf933b62f, type: 3}
+  troopsForDeck: []
   cardPrefab: {fileID: 916700416832614751, guid: d0486b5294fba4240a08b3f8b4ff3b9c, type: 3}
   cardsInDeck: []
   amountOfCardsAtStart: 4
