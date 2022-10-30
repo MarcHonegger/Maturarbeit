@@ -23,6 +23,8 @@ public class DeckBuilder : MonoBehaviour
     public Vector2 buttonsStart;
     public Vector2 buttonsDistance;
 
+    public int maxCardsPerDeck;
+    public int maxCardsPerTroop;
     public int previewColumnCount;
     public int previewRowCount;
     public Vector2 cardStart;
@@ -152,12 +154,14 @@ public class DeckBuilder : MonoBehaviour
     public void AddCard(GameObject troop)
     {
         Debug.Log("Add Card to Deck");
+        if(_currentDeck.Sum(c => c.amount) > maxCardsPerDeck)
+            return;
         if (_currentDeck.Any(c => c.troopGameObject.name == troop.name))
         {
             var foundCard = _currentDeck.Find(c => c.troopGameObject.name == troop.name);
             var index = _currentDeck.IndexOf(foundCard);
             _currentDeck.Remove(foundCard);
-            _currentDeck.Insert(index, (foundCard.troopGameObject, foundCard.amount + 1));
+            _currentDeck.Insert(index, (foundCard.troopGameObject, Mathf.Min(foundCard.amount + 1, maxCardsPerTroop)));
         }
         else
         {
