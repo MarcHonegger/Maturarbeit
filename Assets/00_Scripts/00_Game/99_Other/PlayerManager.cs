@@ -30,6 +30,9 @@ public class PlayerManager : NetworkBehaviour
         }
 
         instance = this;
+
+        FindObjectOfType<HandManager>().enabled = true;
+        FindObjectOfType<CooldownTest>().enabled = true;
     }
 
     private void Update()

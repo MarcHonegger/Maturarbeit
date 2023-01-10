@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Newtonsoft.Json;
-using Telepathy;
-using TMPro;
 using SerializedDecks = System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<(string name, int amount)>>;
 
 
@@ -29,8 +27,10 @@ public class DeckBuilder : MonoBehaviour
     public int previewRowCount;
     public Vector2 cardStart;
     public Vector2 cardDistance;
+    public int maxColumns;
+    public int maxRows;
 
-    private string _path;
+    private FileInfo _path;
     private string _currentDeckName;
     private SerializedDecks _decks;
 
@@ -52,15 +52,22 @@ public class DeckBuilder : MonoBehaviour
         
         GenerateButtons();
 
-        _path = Application.dataPath + Path.AltDirectorySeparatorChar + "Decks.json";
-        
+        _path = new FileInfo(Path.Combine(Application.persistentDataPath, "Decks.json"));
+
         LoadDeck();
         SaveDeck();
+
+        transform1.localScale = transform1.parent.localScale;
     }
 
     public void LoadDeck()
     {
-        using StreamReader reader = new StreamReader(_path);
+        if (!_path.Exists)
+        {
+            // TODO Default Deck
+            return;
+        }
+        using StreamReader reader = _path.OpenText();
         string json = reader.ReadToEnd();
 
         _decks = JsonConvert.DeserializeObject<SerializedDecks>(json) ?? new SerializedDecks();
@@ -76,6 +83,7 @@ public class DeckBuilder : MonoBehaviour
             _currentDeck = deckCards.Select(d => (Resources.Load<GameObject>(d.name), d.amount)).ToList();
         }
         UpdateDeckPreview();
+        reader.Close();
     }
 
     public void SaveDeck()
@@ -96,21 +104,26 @@ public class DeckBuilder : MonoBehaviour
     private void WriteDecksToJson()
     {
         var json = JsonConvert.SerializeObject(_decks);
-        using StreamWriter writer = new StreamWriter(_path);
+        using FileStream fileStream = _path.Exists ? _path.OpenWrite() : _path.Create();
+        var writer = new StreamWriter(fileStream);
+        // using StreamWriter writer = new StreamWriter(_path);
         writer.Write(json);
     }
 
 
     private void GenerateButtons()
     {
+        var columns = Mathf.Min(Mathf.FloorToInt(Screen.width * 0.6f / 200f), maxColumns);
+        var rows =  Mathf.Min(Mathf.FloorToInt(Screen.height * 0.6f / 200f), maxRows);
+        
         Debug.Log("Generate Buttons for Deck building");
-        for (int i = 0; i < allCards.Count; i++)
+        for (int i = 0; i < Mathf.Min(allCards.Count, columns * rows); i++)
         {
             var troop = allCards[i];
             var addCardButton = Instantiate(addCardButtonPrefab, _buttonFolder);
             addCardButton.name = $"Add{troop.name}Button";
-            var xCoordinate = buttonsStart.x + buttonsDistance.x * (i % 2);
-            var yCoordinate = buttonsStart.y - buttonsDistance.y * Mathf.Floor(i / 2f);
+            var xCoordinate = buttonsStart.x + buttonsDistance.x * (i % columns);
+            var yCoordinate = buttonsStart.y - buttonsDistance.y * Mathf.Floor((float) i / columns);
             addCardButton.transform.localPosition = new Vector3(xCoordinate, yCoordinate, 0);
 
             var troopImage = addCardButton.transform.Find("CardImage").GetComponent<Image>();

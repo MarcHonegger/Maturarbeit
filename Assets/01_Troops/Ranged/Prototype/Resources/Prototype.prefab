@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 6579823321455542903}
   m_Layer: 6
   m_Name: Prototype
-  m_TagString: LeftPlayer
+  m_TagString: RightPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

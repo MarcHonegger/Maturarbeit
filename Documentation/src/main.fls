@@ -1207,7 +1207,6 @@ INPUT 01_ziel/02_anforderungen.tex
 INPUT ./01_ziel/02_anforderungen.tex
 INPUT ./01_ziel/02_anforderungen.tex
 INPUT 01_ziel/02_anforderungen.tex
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT ./01_ziel/04_risiko.tex
 INPUT ./01_ziel/04_risiko.tex
@@ -1312,6 +1311,11 @@ INPUT ./resources/Prototype.png
 INPUT resources/Prototype.png
 INPUT ./resources/Prototype.png
 INPUT ./resources/Prototype.png
+INPUT ./resources/King.png
+INPUT ./resources/King.png
+INPUT resources/King.png
+INPUT ./resources/King.png
+INPUT ./resources/King.png
 INPUT ./resources/25d.png
 INPUT ./resources/25d.png
 INPUT resources/25d.png
@@ -1371,6 +1375,7 @@ INPUT 02_produkt/03_Zukunft.tex
 INPUT ./02_produkt/03_Zukunft.tex
 INPUT ./02_produkt/03_Zukunft.tex
 INPUT 02_produkt/03_Zukunft.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ./03_organisation/01_technologien.tex
 INPUT ./03_organisation/01_technologien.tex
 INPUT ./03_organisation/01_technologien.tex

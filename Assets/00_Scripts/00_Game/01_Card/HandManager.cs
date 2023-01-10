@@ -36,7 +36,7 @@ public class HandManager : MonoBehaviour
     private readonly List<GameObject> _cardsInHand = new List<GameObject>();
     private Transform _laneOptionParent;
     
-    private string _path;
+    private FileInfo _path;
     private string _currentDeckName;
 
     public static HandManager instance;
@@ -53,7 +53,7 @@ public class HandManager : MonoBehaviour
 
     void Start()
     {
-        _path = Application.dataPath + Path.AltDirectorySeparatorChar + "Decks.json";
+        _path = new FileInfo(Path.Combine(Application.persistentDataPath, "Decks.json"));
         LoadDeck();
         CreateDeck();
         
@@ -69,7 +69,12 @@ public class HandManager : MonoBehaviour
     
     public void LoadDeck()
     {
-        using StreamReader reader = new StreamReader(_path);
+        if (!_path.Exists)
+        {
+            // Default Deck
+            return;
+        }
+        using StreamReader reader = _path.OpenText();
         string json = reader.ReadToEnd();
 
         List<(GameObject troopGameObject, int amount)> currentDeck;

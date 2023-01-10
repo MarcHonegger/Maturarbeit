@@ -43,8 +43,8 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
             \end{figure}
             
         \item \textbf{Settings}\\
-            Man kann hier die Auflösung ändern und auswählen, ob das Spiel als Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit, die Musik lauter oder leiser zu stellen
-            oder zu muten. Wenn man Einstellungen geändert hat, muss man das Speichern bestätigen. 
+            Man kann hier die Auflösung ändern und auswählen, ob das Spiel im Vollbild dargestellt werden soll. Auch gibt es hier die Möglichkeit, die Musik lauter oder leiser zu stellen
+            oder zu muten. Wenn man die Einstellungen geändert hat, kann man die Änderungen mit einem Mausklick speichern. 
             \begin{figure}[H]
                 \centering
                 \includegraphics[height=7cm]{resources/setting.png}\\
@@ -109,11 +109,11 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
             %\begin{center}
             %    \includegraphics[height=2cm]{resources/returnlobby.png} \includegraphics[height=2cm]{resources/stopclient.png}\\
             %\end{center}
-            Im Pausenmenu kann man ausserdem leicht die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
+            Im Einstellungsmenu während des Spiels kann man ausserdem leicht die Musiklautstärke und die Stärke des Schneefalls ändern. Dieses Menu kann mit ESC geöffnet und geschlossen werden.
             \begin{figure}[H]
                 \centering
                 \includegraphics[height=4cm]{resources/pause.png}\\
-                \caption{Pausemenu}
+                \caption{Ingame Einstellungsmenu}
             \end{figure}
             
             
@@ -142,23 +142,24 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \item \textbf{Einstellungen} \\
         Auflösung, Vollbild, Lautstärke und Stärke des Schneefalls können eingestellt werden.
     \item \textbf{Kamera} \\
-        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Mit den Pfeiltasten kann man die Kamera frei bewegen und hinein- bzw. hinauszoomen.
+        Die Kamera ist beweglich und das ganze Schlachtfeld ist sichtbar. Mit den Pfeiltasten kann man die Kamera frei bewegen und hinein- bzw. herauszoomen.
     \item \textbf{Truppen} \\
-        Folgend sind alle im moment implementieren Truppen zu sehen.
-        Es ist jeweils Angriffstyp mit einem Symbol (Nahkampf: Schwert, Fernkampf: Bogen, Suizid: Feuer), ihr Maximalesleben oben links und ihre Kosten oben rechts.
+        Folgend sind alle im Moment implementieren Truppen zu sehen.
+        Es ist jeweils der Angriffstyp mit einem Symbol (Nahkampf: Schwert, Fernkampf: Bogen, Suizid: Feuer), ihr Maximalesleben oben rechts und ihre Kosten oben links angegeben.
         Die Werte sind eventuell nicht die exakt gleichen wie im Spiel. \\
-        \includegraphics[width=5cm]{resources/Skeleton.png}
-        \includegraphics[width=5cm]{resources/Striker.png}
-        \includegraphics[width=5cm]{resources/Enforcer.png}\\
-        \includegraphics[width=5cm]{resources/Mushroom.png}
-        \includegraphics[width=5cm]{resources/Ronin.png}
-        \includegraphics[width=5cm]{resources/Archer.png} \\
-        \includegraphics[width=5cm]{resources/Prototype.png} \\
+        \includegraphics[width=3cm]{resources/Skeleton.png}
+        \includegraphics[width=3cm]{resources/Striker.png}
+        \includegraphics[width=3cm]{resources/Enforcer.png}
+        \includegraphics[width=3cm]{resources/Mushroom.png}\\
+        \includegraphics[width=3cm]{resources/Ronin.png}
+        \includegraphics[width=3cm]{resources/Archer.png} 
+        \includegraphics[width=3cm]{resources/Prototype.png} 
+        \includegraphics[width=3cm]{resources/King.png} \\
     \item \textbf{Spielende} \\
         Um zu gewinnen, muss eine eigene Truppe die Portale des Gegners durchschreiten. Dies verhindern zuerst sogenannte Helden. Sterben jene Helden, erledigt ihr Racheeffekt alle
         Truppen, die sich auf jener Linie des Helden befanden.
     \item \textbf{Lanes} \\
-        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Der*die Spieler*in hat die Auswahl, in welcher Reihe er*sie seine Truppen auf den Gegner zuschicken will.
+        Unser Spiel hat vier sogenannte Linien (''Lanes''). Diese unterschiedlichen Linien wurden in der Tiefe nach hinten verschoben. Der*die Spieler*in hat die Auswahl, in welcher Reihe er*sie sein*ihre Truppen auf den Gegner zuschicken will.
     \item \textbf{Synchronisation} \\
         Unser Spiel synchronisiert alle Daten in Echtzeit. Dadurch sehen alle Spieler*innen immer dasselbe. Wird der Client aus einem unbekannten Grund disconnected, kann er versuchen,
         sich erneut zu verbinden, und der Server wird dann direkt alle Daten synchronisieren. Auch hier hilft uns das gewählte Protokoll TCP. Geht ein Paket verloren, wird es automatisch
@@ -207,21 +208,16 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \end{itemize}
 \end{itemize}
 
+\newpage
 \subsection{Möglich}
 \begin{itemize}
-    \item \textbf{Monetarisierung} \\
-    \begin{enumerate}
-        \item \textbf{Kostenpflichtiges Spiel}
-        \begin{itemize}
-            \item Wir haben eventuell vor, unser Spiel nach Vollendung der Entwicklungsphase zu veröffentlichen. Allerdings wird der Preis auf keinen Fall hoch sein.
-        \end{itemize}
-    \end{enumerate}
+    \item \textbf{Kostenpflichtiges Spiel} \\
+        Wir haben eventuell vor, unser Spiel nach Vollendung der Entwicklungsphase zu veröffentlichen. Allerdings wird der Preis auf keinen Fall hoch sein.
     \item \textbf{Design} \\
         Wir werden auch in Zukunft das Design noch verbessern. 
-    \item \textbf{Truppen}
+    \item \textbf{Truppen} \\
         Weitere Truppen können jederzeit erstellt werden. Hier ist kein Limit gesetzt: Leben, Schaden, Darstellung, Effekt und vieles mehr kann angepasst werden. 
-        Wir haben alle Programme mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
-    
+        Wir haben alle Funktionen mit dem Hintergedanken geschrieben, dass es jederzeit ohne grössere Anpassungen möglich ist, neue Truppen hinzuzufügen.
 \end{itemize}
 
 \subsection{Fürs Erste verworfen}
@@ -270,22 +266,16 @@ In den folgenden Teilkapiteln wird die Erfüllung der in \autoref{chap:foo} gest
     \item \textbf{Monetarisierung} \\
     Ohne Anti-Cheat leider vollkommen nutzlos.
     \begin{enumerate}
-        \item \textbf{Kaufbare Gegenstände}
-        \begin{itemize}
-            \item Neben Schummelmöglichkeiten stellt sich hier ausserdem die Gefahr eines möglichen Pay-to-Win.
-        \end{itemize}
-        \item \textbf{Skins}
-        \begin{itemize}
-            \item Der*die Spieler*in bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
-        \end{itemize}
+        \item \textbf{Kaufbare Gegenstände} \\
+            Neben Schummelmöglichkeiten stellt sich hier ausserdem die Gefahr eines möglichen Pay-to-Win.
+        \item \textbf{Skins} \\
+            Der*die Spieler*in bräuchte ein Inventar, das mit einem Server kontrolliert und synchronisiert wird. 
     \end{enumerate}
     \item \textbf{Zauber} \\
-        Wir hatten bereits zu einem frühen Zeitpunkt eine funktionierende Testversion. Der Zauber wurde dem*der Spieler*in durch Karte verteilt. \\
+        Wir hatten bereits zu einem frühen Zeitpunkt eine funktionierende Testversion. Der Zauber wurde dem*der Spieler*in als eine Karte verteilt. \\
         Im Laufe der Zeit haben wir das Damage-System allerdings so umgeändert, dass der Prototyp schon fast nutzlos war. Ein kompletter Recode des Prototypen wäre nötig.
-    \begin{itemize}
-        \item \textbf{Dornen:}
+    \item \textbf{Dornen:} \\
             Nachdem wir den Zauber ''Gift'' hinzugefügt hatten, erschien und das zusätzliche Hinzufügen der Dornen überflüssig.
-    \end{itemize}
     \item \textbf{Deck} \\
         Die Möglichkeit, sich ein eigenes Deck zusammenzustellen, aus dem man dann die Karten zieht, wurde leider aus Zeitgründen fürs Erste verworfen. Allerdings können wir
         fast schon garantieren, dass wir dies bis zu unserer Präsentation noch hinzufügen werden.     
