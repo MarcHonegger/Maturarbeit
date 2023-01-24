@@ -1,8 +1,8 @@
-PWD c:/Users/Poly/Documents/GitHub/Maturarbeit/Documentation/src
+PWD c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src
 INPUT c:/texlive/2022/texmf.cnf
 INPUT c:/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/Poly/Documents/GitHub/Maturarbeit/Documentation/src/main.tex
+INPUT c:/Users/Elia/Documents/GitHub/Maturarbeit/Documentation/src/main.tex
 OUTPUT main.log
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/book.cls
 INPUT c:/texlive/2022/texmf-dist/tex/latex/base/book.cls
@@ -1106,10 +1106,10 @@ INPUT ./main.out
 INPUT main.out
 INPUT ./main.out
 INPUT main.out
-OUTPUT main.pdf
 INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
+OUTPUT main.pdf
 INPUT c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1161,8 +1161,6 @@ INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./main.toc
 INPUT main.toc
 INPUT main.toc
-INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT main.toc
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
@@ -1216,6 +1214,8 @@ INPUT ./01_ziel/02_anforderungen.tex
 INPUT 01_ziel/02_anforderungen.tex
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT c:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./01_ziel/04_risiko.tex
 INPUT ./01_ziel/04_risiko.tex
 INPUT ./01_ziel/04_risiko.tex
